@@ -5,7 +5,8 @@
         "Getter",
         "Setter",
         "Model",
-        "Data"
+        "Data",
+        "Validation"
     ],
     "homepage": "https://bitbucket.org/aedart/model",
     "license": "BSD-3-Clause",
@@ -16,13 +17,14 @@
             "email": "aedart@gmail.com"
         }
     ],
-    "require": {
-
-    },
+    "require": {},
     "autoload": {
         "psr-4": {
             "Aedart\\Model\\": "src/"
         }
     },
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "suggest": {
+        "aedart/overload": "Property overloading via PHP's magic methods __get, __set, __isset and __unset"
+    }
 }
