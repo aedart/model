@@ -1,6 +1,8 @@
 ## Model ##
 
-Collection of ... TODO!
+Collection of ... @todo... a short but good definition of what this project is all about, what it offers
+
+@todo ... this package consists only of declared dependencies
 
 Official project website (https://bitbucket.org/aedart/model)
 
@@ -17,14 +19,14 @@ Unless you are working on a very large and complex system requires several diffe
 ```
 #!console
 
-composer require 
+composer require @todo... 
 ```
 
 This package uses [composer](https://getcomposer.org/). If you do not know what that is or how it works, I recommend that you read a little about, before attempting to use this package.
 
 ## Quick start ##
 
-@todo ... 
+@todo ... Perhaps a short example on creating a specialised interface, composed of several packages, and a concrete implementation consistent of specialised traits... e.g. a person!
 
 ## What does this package contain ##
 
@@ -32,6 +34,55 @@ As mentioned, by itself, this package does not offer much more than a composer f
 
 @todo ... Include a list (alphabetically sorted) / link / Mini-description to each published sub-package 
 
+## Future upcoming packages ##
+
+@todo... So... what is this project going to contain in the future?
+    - name
+    - description
+    - create, update, delete date
+    - path to x, y, z
+    - picture(s)
+    - Address -> street, zip, state(s) and countries (Hmmm... generalised or specialised?) -> Google's API for validation? 
+    - gravatar?
+    - url
+    - dimensions width, height, depth
+    - email
+    - phone(s)
+    - i18n (oh boy.. how to resolve this one in a simple manner?)
+    - age
+    - ...vcard standards
+    - ISBN-10, ISBN-13
+    - IBAN,
+    - SWIFT/BIC,
+    - BBAN (RIB),
+    - Credit Card number,
+    - EAN13
+    - ...Generator(s) for creating sub-packages (so that others can create similar stuff) -> this would be a "project"-package and not a library-package
+    
+-------------------------------------------
+
+@todo... Security
+    - Only syntax checking mostly... Not good enough!
+    - Custom exceptions, great, ... but DON'T make them visible during production!
+    - What about XSS, XSRF (check abbreviation)
+    - SQL Injection?
+    - User's own mistakes (wrong data input)
+    
+-------------------------------------------
+
+@todo... Background
+    - Long time ago... Then came traits... No one seems to be doing this (perhaps Symfony's Entities?)
+    - Philosophy behind the packages
+    - I-am-aware-interfaces
+    - Specialised traits
+    - Custom exceptions -> make it visible when something fails (at least during development)
+
+-------------------------------------------
+
+@todo... Contribution
+    - Bugs... clone, branch, test, merge, pull-request (how does this work again...?) 
+    - Would you like to be part of this?
+     
 ## Acknowledgement ##
 
 Crafting small interfaces and traits containing a few methods is a rather trivial and easy task. That being said, ensuring that data validity is an entirely different matter. Without certain individuals within the PHP community, making these packages would have been impossible for me. I would like to thank all those who that have spent countless hours, days, months and years developing great packages and for sharing them with the rest of this world.
@@ -39,6 +90,13 @@ Crafting small interfaces and traits containing a few methods is a rather trivia
 If you are interested in a more saturated list of names, please review the acknowledgement-section found in each `Aedart\Model` sub-package.
 
 Did I forget to add your name in one of my packages? Please let me know...
+
+@todo ... What about the more general ones:
+- phpunit (By the gods ... I know developers, managers and decision makers that still believe good software doesn't need testing!),
+- codeception (making PHPUnit even better),
+- composer / packagist (dependency management and distribution),
+- bitbucket (for letting me host private repos.. you know, those that aren't worthy for the public)
+- Laracast (Worth every penny...),
 
 ## License ##
 
