@@ -10,7 +10,7 @@ Official project website (https://bitbucket.org/aedart/model)
 
 ## When to use this ##
 
-Unless you are working on a very large and complex system, one that requires several different types models, ... well, perhaps you can settle for just what you need. Please take a closer look at [what this package contains](https://bitbucket.org/aedart/model/overview#markdown-header-what-does-this-package-contain).
+Unless you are working on a very large and complex system requires several different types models, ... well, perhaps you can settle for just what you need. Please take a closer look at [what this package contains](https://bitbucket.org/aedart/model/overview#markdown-header-what-does-this-package-contain).
 
 ## How to install ##
 
@@ -34,7 +34,7 @@ As mentioned, by itself, this package does not offer much more than a composer f
 
 ## Acknowledgement ##
 
-Crafting small interfaces and traits, containing a few methods, is rather a trivial and easy task. That being said, ensuring that the data validity is an entirely different matter. Without certain individuals within the PHP community, making these packages would have been impossible for me. I would like to thank all those who that have spent countless hours, days, months and years on developing great packages and for sharing them with the rest of the world.
+Crafting small interfaces and traits containing a few methods is a rather trivial and easy task. That being said, ensuring that data validity is an entirely different matter. Without certain individuals within the PHP community, making these packages would have been impossible for me. I would like to thank all those who that have spent countless hours, days, months and years developing great packages and for sharing them with the rest of this world.
 
 If you are interested in a more saturated list of names, please review the acknowledgement-section found in each `Aedart\Model` sub-package.
 
