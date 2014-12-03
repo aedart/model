@@ -1,0 +1,28 @@
+{
+    "name": "aedart/model",
+    "description": "@todo",
+    "keywords": [
+        "Getter",
+        "Setter",
+        "Model",
+        "Data"
+    ],
+    "homepage": "https://bitbucket.org/aedart/model",
+    "license": "BSD-3-Clause",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Alin Eugen Deac",
+            "email": "aedart@gmail.com"
+        }
+    ],
+    "require": {
+
+    },
+    "autoload": {
+        "psr-4": {
+            "Aedart\\Model\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
