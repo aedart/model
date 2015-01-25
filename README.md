@@ -19,7 +19,7 @@ Unless you are working on a very large and complex system requires several diffe
 ```
 #!console
 
-composer require @todo... 
+composer require aedart/model @todo... 
 ```
 
 This package uses [composer](https://getcomposer.org/). If you do not know what that is or how it works, I recommend that you read a little about, before attempting to use this package.
@@ -42,6 +42,7 @@ Validate             | A validate package which allows to perform various sorts 
 ## Future upcoming packages ##
 
 @todo... So... what is this project going to contain in the future?
+
 * name
 * description
 * create, update, delete date
@@ -67,6 +68,7 @@ Validate             | A validate package which allows to perform various sorts 
 -------------------------------------------
 
 @todo... Security
+
 * Only syntax checking mostly... Not good enough!
 * Custom exceptions, great, ... but DON'T make them visible during production!
 * What about XSS, XSRF (check abbreviation)
@@ -76,6 +78,7 @@ Validate             | A validate package which allows to perform various sorts 
 -------------------------------------------
 
 @todo... Background
+
 * Long time ago... Then came traits... No one seems to be doing this (perhaps Symfony's Entities?)
 * Philosophy behind the packages
 * I-am-aware-interfaces
@@ -85,6 +88,7 @@ Validate             | A validate package which allows to perform various sorts 
 -------------------------------------------
 
 @todo... Contribution
+
 * Bugs... clone, branch, test, merge, pull-request (how does this work again...?) 
 * Would you like to be part of this?
      
@@ -97,6 +101,7 @@ If you are interested in a more saturated list of names, please review the ackno
 Did I forget to add your name in one of my packages? Please let me know...
 
 @todo ... What about the more general ones:
+
 * phpunit (By the gods ... I know developers, managers and decision makers that still believe good software doesn't need testing!),
 * codeception (making PHPUnit even better),
 * composer / packagist (dependency management and distribution),
