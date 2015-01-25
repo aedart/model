@@ -1,8 +1,8 @@
 ## Model ##
 
-Collection of ... @todo... a short but good definition of what this project is all about, what it offers
+Collection of getter- / setter-interfaces with various trait implementations, for different kinds of "common" properties.
 
-@todo ... this package consists only of declared dependencies
+By itself, this package consists only of declared dependencies, meaning that it has a single file - the composer file.
 
 Official project website (https://bitbucket.org/aedart/model)
 
