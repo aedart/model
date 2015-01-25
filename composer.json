@@ -1,6 +1,6 @@
 {
     "name": "aedart/model",
-    "description": "@todo",
+    "description": "Collection of getter- / setter-interfaces with various trait implementations, for different kinds of 'common' properties.",
     "keywords": [
         "Getter",
         "Setter",
