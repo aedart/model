@@ -32,6 +32,11 @@ This package uses [composer](https://getcomposer.org/). If you do not know what 
 
 As mentioned, by itself, this package does not offer much more than a composer file, which requires several smaller packages, each situated within the `Aedart\Model` namespace. Listed below are those dependencies.
 
+Name                 |   description              | Link
+-----------------    |   ----------------------   | --------------------
+Id             | Getter and Setter package for some kind of model identifier (id). |   https://bitbucket.org/aedart/model-id
+Validate             | A validate package which allows to perform various sorts of simple validation upon primates as well as defining how validators should behave |   https://bitbucket.org/aedart/validate
+
 @todo ... Include a list (alphabetically sorted) / link / Mini-description to each published sub-package 
 
 ## Future upcoming packages ##
