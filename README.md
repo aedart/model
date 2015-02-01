@@ -141,12 +141,113 @@ If by any chance this confuses you, e.g. you do not know how traits work in PHP,
 
 As mentioned, by itself, this package does not offer much more than a composer file, which requires several smaller packages, each situated within the `Aedart\Model` namespace. Listed below are those dependencies.
 
+**A**
+
+_N/A (no sub-packages yet developed)_
+
+**B**
+
+_N/A (no sub-packages yet developed)_
+
+**C**
+
+_N/A (no sub-packages yet developed)_
+
+**D**
+
+_N/A (no sub-packages yet developed)_
+
+**E**
+
+_N/A (no sub-packages yet developed)_
+
+**F**
+
+_N/A (no sub-packages yet developed)_
+
+**G**
+
+_N/A (no sub-packages yet developed)_
+
+**H**
+
+_N/A (no sub-packages yet developed)_
+
+**I**
+
 Name                 |   description              | Link
 ----------------*    |   ---------------------*   | --------------------
 Id             | Getter and Setter package for some kind of model identifier (id). |   https://bitbucket.org/aedart/model-id
+
+**J**
+
+_N/A (no sub-packages yet developed)_
+
+**K**
+
+_N/A (no sub-packages yet developed)_
+
+**L**
+
+_N/A (no sub-packages yet developed)_
+
+**M**
+
+_N/A (no sub-packages yet developed)_
+
+**N**
+
+_N/A (no sub-packages yet developed)_
+
+**O**
+
+_N/A (no sub-packages yet developed)_
+
+**P**
+
+_N/A (no sub-packages yet developed)_
+
+**Q**
+
+_N/A (no sub-packages yet developed)_
+
+**R**
+
+_N/A (no sub-packages yet developed)_
+
+**S**
+
+_N/A (no sub-packages yet developed)_
+
+**T**
+
+_N/A (no sub-packages yet developed)_
+
+**U**
+
+_N/A (no sub-packages yet developed)_
+
+**V**
+
+Name                 |   description              | Link
+----------------*    |   ---------------------*   | --------------------
 Validate             | A validate package which allows to perform various sorts of simple validation upon primates as well as defining how validators should behave |   https://bitbucket.org/aedart/validate
 
-@todo ... Include a list (alphabetically sorted) / link / Mini-description to each published sub-package 
+**W**
+
+_N/A (no sub-packages yet developed)_
+
+**X**
+
+_N/A (no sub-packages yet developed)_
+
+**Y**
+
+_N/A (no sub-packages yet developed)_
+
+**Z**
+
+_N/A (no sub-packages yet developed)_
 
 ## Future upcoming packages ##
 
