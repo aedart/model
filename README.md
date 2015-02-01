@@ -47,7 +47,7 @@ interface IPerson extends IdAware,
 
 ```
 
-Our person interface doesn’t contain much; it has but the ability to get/set an id, name and a short description.All those methods (and more) are defined in each of the applied interfaces (IdAware, NameAware and ShortDescriptionAware).
+Our person interface doesn’t contain much; it has but the ability to get/set an id, name and a short description.All those methods (and more) are defined in each of the applied interfaces (`IdAware`, `NameAware` and `ShortDescriptionAware`).
 
 In the next section, we will create a concrete implementation of a person.
 
