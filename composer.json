@@ -17,7 +17,9 @@
             "email": "aedart@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "aedart/model-id": "1.*"
+    },
     "autoload": {
         "psr-4": {
             "Aedart\\Model\\": "src/"
