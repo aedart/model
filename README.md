@@ -12,7 +12,8 @@ Official project website (https://bitbucket.org/aedart/model)
 
 ## When to use this ##
 
-Unless you are working on a very large and complex system requires several different types models, ... well, perhaps you can settle for just what you need. Please take a closer look at [what this package contains](https://bitbucket.org/aedart/model/overview#markdown-header-what-does-this-package-contain).
+Unless you are working on a very large and complex system requires several different types models, ... well, perhaps you can settle for just what you need.
+Please take a closer look at [what this package contains](https://bitbucket.org/aedart/model/overview#markdown-header-what-does-this-package-contain).
 
 ## How to install ##
 
@@ -26,7 +27,51 @@ This package uses [composer](https://getcomposer.org/). If you do not know what 
 
 ## Quick start ##
 
-@todo ... Perhaps a short example on creating a specialised interface, composed of several packages, and a concrete implementation consistent of specialised traits... e.g. a person!
+The first thing that I recommend you to do is to design your desired component’s interface. In below stated example, we will design an interface for a very simple person;
+
+### Person interface ###
+
+```
+#!php
+<?php namespace Acme\Person;
+use Aedart\Model\Id\Interfaces\IdAware;
+use Aedart\Model\Name\Interfaces\NameAware;
+use Aedart\Model\Description\Interfaces\ShortDescriptionAware;
+
+interface IPerson extends IdAware,
+    NameAware,
+    ShortDescriptionAware
+{
+    
+}
+
+```
+
+Our person interface doesn’t contain much; it has but the ability to get/set an id, name and a short description.All those methods (and more) are defined in each of the applied interfaces (IdAware, NameAware and ShortDescriptionAware).
+
+In the next section, we will create a concrete implementation of a person.
+
+### Concrete person ###
+
+```
+#!php
+<?php namespace Acme\Person;
+
+use Acme\Person\IPerson;
+use Aedart\Model\Id\Traits\UnsignedIntegerIdTrait;
+use Aedart\Model\Name\Traits\SimpleNameTrait;
+use Aedart\Model\Description\Traits\ShortDescriptionTrait;
+
+class MyPerson implements IPerson {
+ 
+    use UnsignedIntegerIdTrait,
+        SimpleNameTrait,
+        ShortDescriptionTrait;
+ 
+}
+```
+
+Without writing many lines of code, out concrete implementation has implemented all of the required get/set methods, by making use of the default traits, which comes with each of the `Aedart\Model` sub-packages.
 
 ## What does this package contain ##
 
