@@ -73,6 +73,70 @@ class MyPerson implements IPerson {
 
 Without writing many lines of code, out concrete implementation has implemented all of the required get/set methods, by making use of the default traits, which comes with each of the `Aedart\Model` sub-packages.
 
+### Override defaults ###
+
+Let’s pretend that each person needs to have a default shot description, just in case that none has been provided. There are multiple ways this can be resolved. The first one is simply to override the “get-default” method, directly in your concrete implementation;
+
+```
+#!php
+<?php namespace Acme\Person;
+
+use Acme\Person\IPerson;
+use Aedart\Model\Id\Traits\UnsignedIntegerIdTrait;
+use Aedart\Model\Name\Traits\SimpleNameTrait;
+use Aedart\Model\Description\Traits\ShortDescriptionTrait;
+
+class MyPerson implements IPerson {
+ 
+    use UnsignedIntegerIdTrait,
+        SimpleNameTrait,
+        ShortDescriptionTrait;
+ 
+    public function getDefaultShortDescription(){
+        return "This person has no description";
+    }
+}
+```
+
+Given the implementation we just made, each person which doesn’t have a short description will simply contain a default text, stating that the given person has no description. The same is possible for name, id and all other sub-packages, if you need to provide default data. However, this being said, you could also create your own trait, which achieves the same;
+
+```
+#!php
+<?php namespace Acme\Person;
+
+use Aedart\Model\Description\Traits\ShortDescriptionTrait;
+
+trait MyShortDescription {
+ 
+    use ShortDescriptionTrait;
+ 
+    public function getDefaultShortDescription(){
+        return "This person has no description";
+    }
+}
+```
+
+And in your concrete implementation, you can replace the `ShortDescriptionTrait` with your own version. The implementation would look like the following;
+
+```
+#!php
+<?php namespace Acme\Person;
+
+use Acme\Person\IPerson;
+use Acme\Person\MyShortDescription;
+use Aedart\Model\Id\Traits\UnsignedIntegerIdTrait;
+use Aedart\Model\Name\Traits\SimpleNameTrait;
+
+class MyPerson implements IPerson {
+ 
+    use UnsignedIntegerIdTrait,
+        SimpleNameTrait,
+        MyShortDescription;
+}
+```
+
+If by any chance this confuses you, e.g. you do not know how traits work in PHP, please review the PHP documentation: http://php.net/manual/en/language.oop5.traits.php
+
 ## What does this package contain ##
 
 As mentioned, by itself, this package does not offer much more than a composer file, which requires several smaller packages, each situated within the `Aedart\Model` namespace. Listed below are those dependencies.
