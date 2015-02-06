@@ -18,7 +18,8 @@
         }
     ],
     "require": {
-        "aedart/model-id": "1.*"
+        "aedart/model-id": "1.*",
+        "aedart/model-uuid": "1.*"
     },
     "autoload": {
         "psr-4": {
