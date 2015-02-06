@@ -225,7 +225,9 @@ _N/A (no sub-packages yet developed)_
 
 **U**
 
-_N/A (no sub-packages yet developed)_
+Name                 |   description              | Link
+----------------*    |   ---------------------*   | --------------------
+Uuid             | Getter and Setter package for Universally unique identifier (UUID) |   https://bitbucket.org/aedart/model-uuid
 
 **V**
 
