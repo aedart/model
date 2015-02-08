@@ -257,7 +257,7 @@ _N/A (no sub-packages yet developed)_
 
 @todo... So... what is this project going to contain in the future?
 
-* name
+* name - during development
 * create, update, delete date
 * path to x, y, z
 * picture(s)
