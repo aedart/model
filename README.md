@@ -199,7 +199,9 @@ _N/A (no sub-packages yet developed)_
 
 **N**
 
-_N/A (no sub-packages yet developed)_
+Name                 |   description              | Link
+----------------*    |   ---------------------*   | --------------------
+Name       | Getter and Setter package for some kind of model name. |   https://bitbucket.org/fenix440/model-name
 
 **O**
 
