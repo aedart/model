@@ -35,12 +35,12 @@ The first thing that I recommend you to do is to design your desired component�
 #!php
 <?php namespace Acme\Person;
 use Aedart\Model\Id\Interfaces\IdAware;
-use Aedart\Model\Name\Interfaces\NameAware;
-use Aedart\Model\Description\Interfaces\ShortDescriptionAware;
+use Fenix440\Model\Name\Interfaces\NameAware;
+use Fenix440\Model\Description\Interfaces\DescriptionAware;
 
 interface IPerson extends IdAware,
     NameAware,
-    ShortDescriptionAware
+    DescriptionAware
 {
     
 }
@@ -59,14 +59,14 @@ In the next section, we will create a concrete implementation of a person.
 
 use Acme\Person\IPerson;
 use Aedart\Model\Id\Traits\UnsignedIntegerIdTrait;
-use Aedart\Model\Name\Traits\SimpleNameTrait;
-use Aedart\Model\Description\Traits\ShortDescriptionTrait;
+use Fenix440\Model\Name\Traits\NameTrait;
+use Fenix440\Model\Description\Traits\DescriptionTrait;
 
 class MyPerson implements IPerson {
  
     use UnsignedIntegerIdTrait,
-        SimpleNameTrait,
-        ShortDescriptionTrait;
+        NameTrait,
+        DescriptionTrait;
  
 }
 ```
@@ -83,14 +83,14 @@ Let’s pretend that each person needs to have a default shot description, just 
 
 use Acme\Person\IPerson;
 use Aedart\Model\Id\Traits\UnsignedIntegerIdTrait;
-use Aedart\Model\Name\Traits\SimpleNameTrait;
-use Aedart\Model\Description\Traits\ShortDescriptionTrait;
+use Fenix440\Model\Name\Traits\NameTrait;
+use Fenix440\Model\Description\Traits\DescriptionTrait;
 
 class MyPerson implements IPerson {
  
     use UnsignedIntegerIdTrait,
-        SimpleNameTrait,
-        ShortDescriptionTrait;
+        NameTrait,
+        DescriptionTrait;
  
     public function getDefaultShortDescription(){
         return "This person has no description";
@@ -104,13 +104,13 @@ Given the implementation we just made, each person which doesn’t have a short 
 #!php
 <?php namespace Acme\Person;
 
-use Aedart\Model\Description\Traits\ShortDescriptionTrait;
+use Fenix440\Model\Description\Traits\DescriptionTrait;
 
 trait MyShortDescription {
  
-    use ShortDescriptionTrait;
+    use DescriptionTrait;
  
-    public function getDefaultShortDescription(){
+    public function getDefaultDescription(){
         return "This person has no description";
     }
 }
@@ -125,12 +125,12 @@ And in your concrete implementation, you can replace the `ShortDescriptionTrait`
 use Acme\Person\IPerson;
 use Acme\Person\MyShortDescription;
 use Aedart\Model\Id\Traits\UnsignedIntegerIdTrait;
-use Aedart\Model\Name\Traits\SimpleNameTrait;
+use Fenix440\Model\Name\Traits\NameTrait;
 
 class MyPerson implements IPerson {
  
     use UnsignedIntegerIdTrait,
-        SimpleNameTrait,
+        NameTrait,
         MyShortDescription;
 }
 ```
