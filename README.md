@@ -150,7 +150,7 @@ _N/A (no sub-packages yet developed)_
 **C**
 _N/A (no sub-packages yet developed)_
 **D**
-Description       | Getter and Setter package for some kind of model description. |   https://bitbucket.org/fenix440/model-description
+`Description`       | Getter and Setter package for some kind of model description. |   https://bitbucket.org/fenix440/model-description
 **E**
 _N/A (no sub-packages yet developed)_
 **F**
@@ -160,7 +160,7 @@ _N/A (no sub-packages yet developed)_
 **H**
 _N/A (no sub-packages yet developed)_
 **I**
-Id             | Getter and Setter package for some kind of model identifier (id). |   https://bitbucket.org/aedart/model-id
+`Id`             | Getter and Setter package for some kind of model identifier (id). |   https://bitbucket.org/aedart/model-id
 **J**
 _N/A (no sub-packages yet developed)_
 **K**
@@ -170,7 +170,7 @@ _N/A (no sub-packages yet developed)_
 **M**
 _N/A (no sub-packages yet developed)_
 **N**
-Name       | Getter and Setter package for some kind of model name. |   https://bitbucket.org/fenix440/model-name
+`Name`       | Getter and Setter package for some kind of model name. |   https://bitbucket.org/fenix440/model-name
 **O**
 _N/A (no sub-packages yet developed)_
 **P**
@@ -184,9 +184,9 @@ _N/A (no sub-packages yet developed)_
 **T**
 _N/A (no sub-packages yet developed)_
 **U**
-Uuid             | Getter and Setter package for Universally unique identifier (UUID) |   https://bitbucket.org/aedart/model-uuid
+`Uuid`             | Getter and Setter package for Universally unique identifier (UUID) |   https://bitbucket.org/aedart/model-uuid
 **V**
-Validate             | A validate package which allows to perform various sorts of simple validation upon primates ... |   https://bitbucket.org/aedart/validate
+`Validate`             | A validate package which allows to perform various sorts of simple validation upon primates ... |   https://bitbucket.org/aedart/validate
 **W**
 _N/A (no sub-packages yet developed)_
 **X**
