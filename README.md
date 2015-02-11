@@ -144,119 +144,56 @@ As mentioned, by itself, this package does not offer much more than a composer f
 Name                 |   description              | Link
 ----------------*    |   ---------------------*   | --------------------
 **A**
-----------------*
 _N/A (no sub-packages yet developed)_
-----------------*
 **B**
-----------------*
-Name                 |   description              | Link
-----------------*    |   ---------------------*   | --------------------
 _N/A (no sub-packages yet developed)_
-
 **C**
-
 _N/A (no sub-packages yet developed)_
-
 **D**
-
-Name                 |   description              | Link
-----------------*    |   ---------------------*   | --------------------
 Description       | Getter and Setter package for some kind of model description. |   https://bitbucket.org/fenix440/model-description
-
 **E**
-
 _N/A (no sub-packages yet developed)_
-
 **F**
-
 _N/A (no sub-packages yet developed)_
-
 **G**
-
 _N/A (no sub-packages yet developed)_
-
 **H**
-
 _N/A (no sub-packages yet developed)_
-
 **I**
-
-Name                 |   description              | Link
-----------------*    |   ---------------------*   | --------------------
 Id             | Getter and Setter package for some kind of model identifier (id). |   https://bitbucket.org/aedart/model-id
-
 **J**
-
 _N/A (no sub-packages yet developed)_
-
 **K**
-
 _N/A (no sub-packages yet developed)_
-
 **L**
-
 _N/A (no sub-packages yet developed)_
-
 **M**
-
 _N/A (no sub-packages yet developed)_
-
 **N**
-
-Name                 |   description              | Link
-----------------*    |   ---------------------*   | --------------------
 Name       | Getter and Setter package for some kind of model name. |   https://bitbucket.org/fenix440/model-name
-
 **O**
-
 _N/A (no sub-packages yet developed)_
-
 **P**
-
 _N/A (no sub-packages yet developed)_
-
 **Q**
-
 _N/A (no sub-packages yet developed)_
-
 **R**
-
 _N/A (no sub-packages yet developed)_
-
 **S**
-
 _N/A (no sub-packages yet developed)_
-
 **T**
-
 _N/A (no sub-packages yet developed)_
-
 **U**
-
-Name                 |   description              | Link
-----------------*    |   ---------------------*   | --------------------
 Uuid             | Getter and Setter package for Universally unique identifier (UUID) |   https://bitbucket.org/aedart/model-uuid
-
 **V**
-
-Name                 |   description              | Link
-----------------*    |   ---------------------*   | --------------------
 Validate             | A validate package which allows to perform various sorts of simple validation upon primates as well as defining how validators should behave |   https://bitbucket.org/aedart/validate
-
 **W**
-
 _N/A (no sub-packages yet developed)_
-
 **X**
-
 _N/A (no sub-packages yet developed)_
-
 **Y**
-
 _N/A (no sub-packages yet developed)_
-
 **Z**
-
 _N/A (no sub-packages yet developed)_
 
 ## Future upcoming packages ##
