@@ -141,7 +141,7 @@ If by any chance this confuses you, e.g. you do not know how traits work in PHP,
 
 As mentioned, by itself, this package does not offer much more than a composer file, which requires several smaller packages, each situated within the `Aedart\Model` namespace. Listed below are those dependencies.
 
-                 |                 | 
+Name                 |   description              | Link
 ----------------*    |   ---------------------*   | --------------------
 **A**
 ----------------*
