@@ -229,19 +229,20 @@ You can see what is currently in the process of being developed, in our [ Issues
      
 ## Acknowledgement ##
 
-Crafting small interfaces and traits containing a few methods is a rather trivial and easy task. That being said, ensuring that data validity is an entirely different matter. Without certain individuals within the PHP community, making these packages would have been impossible for me. I would like to thank all those who that have spent countless hours, days, months and years developing great packages and for sharing them with the rest of this world.
+Crafting small interfaces and traits containing a few methods is a rather trivial and easy task. That being said, ensuring that data validity is, an entirely different matter. Without certain individuals within the PHP community, making these packages would have been impossible for us. We would like to thank all those who that have spent countless hours, days, months and years developing great packages and for sharing them with the rest of this world. Amongst those, we would especially like to thank the following contributors:
+
+* [ PHPStorm ](https://www.jetbrains.com/phpstorm/), `Jetbrains`; for developing the best PHP-IDE, and supporting this and other OpenSource projects
+* [ PHPUnit ](https://phpunit.de/), `Sebastian Bergmann`; By the gods ... We still know some developers, managers and decision makers, that believe good software does not require testing, at all! We cannot image working on any project, without good testing tools, such as PHPUnit.
+* [ Codeception ](http://codeception.com/), `Michael Bodnarchuk`; for making PHPUnit even better.
+* [ Composer ](https://getcomposer.org/) & [ Packagist ](https://packagist.org/), `Nils Adermann, Jordi Boggiano & et al.`; amongst the best things that has happened to the PHP community.
+* [ BitBucket ](https://bitbucket.org/), `Atlassian Pty Ltd`; for letting us host private projects – yes, you know, those kind of projects that aren’t worth publishing as OpenSource!
+* [ Git ](http://git-scm.com/), `Software Freedom Conservancy`; without it… We would still be stuck in the “stone age” of software development.
+* [ Laracasts ](https://laracasts.com/), `Jeffrey Way et al.`, worth every penny…
+* [ PHP ](http://php.net/), `Rasmus Lerdorf & The PHP Group`; we might be developing this in old fashioned ASP… (Shivers!)
 
 If you are interested in a more saturated list of names, please review the acknowledgement-section found in each `Aedart\Model` sub-package.
 
-Did I forget to add your name in one of my packages? Please let me know...
-
-@todo ... What about the more general ones:
-
-* phpunit (By the gods ... I know developers, managers and decision makers that still believe good software doesn't need testing!),
-* codeception (making PHPUnit even better),
-* composer / packagist (dependency management and distribution),
-* bitbucket (for letting me host private repos.. you know, those that aren't worthy for the public)
-* Laracast (Worth every penny...),
+Did we forget to add your name in one of my packages? Please let us know...
 
 ## License ##
 
