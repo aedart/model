@@ -198,27 +198,7 @@ _N/A (no sub-packages yet developed)_
 
 ## Future upcoming packages ##
 
-@todo... So... what is this project going to contain in the future?
-
-* create, update, delete date
-* path to x, y, z
-* picture(s)
-* Address -> street, zip, state(s) and countries (Hmmm... generalised or specialised?) -> Google's API for validation? 
-* gravatar?
-* url
-* dimensions width, height, depth
-* email
-* phone(s)
-* i18n (oh boy.. how to resolve this one in a simple manner?)
-* age
-* ...vcard standards
-* ISBN-10, ISBN-13
-* IBAN,
-* SWIFT/BIC,
-* BBAN (RIB),
-* Credit Card number,
-* EAN13
-* ...Generator(s) for creating sub-packages (so that others can create similar stuff) -> this would be a "project"-package and not a library-package
+You can see what is currently in the process of being developed, in our [ Issues-list ](https://bitbucket.org/aedart/model/issues)
     
 -------------------------------------------
 
