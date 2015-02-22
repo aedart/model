@@ -200,16 +200,31 @@ _N/A (no sub-packages yet developed)_
 
 You can see what is currently in the process of being developed, in our [ Issues-list ](https://bitbucket.org/aedart/model/issues)
     
--------------------------------------------
+## Security ##
 
-@todo... Security
+DON’T trust users input – not even when you are the user!
 
-* Only syntax checking mostly... Not good enough!
-* Custom exceptions, great, ... but DON'T make them visible during production!
-* What about XSS, XSRF (check abbreviation)
-* SQL Injection?
-* User's own mistakes (wrong data input)
-    
+In the most common cases, we (as end-users and developers) might think of worst case scenarios, where harmful code somehow ends up on your browser based application. It might get executed and the damage is done. [XSS](http://en.wikipedia.org/wiki/Cross-site_scripting) and [SQL-injections](http://en.wikipedia.org/wiki/SQL_injection) appear to be some of the most known and used software exploits. Yet, when talking about security, it is all too often forgotten, that even simple incorrect input also can lead to security vulnerabilities. Consider the following hypothetical example;
+
+“A user fills out a form, in which he/she is required to choose between various account types. By accident, an incorrect value is typed into the given input field, and the form is submitted (data is sent to a server). The application ensures to filter the data of any eventual harmful code. Yet, it doesn’t understand the given incorrect value – it simply stores it directly into the database. This results in a very unfavourable situation, in which the given user gains more access to certain data / information, because the account type is perceived as an administrator-account. The system has no way of telling, that this was a mistake and continues to allow that user to persist with extended privileges.”
+
+If you are now thinking, that this never happens in real life, you are wrong. The more complex a system becomes, the greater the chance is for such things. Perhaps a user might not get unwanted privileges. But maybe something else could happen instead, such as a system crash, all because a single property wasn’t validated against an invalid character or number, e.g. -1 was given, where positive numbers where expected. To put matters into perspective, you yourself could be that user that somehow by accident types in something wrong, and the application suddenly behaves in an undesirable manner. Therefore, you should never trust a user’s input, not even when the input derives from you.
+
+### How we deal with security in this project ###
+
+We do NOT GUARANTEE that any of our sub-packages lives up to your security needs. This means that;
+
+* We do not clean / filter for harmful code, such as [XSS](http://en.wikipedia.org/wiki/Cross-site_scripting) nor [SQL-injections](http://en.wikipedia.org/wiki/SQL_injection)
+* We only provide a minimum default data validity; a number is a number, a string is a string, …etc
+
+Filtering data for eventual harmful code should be done, at a much higher level in your architecture. Security is always context dependent and we might not know nor understand the context, in which you choose to use our packages. For your own sake and for the sake of your end-users, please do expand your knowledge about software security. Here are a few resources, that could help you;
+
+* [The Open Web Application Security Project (OWASP)](https://www.owasp.org)
+* [Build Security In](https://buildsecurityin.us-cert.gov/)
+* [24 Deadly Sins of Software Security: Programming Flaws and How to Fix Them](http://www.amazon.co.uk/dp/0071626751)
+* [Guide to Advanced Software Testing](http://www.amazon.co.uk/dp/1596932856 )
+* [Software Security: Building Security In](http://www.amazon.co.uk/dp/0321356705)
+
 -------------------------------------------
 
 @todo... Background
