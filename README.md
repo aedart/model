@@ -228,7 +228,7 @@ Are you missing a vital component, have you found a defect ([ bug or design flaw
 
 ### Bug Report ###
 
-We believe that; as a project grows, so will the likelihood of introducing defects of all kind. If you are convinced that you have found one, at the very least you should create a new issue. In that given issue, you should as a minimum describe the following;
+We believe that; as a project grows, so will the likelihood of introducing defects of all kind. If you are convinced that you have found one, at the very least you should create a [new issue](https://bitbucket.org/aedart/model/issues). In that given issue, you should as a minimum describe the following;
 
 * In which component is the defect located
 * A good, short and precise description of the defect (Why is it a defect)
