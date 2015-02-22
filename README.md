@@ -237,7 +237,7 @@ Crafting small interfaces and traits containing a few methods is a rather trivia
 * [ Composer ](https://getcomposer.org/) & [ Packagist ](https://packagist.org/), `Nils Adermann, Jordi Boggiano & et al.`; amongst the best things that has happened to the PHP community.
 * [ BitBucket ](https://bitbucket.org/), `Atlassian Pty Ltd`; for letting us host private projects – yes, you know, those kind of projects that aren’t worth publishing as OpenSource!
 * [ Git ](http://git-scm.com/), `Software Freedom Conservancy`; without it… We would still be stuck in the “stone age” of software development.
-* [ Laracasts ](https://laracasts.com/), `Jeffrey Way et al.`, worth every penny…
+* [ Laracasts ](https://laracasts.com/), `Jeffrey Way et al.`; worth every penny…
 * [ PHP ](http://php.net/), `Rasmus Lerdorf & The PHP Group`; we might be developing this in old fashioned ASP… (Shivers!)
 
 If you are interested in a more saturated list of names, please review the acknowledgement-section found in each `Aedart\Model` sub-package.
