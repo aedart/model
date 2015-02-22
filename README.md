@@ -290,6 +290,13 @@ If you are interested in a more saturated list of names, please review the ackno
 
 Did we forget to add your name in one of my packages? Please let us know...
 
+## Contact ##
+
+@aedart, Alin Eugen Deac, aedart@gmail.com
+
+@fenix440, Bartlomiej Szala, fenix440@gmail.com
+
+
 ## License ##
 
 [BSD-3-Clause](http://spdx.org/licenses/BSD-3-Clause), Read the LICENSE file included in this package
