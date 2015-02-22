@@ -292,10 +292,9 @@ Did we forget to add your name in one of my packages? Please let us know...
 
 ## Contact ##
 
-@aedart, Alin Eugen Deac, aedart@gmail.com
+@aedart, aedart@gmail.com
 
-@fenix440, Bartlomiej Szala, fenix440@gmail.com
-
+@fenix440, fenix440@gmail.com
 
 ## License ##
 
