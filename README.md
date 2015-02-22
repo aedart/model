@@ -222,11 +222,57 @@ You can see what is currently in the process of being developed, in our [ Issues
 
 -------------------------------------------
 
-@todo... Contribution
+## Contribution ##
 
-* Bugs... clone, branch, test, merge, pull-request (how does this work again...?) 
-* Would you like to be part of this?
-     
+Are you missing a vital component, have you found a defect ([ bug or design flaw ](http://en.wikipedia.org/wiki/Software_bug)), or do you wish to extend our list of ready-to-use sub-packages? In the following sections, you might find some useful information on how you can help this project. In any case, we thank you, for taking the time to help us improve this project’s deliverables and overall quality.
+
+### Bug Report ###
+
+We believe that; as a project grows, so will the likelihood of introducing defects of all kind. If you are convinced that you have found one, at the very least you should create a new issue. In that given issue, you should as a minimum describe the following;
+
+* In which component is the defect located
+* A good, short and precise description of the defect (Why is it a defect)
+* How to replicate the defect
+* (A possible solution for how to resolve the defect)
+
+When time permits it, we will review your issue and take action upon it.
+
+### Fork, code and send pull-request ###
+
+A good and well written bug report can help us a lot. Nevertheless, if you can or wish to resolve the defect by yourself, here is how you can do so;
+
+* Fork the given sub-package in question
+* Create a new local development branch for the given defect-fix
+* Write your code / changes
+* Create executable test-cases (prove that your changes are solid!)
+* Commit and push your changes to your fork-repository
+* Send a pull-request with your changes
+
+As soon as we receive the pull-request (and we have time for it), we will review your changes and possibly merge it to the given sub-package. If not, we will inform you why we choose not to.
+
+### Code (New Sub-packages) ###
+We have mentioned this a few times; this project is little more than a collection of smaller sub-packages, each being useable by themselves. They are simple in nature and it is NOT a requirement to use `Aedart\Model` as a namespace. Preferably you can use your own namespace and simply be added to our list!
+
+Therefore, if you wish to develop such a package (or perhaps you already have one ready), then you need to follow these few guidelines.
+
+* Each package must follow the general guidelines (see background -> guidelines)
+* Each package must contain a minimum amount of unit-tests, covering at least 90% of the code
+* Alin and Bart must be given “developer” read / write access to your given package-repository and be added as maintainers on packagist. (_The only reason we desire such privileges, is to ensure that we can contribute to your package, e.g. add more specialised traits or perhaps fix a small defect, should such be needed_)
+
+Provided you have followed these guidelines, send us an e-mail containing a link to your repository. We will review your package, send you some feedback, and add it to this project’s list.
+
+### Code (Existing Sub-packages) ###
+
+If you have a desire to add new enhancements to existing sub-packages; extend or perhaps contribute with more specialised traits, the please follow these steps;
+
+* Follow the same steps as you would for resolving a defect (Fork, Code, Commit, Push and send pull-request)
+
+In addition to this, when you add something new, something of value to a given sub-package, it is only fair that your name is a part of that given package. Therefore, please feel free to write your name, in the given sub-package’s `README.md file`, under the acknowledgement section. If by chance, there is no such section, do please add one.
+
+### Community ###
+
+At this point in time, we have yet to start a “formal” community, which actively concerns itself with this project. Time is always of the essence, and currently we cannot spend more time than we do. Having stated such, if you have experience with online software development communities, we would appreciate your help. Please contact us…
+
 ## Acknowledgement ##
 
 Crafting small interfaces and traits containing a few methods is a rather trivial and easy task. That being said, ensuring that data validity is, an entirely different matter. Without certain individuals within the PHP community, making these packages would have been impossible for us. We would like to thank all those who that have spent countless hours, days, months and years developing great packages and for sharing them with the rest of this world. Amongst those, we would especially like to thank the following contributors:
