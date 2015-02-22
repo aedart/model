@@ -241,7 +241,7 @@ When time permits it, we will review your issue and take action upon it.
 
 A good and well written bug report can help us a lot. Nevertheless, if you can or wish to resolve the defect by yourself, here is how you can do so;
 
-* Fork the given sub-package in question
+* [ Fork ](https://confluence.atlassian.com/display/BITBUCKET/Fork+a+Repo,+Compare+Code,+and+Create+a+Pull+Request) the given sub-package in question
 * Create a new local development branch for the given defect-fix
 * Write your code / changes
 * Create executable test-cases (prove that your changes are solid!)
@@ -251,11 +251,11 @@ A good and well written bug report can help us a lot. Nevertheless, if you can o
 As soon as we receive the pull-request (and we have time for it), we will review your changes and possibly merge it to the given sub-package. If not, we will inform you why we choose not to.
 
 ### Code (New Sub-packages) ###
-We have mentioned this a few times; this project is little more than a collection of smaller sub-packages, each being useable by themselves. They are simple in nature and it is NOT a requirement to use `Aedart\Model` as a namespace. Preferably you can use your own namespace and simply be added to our list!
+We have mentioned this a few times; this project is little more than a collection of smaller sub-packages, each being usable by themselves. They are simple in nature and it is NOT a requirement to use `Aedart\Model` as a namespace. Preferably you can use your own namespace and simply be added to our list!
 
 Therefore, if you wish to develop such a package (or perhaps you already have one ready), then you need to follow these few guidelines.
 
-* Each package must follow the general guidelines (see background -> guidelines)
+* Each package must follow the general guidelines (@todo add link to general guidelines)
 * Each package must contain a minimum amount of unit-tests, covering at least 90% of the code
 * Alin and Bart must be given “developer” read / write access to your given package-repository and be added as maintainers on packagist. (_The only reason we desire such privileges, is to ensure that we can contribute to your package, e.g. add more specialised traits or perhaps fix a small defect, should such be needed_)
 
