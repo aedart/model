@@ -27,7 +27,7 @@ This package uses [composer](https://getcomposer.org/). If you do not know what 
 
 ## Quick start ##
 
-The first thing that we recommend you to do is to design your desired component’s interface. In below stated example, we will design an interface for a very simple person;
+The first thing that we recommend you to do, is to design your desired component’s interface. In below stated example, we will design an interface for a very simple person;
 
 ### Person interface ###
 
@@ -47,7 +47,7 @@ interface IPerson extends IdAware,
 
 ```
 
-Our person interface doesn’t contain much; it has but the ability to get/set an id, name and a short description.All those methods (and more) are defined in each of the applied interfaces (`IdAware`, `NameAware` and `ShortDescriptionAware`).
+Our person interface doesn’t contain much; it has but the ability to get/set an id, name and a description. All those methods (and more) are defined in each of the applied interfaces (`IdAware`, `NameAware` and `DescriptionAware`).
 
 In the next section, we will create a concrete implementation of a person.
 
@@ -75,7 +75,7 @@ Without writing many lines of code, out concrete implementation has implemented 
 
 ### Override defaults ###
 
-Let’s pretend that each person needs to have a default shot description, just in case that none has been provided. There are multiple ways this can be resolved. The first one is simply to override the "get-default" method, directly in your concrete implementation;
+Let’s pretend that each person needs to have a default description, just in case that none has been provided. There are multiple ways this can be resolved. The first one is simply to override the "get-default" method, directly in your concrete implementation;
 
 ```
 #!php
@@ -92,13 +92,13 @@ class MyPerson implements IPerson {
         NameTrait,
         DescriptionTrait;
  
-    public function getDefaultShortDescription(){
+    public function getDefaultDescription(){
         return "This person has no description";
     }
 }
 ```
 
-Given the implementation we just made, each person which doesn’t have a short description will simply contain a default text, stating that the given person has no description. The same is possible for name, id and all other sub-packages, if you need to provide default data. However, this being said, you could also create your own trait, which achieves the same;
+Given the implementation we just made, each person which doesn’t have a description will simply contain a default text, stating that the given person has no description. The same is possible for name, id and all other sub-packages, if you need to provide default data. However, this being said, you could also create your own trait, which achieves the same;
 
 ```
 #!php
@@ -116,7 +116,7 @@ trait MyShortDescription {
 }
 ```
 
-And in your concrete implementation, you can replace the `ShortDescriptionTrait` with your own version. The implementation would look like the following;
+And in your concrete implementation, you can replace the `DescriptionTrait` with your own version. The implementation would look like the following;
 
 ```
 #!php
