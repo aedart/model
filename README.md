@@ -12,7 +12,7 @@ Official project website (https://bitbucket.org/aedart/model)
 
 ## When to use this ##
 
-Unless you are working on a very large and complex system requires several different types models, ... well, perhaps you can settle for just what you need.
+Unless you are working on a very large and complex system that requires several different types of [data-objects](http://en.wikipedia.org/wiki/Business_object), ... well, perhaps you can settle for just what you need.
 Please take a closer look at [what this package contains](https://bitbucket.org/aedart/model/overview#markdown-header-what-does-this-package-contain).
 
 ## How to install ##
