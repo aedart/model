@@ -23,11 +23,11 @@ Please take a closer look at [what this package contains](https://bitbucket.org/
 composer require aedart/model @todo... 
 ```
 
-This package uses [composer](https://getcomposer.org/). If you do not know what that is or how it works, I recommend that you read a little about, before attempting to use this package.
+This package uses [composer](https://getcomposer.org/). If you do not know what that is or how it works, we recommend that you read a little about, before attempting to use this package.
 
 ## Quick start ##
 
-The first thing that I recommend you to do is to design your desired component’s interface. In below stated example, we will design an interface for a very simple person;
+The first thing that we recommend you to do is to design your desired component’s interface. In below stated example, we will design an interface for a very simple person;
 
 ### Person interface ###
 
