@@ -1,6 +1,6 @@
 ## Model ##
 
-Collection of getter- / setter-interfaces with various trait implementations, for different kinds of "common" properties.
+Collection of [getters and setters](http://en.wikipedia.org/wiki/Mutator_method)-interfaces with various trait implementations, for different kinds of "common" properties.
 
 By itself, this package consists only of declared dependencies, meaning that it has a single file - the composer file.
 
@@ -227,9 +227,29 @@ Filtering data for eventual harmful code should be done, at a much higher level 
 
 -------------------------------------------
 
-@todo... Background
+## Background ##
 
-* Long time ago... Then came traits... No one seems to be doing this (perhaps Symfony's Entities?)
+Having worked with PHP for many years, we often found ourselves in situation where we need to literally copy and paste a lot of code. Whenever we found a defect or desired to enhance a given small component, a lot of manual work was required to roll-out changes, throughout many projects. Naturally, [Version Control Systems](http://en.wikipedia.org/wiki/Revision_control) (VCS) like [SubVersion](https://subversion.apache.org/) and [Git](http://git-scm.com/) eased this process a lot. Even more so, dependency management became somewhat of bliss, after we learned to work with composer. But, unfortunately, in many cases this simply wasn’t enough.
+
+The [data models](http://en.wikipedia.org/wiki/Data_model) that we often were needed to implement often had some of the same properties, such as an id, for instance. Tedious work was still a part of our daily routine. Luckily, this began to chance a lot, after [PHP](http://php.net/) introduced its [trait-system](http://php.net/manual/en/language.oop5.traits.php), as a core part of the language.
+
+With this mind, we saw an opportunity to break down some of our common needs, into very small [getters and setters](http://en.wikipedia.org/wiki/Mutator_method) packages, so that we might reuse them in future projects. After a while, we saw that this might be beneficial for others developers as well, which is why we decided to release this project as [OpenSource](http://en.wikipedia.org/wiki/Open_source). Furthermore, we have yet to see someone who attempts to this “dirty” job, of creating 
+
+### Scope of this project ###
+There are many good solutions out there, which perhaps might suite you much better than this projects deliverables. It is not our intent, in any way, to compete against frameworks, such as [Laravel](http://laravel.com/), [Zend Framework](http://framework.zend.com/) , [Symfony](http://symfony.com/)… etc. Should you need powerful [ORM](http://en.wikipedia.org/wiki/Object-relational_mapping) systems, we recommend that you take a look at the mentioned frameworks, before attempting to use our packages for a similar purpose. We have no desire to recreate such systems. Our purpose and intent is a bit more simplistic.
+
+The aim of this project is to provide small getters’ and setters’ packages, for “common” properties, which can be used independent of frameworks, for whatever purpose they might be suited for!
+
+In other words, in your eyes, perhaps some of these packages can be used for building up simple or complex [data-objects](http://en.wikipedia.org/wiki/Business_object) (often referred to as [Business object](http://en.wikipedia.org/wiki/Business_object)). In someone else’s eyes, they might be used for something else entirely or perhaps not at all.
+
+### What we have used these packages for… ###
+
+So time ago, we worked on a large project, for a private company ([Proprietary software](http://en.wikipedia.org/wiki/Proprietary_software)), in which we needed to integrate two system with each other, using [web services](http://en.wikipedia.org/wiki/Web_service), based on [XML](http://en.wikipedia.org/wiki/XML).  The data that needed to be transported back and forth was incredibly complex, which is why we needed to create [data-objects](http://en.wikipedia.org/wiki/Business_object) that could contain a finite set of properties. Many of those properties shared the same names, as well as [data types](http://en.wikipedia.org/wiki/Data_type). Sadly, their validation could differ a lot, from object to object. A property called “name” could have a specific validation in one object, and a completely different in another object. Thus, a lot of trivial work needed to be undertaken. External frameworks couldn’t really resolve this issue for us, which is why we began to develop traits that could offers the much needed flexibility.
+
+The result of that given project was that we could quickly build up new types of objects, provided that we already had developed traits with similar properties. Furthermore, data validation could be undertaken uniquely per property/object, in case a default validation wasn’t suitable.
+
+--------------------------------------------------
+@todo Guidelines for packages
 * Philosophy behind the packages
 * I-am-aware-interfaces
 * Specialised traits
@@ -292,11 +312,11 @@ At this point in time, we have yet to start a “formal” community, which acti
 
 Crafting small interfaces and traits containing a few methods is a rather trivial and easy task. That being said, ensuring that data validity is, an entirely different matter. Without certain individuals within the PHP community, making these packages would have been impossible for us. We would like to thank all those who that have spent countless hours, days, months and years developing great packages and for sharing them with the rest of this world. Amongst those, we would especially like to thank the following contributors:
 
-* [ PHPStorm ](https://www.jetbrains.com/phpstorm/), `Jetbrains`; for developing the best PHP-IDE, and supporting this and other OpenSource projects
+* [ PHPStorm ](https://www.jetbrains.com/phpstorm/), `Jetbrains`; for developing the best PHP-IDE, and supporting this and other [OpenSource](http://en.wikipedia.org/wiki/Open_source) projects
 * [ PHPUnit ](https://phpunit.de/), `Sebastian Bergmann`; By the gods ... We still know some developers, managers and decision makers, that believe good software does not require testing, at all! We cannot image working on any project, without good testing tools, such as PHPUnit.
 * [ Codeception ](http://codeception.com/), `Michael Bodnarchuk`; for making PHPUnit even better.
 * [ Composer ](https://getcomposer.org/) & [ Packagist ](https://packagist.org/), `Nils Adermann, Jordi Boggiano & et al.`; amongst the best things that has happened to the PHP community.
-* [ BitBucket ](https://bitbucket.org/), `Atlassian Pty Ltd`; for letting us host private projects – yes, you know, those kind of projects that aren’t worth publishing as OpenSource!
+* [ BitBucket ](https://bitbucket.org/), `Atlassian Pty Ltd`; for letting us host private projects – yes, you know, those kind of projects that aren’t worth publishing as [OpenSource](http://en.wikipedia.org/wiki/Open_source)!
 * [ Git ](http://git-scm.com/), `Software Freedom Conservancy`; without it… We would still be stuck in the “stone age” of software development.
 * [ Laracasts ](https://laracasts.com/), `Jeffrey Way et al.`; worth every penny…
 * [ PHP ](http://php.net/), `Rasmus Lerdorf & The PHP Group`; we might be developing this in old fashioned ASP… (Shivers!)
