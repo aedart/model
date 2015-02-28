@@ -20,7 +20,7 @@ Please take a closer look at [what this package contains](https://bitbucket.org/
 ```
 #!console
 
-composer require aedart/model @todo... 
+composer require aedart/model 
 ```
 
 This package uses [composer](https://getcomposer.org/). If you do not know what that is or how it works, we recommend that you read a little about, before attempting to use this package.
