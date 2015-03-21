@@ -335,9 +335,9 @@ Did we forget to add your name in one of my packages? Please let us know...
 
 ## Contact ##
 
-@aedart, aedart@gmail.com
+@aedart - Owner
 
-@fenix440, fenix440@gmail.com
+@fenix440 - Owner
 
 ## License ##
 
