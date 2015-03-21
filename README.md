@@ -186,7 +186,7 @@ _N/A (no sub-packages yet developed)_
 **U**
 `Uuid`             | Getter and Setter package for Universally unique identifier (UUID) |   https://bitbucket.org/aedart/model-uuid
 **V**
-`Validate`             | A validate package which allows to perform various sorts of simple validation upon primates ... |   https://bitbucket.org/aedart/validate
+_N/A (no sub-packages yet developed)_
 **W**
 _N/A (no sub-packages yet developed)_
 **X**
@@ -195,6 +195,14 @@ _N/A (no sub-packages yet developed)_
 _N/A (no sub-packages yet developed)_
 **Z**
 _N/A (no sub-packages yet developed)_
+
+**Miscellaneous**
+
+Some of the above stated packages also include (or depend) on other packages. Some of those are mentioned here;
+
+Name                 |   description              | Link
+----------------*    |   ---------------------*   | --------------------
+`Validate`             | A validate package which allows to perform various sorts of simple validation upon primates ... |   https://bitbucket.org/aedart/validate
 
 ## Future upcoming packages ##
 
