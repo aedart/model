@@ -233,8 +233,6 @@ Filtering data for eventual harmful code should be done, at a much higher level 
 * [Guide to Advanced Software Testing](http://www.amazon.co.uk/dp/1596932856 )
 * [Software Security: Building Security In](http://www.amazon.co.uk/dp/0321356705)
 
--------------------------------------------
-
 ## Background ##
 
 Having worked with PHP for many years, we often found ourselves in situation where we need to literally copy and paste a lot of code. Whenever we found a defect or desired to enhance a given small component, a lot of manual work was required to roll-out changes, throughout many projects. Naturally, [Version Control Systems](http://en.wikipedia.org/wiki/Revision_control) (VCS) like [SubVersion](https://subversion.apache.org/) and [Git](http://git-scm.com/) eased this process a lot. Even more so, dependency management became somewhat of bliss, after we learned to work with [Composer](https://getcomposer.org/). But, unfortunately, in many cases this simply wasn’t enough.
@@ -257,6 +255,8 @@ So time ago, we worked on a large project, for a private company ([Proprietary s
 The result of that given project was that we could quickly build up new types of objects, provided that we already had developed traits with similar properties. Furthermore, data validation could be undertaken uniquely per property/object, in case a default validation wasn’t suitable.
 
 --------------------------------------------------
+### TODO: Guidelines for these packages ###
+
 @todo Guidelines for packages
 * Philosophy behind the packages
 * I-am-aware-interfaces
