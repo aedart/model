@@ -198,7 +198,7 @@ _N/A (no sub-packages yet developed)_
 
 **Miscellaneous**
 
-Some of the above stated packages also include (or depend) on other packages. Some of those are mentioned here;
+Some of the above stated packages also include (or depend on) other packages. Some of those are mentioned here;
 
 Name                 |   description              | Link
 ----------------*    |   ---------------------*   | --------------------
