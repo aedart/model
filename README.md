@@ -203,6 +203,7 @@ Some of the above stated packages also include (or depend on) other packages. So
 Name                 |   description              | Link
 ----------------*    |   ---------------------*   | --------------------
 `Validate`             | A validate package which allows to perform various sorts of simple validation upon primates ... |   https://bitbucket.org/aedart/validate
+`Util`             | Contains a set of various utility resources, which can be used independently |   https://bitbucket.org/aedart/util
 
 ## Future upcoming packages ##
 
