@@ -273,13 +273,13 @@ The interface should reside in its own namespace and folder, e.g. `yourPackageNa
 
 The name of the interface, should reflect the property-name that it offers, followed by an `affix`, which indicates that when you inherit from a given interface, then your component is `aware` of that given property or that your component is `able` to do something with the given property. Example names;
 
-`EmailAware` // Component is aware of an email
+`EmailAware` Component is aware of an email
 
-`PhoneAware` // Component is aware of a phone (number)
+`PhoneAware` Component is aware of a phone (number)
 
-`Offerable` // Component is [Capable of being offered; suitable or worthy to be offered.]( http://www.thefreedictionary.com/Offerable) – a Boolean value that represents a state of the component
+`Offerable` Component is [Capable of being offered; suitable or worthy to be offered.]( http://www.thefreedictionary.com/Offerable) – a Boolean value that represents a state of the component
 
-`Turnable` // Component has the ability to turn – e.g. representing a state for a game component, like a "player" or "enemy"
+`Turnable` Component has the ability to turn – e.g. representing a state for a game component, like a "player" or "enemy"
 
 #### Public methods ####
 
@@ -287,17 +287,49 @@ Each [getter and setter]( http://en.wikipedia.org/wiki/Mutator_method) interface
 
 The names of the methods, surrounded in `{}`, are defined later in this section, expressed in [EBFN](http://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_Form)
 
+##### Setter Method #####
+
+Set / change the property value
+
+Checks if the (new) property value is valid
+
+Throws a custom [InvalidArgumentException]( http://php.net/manual/en/class.invalidargumentexception.php) if the given value is invalid
+
 `{setterMethod}($value) throws \InvalidArgumentException`
+
+##### Getter Method #####
+
+Returns the set property value
+
+If no property value is available (has not been set), method sets and returns a default property value, if any is available
 
 `{getterMethod}() : mixed`
 
+##### Get Default Value Method #####
+
+Returns a default property value Or null, if no default value is available
+
 `{getDefaultValueMethod} : mixed|null`
+
+##### Has Value Method #####
+
+Returns true if a property value has been set, false if not
 
 `{hasValueMethod} : boolean`
 
+##### Has Default Value Method #####
+
+Returns true if a default property value is available, false if not
+
 `{hasDefaultValueMethod} : boolean`
 
-`{isValueValidMethod} : boolean`
+##### Is Value Valid Method #####
+
+Returns true if the given property value is valid, false if not
+
+`{isValueValidMethod}($value) : boolean`
+
+#### Method names ####
 
 ```
 setterMethod = setPrefix, camelCasePropertyName;
