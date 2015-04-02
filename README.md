@@ -256,7 +256,6 @@ So time ago, we worked on a large project, for a private company ([Proprietary s
 
 The result of that given project was that we could quickly build up new types of objects, provided that we already had developed traits with similar properties. Furthermore, data validation could be undertaken uniquely per property/object, in case a default validation wasn’t suitable.
 
---------------------------------------------------
 ## Guidelines ##
 
 Every [getter and setter]( http://en.wikipedia.org/wiki/Mutator_method) package must consist of an interface, minimum one trait that offers a default implementation, and a custom [InvalidArgumentException]( http://php.net/manual/en/class.invalidargumentexception.php) exception that makes it visible, if a given property is invalid.
@@ -331,6 +330,8 @@ Returns true if the given property value is valid, false if not
 
 #### Method names ####
 
+The above stated method names should generally follow this grammar - expressed in [EBFN](http://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_Form)
+
 ```
 setterMethod = setPrefix, camelCasePropertyName;
 setPrefix = "set";
@@ -361,6 +362,35 @@ lowercaseLetter = "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" | "i" | "j" | "k
 | "y" | "z" ;
 ```
 
+### The Trait(s) ###
+
+You are required to implement at least a one default trait implementation of the interface.
+
+#### Namespace and location ####
+
+The trait(s) should reside their own namespace and folder, e.g. `yourPackageNamespace\Traits\`
+
+#### Name ####
+
+The name of the trait, should reflect the property-name that it offers, followed by an "trait" `affix`, which indicates that when you use the given trait, your component offers a default implementation of the given interface – and that trait actually is a trait! Example names;
+
+`EmailTrait` // Component offers default email-property implementation
+
+`PhoneTrait` // Component offer default phone (number)-property implementation
+
+`OfferableTrait` // Component offers default offerable-property implementation
+
+`TurnableTrait` // Component offers default turnable-property implementation
+
+#### Public methods ####
+
+The trait is required to offer a default implementation of all of the interface defined methods. However, the ` getDefaultValueMethod ` is a special case…
+
+##### Get Default Value Method #####
+
+Unless there is a good reason, the default trait implementation should always return null and thereby allow (or force) the component the uses the trait, to override the method and define a default value, if any is required.
+
+`{getDefaultValueMethod} : mixed|null`
 
 @todo Guidelines for packages
 * Philosophy behind the packages
