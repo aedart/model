@@ -388,7 +388,7 @@ The trait is required to offer a default implementation of all of the interface 
 
 ##### Get Default Value Method #####
 
-Unless there is a good reason, the default trait implementation should always return null and thereby allow (or force) the component the uses the trait, to override the method and define a default value, if any is required.
+Unless there is a good reason, the default trait implementation should __always return null__ and thereby allow (or force) the component the uses the trait, to override the method and define a default value, if any is required.
 
 `{getDefaultValueMethod} : mixed|null`
 
