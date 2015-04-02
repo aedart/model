@@ -257,7 +257,78 @@ So time ago, we worked on a large project, for a private company ([Proprietary s
 The result of that given project was that we could quickly build up new types of objects, provided that we already had developed traits with similar properties. Furthermore, data validation could be undertaken uniquely per property/object, in case a default validation wasn’t suitable.
 
 --------------------------------------------------
-### TODO: Guidelines for these packages ###
+## Guidelines ##
+
+Every [getter and setter]( http://en.wikipedia.org/wiki/Mutator_method) package must consist of an interface, minimum one trait that offers a default implementation, and a custom [InvalidArgumentException]( http://php.net/manual/en/class.invalidargumentexception.php) exception that makes it visible, if a given property is invalid.
+
+In this section, the general guidelines are defined. Please note, these are "just" guidelines - we realise that they might not be suited for all types of situations. 
+
+### The interface ###
+
+#### Namespace and location ####
+
+The interface should reside in its own namespace and folder, e.g. `yourPackageNamespace\Interfaces\`
+
+#### Name ####
+
+The name of the interface, should reflect the property-name that it offers, followed by an `affix`, which indicates that when you inherit from a given interface, then your component is `aware` of that given property or that your component is `able` to do something with the given property. Example names;
+
+`EmailAware` // Component is aware of an email
+
+`PhoneAware` // Component is aware of a phone (number)
+
+`Offerable` // Component is [Capable of being offered; suitable or worthy to be offered.]( http://www.thefreedictionary.com/Offerable) – a Boolean value that represents a state of the component
+
+`Turnable` // Component has the ability to turn – e.g. representing a state for a game component, like a "player" or "enemy"
+
+#### Public methods ####
+
+Each [getter and setter]( http://en.wikipedia.org/wiki/Mutator_method) interface must define a minimum of 6 methods;
+
+The names of the methods, surrounded in `{}`, are defined later in this section, expressed in [EBFN](http://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_Form)
+
+`{setterMethod}($value) throws \InvalidArgumentException`
+
+`{getterMethod}() : mixed`
+
+`{getDefaultValueMethod} : mixed|null`
+
+`{hasValueMethod} : boolean`
+
+`{hasDefaultValueMethod} : boolean`
+
+`{isValueValidMethod} : boolean`
+
+```
+setterMethod = setPrefix, camelCasePropertyName;
+setPrefix = "set";
+
+getterMethod = getPrefix, camelCasePropertyName;
+getPrefix = "get";
+
+getDefaultValueMethod = getDefaultPrefix, camelCasePropertyName;
+getDefaultPrefix = getPrefix, defaultPrefix;
+
+hasValueMethod = hasPrefix, camelCasePropertyName;
+
+hasDefaultValueMethod = hasPrefix, defaultPrefix, camelCasePropertyName;
+
+isValueValidMethod = isPrefix, camelCasePropertyName, validAffix;
+isPrefix = 'is';
+validAffix = 'Valid';
+
+hasPrefix = 'has';
+defaultPrefix = 'Default';
+
+camelCasePropertyName = {uppercaseLetter, {lowercaseLetter}};
+uppercaseLetter = "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "I" | "J" | "K"
+| "L" | "M" | "N" | "O" | "P" | "Q" | "R" | "S" | "T" | "U" | "V" | "W" | "X"
+| "Y" | "Z" ;
+lowercaseLetter = "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" | "i" | "j" | "k"
+| "l" | "m" | "n" | "o" | "p" | "q" | "r" | "s" | "t" | "u" | "v" | "w" | "x"
+| "y" | "z" ;
+```
+
 
 @todo Guidelines for packages
 * Philosophy behind the packages
