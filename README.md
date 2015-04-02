@@ -390,15 +390,17 @@ The trait is required to offer a default implementation of all of the interface 
 
 Unless there is a good reason, the default trait implementation should __always return null__ and thereby allow (or force) the component the uses the trait, to override the method and define a default value, if any is required.
 
-`{getDefaultValueMethod} : mixed|null`
+`{getDefaultValueMethod} : null`
 
-@todo Guidelines for packages
-* Philosophy behind the packages
-* I-am-aware-interfaces
-* Specialised traits
-* Custom exceptions -> make it visible when something fails (at least during development)
+### PHPDoc ###
 
--------------------------------------------
+Both the interface and the trait(s) must be documented, using common [PHPDoc]( http://www.phpdoc.org/docs/latest/welcome.html) standard
+
+### Unit testing ###
+
+All implemented traits must be unit tested and achieve at least `95%` [code coverage]( http://en.wikipedia.org/wiki/Code_coverage).
+
+[PHP-unit](https://phpunit.de) appears to be the most popular testing framework. However, any proven testing framework may be applied.
 
 ## Contribution ##
 
@@ -433,7 +435,7 @@ We have mentioned this a few times; this project is little more than a collectio
 
 Therefore, if you wish to develop such a package (or perhaps you already have one ready), then you need to follow these few guidelines.
 
-* Each package must follow the general guidelines (@todo add link to general guidelines)
+* Each package must follow the general [guidelines](https://bitbucket.org/aedart/model#markdown-header-guidelines)
 * Each package must contain a minimum amount of unit-tests, covering at least 90% of the code
 * Alin and Bart must be given "developer" read / write access to your given package-repository and be added as maintainers on packagist. (_The only reason we desire such privileges, is to ensure that we can contribute to your package, e.g. add more specialised traits or perhaps fix a small defect, should such be needed_)
 
