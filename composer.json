@@ -28,6 +28,10 @@
         "fenix440/model-description": "1.*",
         "fenix440/model-name": "1.*"
     },
+    "require-dev": {
+      "aedart/license": "1.*",
+      "aedart/license-file-manager": "1.*"
+    },
     "autoload": {
         "psr-4": {
             "Aedart\\Model\\": "src/"
@@ -36,5 +40,8 @@
     "minimum-stability": "stable",
     "suggest": {
         "aedart/overload": "Property overloading via PHP's magic methods __get, __set, __isset and __unset"
+    },
+    "scripts": {
+      "post-update-cmd": "php vendor/bin/license-manager license:copy vendor/aedart/license/aedart/model/BSD-3-Clause"
     }
 }
