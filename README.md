@@ -158,7 +158,7 @@ _N/A (no sub-packages yet developed)_
 **G**
 _N/A (no sub-packages yet developed)_
 **H**
-`Hash Algorithm`       | Getter and Setter package for a model hash algorithm (name). Also includes a `Supported Hash Algorithm List` property. |   https://bitbucket.org/aedart/model-hash-algorithm
+`Hash Algorithm`       | Getter and Setter a hash algorithm (name). Also includes a `Supported Hash Algorithm List` property. |   https://bitbucket.org/aedart/model-hash-algorithm
 **I**
 `Id`             | Getter and Setter package for some kind of model identifier (id). |   https://bitbucket.org/aedart/model-id
 **J**
