@@ -180,7 +180,7 @@ _N/A (no sub-packages yet developed)_
 **R**
 _N/A (no sub-packages yet developed)_
 **S**
-`Supported Hash Algorithm List`       | Getter and Setter a supported hash algorithm list. |   Included in `Hash Algorithm`
+`Supported Hash Algorithm List`       | Getter and Setter for supported hash algorithm list. |   Included in `Hash Algorithm`
 **T**
 _N/A (no sub-packages yet developed)_
 **U**
