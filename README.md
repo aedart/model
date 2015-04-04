@@ -152,7 +152,7 @@ _N/A (no sub-packages yet developed)_
 **D**
 `Description`       | Getter and Setter package for some kind of model description. |   https://bitbucket.org/fenix440/model-description
 **E**
-_N/A (no sub-packages yet developed)_
+`Email`             | Getter and Setter package for a model email. |   https://bitbucket.org/aedart/model-email
 **F**
 _N/A (no sub-packages yet developed)_
 **G**
