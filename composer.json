@@ -25,6 +25,7 @@
         "php": ">=5.4.0",
         "aedart/model-id": "1.*",
         "aedart/model-uuid": "1.*",
+        "aedart/model-email": "1.*",
         "fenix440/model-description": "1.*",
         "fenix440/model-name": "1.*"
     },
