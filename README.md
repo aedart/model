@@ -186,7 +186,7 @@ _N/A (no sub-packages yet developed)_
 **U**
 `Uuid`             | Getter and Setter package for Universally unique identifier (UUID) |   https://bitbucket.org/aedart/model-uuid
 **V**
-_N/A (no sub-packages yet developed)_
+`Vendor Path`             | Getter and Setter package for vendor path |   https://bitbucket.org/aedart/model-vendor-path
 **W**
 _N/A (no sub-packages yet developed)_
 **X**
