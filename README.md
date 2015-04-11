@@ -182,7 +182,7 @@ _N/A (no sub-packages yet developed)_
 **S**
 `Supported Hash Algorithm List`       | Getter and Setter for supported hash algorithm list. |   Included in `Hash Algorithm`
 **T**
-_N/A (no sub-packages yet developed)_
+`Table Name`             | Getter and Setter package for a model table name |   https://bitbucket.org/aedart/model-table-name
 **U**
 `Uuid`             | Getter and Setter package for Universally unique identifier (UUID) |   https://bitbucket.org/aedart/model-uuid
 **V**
