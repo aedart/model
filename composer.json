@@ -28,6 +28,7 @@
         "aedart/model-email": "1.*",
         "aedart/model-hash-algorithm": "1.*",
         "aedart/model-vendor-path": "1.*",
+        "aedart/model-table-name": "1.*",
         "fenix440/model-description": "1.*",
         "fenix440/model-name": "1.*"
     },
