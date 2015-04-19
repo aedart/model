@@ -188,7 +188,7 @@ _N/A (no sub-packages yet developed)_
 **V**
 `Vendor Path`             | Getter and Setter package for vendor path |   https://bitbucket.org/aedart/model-vendor-path
 **W**
-_N/A (no sub-packages yet developed)_
+`Weight`     | Getter and Setter package for a model weight | https://bitbucket.org/fenix440/model-weight
 **X**
 _N/A (no sub-packages yet developed)_
 **Y**
