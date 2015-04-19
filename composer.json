@@ -30,7 +30,8 @@
         "aedart/model-vendor-path": "1.*",
         "aedart/model-table-name": "1.*",
         "fenix440/model-description": "1.*",
-        "fenix440/model-name": "1.*"
+        "fenix440/model-name": "1.*",
+        "fenix440/model-weight": "1.*"
     },
     "require-dev": {
       "aedart/license": "1.*",
