@@ -159,6 +159,7 @@ _N/A (no sub-packages yet developed)_
 `Gender`       | Getter and Setter package for some kind of model gender. |   https://bitbucket.org/fenix440/model-gender
 **H**
 `Hash Algorithm`       | Getter and Setter a hash algorithm (name). Includes `Supported Hash Algorithm List` |   https://bitbucket.org/aedart/model-hash-algorithm
+`Height`       | Getter and Setter package for some kind of model height. |   https://bitbucket.org/fenix440/model-height
 **I**
 `Id`             | Getter and Setter package for some kind of model identifier (id). |   https://bitbucket.org/aedart/model-id
 **J**
