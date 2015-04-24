@@ -162,6 +162,7 @@ _N/A (no sub-packages yet developed)_
 `Height`       | Getter and Setter package for some kind of model height. |   https://bitbucket.org/fenix440/model-height
 **I**
 `Id`             | Getter and Setter package for some kind of model identifier (id). |   https://bitbucket.org/aedart/model-id
+`Intensity`       | Getter and Setter package for some kind of model description. |   https://bitbucket.org/fenix440/model-intensity
 **J**
 _N/A (no sub-packages yet developed)_
 **K**
@@ -184,6 +185,7 @@ _N/A (no sub-packages yet developed)_
 `Supported Hash Algorithm List`       | Getter and Setter for supported hash algorithm list. |   Included in `Hash Algorithm`
 **T**
 `Table Name`             | Getter and Setter package for a model table name |   https://bitbucket.org/aedart/model-table-name
+`Type`       | Getter and Setter package for some kind of model type. |   https://bitbucket.org/fenix440/model-type
 **U**
 `Uuid`             | Getter and Setter package for Universally unique identifier (UUID) |   https://bitbucket.org/aedart/model-uuid
 **V**
