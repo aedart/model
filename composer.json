@@ -31,7 +31,12 @@
         "aedart/model-table-name": "1.*",
         "fenix440/model-description": "1.*",
         "fenix440/model-name": "1.*",
-        "fenix440/model-weight": "1.*"
+        "fenix440/model-weight": "1.*",
+        "fenix440/model-gender": "1.*",
+        "fenix440/model-age": "1.*",
+        "fenix440/model-height": "1.*",
+        "fenix440/model-intensity": "1.*",
+        "fenix440/model-date": "1.*"
     },
     "require-dev": {
       "aedart/license": "1.*",
