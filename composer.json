@@ -47,6 +47,6 @@
         "aedart/overload": "Property overloading via PHP's magic methods __get, __set, __isset and __unset"
     },
     "scripts": {
-      "post-update-cmd": "php vendor/bin/license-manager license:copy vendor/aedart/license/aedart/model/BSD-3-Clause"
+      "post-update-cmd": "vendor/bin/license-manager license:copy vendor/aedart/license/aedart/model/BSD-3-Clause"
     }
 }
