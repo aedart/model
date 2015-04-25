@@ -152,6 +152,7 @@ _N/A (no sub-packages yet developed)_
 **D**
 `Date`       | Getter and Setter package for some kind of model date. |   https://bitbucket.org/fenix440/model-date
 `Description`       | Getter and Setter package for some kind of model description. |   https://bitbucket.org/fenix440/model-description
+`Duration`       | Getter and Setter package for some kind of model duration. |   https://bitbucket.org/fenix440/model-duration
 **E**
 `Email`             | Getter and Setter package for a model email. |   https://bitbucket.org/aedart/model-email
 **F**
