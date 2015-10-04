@@ -1,4 +1,13 @@
+[![Latest Stable Version](https://poser.pugx.org/aedart/model/v/stable)](https://packagist.org/packages/aedart/model)
+[![Total Downloads](https://poser.pugx.org/aedart/model/downloads)](https://packagist.org/packages/aedart/model)
+[![Latest Unstable Version](https://poser.pugx.org/aedart/model/v/unstable)](https://packagist.org/packages/aedart/model)
+[![License](https://poser.pugx.org/aedart/model/license)](https://packagist.org/packages/aedart/model)
+[![Monthly Downloads](https://poser.pugx.org/aedart/model/d/monthly)](https://packagist.org/packages/aedart/model)
+[![Daily Downloads](https://poser.pugx.org/aedart/model/d/daily)](https://packagist.org/packages/aedart/model)
+
 ## Model ##
+
+**Status** : Currently under development...
 
 Collection of [getters and setters](http://en.wikipedia.org/wiki/Mutator_method)-interfaces with various trait implementations, for different kinds of "common" properties.
 
