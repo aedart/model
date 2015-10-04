@@ -21,7 +21,7 @@ class StringStartDateCompatibilityTest extends InterfaceAndTraitCompatibilityTes
      * @return string
      */
     public function dummyClassPath() {
-        return DummyStartDateContainer::class;
+        return DummyStringStartDateContainer::class;
     }
 
     /**
@@ -43,6 +43,6 @@ class StringStartDateCompatibilityTest extends InterfaceAndTraitCompatibilityTes
     }
 }
 
-class DummyStartDateContainer implements StartDateAware {
+class DummyStringStartDateContainer implements StartDateAware {
     use StartDateTrait;
 }
