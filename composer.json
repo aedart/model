@@ -36,7 +36,7 @@
     },
     "minimum-stability": "stable",
     "suggest": {
-        "aedart/overload": "Property overloading via PHP's magic methods __get, __set, __isset and __unset"
+        "aedart/dto": "This package is ideal for the Data Transfer Object (DTO) abstraction"
     },
     "scripts": {
       "post-update-cmd": "vendor/bin/license-manager license:copy vendor/aedart/license/aedart/model/BSD-3-Clause"
