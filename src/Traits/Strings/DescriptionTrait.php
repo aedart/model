@@ -1,5 +1,4 @@
 <?php namespace Aedart\Model\Traits\Strings;
-use Aedart\Model\Contracts\Strings\DescriptionAware;
 
 /**
  * <h1>Description Trait</h1>
