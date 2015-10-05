@@ -1,6 +1,5 @@
 <?php namespace Aedart\Model\Contracts\Strings;
 
-
 /**
  * <h1>UUID Aware</h1>
  *
