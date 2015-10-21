@@ -5,20 +5,15 @@
     "Getter",
     "Setter",
     "Model",
-    "Data",
-    "Validation"
+    "DTO"
   ],
-  "homepage": "https://bitbucket.org/aedart/model",
+  "homepage": "https://github.com/aedart/model",
   "license": "BSD-3-Clause",
   "type": "library",
   "authors": [
     {
       "name": "Alin Eugen Deac",
       "email": "aedart@gmail.com"
-    },
-    {
-      "name": "Bartlomiej Szala",
-      "email": "fenix440@gmail.com"
     }
   ],
   "require": {
@@ -26,8 +21,8 @@
   },
   "require-dev": {
     "aedart/license": "1.*",
-    "aedart/license-file-manager": "~1.3",
-    "aedart/testing-laravel": "~1.4"
+    "aedart/license-file-manager": "~1.4",
+    "aedart/testing-laravel": "~1.5"
   },
   "autoload": {
     "psr-4": {
@@ -39,7 +34,7 @@
     "aedart/dto": "This package is ideal for the Data Transfer Object (DTO) abstraction"
   },
   "scripts": {
-    "post-update-cmd": "vendor/bin/license-manager license:copy vendor/aedart/license/aedart/model/BSD-3-Clause"
+    "post-update-cmd": "vendor/bin/license-manager license:copy vendor/aedart/license/aedart/BSD-3-Clause"
   },
   "extra": {
     "branch-alias": {
