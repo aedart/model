@@ -82,8 +82,57 @@ class Person implements PersonInterface {
 |---------------------------------|-----------------|
 | **A**                           |                 |
 | _N/A (no properties yet added)_ |                 |
-|                                 |                 |
-|                                 |                 |
+| **B**                           |                 |
+| _N/A (no properties yet added)_ |                 |
+| **C**                           |                 |
+| _N/A (no properties yet added)_ |                 |
+| **D**                           |                 |
+| _N/A (no properties yet added)_ |                 |
+| **E**                           |                 |
+| _N/A (no properties yet added)_ |                 |
+| **F**                           |                 |
+| _N/A (no properties yet added)_ |                 |
+| **G**                           |                 |
+| _N/A (no properties yet added)_ |                 |
+| **H**                           |                 |
+| _N/A (no properties yet added)_ |                 |
+| **I**                           |                 |
+| _N/A (no properties yet added)_ |                 |
+| **J**                           |                 |
+| _N/A (no properties yet added)_ |                 |
+| **K**                           |                 |
+| _N/A (no properties yet added)_ |                 |
+| **L**                           |                 |
+| _N/A (no properties yet added)_ |                 |
+| **M**                           |                 |
+| _N/A (no properties yet added)_ |                 |
+| **N**                           |                 |
+| _N/A (no properties yet added)_ |                 |
+| **O**                           |                 |
+| _N/A (no properties yet added)_ |                 |
+| **P**                           |                 |
+| _N/A (no properties yet added)_ |                 |
+| **Q**                           |                 |
+| _N/A (no properties yet added)_ |                 |
+| **R**                           |                 |
+| _N/A (no properties yet added)_ |                 |
+| **S**                           |                 |
+| _N/A (no properties yet added)_ |                 |
+| **T**                           |                 |
+| _N/A (no properties yet added)_ |                 |
+| **U**                           |                 |
+| _N/A (no properties yet added)_ |                 |
+| **V**                           |                 |
+| _N/A (no properties yet added)_ |                 |
+| **W**                           |                 |
+| _N/A (no properties yet added)_ |                 |
+| **X**                           |                 |
+| _N/A (no properties yet added)_ |                 |
+| **Y**                           |                 |
+| _N/A (no properties yet added)_ |                 |
+| **Z**                           |                 |
+| _N/A (no properties yet added)_ |                 |
+
 
 ## Contribution
 
