@@ -45,7 +45,7 @@ class StringBasePathTraitTest extends GetterSetterTraitTestCase{
      * @covers ::hasDefaultBasePath
      * @covers ::getDefaultBasePath
      */
-    public function contentTraitMethods(){
+    public function basePathTraitMethods(){
         $this->assertGetterSetterTraitMethods('usr/share/', 'home/www/my-web/');
     }
 }
