@@ -87,6 +87,7 @@ class Person implements PersonInterface {
 | `Content`                       | string          |
 | `CreatedAt`                     | string          |
 | **D**                           |                 |
+| `Data`                          | array           |
 | `Date`                          | string          |
 | `DeletedAt`                     | string          |
 | `Description`                   | string          |
