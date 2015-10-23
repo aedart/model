@@ -7,7 +7,7 @@ use Aedart\Model\Traits\Strings\FilenameTrait;
  *
  * @group traits
  * @group strings
- * @coversDefaultClass
+ * @coversDefaultClass Aedart\Model\Traits\Strings\FilenameTrait
  *
  * @author Alin Eugen Deac <aedart@gmail.com>
  */
