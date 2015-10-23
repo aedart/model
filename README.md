@@ -82,7 +82,7 @@ class Person implements PersonInterface {
 | **A**                           |                 |
 | `Age`                           | int             |
 | **B**                           |                 |
-| _N/A (no properties yet added)_ |                 |
+| `BasePath`                      | string          |
 | **C**                           |                 |
 | `Content`                       | string          |
 | `CreatedAt`                     | string          |
