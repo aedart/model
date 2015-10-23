@@ -95,7 +95,7 @@ class Person implements PersonInterface {
 | `Email`                         | string          |
 | `EndDate`                       | string          |
 | **F**                           |                 |
-| _N/A (no properties yet added)_ |                 |
+| `Filename`                      | string          |
 | **G**                           |                 |
 | _N/A (no properties yet added)_ |                 |
 | **H**                           |                 |
