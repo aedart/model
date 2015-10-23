@@ -113,7 +113,7 @@ class Person implements PersonInterface {
 | **N**                           |                 |
 | `Name`                          | string          |
 | **O**                           |                 |
-| _N/A (no properties yet added)_ |                 |
+| `OutputPath`                    | string          |
 | **P**                           |                 |
 | `Password`                      | string          |
 | **Q**                           |                 |
