@@ -125,6 +125,7 @@ class Person implements PersonInterface {
 | `Slug`                          | string          |
 | `StartDate`                     | string          |
 | **T**                           |                 |
+| `Template`                      | string          |
 | `Title`                         | string          |
 | **U**                           |                 |
 | `UpdatedAt`                     | string          |
