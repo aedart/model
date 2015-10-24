@@ -81,6 +81,7 @@ class Person implements PersonInterface {
 |---------------------------------|-----------------|
 | **A**                           |                 |
 | `Age`                           | int             |
+| `Ask`                           | bool            |
 | **B**                           |                 |
 | `BasePath`                      | string          |
 | **C**                           |                 |
