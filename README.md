@@ -92,6 +92,7 @@ class Person implements PersonInterface {
 | `Date`                          | string          |
 | `DeletedAt`                     | string          |
 | `Description`                   | string          |
+| `Directory`                     | string          |
 | **E**                           |                 |
 | `Email`                         | string          |
 | `EndDate`                       | string          |
