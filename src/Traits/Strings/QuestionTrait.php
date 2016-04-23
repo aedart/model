@@ -26,7 +26,7 @@ trait QuestionTrait
      */
     public function setQuestion($questionToAsk)
     {
-        $this->question = $questionToAsk;
+        $this->question = (string) $questionToAsk;
     }
 
     /**

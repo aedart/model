@@ -26,7 +26,7 @@ trait ValueTrait
      */
     public function setValue($value)
     {
-        $this->value = $value;
+        $this->value = (string) $value;
     }
 
     /**

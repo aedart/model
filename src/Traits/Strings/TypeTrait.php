@@ -27,7 +27,7 @@ trait TypeTrait
      */
     public function setType($type)
     {
-        $this->type = $type;
+        $this->type = (string) $type;
     }
 
     /**
