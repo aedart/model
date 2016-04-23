@@ -135,7 +135,7 @@ class Person implements PersonInterface {
 | `Username`                      | string          |
 | `Uuid`                          | string          |
 | **V**                           |                 |
-| _N/A (no properties yet added)_ |                 |
+| `Value`                         | string          |
 | **W**                           |                 |
 | _N/A (no properties yet added)_ |                 |
 | **X**                           |                 |
