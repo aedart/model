@@ -85,6 +85,7 @@ class Person implements PersonInterface {
 | **B**                           |                 |
 | `BasePath`                      | string          |
 | **C**                           |                 |
+| `Choices`                       | array           |
 | `Content`                       | string          |
 | `CreatedAt`                     | string          |
 | **D**                           |                 |
