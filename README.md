@@ -128,6 +128,7 @@ class Person implements PersonInterface {
 | **T**                           |                 |
 | `Template`                      | string          |
 | `Title`                         | string          |
+| `Type`                          | string          |
 | **U**                           |                 |
 | `UpdatedAt`                     | string          |
 | `Url`                           | string          |
