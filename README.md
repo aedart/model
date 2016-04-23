@@ -129,7 +129,7 @@ class Person implements PersonInterface {
 | **T**                           |                 |
 | `Template`                      | string          |
 | `Title`                         | string          |
-| `Type`                          | string          |
+| `Type`                          | int, string     |
 | **U**                           |                 |
 | `UpdatedAt`                     | string          |
 | `Url`                           | string          |
