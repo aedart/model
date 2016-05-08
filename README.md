@@ -125,6 +125,7 @@ class Person implements PersonInterface {
 | _N/A (no properties yet added)_ |                 |
 | **S**                           |                 |
 | `Slug`                          | string          |
+| `Source`                        | string          |
 | `StartDate`                     | string          |
 | **T**                           |                 |
 | `Template`                      | string          |
