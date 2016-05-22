@@ -99,6 +99,7 @@ class Person implements PersonInterface {
 | `EndDate`                       | string          |
 | **F**                           |                 |
 | `Filename`                      | string          |
+| `FilePath`                      | string          |
 | **G**                           |                 |
 | _N/A (no properties yet added)_ |                 |
 | **H**                           |                 |
