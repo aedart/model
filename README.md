@@ -121,6 +121,7 @@ class Person implements PersonInterface {
 | **P**                           |                 |
 | `Package`                       | string          |
 | `Password`                      | string          |
+| `Pattern`                       | string          |
 | **Q**                           |                 |
 | `Question`                      | string          |
 | **R**                           |                 |
