@@ -111,7 +111,7 @@ class Person implements PersonInterface {
 | **K**                           |                 |
 | _N/A (no properties yet added)_ |                 |
 | **L**                           |                 |
-| _N/A (no properties yet added)_ |                 |
+| `Locations`                     | array           |
 | **M**                           |                 |
 | _N/A (no properties yet added)_ |                 |
 | **N**                           |                 |
