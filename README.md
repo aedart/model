@@ -142,6 +142,7 @@ class Person implements PersonInterface {
 | **V**                           |                 |
 | `Value`                         | string          |
 | `Vendor`                        | string          |
+| `Version`                       | string          |
 | **W**                           |                 |
 | _N/A (no properties yet added)_ |                 |
 | **X**                           |                 |
