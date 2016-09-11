@@ -132,6 +132,7 @@ class Person implements PersonInterface {
 | `StartDate`                     | string          |
 | **T**                           |                 |
 | `Template`                      | string          |
+| `Timeout`                       | int             |
 | `Title`                         | string          |
 | `Type`                          | int, string     |
 | **U**                           |                 |
