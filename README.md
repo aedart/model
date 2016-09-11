@@ -127,6 +127,7 @@ class Person implements PersonInterface {
 | **R**                           |                 |
 | _N/A (no properties yet added)_ |                 |
 | **S**                           |                 |
+| `Script`                        | string          |
 | `Slug`                          | string          |
 | `Source`                        | string          |
 | `StartDate`                     | string          |
