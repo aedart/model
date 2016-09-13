@@ -13,29 +13,13 @@ trait {{ traitClassName }}
     {{ include('snippets/partials/property-description.twig') }}
     protected ${{ coreProperty }} = null;
 
-    /**
-     * Set {{ propertyInDescription }}
-     *
-     * @param {{ dataType }} ${{ inputArgument }} {{ propertyDescription }}
-     *
-     * @return void
-     */
+    {{ include('snippets/partials/set-method-description.twig') }}
     public function set{{ propertyName }}({{ inputType }}${{ inputArgument }})
     {
         $this->{{ coreProperty }} = {{ castType }}${{ inputArgument }};
     }
 
-    /**
-     * Get {{ propertyInDescription }}
-     *
-     * If no "{{ propertyInDescription }}" value has been set, this method will
-     * set and return a default "{{ propertyInDescription }}" value,
-     * if any such value is available
-     *
-     * @see getDefault{{ propertyName }}()
-     *
-     * @return {{ dataType }}|null "{{ propertyInDescription }}" value or null if no "{{ propertyInDescription }}" value has been set
-     */
+    {{ include('snippets/partials/get-method-description.twig') }}
     public function get{{ propertyName }}()
     {
         if (!$this->has{{ propertyName }}() && $this->hasDefault{{ propertyName }}()) {
@@ -44,31 +28,19 @@ trait {{ traitClassName }}
         return $this->{{ coreProperty }};
     }
 
-    /**
-     * Get a default "{{ propertyInDescription }}" value, if any is available
-     *
-     * @return {{ dataType }}|null A default "{{ propertyInDescription }}" value or null if no default value is available
-     */
+    {{ include('snippets/partials/get-default-method-description.twig') }}
     public function getDefault{{ propertyName }}()
     {
         return null;
     }
 
-    /**
-     * Check if "{{ propertyInDescription }}" has been set
-     *
-     * @return bool True if "{{ propertyInDescription }}" value has been set, false if not
-     */
+    {{ include('snippets/partials/has-method-description.twig') }}
     public function has{{ propertyName }}()
     {
         return isset($this->{{ coreProperty }});
     }
 
-    /**
-     * Check if a default "{{ propertyInDescription }}" is available or not
-     *
-     * @return bool True of a default "{{ propertyInDescription }}" value is available, false if not
-     */
+    {{ include('snippets/partials/has-default-method-description.twig') }}
     public function hasDefault{{ propertyName }}()
     {
         $default = $this->getDefault{{ propertyName }}();
