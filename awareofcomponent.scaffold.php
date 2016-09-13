@@ -173,7 +173,18 @@ return [
     | @see http://symfony.com/blog/new-in-symfony-2-8-console-style-guide
     */
     'templateData' => [
+        'propertyDescription' => [
 
+            'type'          => \Aedart\Scaffold\Contracts\Templates\Data\Type::QUESTION,
+
+            'question'      => 'Description of the property',
+
+            'value'         => 'n/a',
+
+            'postProcess'   => function($answer, array $previousAnswers){
+                return trim(ucfirst($answer));
+            }
+        ],
     ],
 
     /* ------------------------------------------------------------
