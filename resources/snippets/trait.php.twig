@@ -15,7 +15,7 @@ trait XXXXXAtTrait {
      *
      * @var {{ dataType }}|null
      */
-    protected $deletedAt = null;
+    protected ${{ coreProperty }} = null;
 
     /**
      * Set the given deleted at
@@ -25,7 +25,7 @@ trait XXXXXAtTrait {
      * @return void
      */
     public function setDeletedAt($date) {
-        $this->deletedAt = (string) $date;
+        $this->{{ coreProperty }} = (string) $date;
     }
 
     /**
@@ -43,7 +43,7 @@ trait XXXXXAtTrait {
         if (!$this->hasDeletedAt() && $this->hasDefaultDeletedAt()) {
             $this->setDeletedAt($this->getDefaultDeletedAt());
         }
-        return $this->deletedAt;
+        return $this->{{ coreProperty }};
     }
 
     /**
@@ -61,7 +61,7 @@ trait XXXXXAtTrait {
      * @return bool True if deleted at has been set, false if not
      */
     public function hasDeletedAt() {
-        return isset($this->deletedAt);
+        return isset($this->{{ coreProperty }});
     }
 
     /**

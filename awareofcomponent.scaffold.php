@@ -174,6 +174,19 @@ return [
     */
     'templateData' => [
 
+        'coreProperty' => [
+
+            'type'          => \Aedart\Scaffold\Contracts\Templates\Data\Type::QUESTION,
+
+            'question'      => 'What is the property\'s name?',
+
+            'value'         => 'myProperty',
+
+            'postProcess'   => function($answer, array $previousAnswers){
+                return lcfirst(\Illuminate\Support\Str::studly(trim($answer)));
+            }
+        ],
+
         'dataType' => [
 
             'type'          => \Aedart\Scaffold\Contracts\Templates\Data\Type::CHOICE,
