@@ -214,7 +214,22 @@ return [
     | directory of where the scaffold is being installed into!
     */
     'templates' => [
+        'trait' => [
+            'source'        => 'snippets/trait.php.twig',
 
+            'destination'   => [
+
+                'type'          => \Aedart\Scaffold\Contracts\Templates\Data\Type::QUESTION,
+
+                'question'      => 'Name of Trait file (automatically appends ".php")',
+
+                'value'         => 'new',
+
+                'postProcess'   => function($answer, array $previousAnswers){
+                    return \Illuminate\Support\Str::studly($answer) . '.php';
+                }
+            ],
+        ],
     ],
 
     /* ------------------------------------------------------------
