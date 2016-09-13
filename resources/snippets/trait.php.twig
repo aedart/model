@@ -20,12 +20,12 @@ trait {{ traitClassName }} {
     /**
      * Set the given deleted at
      *
-     * @param {{ dataType }} $date {{ propertyDescription }}
+     * @param {{ dataType }} ${{ inputArgument }} {{ propertyDescription }}
      *
      * @return void
      */
-    public function setDeletedAt($date) {
-        $this->{{ coreProperty }} = (string) $date;
+    public function setDeletedAt(${{ inputArgument }}) {
+        $this->{{ coreProperty }} = (string) ${{ inputArgument }};
     }
 
     /**

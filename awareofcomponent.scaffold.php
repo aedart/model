@@ -220,12 +220,25 @@ return [
 
             'type'          => \Aedart\Scaffold\Contracts\Templates\Data\Type::QUESTION,
 
-            'question'      => 'Description of the property',
+            'question'      => 'Description of the property?',
 
             'value'         => 'n/a',
 
             'postProcess'   => function($answer, array $previousAnswers){
                 return trim(ucfirst($answer));
+            }
+        ],
+
+        'inputArgument' => [
+
+            'type'          => \Aedart\Scaffold\Contracts\Templates\Data\Type::QUESTION,
+
+            'question'      => 'What is the input argument name?',
+
+            'value'         => 'value',
+
+            'postProcess'   => function($answer, array $previousAnswers){
+                return lcfirst(\Illuminate\Support\Str::studly(trim($answer)));
             }
         ],
 
