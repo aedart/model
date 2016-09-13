@@ -257,6 +257,13 @@ return [
             }
         ],
 
+        'title' => [
+
+            'postProcess'   => function($answer, array $previousAnswers){
+                return ucwords($previousAnswers['propertyInDescription']);
+            }
+        ],
+
         'traitClassName' => [
 
             'postProcess'   => function($answer, array $previousAnswers){
