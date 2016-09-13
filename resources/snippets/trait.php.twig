@@ -18,7 +18,7 @@ trait {{ traitClassName }}
     protected ${{ coreProperty }} = null;
 
     /**
-     * Set the given deleted at
+     * Set {{ propertyInDescription }}
      *
      * @param {{ dataType }} ${{ inputArgument }} {{ propertyDescription }}
      *
@@ -30,15 +30,15 @@ trait {{ traitClassName }}
     }
 
     /**
-     * Get the given deleted at
+     * Get {{ propertyInDescription }}
      *
-     * If no deleted at has been set, this method will
-     * set and return a default deleted at, if any such
-     * value is available
+     * If no "{{ propertyInDescription }}" value has been set, this method will
+     * set and return a default "{{ propertyInDescription }}" value,
+     * if any such value is available
      *
      * @see getDefault{{ propertyName }}()
      *
-     * @return {{ dataType }}|null deleted at or null if none deleted at has been set
+     * @return {{ dataType }}|null "{{ propertyInDescription }}" value or null if no "{{ propertyInDescription }}" value has been set
      */
     public function get{{ propertyName }}()
     {
@@ -49,9 +49,9 @@ trait {{ traitClassName }}
     }
 
     /**
-     * Get a default deleted at value, if any is available
+     * Get a default "{{ propertyInDescription }}" value, if any is available
      *
-     * @return {{ dataType }}|null A default deleted at value or Null if no default value is available
+     * @return {{ dataType }}|null A default "{{ propertyInDescription }}" value or null if no default value is available
      */
     public function getDefault{{ propertyName }}()
     {
@@ -59,9 +59,9 @@ trait {{ traitClassName }}
     }
 
     /**
-     * Check if deleted at has been set
+     * Check if "{{ propertyInDescription }}" has been set
      *
-     * @return bool True if deleted at has been set, false if not
+     * @return bool True if "{{ propertyInDescription }}" value has been set, false if not
      */
     public function has{{ propertyName }}()
     {
@@ -69,9 +69,9 @@ trait {{ traitClassName }}
     }
 
     /**
-     * Check if a default deleted at is available or not
+     * Check if a default "{{ propertyInDescription }}" is available or not
      *
-     * @return bool True of a default deleted at is available, false if not
+     * @return bool True of a default "{{ propertyInDescription }}" value is available, false if not
      */
     public function hasDefault{{ propertyName }}()
     {

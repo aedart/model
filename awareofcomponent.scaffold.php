@@ -245,16 +245,22 @@ return [
         'propertyName' => [
 
             'postProcess'   => function($answer, array $previousAnswers){
-                $coreProperty = $previousAnswers['coreProperty'];
-                return ucfirst($coreProperty);
+                return ucfirst($previousAnswers['coreProperty']);
+            }
+        ],
+
+        'propertyInDescription' => [
+
+            'postProcess'   => function($answer, array $previousAnswers){
+                $property = \Illuminate\Support\Str::snake($previousAnswers['propertyName']);
+                return str_replace('_', ' ', $property);
             }
         ],
 
         'traitClassName' => [
 
             'postProcess'   => function($answer, array $previousAnswers){
-                $coreProperty = $previousAnswers['propertyName'];
-                return ucfirst($coreProperty) . 'Trait';
+                return ucfirst($previousAnswers['propertyName']) . 'Trait';
             }
         ]
     ],
