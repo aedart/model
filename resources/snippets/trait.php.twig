@@ -10,11 +10,7 @@
  */
 trait {{ traitClassName }}
 {
-    /**
-     * {{ propertyDescription }}
-     *
-     * @var {{ dataType }}|null
-     */
+    {{ include('snippets/partials/property-description.twig') }}
     protected ${{ coreProperty }} = null;
 
     /**
