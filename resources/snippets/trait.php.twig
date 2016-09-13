@@ -26,7 +26,7 @@ trait {{ traitClassName }}
      */
     public function set{{ propertyName }}({{ inputType }}${{ inputArgument }})
     {
-        $this->{{ coreProperty }} = (string) ${{ inputArgument }};
+        $this->{{ coreProperty }} = {{ castType }}${{ inputArgument }};
     }
 
     /**

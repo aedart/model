@@ -293,6 +293,33 @@ return [
             }
         ],
 
+        'castType' => [
+
+            'postProcess'   => function($answer, array $previousAnswers){
+                $scalarType = $previousAnswers['scalarType'];
+
+                // For casting... PHP 5.6.x
+                // @see http://php.net/manual/en/language.types.type-juggling.php#language.types.typecasting
+                $supported = [
+                    'int',
+                    'integer',
+                    'bool',
+                    'boolean',
+                    'float',
+                    'double',
+                    'real',
+                    'string',
+                    //'array', // Should not be needed
+                    'object'
+                ];
+
+                if(in_array($scalarType, $supported)){
+                    return '(' .$scalarType . ') ';
+                }
+                return '';
+            }
+        ],
+
         'propertyName' => [
 
             'postProcess'   => function($answer, array $previousAnswers){
