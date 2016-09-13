@@ -8,8 +8,8 @@
  * @author Alin Eugen Deac <aedart@gmail.com>
  * @package Aedart\Model\Traits\Strings
  */
-trait {{ traitClassName }} {
-
+trait {{ traitClassName }}
+{
     /**
      * {{ propertyDescription }}
      *
@@ -24,7 +24,8 @@ trait {{ traitClassName }} {
      *
      * @return void
      */
-    public function set{{ propertyName }}(${{ inputArgument }}) {
+    public function set{{ propertyName }}(${{ inputArgument }})
+    {
         $this->{{ coreProperty }} = (string) ${{ inputArgument }};
     }
 
@@ -39,7 +40,8 @@ trait {{ traitClassName }} {
      *
      * @return {{ dataType }}|null deleted at or null if none deleted at has been set
      */
-    public function get{{ propertyName }}() {
+    public function get{{ propertyName }}()
+    {
         if (!$this->has{{ propertyName }}() && $this->hasDefault{{ propertyName }}()) {
             $this->set{{ propertyName }}($this->getDefault{{ propertyName }}());
         }
@@ -51,7 +53,8 @@ trait {{ traitClassName }} {
      *
      * @return {{ dataType }}|null A default deleted at value or Null if no default value is available
      */
-    public function getDefault{{ propertyName }}() {
+    public function getDefault{{ propertyName }}()
+    {
         return null;
     }
 
@@ -60,7 +63,8 @@ trait {{ traitClassName }} {
      *
      * @return bool True if deleted at has been set, false if not
      */
-    public function has{{ propertyName }}() {
+    public function has{{ propertyName }}()
+    {
         return isset($this->{{ coreProperty }});
     }
 
@@ -69,7 +73,8 @@ trait {{ traitClassName }} {
      *
      * @return bool True of a default deleted at is available, false if not
      */
-    public function hasDefault{{ propertyName }}() {
+    public function hasDefault{{ propertyName }}()
+    {
         $default = $this->getDefault{{ propertyName }}();
         return isset($default);
     }
