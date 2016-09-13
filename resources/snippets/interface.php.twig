@@ -1,0 +1,28 @@
+{{ '<?php' }} namespace Aedart\Model\Contracts\Strings;
+
+/**
+ * <h1>{{ title }} Aware</h1>
+ *
+ * Component is aware of a {{ dataType }} "{{ propertyInDescription }}" value, which can
+ * also be specified.
+ *
+ * @author Alin Eugen Deac <aedart@gmail.com>
+ * @package Aedart\Model\Traits\Strings
+ */
+interface {{ interfaceClassName }}
+{
+    {{ include('snippets/partials/set-method-description.twig') }}
+    {{ include('snippets/partials/set-method.twig') }};
+
+    {{ include('snippets/partials/get-method-description.twig') }}
+    {{ include('snippets/partials/get-method.twig') }};
+
+    {{ include('snippets/partials/get-default-method-description.twig') }}
+    {{ include('snippets/partials/get-default-method.twig') }};
+
+    {{ include('snippets/partials/has-method-description.twig') }}
+    {{ include('snippets/partials/has-method.twig') }};
+
+    {{ include('snippets/partials/has-default-method-description.twig') }}
+    {{ include('snippets/partials/has-default-method.twig') }};
+}
