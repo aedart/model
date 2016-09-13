@@ -200,7 +200,7 @@ return [
                 "mixed[]"
             ],
 
-            'value'         => 'Controllers',
+            'value'         => 'string',
         ],
 
         'propertyDescription' => [
