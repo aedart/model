@@ -347,6 +347,13 @@ return [
             'postProcess'   => function($answer, array $previousAnswers){
                 return ucfirst($previousAnswers['propertyName']) . 'Trait';
             }
+        ],
+
+        'interfaceClassName' => [
+
+            'postProcess'   => function($answer, array $previousAnswers){
+                return ucfirst($previousAnswers['propertyName']) . 'Aware';
+            }
         ]
     ],
 
@@ -395,6 +402,17 @@ return [
 
                 'postProcess'   => function($answer, array $previousAnswers){
                     return $previousAnswers['traitClassName'] . '.php';
+                }
+            ],
+        ],
+
+        'interface' => [
+            'source'        => 'snippets/interface.php.twig',
+
+            'destination'   => [
+
+                'postProcess'   => function($answer, array $previousAnswers){
+                    return $previousAnswers['interfaceClassName'] . '.php';
                 }
             ],
         ],
