@@ -242,10 +242,18 @@ return [
             }
         ],
 
-        'traitClassName' => [
+        'propertyName' => [
 
             'postProcess'   => function($answer, array $previousAnswers){
                 $coreProperty = $previousAnswers['coreProperty'];
+                return ucfirst($coreProperty);
+            }
+        ],
+
+        'traitClassName' => [
+
+            'postProcess'   => function($answer, array $previousAnswers){
+                $coreProperty = $previousAnswers['propertyName'];
                 return ucfirst($coreProperty) . 'Trait';
             }
         ]

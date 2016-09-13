@@ -24,7 +24,7 @@ trait {{ traitClassName }} {
      *
      * @return void
      */
-    public function setDeletedAt(${{ inputArgument }}) {
+    public function set{{ propertyName }}(${{ inputArgument }}) {
         $this->{{ coreProperty }} = (string) ${{ inputArgument }};
     }
 
@@ -35,13 +35,13 @@ trait {{ traitClassName }} {
      * set and return a default deleted at, if any such
      * value is available
      *
-     * @see getDefaultDeletedAt()
+     * @see getDefault{{ propertyName }}()
      *
      * @return {{ dataType }}|null deleted at or null if none deleted at has been set
      */
-    public function getDeletedAt() {
-        if (!$this->hasDeletedAt() && $this->hasDefaultDeletedAt()) {
-            $this->setDeletedAt($this->getDefaultDeletedAt());
+    public function get{{ propertyName }}() {
+        if (!$this->has{{ propertyName }}() && $this->hasDefault{{ propertyName }}()) {
+            $this->set{{ propertyName }}($this->getDefault{{ propertyName }}());
         }
         return $this->{{ coreProperty }};
     }
@@ -51,7 +51,7 @@ trait {{ traitClassName }} {
      *
      * @return {{ dataType }}|null A default deleted at value or Null if no default value is available
      */
-    public function getDefaultDeletedAt() {
+    public function getDefault{{ propertyName }}() {
         return null;
     }
 
@@ -60,7 +60,7 @@ trait {{ traitClassName }} {
      *
      * @return bool True if deleted at has been set, false if not
      */
-    public function hasDeletedAt() {
+    public function has{{ propertyName }}() {
         return isset($this->{{ coreProperty }});
     }
 
@@ -69,8 +69,8 @@ trait {{ traitClassName }} {
      *
      * @return bool True of a default deleted at is available, false if not
      */
-    public function hasDefaultDeletedAt() {
-        $default = $this->getDefaultDeletedAt();
+    public function hasDefault{{ propertyName }}() {
+        $default = $this->getDefault{{ propertyName }}();
         return isset($default);
     }
 }
