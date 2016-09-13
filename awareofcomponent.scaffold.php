@@ -228,6 +228,14 @@ return [
                 return trim(ucfirst($answer));
             }
         ],
+
+        'traitClassName' => [
+
+            'postProcess'   => function($answer, array $previousAnswers){
+                $coreProperty = $previousAnswers['coreProperty'];
+                return ucfirst($coreProperty) . 'Trait';
+            }
+        ]
     ],
 
     /* ------------------------------------------------------------
@@ -273,14 +281,8 @@ return [
 
             'destination'   => [
 
-                'type'          => \Aedart\Scaffold\Contracts\Templates\Data\Type::QUESTION,
-
-                'question'      => 'Name of Trait file (automatically appends ".php")',
-
-                'value'         => 'new',
-
                 'postProcess'   => function($answer, array $previousAnswers){
-                    return \Illuminate\Support\Str::studly($answer) . '.php';
+                    return $previousAnswers['traitClassName'] . '.php';
                 }
             ],
         ],
