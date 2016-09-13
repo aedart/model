@@ -24,7 +24,7 @@ trait {{ traitClassName }}
      *
      * @return void
      */
-    public function set{{ propertyName }}(${{ inputArgument }})
+    public function set{{ propertyName }}({{ inputType }}${{ inputArgument }})
     {
         $this->{{ coreProperty }} = (string) ${{ inputArgument }};
     }

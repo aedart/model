@@ -216,6 +216,37 @@ return [
             'value'         => 'string',
         ],
 
+        'scalarType' => [
+
+            'postProcess'   => function($answer, array $previousAnswers){
+                $dataType = $previousAnswers['dataType'];
+
+                if(strpos($dataType, '[]') !== false){
+                    return 'array';
+                }
+
+                // For casting... PHP 5.6.x
+                // @see http://php.net/manual/en/language.types.type-juggling.php#language.types.typecasting
+                $supported = [
+                    'int',
+                    'integer',
+                    'bool',
+                    'boolean',
+                    'float',
+                    'double',
+                    'real',
+                    'string',
+                    'array',
+                    'object'
+                ];
+
+                if(in_array($dataType, $supported)){
+                    return $dataType;
+                }
+                return '';
+            }
+        ],
+
         'propertyDescription' => [
 
             'type'          => \Aedart\Scaffold\Contracts\Templates\Data\Type::QUESTION,
@@ -239,6 +270,26 @@ return [
 
             'postProcess'   => function($answer, array $previousAnswers){
                 return lcfirst(\Illuminate\Support\Str::studly(trim($answer)));
+            }
+        ],
+
+        'inputType' => [
+
+            'postProcess'   => function($answer, array $previousAnswers){
+                $dataType = $previousAnswers['dataType'];
+
+                $supported = [
+                    'array',
+                    'callable'
+                ];
+
+                if(in_array($dataType, $supported)){
+                    return $dataType . ' ';
+                }
+                if(strpos($dataType, '[]') !== false){
+                    return 'array ';
+                }
+                return '';
             }
         ],
 
