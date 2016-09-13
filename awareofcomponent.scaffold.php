@@ -173,6 +173,36 @@ return [
     | @see http://symfony.com/blog/new-in-symfony-2-8-console-style-guide
     */
     'templateData' => [
+
+        'dataType' => [
+
+            'type'          => \Aedart\Scaffold\Contracts\Templates\Data\Type::CHOICE,
+
+            'question'      => 'What is the type of the property?',
+
+            'choices'       => [
+                "string",
+                "int",
+                "float",
+                "bool",
+                "resource",
+                "null",
+                "callable",
+                "array",
+                "mixed",
+                "string[]",
+                "int[]",
+                "float[]",
+                "bool[]",
+                "resource[]",
+                "callable[]",
+                "array[]",
+                "mixed[]"
+            ],
+
+            'value'         => 'Controllers',
+        ],
+
         'propertyDescription' => [
 
             'type'          => \Aedart\Scaffold\Contracts\Templates\Data\Type::QUESTION,
