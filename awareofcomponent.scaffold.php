@@ -24,7 +24,7 @@ return [
      | This description is displayed in the list of available
      | templates, when the CLI command is invoked.
      */
-    'description'   => 'Creates a "aware of" component, which consists of an interface and a default trait implementation',
+    'description'   => 'Creates an "aware of" component, which consists of an interface and a default trait implementation',
 
     /* ------------------------------------------------------------
      | Location of scaffold's files and templates
