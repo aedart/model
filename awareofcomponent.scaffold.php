@@ -1,40 +1,5 @@
 <?php
 
-if(!function_exists('scaffoldCacheGet')){
-    // TODO: This needs to be part of the scaffold!
-    function scaffoldCacheGet($key, $default = null){
-
-        $cache = []; // TODO: Should be static!
-
-        $file = '.scaffold/cache.json';
-        if(file_exists($file)){
-            $cache = json_decode(file_get_contents($file), true);
-        }
-
-        if(isset($cache[$key])){
-            return $cache[$key];
-        }
-
-        return $default;
-    }
-}
-
-if(!function_exists('scaffoldCacheSet')){
-    // TODO: This needs to be part of the scaffold!
-    function scaffoldCacheSet($key, $value){
-        $cache = []; // TODO: Should be static!
-
-        $file = '.scaffold/cache.json';
-        if(file_exists($file)){
-            $cache = json_decode(file_get_contents($file), true);
-        }
-
-        $cache[$key] = $value;
-
-        file_put_contents($file, json_encode($cache, JSON_PRETTY_PRINT));
-    }
-}
-
 return [
 
     /* ------------------------------------------------------------
@@ -215,11 +180,10 @@ return [
 
             'question'      => 'What this vendor\'s namespace?',
 
-            'value'         => scaffoldCacheGet('vendorNamespace', 'Acme\\Models'),
+            'value'         => scaffold_cache_get('vendorNamespace', 'Acme\\Models'),
 
             'postProcess'   => function($answer, array $previousAnswers){
-                scaffoldCacheSet('vendorNamespace', $answer);
-
+                scaffold_cache_put('vendorNamespace', $answer);
                 return $answer;
             }
         ],
