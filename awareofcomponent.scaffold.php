@@ -321,6 +321,32 @@ return [
 //            }
         ],
 
+        'author' => [
+
+            'type'          => \Aedart\Scaffold\Contracts\Templates\Data\Type::QUESTION,
+
+            'question'      => 'Author name?',
+
+            'value'         => git_user_name(),
+        ],
+
+        'email' => [
+
+            'type'          => \Aedart\Scaffold\Contracts\Templates\Data\Type::QUESTION,
+
+            'question'      => 'Author email?',
+
+            'value'         => git_user_email(),
+
+            'postProcess'   => function($answer, array $previousAnswers){
+                if(!filter_var($answer, FILTER_VALIDATE_EMAIL) === false){
+                    return $answer;
+                }
+
+                throw new \InvalidArgumentException(sprintf('Email "%s" is invalid', $answer));
+            }
+        ],
+
         'castType' => [
 
             'postProcess'   => function($answer, array $previousAnswers){
