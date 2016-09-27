@@ -326,6 +326,25 @@ return [
             }
         ],
 
+        'interfaceSubNamespace' => [
+
+            'type'          => \Aedart\Scaffold\Contracts\Templates\Data\Type::QUESTION,
+
+            'question'      => 'What is the interface\'s sub-namespace? (vendor namespace automatically prefixed)',
+
+            'value'         => 'Contracts',
+
+            'postProcess'   => function($answer, array $previousAnswers){
+
+                $parts = explode(' ', $answer);
+                array_walk($parts, function(&$value){
+                    $value = ucfirst($value);
+                });
+
+                return implode('\\', $parts);
+            }
+        ],
+
         'author' => [
 
             'type'          => \Aedart\Scaffold\Contracts\Templates\Data\Type::QUESTION,
@@ -406,6 +425,16 @@ return [
             'postProcess'   => function($answer, array $previousAnswers){
                 $vendorNs = $previousAnswers['vendorNamespace'];
                 $subNs = $previousAnswers['traitSubNamespace'];
+
+                return $vendorNs . '\\' . $subNs;
+            }
+        ],
+
+        'interfaceNamespace' => [
+
+            'postProcess'   => function($answer, array $previousAnswers){
+                $vendorNs = $previousAnswers['vendorNamespace'];
+                $subNs = $previousAnswers['interfaceSubNamespace'];
 
                 return $vendorNs . '\\' . $subNs;
             }
