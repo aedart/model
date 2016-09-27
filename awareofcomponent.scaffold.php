@@ -307,18 +307,23 @@ return [
             }
         ],
 
-        'traitNamespace' => [
+        'traitSubNamespace' => [
+
             'type'          => \Aedart\Scaffold\Contracts\Templates\Data\Type::QUESTION,
 
-            'question'      => 'What is the namespace for the trait?',
+            'question'      => 'What is the trait\'s sub-namespace? (vendor namespace automatically prefixed)',
 
-            'value'         => 'Amce\\Traits',
+            'value'         => 'Traits',
 
-//            'postProcess'   => function($answer, array $previousAnswers){
-//
-//
-//                return lcfirst(\Illuminate\Support\Str::studly(trim($answer)));
-//            }
+            'postProcess'   => function($answer, array $previousAnswers){
+
+                $parts = explode(' ', $answer);
+                array_walk($parts, function(&$value){
+                    $value = ucfirst($value);
+                });
+
+                return implode('\\', $parts);
+            }
         ],
 
         'author' => [
@@ -393,6 +398,16 @@ return [
 
             'postProcess'   => function($answer, array $previousAnswers){
                 return ucwords($previousAnswers['propertyInDescription']);
+            }
+        ],
+
+        'traitNamespace' => [
+
+            'postProcess'   => function($answer, array $previousAnswers){
+                $vendorNs = $previousAnswers['vendorNamespace'];
+                $subNs = $previousAnswers['traitSubNamespace'];
+
+                return $vendorNs . '\\' . $subNs;
             }
         ],
 
