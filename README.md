@@ -133,7 +133,7 @@ class Person implements PersonInterface
 | `LastName`                      | string          |
 | `Locations`                     | array           |
 | **M**                           |                 |
-| _N/A (no properties yet added)_ |                 |
+| `MiddleName`                    | string          |
 | **N**                           |                 |
 | `Name`                          | string          |
 | `Nickname`                      | string          |
