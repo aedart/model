@@ -3,18 +3,16 @@
 /**
  * <h1>Password Aware</h1>
  *
- * Components implementing this interface are aware of a password;
- * a series of characters used by a user or component to authenticate.
- *
- * @see https://en.wikipedia.org/wiki/Password
+ * Component is aware of a string "password" value, which can
+ * also be specified.
  *
  * @author Alin Eugen Deac <aedart@gmail.com>
- * @package Aedart\Model\Traits\Strings
+ * @package Aedart\Model\Contracts\Strings
  */
-interface PasswordAware {
-
+interface PasswordAware
+{
     /**
-     * Set the given password
+     * Set password
      *
      * @param string $password Password
      *
@@ -23,36 +21,36 @@ interface PasswordAware {
     public function setPassword($password);
 
     /**
-     * Get the given password
+     * Get password
      *
-     * If no password has been set, this method will
-     * set and return a default password, if any such
-     * value is available
+     * If no "password" value has been set, this method will
+     * set and return a default "password" value,
+     * if any such value is available
      *
      * @see getDefaultPassword()
      *
-     * @return string|null password or null if none password has been set
+     * @return string|null "password" value or null if no "password" value has been set
      */
     public function getPassword();
 
     /**
-     * Get a default password value, if any is available
+     * Get a default "password" value, if any is available
      *
-     * @return string|null A default password value or Null if no default value is available
+     * @return string|null A default "password" value or null if no default value is available
      */
     public function getDefaultPassword();
 
     /**
-     * Check if password has been set
+     * Check if "password" has been set
      *
-     * @return bool True if password has been set, false if not
+     * @return bool True if "password" value has been set, false if not
      */
     public function hasPassword();
 
     /**
-     * Check if a default password is available or not
+     * Check if a default "password" is available or not
      *
-     * @return bool True of a default password is available, false if not
+     * @return bool True of a default "password" value is available, false if not
      */
     public function hasDefaultPassword();
 }
