@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string formattedName'   => [
             \Aedart\Model\Traits\Strings\FormattedNameTrait::class,
             \Aedart\Model\Contracts\Strings\FormattedNameAware::class,
-            $faker->word,
-            $faker->word,
+            $faker->name,
+            $faker->name,
         ]
     ];
 };
