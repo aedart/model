@@ -99,6 +99,7 @@ class Person implements PersonInterface
 | `Directory`                     | string          |
 | **E**                           |                 |
 | `Ean`                           | string          |
+| `Ean8`                          | string          |
 | `Email`                         | string          |
 | `EndDate`                       | string          |
 | **F**                           |                 |
