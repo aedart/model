@@ -1,0 +1,15 @@
+{{ '<?php' }}
+
+/**
+ * Generated data provider for {{ dataType }} {{ coreProperty }} unit test
+ */
+return function(\Faker\Generator $faker){
+    return [
+        '{{ dataType }} {{ coreProperty }}'   => [
+            \{{ traitNamespace }}\{{ traitClassName }}::class,
+            \{{ interfaceNamespace }}\{{ interfaceClassName }}::class,
+            $faker->{{ fakerGetSetValue|raw }},
+            $faker->{{ fakerGetSetValue|raw }},
+        ]
+    ];
+};
