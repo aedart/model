@@ -1,5 +1,4 @@
-<?php
-namespace Aedart\Model\Traits\Mixed;
+<?php namespace Aedart\Model\Traits\Mixed;
 
 /**
  * <h1>Value Trait</h1>
@@ -19,7 +18,7 @@ trait ValueTrait
     protected $value = null;
 
     /**
-     * Set the given value
+     * Set value
      *
      * @param mixed $value The value of this component
      *
@@ -31,15 +30,15 @@ trait ValueTrait
     }
 
     /**
-     * Get the given value
+     * Get value
      *
-     * If no value has been set, this method will
-     * set and return a default value, if any such
-     * value is available
+     * If no "value" value has been set, this method will
+     * set and return a default "value" value,
+     * if any such value is available
      *
      * @see getDefaultValue()
      *
-     * @return mixed|null value or null if none value has been set
+     * @return mixed|null "value" value or null if no "value" value has been set
      */
     public function getValue()
     {
@@ -50,9 +49,9 @@ trait ValueTrait
     }
 
     /**
-     * Get a default value value, if any is available
+     * Get a default "value" value, if any is available
      *
-     * @return mixed|null A default value value or Null if no default value is available
+     * @return mixed|null A default "value" value or null if no default value is available
      */
     public function getDefaultValue()
     {
@@ -60,22 +59,23 @@ trait ValueTrait
     }
 
     /**
-     * Check if value has been set
+     * Check if "value" has been set
      *
-     * @return bool True if value has been set, false if not
+     * @return bool True if "value" value has been set, false if not
      */
     public function hasValue()
     {
-        return !is_null($this->value);
+        return isset($this->value);
     }
 
     /**
-     * Check if a default value is available or not
+     * Check if a default "value" is available or not
      *
-     * @return bool True of a default value is available, false if not
+     * @return bool True of a default "value" value is available, false if not
      */
     public function hasDefaultValue()
     {
-        return !is_null($this->getDefaultValue());
+        $default = $this->getDefaultValue();
+        return isset($default);
     }
 }
