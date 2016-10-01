@@ -111,7 +111,7 @@ class Person implements PersonInterface
 | **G**                           |                 |
 | _N/A (no properties yet added)_ |                 |
 | **H**                           |                 |
-| _N/A (no properties yet added)_ |                 |
+| `Html`                          | string          |
 | **I**                           |                 |
 | `Id`                            | int, string     |
 | `Ip`                            | string          |
