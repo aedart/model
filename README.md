@@ -86,7 +86,7 @@ class Person implements PersonInterface
 | `Ask`                           | bool            |
 | `Author`                        | string          |
 | **B**                           |                 |
-| `begin`                         | string          |
+| `Begin`                         | string          |
 | `BasePath`                      | string          |
 | **C**                           |                 |
 | `Choices`                       | array           |
