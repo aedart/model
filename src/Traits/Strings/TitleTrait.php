@@ -8,38 +8,40 @@
  * @author Alin Eugen Deac <aedart@gmail.com>
  * @package Aedart\Model\Traits\Strings
  */
-trait TitleTrait {
-
+trait TitleTrait
+{
     /**
-     * The title of a publication, a peron's title, job title... etc
+     * Title of a publication, a person, a job... etc
      *
      * @var string|null
      */
     protected $title = null;
 
     /**
-     * Set the given title
+     * Set title
      *
-     * @param string $title The title of a publication, a peron's title, job title... etc
+     * @param string $title Title of a publication, a person, a job... etc
      *
      * @return void
      */
-    public function setTitle($title) {
+    public function setTitle($title)
+    {
         $this->title = (string) $title;
     }
 
     /**
-     * Get the given title
+     * Get title
      *
-     * If no title has been set, this method will
-     * set and return a default title, if any such
-     * value is available
+     * If no "title" value has been set, this method will
+     * set and return a default "title" value,
+     * if any such value is available
      *
      * @see getDefaultTitle()
      *
-     * @return string|null title or null if none title has been set
+     * @return string|null "title" value or null if no "title" value has been set
      */
-    public function getTitle() {
+    public function getTitle()
+    {
         if (!$this->hasTitle() && $this->hasDefaultTitle()) {
             $this->setTitle($this->getDefaultTitle());
         }
@@ -47,35 +49,33 @@ trait TitleTrait {
     }
 
     /**
-     * Get a default title value, if any is available
+     * Get a default "title" value, if any is available
      *
-     * @return string|null A default title value or Null if no default value is available
+     * @return string|null A default "title" value or null if no default value is available
      */
-    public function getDefaultTitle() {
+    public function getDefaultTitle()
+    {
         return null;
     }
 
     /**
-     * Check if title has been set
+     * Check if "title" has been set
      *
-     * @return bool True if title has been set, false if not
+     * @return bool True if "title" value has been set, false if not
      */
-    public function hasTitle() {
-        if (!is_null($this->title)) {
-            return true;
-        }
-        return false;
+    public function hasTitle()
+    {
+        return isset($this->title);
     }
 
     /**
-     * Check if a default title is available or not
+     * Check if a default "title" is available or not
      *
-     * @return bool True of a default title is available, false if not
+     * @return bool True of a default "title" value is available, false if not
      */
-    public function hasDefaultTitle() {
-        if (!is_null($this->getDefaultTitle())) {
-            return true;
-        }
-        return false;
+    public function hasDefaultTitle()
+    {
+        $default = $this->getDefaultTitle();
+        return isset($default);
     }
 }
