@@ -8,8 +8,8 @@
  * @author Alin Eugen Deac <aedart@gmail.com>
  * @package Aedart\Model\Traits\Strings
  */
-trait UpdatedAtTrait {
-
+trait UpdatedAtTrait
+{
     /**
      * Date of when this component, entity or resource was updated
      *
@@ -18,28 +18,30 @@ trait UpdatedAtTrait {
     protected $updatedAt = null;
 
     /**
-     * Set the given updated at
+     * Set updated at
      *
      * @param string $date Date of when this component, entity or resource was updated
      *
      * @return void
      */
-    public function setUpdatedAt($date) {
+    public function setUpdatedAt($date)
+    {
         $this->updatedAt = (string) $date;
     }
 
     /**
-     * Get the given updated at
+     * Get updated at
      *
-     * If no updated at has been set, this method will
-     * set and return a default updated at, if any such
-     * value is available
+     * If no "updated at" value has been set, this method will
+     * set and return a default "updated at" value,
+     * if any such value is available
      *
      * @see getDefaultUpdatedAt()
      *
-     * @return string|null updated at or null if none updated at has been set
+     * @return string|null "updated at" value or null if no "updated at" value has been set
      */
-    public function getUpdatedAt() {
+    public function getUpdatedAt()
+    {
         if (!$this->hasUpdatedAt() && $this->hasDefaultUpdatedAt()) {
             $this->setUpdatedAt($this->getDefaultUpdatedAt());
         }
@@ -47,35 +49,33 @@ trait UpdatedAtTrait {
     }
 
     /**
-     * Get a default updated at value, if any is available
+     * Get a default "updated at" value, if any is available
      *
-     * @return string|null A default updated at value or Null if no default value is available
+     * @return string|null A default "updated at" value or null if no default value is available
      */
-    public function getDefaultUpdatedAt() {
+    public function getDefaultUpdatedAt()
+    {
         return null;
     }
 
     /**
-     * Check if updated at has been set
+     * Check if "updated at" has been set
      *
-     * @return bool True if updated at has been set, false if not
+     * @return bool True if "updated at" value has been set, false if not
      */
-    public function hasUpdatedAt() {
-        if (!is_null($this->updatedAt)) {
-            return true;
-        }
-        return false;
+    public function hasUpdatedAt()
+    {
+        return isset($this->updatedAt);
     }
 
     /**
-     * Check if a default updated at is available or not
+     * Check if a default "updated at" is available or not
      *
-     * @return bool True of a default updated at is available, false if not
+     * @return bool True of a default "updated at" value is available, false if not
      */
-    public function hasDefaultUpdatedAt() {
-        if (!is_null($this->getDefaultUpdatedAt())) {
-            return true;
-        }
-        return false;
+    public function hasDefaultUpdatedAt()
+    {
+        $default = $this->getDefaultUpdatedAt();
+        return isset($default);
     }
 }
