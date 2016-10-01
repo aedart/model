@@ -10,12 +10,12 @@
  * Furthermore, the path might or might not exist
  *
  * @author Alin Eugen Deac <aedart@gmail.com>
- * @package Aedart\Model\Traits\Strings
+ * @package Aedart\Model\Contracts\Strings
  */
-interface DirectoryAware {
-
+interface DirectoryAware
+{
     /**
-     * Set the given directory
+     * Set directory
      *
      * @param string $path Path to a given directory, relative or absolute, existing or none-existing
      *
@@ -24,36 +24,36 @@ interface DirectoryAware {
     public function setDirectory($path);
 
     /**
-     * Get the given directory
+     * Get directory
      *
-     * If no directory has been set, this method will
-     * set and return a default directory, if any such
-     * value is available
+     * If no "directory" value has been set, this method will
+     * set and return a default "directory" value,
+     * if any such value is available
      *
      * @see getDefaultDirectory()
      *
-     * @return string|null directory or null if none directory has been set
+     * @return string|null "directory" value or null if no "directory" value has been set
      */
     public function getDirectory();
 
     /**
-     * Get a default directory value, if any is available
+     * Get a default "directory" value, if any is available
      *
-     * @return string|null A default directory value or Null if no default value is available
+     * @return string|null A default "directory" value or null if no default value is available
      */
     public function getDefaultDirectory();
 
     /**
-     * Check if directory has been set
+     * Check if "directory" has been set
      *
-     * @return bool True if directory has been set, false if not
+     * @return bool True if "directory" value has been set, false if not
      */
     public function hasDirectory();
 
     /**
-     * Check if a default directory is available or not
+     * Check if a default "directory" is available or not
      *
-     * @return bool True of a default directory is available, false if not
+     * @return bool True of a default "directory" value is available, false if not
      */
     public function hasDefaultDirectory();
 }
