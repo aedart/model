@@ -452,6 +452,30 @@ return [
             'postProcess'   => function($answer, array $previousAnswers){
                 return ucfirst($previousAnswers['propertyName']) . 'Aware';
             }
+        ],
+
+        'srcDirectory' => [
+
+            'postProcess'   => function($answer, array $previousAnswers){
+
+                $package = json_decode(file_get_contents('composer.json'), true);
+                $psr4 = $package['autoload']['psr-4'];
+
+                $vendorNs = $previousAnswers['vendorNamespace'];
+
+                foreach ($psr4 as $namespace => $sourceDir){
+
+                    // Debug
+                    //echo PHP_EOL . $namespace . ' :: ' . $sourceDir . ' :: ' . $vendorNs . PHP_EOL;
+
+                    if(strpos($namespace, $vendorNs) !== false){
+                        return $sourceDir;
+                    }
+                }
+
+                // Fallback
+                return 'src/';
+            }
         ]
     ],
 
@@ -499,7 +523,12 @@ return [
             'destination'   => [
 
                 'postProcess'   => function($answer, array $previousAnswers){
-                    return $previousAnswers['traitClassName'] . '.php';
+                    $class = $previousAnswers['traitClassName'] . '.php';
+                    $srcDir = $previousAnswers['srcDirectory'];
+
+                    $destination = $srcDir .  str_replace('\\', DIRECTORY_SEPARATOR, $previousAnswers['traitSubNamespace']);
+
+                    return $destination . DIRECTORY_SEPARATOR . $class;
                 }
             ],
         ],
@@ -510,7 +539,12 @@ return [
             'destination'   => [
 
                 'postProcess'   => function($answer, array $previousAnswers){
-                    return $previousAnswers['interfaceClassName'] . '.php';
+                    $class = $previousAnswers['interfaceClassName'] . '.php';
+                    $srcDir = $previousAnswers['srcDirectory'];
+
+                    $destination = $srcDir .  str_replace('\\', DIRECTORY_SEPARATOR, $previousAnswers['interfaceSubNamespace']);
+
+                    return $destination . DIRECTORY_SEPARATOR . $class;
                 }
             ],
         ],
