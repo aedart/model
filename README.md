@@ -130,6 +130,7 @@ class Person implements PersonInterface
 | **K**                           |                 |
 | `Kind`                          | string          |
 | **L**                           |                 |
+| `LastName`                      | string          |
 | `Locations`                     | array           |
 | **M**                           |                 |
 | _N/A (no properties yet added)_ |                 |
