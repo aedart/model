@@ -162,7 +162,7 @@ class Person implements PersonInterface
 | **W**                           |                 |
 | _N/A (no properties yet added)_ |                 |
 | **X**                           |                 |
-| _N/A (no properties yet added)_ |                 |
+| `Xml`                           | string          |
 | **Y**                           |                 |
 | _N/A (no properties yet added)_ |                 |
 | **Z**                           |                 |
