@@ -1,5 +1,4 @@
-<?php
-namespace Aedart\Model\Traits\Integers;
+<?php namespace Aedart\Model\Traits\Integers;
 
 /**
  * <h1>Timeout Trait</h1>
@@ -19,7 +18,7 @@ trait TimeoutTrait
     protected $timeout = null;
 
     /**
-     * Set the given timeout
+     * Set timeout
      *
      * @param int $value Timeout
      *
@@ -31,15 +30,15 @@ trait TimeoutTrait
     }
 
     /**
-     * Get the given timeout
+     * Get timeout
      *
-     * If no timeout has been set, this method will
-     * set and return a default timeout, if any such
-     * value is available
+     * If no "timeout" value has been set, this method will
+     * set and return a default "timeout" value,
+     * if any such value is available
      *
      * @see getDefaultTimeout()
      *
-     * @return int|null timeout or null if none timeout has been set
+     * @return int|null "timeout" value or null if no "timeout" value has been set
      */
     public function getTimeout()
     {
@@ -50,9 +49,9 @@ trait TimeoutTrait
     }
 
     /**
-     * Get a default timeout value, if any is available
+     * Get a default "timeout" value, if any is available
      *
-     * @return int|null A default timeout value or Null if no default value is available
+     * @return int|null A default "timeout" value or null if no default value is available
      */
     public function getDefaultTimeout()
     {
@@ -60,22 +59,23 @@ trait TimeoutTrait
     }
 
     /**
-     * Check if timeout has been set
+     * Check if "timeout" has been set
      *
-     * @return bool True if timeout has been set, false if not
+     * @return bool True if "timeout" value has been set, false if not
      */
     public function hasTimeout()
     {
-        return !is_null($this->timeout);
+        return isset($this->timeout);
     }
 
     /**
-     * Check if a default timeout is available or not
+     * Check if a default "timeout" is available or not
      *
-     * @return bool True of a default timeout is available, false if not
+     * @return bool True of a default "timeout" value is available, false if not
      */
     public function hasDefaultTimeout()
     {
-        return !is_null($this->getDefaultTimeout());
+        $default = $this->getDefaultTimeout();
+        return isset($default);
     }
 }
