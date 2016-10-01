@@ -115,6 +115,7 @@ class Person implements PersonInterface
 | `Ip`                            | string          |
 | `IpV4`                          | string          |
 | `IpV6`                          | string          |
+| `Isbn`                          | string          |
 | **J**                           |                 |
 | _N/A (no properties yet added)_ |                 |
 | **K**                           |                 |
