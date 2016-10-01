@@ -126,7 +126,7 @@ class Person implements PersonInterface
 | `Isbn10`                        | string          |
 | `Isbn13`                        | string          |
 | **J**                           |                 |
-| _N/A (no properties yet added)_ |                 |
+| `Json`                          | string          |
 | **K**                           |                 |
 | `Kind`                          | string          |
 | **L**                           |                 |
