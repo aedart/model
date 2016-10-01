@@ -174,6 +174,9 @@ return [
     */
     'templateData' => [
 
+        /*
+         * Vendor Namespace
+         */
         'vendorNamespace' => [
 
             'type'          => \Aedart\Scaffold\Contracts\Templates\Data\Type::QUESTION,
@@ -188,6 +191,9 @@ return [
             }
         ],
 
+        /*
+         * Name of the property
+         */
         'coreProperty' => [
 
             'type'          => \Aedart\Scaffold\Contracts\Templates\Data\Type::QUESTION,
@@ -201,6 +207,9 @@ return [
             }
         ],
 
+        /*
+         * The data type of the property
+         */
         'dataType' => [
 
             'type'          => \Aedart\Scaffold\Contracts\Templates\Data\Type::CHOICE,
@@ -230,6 +239,9 @@ return [
             'value'         => 'string',
         ],
 
+        /*
+         * Scalar type (computed)
+         */
         'scalarType' => [
 
             'postProcess'   => function($answer, array $previousAnswers){
@@ -261,6 +273,9 @@ return [
             }
         ],
 
+        /*
+         * Property description
+         */
         'propertyDescription' => [
 
             'type'          => \Aedart\Scaffold\Contracts\Templates\Data\Type::QUESTION,
@@ -274,6 +289,9 @@ return [
             }
         ],
 
+        /*
+         * The setter method's input variable name
+         */
         'inputArgument' => [
 
             'type'          => \Aedart\Scaffold\Contracts\Templates\Data\Type::QUESTION,
@@ -287,6 +305,11 @@ return [
             }
         ],
 
+        /*
+         * The setter method's input scalar type, if any possible (computed)
+         *
+         * For PHP 7.x, this needs to be changed!
+         */
         'inputType' => [
 
             'postProcess'   => function($answer, array $previousAnswers){
@@ -307,6 +330,9 @@ return [
             }
         ],
 
+        /*
+         * Trait's sub-namespace
+         */
         'traitSubNamespace' => [
 
             'type'          => \Aedart\Scaffold\Contracts\Templates\Data\Type::QUESTION,
@@ -326,6 +352,9 @@ return [
             }
         ],
 
+        /*
+         * Interface's sub-namespace
+         */
         'interfaceSubNamespace' => [
 
             'type'          => \Aedart\Scaffold\Contracts\Templates\Data\Type::QUESTION,
@@ -345,6 +374,9 @@ return [
             }
         ],
 
+        /*
+         * Author
+         */
         'author' => [
 
             'type'          => \Aedart\Scaffold\Contracts\Templates\Data\Type::QUESTION,
@@ -354,6 +386,9 @@ return [
             'value'         => git_user_name(),
         ],
 
+        /*
+         * Email
+         */
         'email' => [
 
             'type'          => \Aedart\Scaffold\Contracts\Templates\Data\Type::QUESTION,
@@ -371,6 +406,9 @@ return [
             }
         ],
 
+        /*
+         * Cast to scalar type (computed)
+         */
         'castType' => [
 
             'postProcess'   => function($answer, array $previousAnswers){
@@ -398,6 +436,9 @@ return [
             }
         ],
 
+        /*
+         * Property name for get / set methods (computed)
+         */
         'propertyName' => [
 
             'postProcess'   => function($answer, array $previousAnswers){
@@ -405,6 +446,9 @@ return [
             }
         ],
 
+        /*
+         * Property name when used in a description (computed)
+         */
         'propertyInDescription' => [
 
             'postProcess'   => function($answer, array $previousAnswers){
@@ -413,6 +457,9 @@ return [
             }
         ],
 
+        /*
+         * Title (property name), used for PHPDoc (computed)
+         */
         'title' => [
 
             'postProcess'   => function($answer, array $previousAnswers){
@@ -420,6 +467,9 @@ return [
             }
         ],
 
+        /*
+         * Trait's full namespace (computed)
+         */
         'traitNamespace' => [
 
             'postProcess'   => function($answer, array $previousAnswers){
@@ -430,6 +480,9 @@ return [
             }
         ],
 
+        /*
+         * Interface's full namespace (computed)
+         */
         'interfaceNamespace' => [
 
             'postProcess'   => function($answer, array $previousAnswers){
@@ -440,6 +493,9 @@ return [
             }
         ],
 
+        /*
+         * Trait's class name (computed)
+         */
         'traitClassName' => [
 
             'postProcess'   => function($answer, array $previousAnswers){
@@ -447,6 +503,9 @@ return [
             }
         ],
 
+        /*
+         * Interface's class name (computed)
+         */
         'interfaceClassName' => [
 
             'postProcess'   => function($answer, array $previousAnswers){
@@ -454,6 +513,9 @@ return [
             }
         ],
 
+        /*
+         * Source directory (computed)
+         */
         'srcDirectory' => [
 
             'postProcess'   => function($answer, array $previousAnswers){
