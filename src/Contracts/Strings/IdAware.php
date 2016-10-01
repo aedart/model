@@ -3,15 +3,16 @@
 /**
  * <h1>Id Aware</h1>
  *
- * Components implementing this interface are aware of unique identifier
+ * Component is aware of a string "id" value, which can
+ * also be specified.
  *
  * @author Alin Eugen Deac <aedart@gmail.com>
- * @package Aedart\Model\Traits\Strings
+ * @package Aedart\Model\Contracts\Strings
  */
-interface IdAware {
-
+interface IdAware
+{
     /**
-     * Set the given id
+     * Set id
      *
      * @param string $identifier Unique identifier
      *
@@ -20,36 +21,36 @@ interface IdAware {
     public function setId($identifier);
 
     /**
-     * Get the given id
+     * Get id
      *
-     * If no id has been set, this method will
-     * set and return a default id, if any such
-     * value is available
+     * If no "id" value has been set, this method will
+     * set and return a default "id" value,
+     * if any such value is available
      *
      * @see getDefaultId()
      *
-     * @return string|null id or null if none id has been set
+     * @return string|null "id" value or null if no "id" value has been set
      */
     public function getId();
 
     /**
-     * Get a default id value, if any is available
+     * Get a default "id" value, if any is available
      *
-     * @return string|null A default id value or Null if no default value is available
+     * @return string|null A default "id" value or null if no default value is available
      */
     public function getDefaultId();
 
     /**
-     * Check if id has been set
+     * Check if "id" has been set
      *
-     * @return bool True if id has been set, false if not
+     * @return bool True if "id" value has been set, false if not
      */
     public function hasId();
 
     /**
-     * Check if a default id is available or not
+     * Check if a default "id" is available or not
      *
-     * @return bool True of a default id is available, false if not
+     * @return bool True of a default "id" value is available, false if not
      */
     public function hasDefaultId();
 }
