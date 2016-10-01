@@ -7,50 +7,50 @@
  * be asked or not.
  *
  * @author Alin Eugen Deac <aedart@gmail.com>
- * @package Aedart\Model\Traits\Booleans
+ * @package Aedart\Model\Contracts\Booleans
  */
-interface Askable {
-
+interface Askable
+{
     /**
-     * Set the given ask
+     * Set ask
      *
-     * @param bool $shouldAsk Ask - A state that indicates if a question should be asked or not
+     * @param bool $shouldAsk A state that indicates if a question should be asked or not
      *
      * @return void
      */
     public function setAsk($shouldAsk);
 
     /**
-     * Get the given ask
+     * Get ask
      *
-     * If no ask has been set, this method will
-     * set and return a default ask, if any such
-     * value is available
+     * If no "ask" value has been set, this method will
+     * set and return a default "ask" value,
+     * if any such value is available
      *
      * @see getDefaultAsk()
      *
-     * @return bool|null ask or null if none ask has been set
+     * @return bool|null "ask" value or null if no "ask" value has been set
      */
     public function getAsk();
 
     /**
-     * Get a default ask value, if any is available
+     * Get a default "ask" value, if any is available
      *
-     * @return bool|null A default ask value or Null if no default value is available
+     * @return bool|null A default "ask" value or null if no default value is available
      */
     public function getDefaultAsk();
 
     /**
-     * Check if ask has been set
+     * Check if "ask" has been set
      *
-     * @return bool True if ask has been set, false if not
+     * @return bool True if "ask" value has been set, false if not
      */
     public function hasAsk();
 
     /**
-     * Check if a default ask is available or not
+     * Check if a default "ask" is available or not
      *
-     * @return bool True of a default ask is available, false if not
+     * @return bool True of a default "ask" value is available, false if not
      */
     public function hasDefaultAsk();
 
