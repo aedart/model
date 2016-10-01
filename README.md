@@ -42,6 +42,7 @@ This package uses [composer](https://getcomposer.org/). If you do not know what 
 In the following example, we create a simple person interface, which consists of an id, name and description;
 
 ```php
+<?php
 namespace Acme\Contracts;
 
 use Aedart\Model\Contracts\Integers\IdAware;
@@ -52,7 +53,7 @@ interface Person extends IdAware,
     NameAware,
     DescriptionAware
 {
-
+    
 }
 ```
 
@@ -61,6 +62,7 @@ interface Person extends IdAware,
 Use the default provided traits, in order to create a concrete implementation of your interface;
 
 ```php
+<?php
 namespace Acme\Models;
 
 use Acme\Contracts\Person as PersonInterface;
@@ -68,10 +70,9 @@ use Aedart\Model\Traits\Strings\DescriptionTrait;
 use Aedart\Model\Traits\Strings\IdTrait;
 use Aedart\Model\Traits\Strings\NameTrait;
 
-class Person implements PersonInterface {
-
-    use IdTrait, NameTrait, DescriptionTrait;
-    
+class Person implements PersonInterface
+{
+    use IdTrait, NameTrait, DescriptionTrait;   
 }
 ```
 
@@ -199,7 +200,7 @@ As soon as I receive the pull-request (_and have time for it_), I will review yo
 
 ## Versioning
 
-This package uses [Semantic Versioning 2.0.0](http://semver.org/)
+This package follows [Semantic Versioning 2.0.0](http://semver.org/)
 
 ## License
 
