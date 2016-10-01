@@ -97,6 +97,7 @@ class Person implements PersonInterface
 | **D**                           |                 |
 | `Data`                          | array           |
 | `Date`                          | string          |
+| `DeceasedAt`                    | string          |
 | `DeletedAt`                     | string          |
 | `Description`                   | string          |
 | `Directory`                     | string          |
