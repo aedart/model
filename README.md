@@ -159,6 +159,7 @@ class Person implements PersonInterface
 | `Template`                      | string          |
 | `Timeout`                       | int             |
 | `Title`                         | string          |
+| `Topic`                         | string          |
 | `Type`                          | int, string     |
 | **U**                           |                 |
 | `UpdatedAt`                     | string          |
