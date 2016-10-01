@@ -100,6 +100,7 @@ class Person implements PersonInterface
 | **E**                           |                 |
 | `Ean`                           | string          |
 | `Ean8`                          | string          |
+| `Ean13`                         | string          |
 | `Email`                         | string          |
 | `EndDate`                       | string          |
 | **F**                           |                 |
