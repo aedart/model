@@ -8,8 +8,8 @@
  * @author Alin Eugen Deac <aedart@gmail.com>
  * @package Aedart\Model\Traits\Strings
  */
-trait DescriptionTrait {
-
+trait DescriptionTrait
+{
     /**
      * Description
      *
@@ -18,28 +18,30 @@ trait DescriptionTrait {
     protected $description = null;
 
     /**
-     * Set the given description
+     * Set description
      *
      * @param string $description Description
      *
      * @return void
      */
-    public function setDescription($description) {
+    public function setDescription($description)
+    {
         $this->description = (string) $description;
     }
 
     /**
-     * Get the given description
+     * Get description
      *
-     * If no description has been set, this method will
-     * set and return a default description, if any such
-     * value is available
+     * If no "description" value has been set, this method will
+     * set and return a default "description" value,
+     * if any such value is available
      *
      * @see getDefaultDescription()
      *
-     * @return string|null description or null if none description has been set
+     * @return string|null "description" value or null if no "description" value has been set
      */
-    public function getDescription() {
+    public function getDescription()
+    {
         if (!$this->hasDescription() && $this->hasDefaultDescription()) {
             $this->setDescription($this->getDefaultDescription());
         }
@@ -47,35 +49,33 @@ trait DescriptionTrait {
     }
 
     /**
-     * Get a default description value, if any is available
+     * Get a default "description" value, if any is available
      *
-     * @return string|null A default description value or Null if no default value is available
+     * @return string|null A default "description" value or null if no default value is available
      */
-    public function getDefaultDescription() {
+    public function getDefaultDescription()
+    {
         return null;
     }
 
     /**
-     * Check if description has been set
+     * Check if "description" has been set
      *
-     * @return bool True if description has been set, false if not
+     * @return bool True if "description" value has been set, false if not
      */
-    public function hasDescription() {
-        if (!is_null($this->description)) {
-            return true;
-        }
-        return false;
+    public function hasDescription()
+    {
+        return isset($this->description);
     }
 
     /**
-     * Check if a default description is available or not
+     * Check if a default "description" is available or not
      *
-     * @return bool True of a default description is available, false if not
+     * @return bool True of a default "description" value is available, false if not
      */
-    public function hasDefaultDescription() {
-        if (!is_null($this->getDefaultDescription())) {
-            return true;
-        }
-        return false;
+    public function hasDefaultDescription()
+    {
+        $default = $this->getDefaultDescription();
+        return isset($default);
     }
 }
