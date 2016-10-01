@@ -1,8 +1,7 @@
-<?php
-namespace Aedart\Model\Traits\Arrays;
+<?php namespace Aedart\Model\Traits\Arrays;
 
 /**
- * Locations Trait
+ * <h1>Locations Trait</h1>
  *
  * @see \Aedart\Model\Contracts\Arrays\LocationsAware
  *
@@ -19,7 +18,7 @@ trait LocationsTrait
     protected $locations = null;
 
     /**
-     * Set the given locations
+     * Set locations
      *
      * @param string[] $locations Locations list
      *
@@ -31,15 +30,15 @@ trait LocationsTrait
     }
 
     /**
-     * Get the given locations
+     * Get locations
      *
-     * If no locations has been set, this method will
-     * set and return a default locations, if any such
-     * value is available
+     * If no "locations" value has been set, this method will
+     * set and return a default "locations" value,
+     * if any such value is available
      *
      * @see getDefaultLocations()
      *
-     * @return string[]|null locations or null if none locations has been set
+     * @return string[]|null "locations" value or null if no "locations" value has been set
      */
     public function getLocations()
     {
@@ -50,9 +49,9 @@ trait LocationsTrait
     }
 
     /**
-     * Get a default locations value, if any is available
+     * Get a default "locations" value, if any is available
      *
-     * @return string[]|null A default locations value or Null if no default value is available
+     * @return string[]|null A default "locations" value or null if no default value is available
      */
     public function getDefaultLocations()
     {
@@ -60,22 +59,23 @@ trait LocationsTrait
     }
 
     /**
-     * Check if locations has been set
+     * Check if "locations" has been set
      *
-     * @return bool True if locations has been set, false if not
+     * @return bool True if "locations" value has been set, false if not
      */
     public function hasLocations()
     {
-        return !is_null($this->locations);
+        return isset($this->locations);
     }
 
     /**
-     * Check if a default locations is available or not
+     * Check if a default "locations" is available or not
      *
-     * @return bool True of a default locations is available, false if not
+     * @return bool True of a default "locations" value is available, false if not
      */
     public function hasDefaultLocations()
     {
-        return !is_null($this->getDefaultLocations());
+        $default = $this->getDefaultLocations();
+        return isset($default);
     }
 }
