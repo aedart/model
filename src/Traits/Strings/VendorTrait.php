@@ -18,7 +18,7 @@ trait VendorTrait
     protected $vendor = null;
 
     /**
-     * Set the given vendor
+     * Set vendor
      *
      * @param string $name Name of a vendor
      *
@@ -30,15 +30,15 @@ trait VendorTrait
     }
 
     /**
-     * Get the given vendor
+     * Get vendor
      *
-     * If no vendor has been set, this method will
-     * set and return a default vendor, if any such
-     * value is available
+     * If no "vendor" value has been set, this method will
+     * set and return a default "vendor" value,
+     * if any such value is available
      *
      * @see getDefaultVendor()
      *
-     * @return string|null vendor or null if none vendor has been set
+     * @return string|null "vendor" value or null if no "vendor" value has been set
      */
     public function getVendor()
     {
@@ -49,9 +49,9 @@ trait VendorTrait
     }
 
     /**
-     * Get a default vendor value, if any is available
+     * Get a default "vendor" value, if any is available
      *
-     * @return string|null A default vendor value or Null if no default value is available
+     * @return string|null A default "vendor" value or null if no default value is available
      */
     public function getDefaultVendor()
     {
@@ -59,22 +59,23 @@ trait VendorTrait
     }
 
     /**
-     * Check if vendor has been set
+     * Check if "vendor" has been set
      *
-     * @return bool True if vendor has been set, false if not
+     * @return bool True if "vendor" value has been set, false if not
      */
     public function hasVendor()
     {
-        return !is_null($this->vendor);
+        return isset($this->vendor);
     }
 
     /**
-     * Check if a default vendor is available or not
+     * Check if a default "vendor" is available or not
      *
-     * @return bool True of a default vendor is available, false if not
+     * @return bool True of a default "vendor" value is available, false if not
      */
     public function hasDefaultVendor()
     {
-        return !is_null($this->getDefaultVendor());
+        $default = $this->getDefaultVendor();
+        return isset($default);
     }
 }

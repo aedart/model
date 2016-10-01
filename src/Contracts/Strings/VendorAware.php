@@ -1,18 +1,18 @@
 <?php namespace Aedart\Model\Contracts\Strings;
 
-
 /**
  * <h1>Vendor Aware</h1>
  *
- * Component is able to obtain and specify a vendor name
+ * Component is aware of a string "vendor" value, which can
+ * also be specified.
  *
  * @author Alin Eugen Deac <aedart@gmail.com>
- * @package Aedart\Model\Traits\Strings
+ * @package Aedart\Model\Contracts\Strings
  */
 interface VendorAware
 {
     /**
-     * Set the given vendor
+     * Set vendor
      *
      * @param string $name Name of a vendor
      *
@@ -21,36 +21,36 @@ interface VendorAware
     public function setVendor($name);
 
     /**
-     * Get the given vendor
+     * Get vendor
      *
-     * If no vendor has been set, this method will
-     * set and return a default vendor, if any such
-     * value is available
+     * If no "vendor" value has been set, this method will
+     * set and return a default "vendor" value,
+     * if any such value is available
      *
      * @see getDefaultVendor()
      *
-     * @return string|null vendor or null if none vendor has been set
+     * @return string|null "vendor" value or null if no "vendor" value has been set
      */
     public function getVendor();
 
     /**
-     * Get a default vendor value, if any is available
+     * Get a default "vendor" value, if any is available
      *
-     * @return string|null A default vendor value or Null if no default value is available
+     * @return string|null A default "vendor" value or null if no default value is available
      */
     public function getDefaultVendor();
 
     /**
-     * Check if vendor has been set
+     * Check if "vendor" has been set
      *
-     * @return bool True if vendor has been set, false if not
+     * @return bool True if "vendor" value has been set, false if not
      */
     public function hasVendor();
 
     /**
-     * Check if a default vendor is available or not
+     * Check if a default "vendor" is available or not
      *
-     * @return bool True of a default vendor is available, false if not
+     * @return bool True of a default "vendor" value is available, false if not
      */
     public function hasDefaultVendor();
 }
