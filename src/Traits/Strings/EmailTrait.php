@@ -8,8 +8,8 @@
  * @author Alin Eugen Deac <aedart@gmail.com>
  * @package Aedart\Model\Traits\Strings
  */
-trait EmailTrait {
-
+trait EmailTrait
+{
     /**
      * Email
      *
@@ -18,28 +18,30 @@ trait EmailTrait {
     protected $email = null;
 
     /**
-     * Set the given email
+     * Set email
      *
      * @param string $email Email
      *
      * @return void
      */
-    public function setEmail($email) {
+    public function setEmail($email)
+    {
         $this->email = (string) $email;
     }
 
     /**
-     * Get the given email
+     * Get email
      *
-     * If no email has been set, this method will
-     * set and return a default email, if any such
-     * value is available
+     * If no "email" value has been set, this method will
+     * set and return a default "email" value,
+     * if any such value is available
      *
      * @see getDefaultEmail()
      *
-     * @return string|null email or null if none email has been set
+     * @return string|null "email" value or null if no "email" value has been set
      */
-    public function getEmail() {
+    public function getEmail()
+    {
         if (!$this->hasEmail() && $this->hasDefaultEmail()) {
             $this->setEmail($this->getDefaultEmail());
         }
@@ -47,35 +49,33 @@ trait EmailTrait {
     }
 
     /**
-     * Get a default email value, if any is available
+     * Get a default "email" value, if any is available
      *
-     * @return string|null A default email value or Null if no default value is available
+     * @return string|null A default "email" value or null if no default value is available
      */
-    public function getDefaultEmail() {
+    public function getDefaultEmail()
+    {
         return null;
     }
 
     /**
-     * Check if email has been set
+     * Check if "email" has been set
      *
-     * @return bool True if email has been set, false if not
+     * @return bool True if "email" value has been set, false if not
      */
-    public function hasEmail() {
-        if (!is_null($this->email)) {
-            return true;
-        }
-        return false;
+    public function hasEmail()
+    {
+        return isset($this->email);
     }
 
     /**
-     * Check if a default email is available or not
+     * Check if a default "email" is available or not
      *
-     * @return bool True of a default email is available, false if not
+     * @return bool True of a default "email" value is available, false if not
      */
-    public function hasDefaultEmail() {
-        if (!is_null($this->getDefaultEmail())) {
-            return true;
-        }
-        return false;
+    public function hasDefaultEmail()
+    {
+        $default = $this->getDefaultEmail();
+        return isset($default);
     }
 }
