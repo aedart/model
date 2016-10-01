@@ -8,38 +8,40 @@
  * @author Alin Eugen Deac <aedart@gmail.com>
  * @package Aedart\Model\Traits\Arrays
  */
-trait DataTrait {
-
+trait DataTrait
+{
     /**
-     * Data - A list (array) containing a set of values
+     * A list (array) containing a set of values
      *
      * @var array|null
      */
     protected $data = null;
 
     /**
-     * Set the given data
+     * Set data
      *
-     * @param array $values Data - A list (array) containing a set of values
+     * @param array $values A list (array) containing a set of values
      *
      * @return void
      */
-    public function setData(array $values) {
+    public function setData(array $values)
+    {
         $this->data = $values;
     }
 
     /**
-     * Get the given data
+     * Get data
      *
-     * If no data has been set, this method will
-     * set and return a default data, if any such
-     * value is available
+     * If no "data" value has been set, this method will
+     * set and return a default "data" value,
+     * if any such value is available
      *
      * @see getDefaultData()
      *
-     * @return array|null data or null if none data has been set
+     * @return array|null "data" value or null if no "data" value has been set
      */
-    public function getData() {
+    public function getData()
+    {
         if (!$this->hasData() && $this->hasDefaultData()) {
             $this->setData($this->getDefaultData());
         }
@@ -47,29 +49,33 @@ trait DataTrait {
     }
 
     /**
-     * Get a default data value, if any is available
+     * Get a default "data" value, if any is available
      *
-     * @return array|null A default data value or Null if no default value is available
+     * @return array|null A default "data" value or null if no default value is available
      */
-    public function getDefaultData() {
+    public function getDefaultData()
+    {
         return null;
     }
 
     /**
-     * Check if data has been set
+     * Check if "data" has been set
      *
-     * @return bool True if data has been set, false if not
+     * @return bool True if "data" value has been set, false if not
      */
-    public function hasData() {
-        return !is_null($this->data);
+    public function hasData()
+    {
+        return isset($this->data);
     }
 
     /**
-     * Check if a default data is available or not
+     * Check if a default "data" is available or not
      *
-     * @return bool True of a default data is available, false if not
+     * @return bool True of a default "data" value is available, false if not
      */
-    public function hasDefaultData() {
-        return !is_null($this->getDefaultData());
+    public function hasDefaultData()
+    {
+        $default = $this->getDefaultData();
+        return isset($default);
     }
 }
