@@ -1,5 +1,4 @@
-<?php
-namespace Aedart\Model\Traits\Strings;
+<?php namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Version Trait</h1>
@@ -19,7 +18,7 @@ trait VersionTrait
     protected $version = null;
 
     /**
-     * Set the given version
+     * Set version
      *
      * @param string $version Version
      *
@@ -31,15 +30,15 @@ trait VersionTrait
     }
 
     /**
-     * Get the given version
+     * Get version
      *
-     * If no version has been set, this method will
-     * set and return a default version, if any such
-     * value is available
+     * If no "version" value has been set, this method will
+     * set and return a default "version" value,
+     * if any such value is available
      *
      * @see getDefaultVersion()
      *
-     * @return string|null version or null if none version has been set
+     * @return string|null "version" value or null if no "version" value has been set
      */
     public function getVersion()
     {
@@ -50,9 +49,9 @@ trait VersionTrait
     }
 
     /**
-     * Get a default version value, if any is available
+     * Get a default "version" value, if any is available
      *
-     * @return string|null A default version value or Null if no default value is available
+     * @return string|null A default "version" value or null if no default value is available
      */
     public function getDefaultVersion()
     {
@@ -60,22 +59,23 @@ trait VersionTrait
     }
 
     /**
-     * Check if version has been set
+     * Check if "version" has been set
      *
-     * @return bool True if version has been set, false if not
+     * @return bool True if "version" value has been set, false if not
      */
     public function hasVersion()
     {
-        return !is_null($this->version);
+        return isset($this->version);
     }
 
     /**
-     * Check if a default version is available or not
+     * Check if a default "version" is available or not
      *
-     * @return bool True of a default version is available, false if not
+     * @return bool True of a default "version" value is available, false if not
      */
     public function hasDefaultVersion()
     {
-        return !is_null($this->getDefaultVersion());
+        $default = $this->getDefaultVersion();
+        return isset($default);
     }
 }
