@@ -8,38 +8,40 @@
  * @author Alin Eugen Deac <aedart@gmail.com>
  * @package Aedart\Model\Traits\Strings
  */
-trait UsernameTrait {
-
+trait UsernameTrait
+{
     /**
-     * Username
+     * Identifier to be used as a username
      *
      * @var string|null
      */
     protected $username = null;
 
     /**
-     * Set the given username
+     * Set username
      *
-     * @param string $identifier Username
+     * @param string $identifier Identifier to be used as a username
      *
      * @return void
      */
-    public function setUsername($identifier) {
+    public function setUsername($identifier)
+    {
         $this->username = (string) $identifier;
     }
 
     /**
-     * Get the given username
+     * Get username
      *
-     * If no username has been set, this method will
-     * set and return a default username, if any such
-     * value is available
+     * If no "username" value has been set, this method will
+     * set and return a default "username" value,
+     * if any such value is available
      *
      * @see getDefaultUsername()
      *
-     * @return string|null username or null if none username has been set
+     * @return string|null "username" value or null if no "username" value has been set
      */
-    public function getUsername() {
+    public function getUsername()
+    {
         if (!$this->hasUsername() && $this->hasDefaultUsername()) {
             $this->setUsername($this->getDefaultUsername());
         }
@@ -47,35 +49,33 @@ trait UsernameTrait {
     }
 
     /**
-     * Get a default username value, if any is available
+     * Get a default "username" value, if any is available
      *
-     * @return string|null A default username value or Null if no default value is available
+     * @return string|null A default "username" value or null if no default value is available
      */
-    public function getDefaultUsername() {
+    public function getDefaultUsername()
+    {
         return null;
     }
 
     /**
-     * Check if username has been set
+     * Check if "username" has been set
      *
-     * @return bool True if username has been set, false if not
+     * @return bool True if "username" value has been set, false if not
      */
-    public function hasUsername() {
-        if (!is_null($this->username)) {
-            return true;
-        }
-        return false;
+    public function hasUsername()
+    {
+        return isset($this->username);
     }
 
     /**
-     * Check if a default username is available or not
+     * Check if a default "username" is available or not
      *
-     * @return bool True of a default username is available, false if not
+     * @return bool True of a default "username" value is available, false if not
      */
-    public function hasDefaultUsername() {
-        if (!is_null($this->getDefaultUsername())) {
-            return true;
-        }
-        return false;
+    public function hasDefaultUsername()
+    {
+        $default = $this->getDefaultUsername();
+        return isset($default);
     }
 }
