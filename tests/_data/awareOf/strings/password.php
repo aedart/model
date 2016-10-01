@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string password'   => [
             \Aedart\Model\Traits\Strings\PasswordTrait::class,
             \Aedart\Model\Contracts\Strings\PasswordAware::class,
-            $faker->word,
-            $faker->word,
+            $faker->password,
+            $faker->password,
         ]
     ];
 };
