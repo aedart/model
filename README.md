@@ -123,7 +123,7 @@ class Person implements PersonInterface
 | **J**                           |                 |
 | _N/A (no properties yet added)_ |                 |
 | **K**                           |                 |
-| _N/A (no properties yet added)_ |                 |
+| `Kind`                          | string          |
 | **L**                           |                 |
 | `Locations`                     | array           |
 | **M**                           |                 |
