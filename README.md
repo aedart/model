@@ -138,6 +138,7 @@ class Person implements PersonInterface
 | `Package`                       | string          |
 | `Password`                      | string          |
 | `Pattern`                       | string          |
+| `Photo`                         | string          |
 | **Q**                           |                 |
 | `Question`                      | string          |
 | **R**                           |                 |
