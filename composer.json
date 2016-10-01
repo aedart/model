@@ -38,6 +38,8 @@
   },
   "minimum-stability": "stable",
   "suggest": {
+    "aedart/scaffold": "console wizzard for installing something...",
+    "aedart/scaffold-bundle": "A few out of the box scaffolds",
     "aedart/dto": "This package is ideal for the Data Transfer Object (DTO) abstraction"
   },
   "scripts": {
