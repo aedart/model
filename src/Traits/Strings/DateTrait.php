@@ -8,8 +8,8 @@
  * @author Alin Eugen Deac <aedart@gmail.com>
  * @package Aedart\Model\Traits\Strings
  */
-trait DateTrait {
-
+trait DateTrait
+{
     /**
      * Date
      *
@@ -18,28 +18,30 @@ trait DateTrait {
     protected $date = null;
 
     /**
-     * Set the given date
+     * Set date
      *
      * @param string $date Date
      *
      * @return void
      */
-    public function setDate($date) {
+    public function setDate($date)
+    {
         $this->date = (string) $date;
     }
 
     /**
-     * Get the given date
+     * Get date
      *
-     * If no date has been set, this method will
-     * set and return a default date, if any such
-     * value is available
+     * If no "date" value has been set, this method will
+     * set and return a default "date" value,
+     * if any such value is available
      *
      * @see getDefaultDate()
      *
-     * @return string|null date or null if none date has been set
+     * @return string|null "date" value or null if no "date" value has been set
      */
-    public function getDate() {
+    public function getDate()
+    {
         if (!$this->hasDate() && $this->hasDefaultDate()) {
             $this->setDate($this->getDefaultDate());
         }
@@ -47,35 +49,33 @@ trait DateTrait {
     }
 
     /**
-     * Get a default date value, if any is available
+     * Get a default "date" value, if any is available
      *
-     * @return string|null A default date value or Null if no default value is available
+     * @return string|null A default "date" value or null if no default value is available
      */
-    public function getDefaultDate() {
+    public function getDefaultDate()
+    {
         return null;
     }
 
     /**
-     * Check if date has been set
+     * Check if "date" has been set
      *
-     * @return bool True if date has been set, false if not
+     * @return bool True if "date" value has been set, false if not
      */
-    public function hasDate() {
-        if (!is_null($this->date)) {
-            return true;
-        }
-        return false;
+    public function hasDate()
+    {
+        return isset($this->date);
     }
 
     /**
-     * Check if a default date is available or not
+     * Check if a default "date" is available or not
      *
-     * @return bool True of a default date is available, false if not
+     * @return bool True of a default "date" value is available, false if not
      */
-    public function hasDefaultDate() {
-        if (!is_null($this->getDefaultDate())) {
-            return true;
-        }
-        return false;
+    public function hasDefaultDate()
+    {
+        $default = $this->getDefaultDate();
+        return isset($default);
     }
 }
