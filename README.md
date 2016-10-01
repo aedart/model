@@ -83,6 +83,7 @@ class Person implements PersonInterface
 |---------------------------------|-----------------|
 | **A**                           |                 |
 | `Age`                           | int             |
+| `Anniversary`                   | string          |
 | `Ask`                           | bool            |
 | `Author`                        | string          |
 | **B**                           |                 |
