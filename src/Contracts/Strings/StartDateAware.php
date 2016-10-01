@@ -3,54 +3,54 @@
 /**
  * <h1>Start Date Aware</h1>
  *
- * Components implementing this interface are aware of string start date,
- * for some kind of an event
+ * Component is aware of a string "start date" value, which can
+ * also be specified.
  *
  * @author Alin Eugen Deac <aedart@gmail.com>
- * @package Aedart\Model\Traits\Strings
+ * @package Aedart\Model\Contracts\Strings
  */
-interface StartDateAware {
-
+interface StartDateAware
+{
     /**
-     * Set the given start date
+     * Set start date
      *
-     * @param string $date Start Date of some kind of an event
+     * @param string $date Start date of some kind of event
      *
      * @return void
      */
     public function setStartDate($date);
 
     /**
-     * Get the given start date
+     * Get start date
      *
-     * If no start date has been set, this method will
-     * set and return a default start date, if any such
-     * value is available
+     * If no "start date" value has been set, this method will
+     * set and return a default "start date" value,
+     * if any such value is available
      *
      * @see getDefaultStartDate()
      *
-     * @return string|null start date or null if none start date has been set
+     * @return string|null "start date" value or null if no "start date" value has been set
      */
     public function getStartDate();
 
     /**
-     * Get a default start date value, if any is available
+     * Get a default "start date" value, if any is available
      *
-     * @return string|null A default start date value or Null if no default value is available
+     * @return string|null A default "start date" value or null if no default value is available
      */
     public function getDefaultStartDate();
 
     /**
-     * Check if start date has been set
+     * Check if "start date" has been set
      *
-     * @return bool True if start date has been set, false if not
+     * @return bool True if "start date" value has been set, false if not
      */
     public function hasStartDate();
 
     /**
-     * Check if a default start date is available or not
+     * Check if a default "start date" is available or not
      *
-     * @return bool True of a default start date is available, false if not
+     * @return bool True of a default "start date" value is available, false if not
      */
     public function hasDefaultStartDate();
 }
