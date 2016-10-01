@@ -8,38 +8,40 @@
  * @author Alin Eugen Deac <aedart@gmail.com>
  * @package Aedart\Model\Traits\Integers
  */
-trait AgeTrait {
-
+trait AgeTrait
+{
     /**
-     * Age
+     * Age of someone or something
      *
      * @var int|null
      */
     protected $age = null;
 
     /**
-     * Set the given age
+     * Set age
      *
-     * @param int $age Age
+     * @param int $age Age of someone or something
      *
      * @return void
      */
-    public function setAge($age) {
+    public function setAge($age)
+    {
         $this->age = (int) $age;
     }
 
     /**
-     * Get the given age
+     * Get age
      *
-     * If no age has been set, this method will
-     * set and return a default age, if any such
-     * value is available
+     * If no "age" value has been set, this method will
+     * set and return a default "age" value,
+     * if any such value is available
      *
      * @see getDefaultAge()
      *
-     * @return int|null age or null if none age has been set
+     * @return int|null "age" value or null if no "age" value has been set
      */
-    public function getAge() {
+    public function getAge()
+    {
         if (!$this->hasAge() && $this->hasDefaultAge()) {
             $this->setAge($this->getDefaultAge());
         }
@@ -47,35 +49,33 @@ trait AgeTrait {
     }
 
     /**
-     * Get a default age value, if any is available
+     * Get a default "age" value, if any is available
      *
-     * @return int|null A default age value or Null if no default value is available
+     * @return int|null A default "age" value or null if no default value is available
      */
-    public function getDefaultAge() {
+    public function getDefaultAge()
+    {
         return null;
     }
 
     /**
-     * Check if age has been set
+     * Check if "age" has been set
      *
-     * @return bool True if age has been set, false if not
+     * @return bool True if "age" value has been set, false if not
      */
-    public function hasAge() {
-        if (!is_null($this->age)) {
-            return true;
-        }
-        return false;
+    public function hasAge()
+    {
+        return isset($this->age);
     }
 
     /**
-     * Check if a default age is available or not
+     * Check if a default "age" is available or not
      *
-     * @return bool True of a default age is available, false if not
+     * @return bool True of a default "age" value is available, false if not
      */
-    public function hasDefaultAge() {
-        if (!is_null($this->getDefaultAge())) {
-            return true;
-        }
-        return false;
+    public function hasDefaultAge()
+    {
+        $default = $this->getDefaultAge();
+        return isset($default);
     }
 }

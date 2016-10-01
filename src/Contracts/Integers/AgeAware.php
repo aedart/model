@@ -8,50 +8,50 @@
  * years, and so on.
  *
  * @author Alin Eugen Deac <aedart@gmail.com>
- * @package Aedart\Model\Traits\Integers
+ * @package Aedart\Model\Contracts\Integers
  */
-interface AgeAware {
-
+interface AgeAware
+{
     /**
-     * Set the given age
+     * Set age
      *
-     * @param int $age Age
+     * @param int $age Age of someone or something
      *
      * @return void
      */
     public function setAge($age);
 
     /**
-     * Get the given age
+     * Get age
      *
-     * If no age has been set, this method will
-     * set and return a default age, if any such
-     * value is available
+     * If no "age" value has been set, this method will
+     * set and return a default "age" value,
+     * if any such value is available
      *
      * @see getDefaultAge()
      *
-     * @return int|null age or null if none age has been set
+     * @return int|null "age" value or null if no "age" value has been set
      */
     public function getAge();
 
     /**
-     * Get a default age value, if any is available
+     * Get a default "age" value, if any is available
      *
-     * @return int|null A default age value or Null if no default value is available
+     * @return int|null A default "age" value or null if no default value is available
      */
     public function getDefaultAge();
 
     /**
-     * Check if age has been set
+     * Check if "age" has been set
      *
-     * @return bool True if age has been set, false if not
+     * @return bool True if "age" value has been set, false if not
      */
     public function hasAge();
 
     /**
-     * Check if a default age is available or not
+     * Check if a default "age" is available or not
      *
-     * @return bool True of a default age is available, false if not
+     * @return bool True of a default "age" value is available, false if not
      */
     public function hasDefaultAge();
 }
