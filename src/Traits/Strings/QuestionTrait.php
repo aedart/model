@@ -3,7 +3,7 @@
 /**
  * <h1>Question Trait</h1>
  *
- * @see Aedart\Model\Contracts\Strings\QuestionAware
+ * @see \Aedart\Model\Contracts\Strings\QuestionAware
  *
  * @author Alin Eugen Deac <aedart@gmail.com>
  * @package Aedart\Model\Traits\Strings
@@ -11,16 +11,16 @@
 trait QuestionTrait
 {
     /**
-     * A question
+     * A question that can be asked
      *
      * @var string|null
      */
     protected $question = null;
 
     /**
-     * Set the given question
+     * Set question
      *
-     * @param string $questionToAsk A question
+     * @param string $questionToAsk A question that can be asked
      *
      * @return void
      */
@@ -30,15 +30,15 @@ trait QuestionTrait
     }
 
     /**
-     * Get the given question
+     * Get question
      *
-     * If no question has been set, this method will
-     * set and return a default question, if any such
-     * value is available
+     * If no "question" value has been set, this method will
+     * set and return a default "question" value,
+     * if any such value is available
      *
      * @see getDefaultQuestion()
      *
-     * @return string|null question or null if none question has been set
+     * @return string|null "question" value or null if no "question" value has been set
      */
     public function getQuestion()
     {
@@ -49,9 +49,9 @@ trait QuestionTrait
     }
 
     /**
-     * Get a default question value, if any is available
+     * Get a default "question" value, if any is available
      *
-     * @return string|null A default question value or Null if no default value is available
+     * @return string|null A default "question" value or null if no default value is available
      */
     public function getDefaultQuestion()
     {
@@ -59,22 +59,23 @@ trait QuestionTrait
     }
 
     /**
-     * Check if question has been set
+     * Check if "question" has been set
      *
-     * @return bool True if question has been set, false if not
+     * @return bool True if "question" value has been set, false if not
      */
     public function hasQuestion()
     {
-        return !is_null($this->question);
+        return isset($this->question);
     }
 
     /**
-     * Check if a default question is available or not
+     * Check if a default "question" is available or not
      *
-     * @return bool True of a default question is available, false if not
+     * @return bool True of a default "question" value is available, false if not
      */
     public function hasDefaultQuestion()
     {
-        return !is_null($this->getDefaultQuestion());
+        $default = $this->getDefaultQuestion();
+        return isset($default);
     }
 }
