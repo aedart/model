@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string deletedAt'   => [
             \Aedart\Model\Traits\Strings\DeletedAtTrait::class,
             \Aedart\Model\Contracts\Strings\DeletedAtAware::class,
-            $faker->word,
-            $faker->word,
+            $faker->date(),
+            $faker->date(),
         ]
     ];
 };
