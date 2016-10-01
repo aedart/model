@@ -31,6 +31,11 @@
       "Aedart\\Model\\": "src/"
     }
   },
+  "autoload-dev": {
+    "classmap": [
+      "tests/testCases"
+    ]
+  },
   "minimum-stability": "stable",
   "suggest": {
     "aedart/dto": "This package is ideal for the Data Transfer Object (DTO) abstraction"
