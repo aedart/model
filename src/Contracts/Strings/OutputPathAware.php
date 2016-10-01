@@ -3,55 +3,54 @@
 /**
  * <h1>Output Path Aware</h1>
  *
- * Component is able to set and get a path of where some kind of
- * output must be located or perhaps written to. This could be a
- * directory or file path.
+ * Component is aware of a string "output path" value, which can
+ * also be specified.
  *
  * @author Alin Eugen Deac <aedart@gmail.com>
- * @package Aedart\Model\Traits\Strings
+ * @package Aedart\Model\Contracts\Strings
  */
-interface OutputPathAware {
-
+interface OutputPathAware
+{
     /**
-     * Set the given output path
+     * Set output path
      *
-     * @param string $path Output path - The location of where some kind of output must placed or written to
+     * @param string $path Location of where some kind of output must be placed or written to
      *
      * @return void
      */
     public function setOutputPath($path);
 
     /**
-     * Get the given output path
+     * Get output path
      *
-     * If no output path has been set, this method will
-     * set and return a default output path, if any such
-     * value is available
+     * If no "output path" value has been set, this method will
+     * set and return a default "output path" value,
+     * if any such value is available
      *
      * @see getDefaultOutputPath()
      *
-     * @return string|null output path or null if none output path has been set
+     * @return string|null "output path" value or null if no "output path" value has been set
      */
     public function getOutputPath();
 
     /**
-     * Get a default output path value, if any is available
+     * Get a default "output path" value, if any is available
      *
-     * @return string|null A default output path value or Null if no default value is available
+     * @return string|null A default "output path" value or null if no default value is available
      */
     public function getDefaultOutputPath();
 
     /**
-     * Check if output path has been set
+     * Check if "output path" has been set
      *
-     * @return bool True if output path has been set, false if not
+     * @return bool True if "output path" value has been set, false if not
      */
     public function hasOutputPath();
 
     /**
-     * Check if a default output path is available or not
+     * Check if a default "output path" is available or not
      *
-     * @return bool True of a default output path is available, false if not
+     * @return bool True of a default "output path" value is available, false if not
      */
     public function hasDefaultOutputPath();
 }
