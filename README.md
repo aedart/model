@@ -115,6 +115,7 @@ class Person implements PersonInterface
 | `Html`                          | string          |
 | **I**                           |                 |
 | `Id`                            | int, string     |
+| `Image`                         | string          |
 | `Ip`                            | string          |
 | `IpV4`                          | string          |
 | `IpV6`                          | string          |
