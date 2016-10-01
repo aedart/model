@@ -8,38 +8,40 @@
  * @author Alin Eugen Deac <aedart@gmail.com>
  * @package Aedart\Model\Traits\Strings
  */
-trait SlugTrait {
-
+trait SlugTrait
+{
     /**
-     * Slug
+     * Human readable keyword(s) that can be part or a Url
      *
      * @var string|null
      */
     protected $slug = null;
 
     /**
-     * Set the given slug
+     * Set slug
      *
-     * @param string $slug Slug
+     * @param string $slug Human readable keyword(s) that can be part or a Url
      *
      * @return void
      */
-    public function setSlug($slug) {
+    public function setSlug($slug)
+    {
         $this->slug = (string) $slug;
     }
 
     /**
-     * Get the given slug
+     * Get slug
      *
-     * If no slug has been set, this method will
-     * set and return a default slug, if any such
-     * value is available
+     * If no "slug" value has been set, this method will
+     * set and return a default "slug" value,
+     * if any such value is available
      *
      * @see getDefaultSlug()
      *
-     * @return string|null slug or null if none slug has been set
+     * @return string|null "slug" value or null if no "slug" value has been set
      */
-    public function getSlug() {
+    public function getSlug()
+    {
         if (!$this->hasSlug() && $this->hasDefaultSlug()) {
             $this->setSlug($this->getDefaultSlug());
         }
@@ -47,35 +49,33 @@ trait SlugTrait {
     }
 
     /**
-     * Get a default slug value, if any is available
+     * Get a default "slug" value, if any is available
      *
-     * @return string|null A default slug value or Null if no default value is available
+     * @return string|null A default "slug" value or null if no default value is available
      */
-    public function getDefaultSlug() {
+    public function getDefaultSlug()
+    {
         return null;
     }
 
     /**
-     * Check if slug has been set
+     * Check if "slug" has been set
      *
-     * @return bool True if slug has been set, false if not
+     * @return bool True if "slug" value has been set, false if not
      */
-    public function hasSlug() {
-        if (!is_null($this->slug)) {
-            return true;
-        }
-        return false;
+    public function hasSlug()
+    {
+        return isset($this->slug);
     }
 
     /**
-     * Check if a default slug is available or not
+     * Check if a default "slug" is available or not
      *
-     * @return bool True of a default slug is available, false if not
+     * @return bool True of a default "slug" value is available, false if not
      */
-    public function hasDefaultSlug() {
-        if (!is_null($this->getDefaultSlug())) {
-            return true;
-        }
-        return false;
+    public function hasDefaultSlug()
+    {
+        $default = $this->getDefaultSlug();
+        return isset($default);
     }
 }

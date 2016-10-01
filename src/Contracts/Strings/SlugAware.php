@@ -3,56 +3,54 @@
 /**
  * <h1>Slug Aware</h1>
  *
- * Components implementing this interface are aware of string slug;
- * "human-readable keywords, which are part of the url" (wiki)
- *
- * @see https://en.wikipedia.org/wiki/Semantic_URL#Slug
+ * Component is aware of a string "slug" value, which can
+ * also be specified.
  *
  * @author Alin Eugen Deac <aedart@gmail.com>
- * @package Aedart\Model\Traits\Strings
+ * @package Aedart\Model\Contracts\Strings
  */
-interface SlugAware {
-
+interface SlugAware
+{
     /**
-     * Set the given slug
+     * Set slug
      *
-     * @param string $slug Slug
+     * @param string $slug Human readable keyword(s) that can be part or a Url
      *
      * @return void
      */
     public function setSlug($slug);
 
     /**
-     * Get the given slug
+     * Get slug
      *
-     * If no slug has been set, this method will
-     * set and return a default slug, if any such
-     * value is available
+     * If no "slug" value has been set, this method will
+     * set and return a default "slug" value,
+     * if any such value is available
      *
      * @see getDefaultSlug()
      *
-     * @return string|null slug or null if none slug has been set
+     * @return string|null "slug" value or null if no "slug" value has been set
      */
     public function getSlug();
 
     /**
-     * Get a default slug value, if any is available
+     * Get a default "slug" value, if any is available
      *
-     * @return string|null A default slug value or Null if no default value is available
+     * @return string|null A default "slug" value or null if no default value is available
      */
     public function getDefaultSlug();
 
     /**
-     * Check if slug has been set
+     * Check if "slug" has been set
      *
-     * @return bool True if slug has been set, false if not
+     * @return bool True if "slug" value has been set, false if not
      */
     public function hasSlug();
 
     /**
-     * Check if a default slug is available or not
+     * Check if a default "slug" is available or not
      *
-     * @return bool True of a default slug is available, false if not
+     * @return bool True of a default "slug" value is available, false if not
      */
     public function hasDefaultSlug();
 }
