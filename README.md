@@ -152,6 +152,7 @@ class Person implements PersonInterface
 | `Slug`                          | string          |
 | `Source`                        | string          |
 | `StartDate`                     | string          |
+| `Suffix`                        | string          |
 | **T**                           |                 |
 | `Template`                      | string          |
 | `Timeout`                       | int             |
