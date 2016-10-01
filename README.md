@@ -108,6 +108,7 @@ class Person implements PersonInterface
 | **F**                           |                 |
 | `Filename`                      | string          |
 | `FilePath`                      | string          |
+| `FormattedName`                 | string          |
 | **G**                           |                 |
 | _N/A (no properties yet added)_ |                 |
 | **H**                           |                 |
