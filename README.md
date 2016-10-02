@@ -122,6 +122,7 @@ class Person implements PersonInterface
 | **I**                           |                 |
 | `Id`                            | int, string     |
 | `Image`                         | string          |
+| `InvoiceAddress`                | string          |
 | `Ip`                            | string          |
 | `IpV4`                          | string          |
 | `IpV6`                          | string          |
