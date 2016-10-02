@@ -127,6 +127,7 @@ class Person implements PersonInterface
 | `Email`                         | string          |
 | `End`                           | string          |
 | `EndDate`                       | string          |
+| `ExpiresAt`                     | string          |
 | **F**                           |                 |
 | `Filename`                      | string          |
 | `FilePath`                      | string          |
