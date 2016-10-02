@@ -103,6 +103,7 @@ class Person implements PersonInterface
 | `Categories`                    | array           |
 | `Choices`                       | array           |
 | `City`                          | string          |
+| `Class`                         | string          |
 | `Company`                       | string          |
 | `Content`                       | string          |
 | `Country`                       | string          |
