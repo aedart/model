@@ -11,7 +11,7 @@
 trait LatitudeTrait
 {
     /**
-     * North-South position on Earth&#039;s surface
+     * North-South position on Earth's surface
      *
      * @var float|null
      */

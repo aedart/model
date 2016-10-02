@@ -11,7 +11,7 @@
 trait LongitudeTrait
 {
     /**
-     * East-West position on Earth&#039;s surface
+     * East-West position on Earth's surface
      *
      * @var string|null
      */
