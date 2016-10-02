@@ -100,6 +100,7 @@ class Person implements PersonInterface
 | **C**                           |                 |
 | `Calandar`                      | string          |
 | `CardNumber`                    | string          |
+| `CardOwner`                     | string          |
 | `CardType`                      | string          |
 | `Category`                      | string          |
 | `Categories`                    | array           |
