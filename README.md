@@ -158,6 +158,7 @@ class Person implements PersonInterface
 | `Logo`                          | string          |
 | `Longitude`                     | float, string   |
 | **M**                           |                 |
+| `MacAddress`                    | string          |
 | `MiddleName`                    | string          |
 | **N**                           |                 |
 | `Name`                          | string          |
