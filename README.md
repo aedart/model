@@ -87,6 +87,7 @@ class Person implements PersonInterface
 | **A**                           |                 |
 | `Address`                       | string          |
 | `Age`                           | int             |
+| `Agent`                         | string          |
 | `Anniversary`                   | string          |
 | `Area`                          | string          |
 | `Ask`                           | bool            |
