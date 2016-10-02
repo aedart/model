@@ -143,6 +143,7 @@ class Person implements PersonInterface
 | `Kind`                          | string          |
 | **L**                           |                 |
 | `LastName`                      | string          |
+| `Latitude`                      | string          |
 | `Locations`                     | array           |
 | **M**                           |                 |
 | `MiddleName`                    | string          |
