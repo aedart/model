@@ -164,6 +164,7 @@ class Person implements PersonInterface
 | `Source`                        | string          |
 | `StartDate`                     | string          |
 | `State`                         | int, string     |
+| `Street`                        | string          |
 | `Suffix`                        | string          |
 | **T**                           |                 |
 | `Template`                      | string          |
