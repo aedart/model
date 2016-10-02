@@ -22,14 +22,16 @@ class TraitsTest extends ModelGstTestCase
     /**
      * Aware of data provider
      *
-     * @return array
+     * @return \Generator
      */
     public function awareOfProvider()
     {
         // Return the providers if previously loaded
         static $providers = [];
         if(!empty($providers)){
-            return $providers;
+            foreach($providers as $k => $p){
+                (yield $k => $p);
+            }
         }
 
         // Faker is not available when in the context
@@ -57,7 +59,9 @@ class TraitsTest extends ModelGstTestCase
         }
 
         // Finally, return the providers
-        return $providers;
+        foreach($providers as $k => $p){
+            (yield $k => $p);
+        }
     }
 
     /************************************************************
