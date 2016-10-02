@@ -177,6 +177,7 @@ class Person implements PersonInterface
 | **R**                           |                 |
 | `Region`                        | string          |
 | `Revision`                      | string          |
+| `Role`                          | string          |
 | **S**                           |                 |
 | `Script`                        | string          |
 | `Slug`                          | string          |
