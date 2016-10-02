@@ -100,6 +100,7 @@ class Person implements PersonInterface
 | `Date`                          | string          |
 | `DeceasedAt`                    | string          |
 | `DeletedAt`                     | string          |
+| `DeliveryAddress`               | string          |
 | `Description`                   | string          |
 | `Directory`                     | string          |
 | **E**                           |                 |
