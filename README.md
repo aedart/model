@@ -149,6 +149,7 @@ class Person implements PersonInterface
 | `Kind`                          | string          |
 | **L**                           |                 |
 | `Label`                         | string          |
+| `Language`                      | string          |
 | `LastName`                      | string          |
 | `Latitude`                      | float, string   |
 | `Locations`                     | array           |
