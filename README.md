@@ -168,7 +168,7 @@ class Person implements PersonInterface
 | `Username`                      | string          |
 | `Uuid`                          | string          |
 | **V**                           |                 |
-| `Value`                         | string,mixed    |
+| `Value`                         | string, mixed   |
 | `Vendor`                        | string          |
 | `Version`                       | string          |
 | **W**                           |                 |
