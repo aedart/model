@@ -82,153 +82,153 @@ class Person implements PersonInterface
 
 ## Available properties
 
-| Property                        | Supported types |
-|---------------------------------|-----------------|
-| **A**                           |                 |
-| `Address`                       | string          |
-| `Age`                           | int             |
-| `Agent`                         | string          |
-| `Anniversary`                   | string          |
-| `Area`                          | string          |
-| `Ask`                           | bool            |
-| `Author`                        | string          |
-| **B**                           |                 |
-| `BasePath`                      | string          |
-| `Begin`                         | string          |
-| `Birthdate`                     | string          |
-| `BuildingNumber`                | string          |
-| **C**                           |                 |
-| `Calandar`                      | string          |
-| `CardNumber`                    | string          |
-| `CardOwner`                     | string          |
-| `CardType`                      | string          |
-| `Category`                      | string          |
-| `Categories`                    | array           |
-| `Choices`                       | array           |
-| `City`                          | string          |
-| `Class`                         | string          |
-| `Code`                          | string          |
-| `Colour`                        | string          |
-| `Company`                       | string          |
-| `Content`                       | string          |
-| `Country`                       | string          |
-| `CreatedAt`                     | string          |
-| `Currency`                      | string          |
-| **D**                           |                 |
-| `Data`                          | array           |
-| `Date`                          | string          |
-| `DeceasedAt`                    | string          |
-| `DeletedAt`                     | string          |
-| `DeliveryAddress`               | string          |
-| `Description`                   | string          |
-| `Directory`                     | string          |
-| `Domain`                        | string          |
-| **E**                           |                 |
-| `Ean`                           | string          |
-| `Ean8`                          | string          |
-| `Ean13`                         | string          |
-| `Email`                         | string          |
-| `End`                           | string          |
-| `EndDate`                       | string          |
-| `ExpiresAt`                     | string          |
-| **F**                           |                 |
-| `FileExtension`                 | string          |
-| `Filename`                      | string          |
-| `FilePath`                      | string          |
-| `FirstName`                     | string          |
-| `FormattedName`                 | string          |
-| **G**                           |                 |
-| `Gender`                        | string          |
-| **H**                           |                 |
-| `Html`                          | string          |
-| **I**                           |                 |
-| `Iban`                          | string          |
-| `Id`                            | int, string     |
-| `Image`                         | string          |
-| `InvoiceAddress`                | string          |
-| `Ip`                            | string          |
-| `IpV4`                          | string          |
-| `IpV6`                          | string          |
-| `Isbn`                          | string          |
-| `Isbn10`                        | string          |
-| `Isbn13`                        | string          |
-| **J**                           |                 |
-| `Json`                          | string          |
-| **K**                           |                 |
-| `Key`                           | string          |
-| `Kind`                          | string          |
-| **L**                           |                 |
-| `Label`                         | string          |
-| `Language`                      | string          |
-| `LastName`                      | string          |
-| `Latitude`                      | float, string   |
-| `Locations`                     | array           |
-| `Locale`                        | string          |
-| `Logo`                          | string          |
-| `Longitude`                     | float, string   |
-| **M**                           |                 |
-| `MacAddress`                    | string          |
-| `MediaType`                     | string          |
-| `MiddleName`                    | string          |
-| **N**                           |                 |
-| `Name`                          | string          |
-| `Nickname`                      | string          |
-| **O**                           |                 |
-| `Organisation`                  | string          |
-| `OutputPath`                    | string          |
-| **P**                           |                 |
-| `Package`                       | string          |
-| `Password`                      | string          |
-| `Pattern`                       | string          |
-| `Phone`                         | string          |
-| `Photo`                         | string          |
-| `PostalCode`                    | string          |
-| `Prefix`                        | string          |
-| `Price`                         | int, string     |
-| `Profile`                       | string          |
-| **Q**                           |                 |
-| `Question`                      | string          |
-| **R**                           |                 |
-| `Region`                        | string          |
-| `Revision`                      | string          |
-| `Role`                          | string          |
-| **S**                           |                 |
-| `Script`                        | string          |
-| `Slug`                          | string          |
-| `Source`                        | string          |
-| `StartDate`                     | string          |
-| `State`                         | int, string     |
-| `Street`                        | string          |
-| `Suffix`                        | string          |
-| `Swift`                         | string          |
-| **T**                           |                 |
-| `Tag`                           | string          |
-| `Tags`                          | array           |
-| `Template`                      | string          |
-| `Timeout`                       | int             |
-| `Timestamp`                     | int             |
-| `Timezone`                      | string          |
-| `Title`                         | string          |
-| `Tld`                           | string          |
-| `Topic`                         | string          |
-| `Type`                          | int, string     |
-| **U**                           |                 |
-| `UpdatedAt`                     | string          |
-| `Url`                           | string          |
-| `Username`                      | string          |
-| `Uuid`                          | string          |
-| **V**                           |                 |
-| `Value`                         | string, mixed   |
-| `Vendor`                        | string          |
-| `Version`                       | string          |
-| **W**                           |                 |
-| _N/A (no properties yet added)_ |                 |
-| **X**                           |                 |
-| `Xml`                           | string          |
-| **Y**                           |                 |
-| _N/A (no properties yet added)_ |                 |
-| **Z**                           |                 |
-| _N/A (no properties yet added)_ |                 |
+| Property                        | Supported types      |
+|---------------------------------|----------------------|
+| **A**                           |                      |
+| `Address`                       | string               |
+| `Age`                           | int                  |
+| `Agent`                         | string               |
+| `Anniversary`                   | string               |
+| `Area`                          | string               |
+| `Ask`                           | bool                 |
+| `Author`                        | string               |
+| **B**                           |                      |
+| `BasePath`                      | string               |
+| `Begin`                         | string               |
+| `Birthdate`                     | string               |
+| `BuildingNumber`                | string               |
+| **C**                           |                      |
+| `Calandar`                      | string               |
+| `CardNumber`                    | string               |
+| `CardOwner`                     | string               |
+| `CardType`                      | string               |
+| `Category`                      | string               |
+| `Categories`                    | array                |
+| `Choices`                       | array                |
+| `City`                          | string               |
+| `Class`                         | string               |
+| `Code`                          | string               |
+| `Colour`                        | string               |
+| `Company`                       | string               |
+| `Content`                       | string               |
+| `Country`                       | string               |
+| `CreatedAt`                     | string               |
+| `Currency`                      | string               |
+| **D**                           |                      |
+| `Data`                          | array                |
+| `Date`                          | string               |
+| `DeceasedAt`                    | string               |
+| `DeletedAt`                     | string               |
+| `DeliveryAddress`               | string               |
+| `Description`                   | string               |
+| `Directory`                     | string               |
+| `Domain`                        | string               |
+| **E**                           |                      |
+| `Ean`                           | string               |
+| `Ean8`                          | string               |
+| `Ean13`                         | string               |
+| `Email`                         | string               |
+| `End`                           | string               |
+| `EndDate`                       | string               |
+| `ExpiresAt`                     | string               |
+| **F**                           |                      |
+| `FileExtension`                 | string               |
+| `Filename`                      | string               |
+| `FilePath`                      | string               |
+| `FirstName`                     | string               |
+| `FormattedName`                 | string               |
+| **G**                           |                      |
+| `Gender`                        | string               |
+| **H**                           |                      |
+| `Html`                          | string               |
+| **I**                           |                      |
+| `Iban`                          | string               |
+| `Id`                            | int, string          |
+| `Image`                         | string               |
+| `InvoiceAddress`                | string               |
+| `Ip`                            | string               |
+| `IpV4`                          | string               |
+| `IpV6`                          | string               |
+| `Isbn`                          | string               |
+| `Isbn10`                        | string               |
+| `Isbn13`                        | string               |
+| **J**                           |                      |
+| `Json`                          | string               |
+| **K**                           |                      |
+| `Key`                           | string               |
+| `Kind`                          | string               |
+| **L**                           |                      |
+| `Label`                         | string               |
+| `Language`                      | string               |
+| `LastName`                      | string               |
+| `Latitude`                      | float, string        |
+| `Locations`                     | array                |
+| `Locale`                        | string               |
+| `Logo`                          | string               |
+| `Longitude`                     | float, string        |
+| **M**                           |                      |
+| `MacAddress`                    | string               |
+| `MediaType`                     | string               |
+| `MiddleName`                    | string               |
+| **N**                           |                      |
+| `Name`                          | string               |
+| `Nickname`                      | string               |
+| **O**                           |                      |
+| `Organisation`                  | string               |
+| `OutputPath`                    | string               |
+| **P**                           |                      |
+| `Package`                       | string               |
+| `Password`                      | string               |
+| `Pattern`                       | string               |
+| `Phone`                         | string               |
+| `Photo`                         | string               |
+| `PostalCode`                    | string               |
+| `Prefix`                        | string               |
+| `Price`                         | int, float, string   |
+| `Profile`                       | string               |
+| **Q**                           |                      |
+| `Question`                      | string               |
+| **R**                           |                      |
+| `Region`                        | string               |
+| `Revision`                      | string               |
+| `Role`                          | string               |
+| **S**                           |                      |
+| `Script`                        | string               |
+| `Slug`                          | string               |
+| `Source`                        | string               |
+| `StartDate`                     | string               |
+| `State`                         | int, string          |
+| `Street`                        | string               |
+| `Suffix`                        | string               |
+| `Swift`                         | string               |
+| **T**                           |                      |
+| `Tag`                           | string               |
+| `Tags`                          | array                |
+| `Template`                      | string               |
+| `Timeout`                       | int                  |
+| `Timestamp`                     | int                  |
+| `Timezone`                      | string               |
+| `Title`                         | string               |
+| `Tld`                           | string               |
+| `Topic`                         | string               |
+| `Type`                          | int, string          |
+| **U**                           |                      |
+| `UpdatedAt`                     | string               |
+| `Url`                           | string               |
+| `Username`                      | string               |
+| `Uuid`                          | string               |
+| **V**                           |                      |
+| `Value`                         | string, mixed        |
+| `Vendor`                        | string               |
+| `Version`                       | string               |
+| **W**                           |                      |
+| _N/A (no properties yet added)_ |                      |
+| **X**                           |                      |
+| `Xml`                           | string               |
+| **Y**                           |                      |
+| _N/A (no properties yet added)_ |                      |
+| **Z**                           |                      |
+| _N/A (no properties yet added)_ |                      |
 
 
 As I progress with other projects, more properties will be added...
