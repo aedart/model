@@ -122,6 +122,7 @@ class Person implements PersonInterface
 | `DeliveryAddress`               | string               |
 | `Description`                   | string               |
 | `Directory`                     | string               |
+| `Discount`                      | int                  |
 | `Domain`                        | string               |
 | **E**                           |                      |
 | `Ean`                           | string               |
