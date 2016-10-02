@@ -184,7 +184,7 @@ class Person implements PersonInterface
 | `Photo`                         | string          |
 | `PostalCode`                    | string          |
 | `Prefix`                        | string          |
-| `Price`                         | string          |
+| `Price`                         | int, string     |
 | `Profile`                       | string          |
 | **Q**                           |                 |
 | `Question`                      | string          |
