@@ -145,6 +145,7 @@ class Person implements PersonInterface
 | `LastName`                      | string          |
 | `Latitude`                      | float, string   |
 | `Locations`                     | array           |
+| `Longitude`                     | string          |
 | **M**                           |                 |
 | `MiddleName`                    | string          |
 | **N**                           |                 |
