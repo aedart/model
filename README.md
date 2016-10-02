@@ -176,6 +176,7 @@ class Person implements PersonInterface
 | `Question`                      | string          |
 | **R**                           |                 |
 | `Region`                        | string          |
+| `Revision`                      | string          |
 | **S**                           |                 |
 | `Script`                        | string          |
 | `Slug`                          | string          |
