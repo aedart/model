@@ -14,7 +14,7 @@ interface LatitudeAware
     /**
      * Set latitude
      *
-     * @param float $value North-South position on Earth&#039;s surface
+     * @param float $value North-South position on Earth's surface
      *
      * @return void
      */
