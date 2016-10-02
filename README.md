@@ -104,6 +104,7 @@ class Person implements PersonInterface
 | `Choices`                       | array           |
 | `City`                          | string          |
 | `Class`                         | string          |
+| `Code`                          | string          |
 | `Company`                       | string          |
 | `Content`                       | string          |
 | `Country`                       | string          |
