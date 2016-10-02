@@ -20,13 +20,13 @@ trait LatitudeTrait
     /**
      * Set latitude
      *
-     * @param string $degree North-South position on Earth's surface
+     * @param string $value North-South position on Earth's surface
      *
      * @return void
      */
-    public function setLatitude($degree)
+    public function setLatitude($value)
     {
-        $this->latitude = (string) $degree;
+        $this->latitude = (string) $value;
     }
 
     /**
