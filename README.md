@@ -194,6 +194,7 @@ class Person implements PersonInterface
 | `State`                         | int, string     |
 | `Street`                        | string          |
 | `Suffix`                        | string          |
+| `Swift`                         | string          |
 | **T**                           |                 |
 | `Tag`                           | string          |
 | `Tags`                          | array           |
