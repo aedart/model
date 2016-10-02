@@ -108,6 +108,7 @@ class Person implements PersonInterface
 | `City`                          | string          |
 | `Class`                         | string          |
 | `Code`                          | string          |
+| `Colour`                        | string          |
 | `Company`                       | string          |
 | `Content`                       | string          |
 | `Country`                       | string          |
