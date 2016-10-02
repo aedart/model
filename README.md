@@ -143,6 +143,7 @@ class Person implements PersonInterface
 | `Name`                          | string          |
 | `Nickname`                      | string          |
 | **O**                           |                 |
+| `Organisation`                  | string          |
 | `OutputPath`                    | string          |
 | **P**                           |                 |
 | `Package`                       | string          |
