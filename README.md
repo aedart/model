@@ -179,6 +179,7 @@ class Person implements PersonInterface
 | `Street`                        | string          |
 | `Suffix`                        | string          |
 | **T**                           |                 |
+| `Tag`                           | string          |
 | `Template`                      | string          |
 | `Timeout`                       | int             |
 | `Title`                         | string          |
