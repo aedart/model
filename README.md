@@ -148,6 +148,7 @@ class Person implements PersonInterface
 | `Key`                           | string          |
 | `Kind`                          | string          |
 | **L**                           |                 |
+| `Label`                         | string          |
 | `LastName`                      | string          |
 | `Latitude`                      | float, string   |
 | `Locations`                     | array           |
