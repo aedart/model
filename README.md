@@ -160,7 +160,7 @@ class Person implements PersonInterface
 | **Q**                           |                 |
 | `Question`                      | string          |
 | **R**                           |                 |
-| _N/A (no properties yet added)_ |                 |
+| `Region`                        | string          |
 | **S**                           |                 |
 | `Script`                        | string          |
 | `Slug`                          | string          |
