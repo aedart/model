@@ -99,6 +99,7 @@ class Person implements PersonInterface
 | `BuildingNumber`                | string          |
 | **C**                           |                 |
 | `Calandar`                      | string          |
+| `CardNumber`                    | string          |
 | `CardType`                      | string          |
 | `Category`                      | string          |
 | `Categories`                    | array           |
