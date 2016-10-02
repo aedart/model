@@ -93,6 +93,7 @@ class Person implements PersonInterface
 | `Birthdate`                     | string          |
 | **C**                           |                 |
 | `Choices`                       | array           |
+| `Company`                       | string          |
 | `Content`                       | string          |
 | `CreatedAt`                     | string          |
 | **D**                           |                 |
