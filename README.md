@@ -131,6 +131,7 @@ class Person implements PersonInterface
 | `EndDate`                       | string          |
 | `ExpiresAt`                     | string          |
 | **F**                           |                 |
+| `FileExtension`                 | string          |
 | `Filename`                      | string          |
 | `FilePath`                      | string          |
 | `FirstName`                     | string          |
