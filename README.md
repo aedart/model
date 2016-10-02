@@ -180,6 +180,7 @@ class Person implements PersonInterface
 | `Suffix`                        | string          |
 | **T**                           |                 |
 | `Tag`                           | string          |
+| `Tags`                          | array           |
 | `Template`                      | string          |
 | `Timeout`                       | int             |
 | `Title`                         | string          |
