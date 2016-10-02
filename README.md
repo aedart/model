@@ -145,6 +145,7 @@ class Person implements PersonInterface
 | **J**                           |                 |
 | `Json`                          | string          |
 | **K**                           |                 |
+| `Key`                           | string          |
 | `Kind`                          | string          |
 | **L**                           |                 |
 | `LastName`                      | string          |
