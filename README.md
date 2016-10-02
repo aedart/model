@@ -94,6 +94,7 @@ class Person implements PersonInterface
 | `BasePath`                      | string          |
 | `Begin`                         | string          |
 | `Birthdate`                     | string          |
+| `BuildingNumber`                | string          |
 | **C**                           |                 |
 | `Choices`                       | array           |
 | `Company`                       | string          |
