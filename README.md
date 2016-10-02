@@ -98,6 +98,7 @@ class Person implements PersonInterface
 | `Birthdate`                     | string          |
 | `BuildingNumber`                | string          |
 | **C**                           |                 |
+| `Calandar`                      | string          |
 | `Choices`                       | array           |
 | `City`                          | string          |
 | `Company`                       | string          |
