@@ -192,6 +192,7 @@ class Person implements PersonInterface
 | `Template`                      | string          |
 | `Timeout`                       | int             |
 | `Timestamp`                     | int             |
+| `Timezone`                      | string          |
 | `Title`                         | string          |
 | `Topic`                         | string          |
 | `Type`                          | int, string     |
