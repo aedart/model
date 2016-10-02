@@ -139,6 +139,7 @@ class Person implements PersonInterface
 | **H**                           |                 |
 | `Html`                          | string          |
 | **I**                           |                 |
+| `Iban`                          | string          |
 | `Id`                            | int, string     |
 | `Image`                         | string          |
 | `InvoiceAddress`                | string          |
