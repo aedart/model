@@ -50,7 +50,8 @@ use Aedart\Model\Contracts\Integers\IdAware;
 use Aedart\Model\Contracts\Strings\DescriptionAware;
 use Aedart\Model\Contracts\Strings\NameAware;
 
-interface Person extends IdAware,
+interface Person extends
+    IdAware,
     NameAware,
     DescriptionAware
 {
@@ -73,7 +74,9 @@ use Aedart\Model\Traits\Strings\NameTrait;
 
 class Person implements PersonInterface
 {
-    use IdTrait, NameTrait, DescriptionTrait;   
+    use IdTrait;
+    use NameTrait;
+    use DescriptionTrait;   
 }
 ```
 
