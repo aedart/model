@@ -82,6 +82,7 @@ class Person implements PersonInterface
 | Property                        | Supported types |
 |---------------------------------|-----------------|
 | **A**                           |                 |
+| `Address`                       | string          |
 | `Age`                           | int             |
 | `Anniversary`                   | string          |
 | `Ask`                           | bool            |
