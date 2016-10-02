@@ -155,7 +155,7 @@ class Person implements PersonInterface
 | `Slug`                          | string          |
 | `Source`                        | string          |
 | `StartDate`                     | string          |
-| `State`                         | string          |
+| `State`                         | int, string     |
 | `Suffix`                        | string          |
 | **T**                           |                 |
 | `Template`                      | string          |
