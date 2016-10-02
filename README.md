@@ -101,6 +101,7 @@ class Person implements PersonInterface
 | `City`                          | string          |
 | `Company`                       | string          |
 | `Content`                       | string          |
+| `Country`                       | string          |
 | `CreatedAt`                     | string          |
 | **D**                           |                 |
 | `Data`                          | array           |
