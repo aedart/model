@@ -220,6 +220,7 @@ class Person implements PersonInterface
 | `Uuid`                          | string               |
 | **V**                           |                      |
 | `Value`                         | string, mixed        |
+| `Vat`                           | string               |
 | `Vendor`                        | string               |
 | `Version`                       | string               |
 | **W**                           |                      |
