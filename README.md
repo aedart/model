@@ -165,6 +165,7 @@ class Person implements PersonInterface
 | `Longitude`                     | float, string   |
 | **M**                           |                 |
 | `MacAddress`                    | string          |
+| `MediaType`                     | string          |
 | `MiddleName`                    | string          |
 | **N**                           |                 |
 | `Name`                          | string          |
