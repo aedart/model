@@ -100,6 +100,7 @@ class Person implements PersonInterface
 | **C**                           |                 |
 | `Calandar`                      | string          |
 | `Category`                      | string          |
+| `Categories`                    | array           |
 | `Choices`                       | array           |
 | `City`                          | string          |
 | `Company`                       | string          |
