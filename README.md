@@ -191,6 +191,7 @@ class Person implements PersonInterface
 | `Tags`                          | array           |
 | `Template`                      | string          |
 | `Timeout`                       | int             |
+| `Timestamp`                     | int             |
 | `Title`                         | string          |
 | `Topic`                         | string          |
 | `Type`                          | int, string     |
