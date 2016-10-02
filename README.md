@@ -196,6 +196,7 @@ class Person implements PersonInterface
 | `Timestamp`                     | int             |
 | `Timezone`                      | string          |
 | `Title`                         | string          |
+| `Tld`                           | string          |
 | `Topic`                         | string          |
 | `Type`                          | int, string     |
 | **U**                           |                 |
