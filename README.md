@@ -113,6 +113,7 @@ class Person implements PersonInterface
 | `Content`                       | string          |
 | `Country`                       | string          |
 | `CreatedAt`                     | string          |
+| `Currency`                      | string          |
 | **D**                           |                 |
 | `Data`                          | array           |
 | `Date`                          | string          |
