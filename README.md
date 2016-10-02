@@ -190,7 +190,7 @@ class Person implements PersonInterface
 | **Q**                           |                      |
 | `Question`                      | string               |
 | **R**                           |                      |
-| `Rate`                          | int, string          |
+| `Rate`                          | int, float, string   |
 | `Region`                        | string               |
 | `Revision`                      | string               |
 | `Role`                          | string               |
