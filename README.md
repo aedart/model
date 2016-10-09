@@ -190,6 +190,7 @@ class Person implements PersonInterface
 | `Price`                         | int, float, string   |
 | `Profile`                       | string               |
 | **Q**                           |                      |
+| `Query`                         | string               |
 | `Question`                      | string               |
 | **R**                           |                      |
 | `Rate`                          | int, float, string   |
