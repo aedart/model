@@ -206,6 +206,7 @@ class Person implements PersonInterface
 | `Suffix`                        | string               |
 | `Swift`                         | string               |
 | **T**                           |                      |
+| `Table`                         | string               |
 | `Tag`                           | string               |
 | `Tags`                          | array                |
 | `Template`                      | string               |
