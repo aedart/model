@@ -148,6 +148,7 @@ class Person implements PersonInterface
 | `Iban`                          | string               |
 | `Id`                            | int, string          |
 | `Image`                         | string               |
+| `Index`                         | string               |
 | `InvoiceAddress`                | string               |
 | `Ip`                            | string               |
 | `IpV4`                          | string               |
