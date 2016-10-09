@@ -109,6 +109,7 @@ class Person implements PersonInterface
 | `Class`                         | string               |
 | `Code`                          | string               |
 | `Colour`                        | string               |
+| `Column`                        | string               |
 | `Company`                       | string               |
 | `Content`                       | string               |
 | `Country`                       | string               |
