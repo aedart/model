@@ -141,6 +141,7 @@ class Person implements PersonInterface
 | **G**                           |                      |
 | `Gender`                        | string               |
 | **H**                           |                      |
+| `Host`                          | string               |
 | `Html`                          | string               |
 | **I**                           |                      |
 | `Iban`                          | string               |
