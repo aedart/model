@@ -195,6 +195,7 @@ class Person implements PersonInterface
 | `Question`                      | string               |
 | **R**                           |                      |
 | `Rate`                          | int, float, string   |
+| `Row`                           | int                  |
 | `Region`                        | string               |
 | `Revision`                      | string               |
 | `Role`                          | string               |
