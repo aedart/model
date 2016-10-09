@@ -225,7 +225,7 @@ class Person implements PersonInterface
 | `Vendor`                        | string               |
 | `Version`                       | string               |
 | **W**                           |                      |
-| _N/A (no properties yet added)_ |                      |
+| `Wildcard`                      | string               |
 | **X**                           |                      |
 | `Xml`                           | string               |
 | **Y**                           |                      |
