@@ -231,7 +231,7 @@ class Person implements PersonInterface
 | **Y**                           |                      |
 | _N/A (no properties yet added)_ |                      |
 | **Z**                           |                      |
-| `Zone`                          | string               |
+| `Zone`                          | int, string          |
 
 
 As I progress with other projects, more properties will be added...
