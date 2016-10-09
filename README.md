@@ -116,6 +116,7 @@ class Person implements PersonInterface
 | `Currency`                      | string               |
 | **D**                           |                      |
 | `Data`                          | array                |
+| `Database`                      | string               |
 | `Date`                          | string               |
 | `DeceasedAt`                    | string               |
 | `DeletedAt`                     | string               |
