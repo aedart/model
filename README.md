@@ -201,6 +201,7 @@ class Person implements PersonInterface
 | `Script`                        | string               |
 | `Slug`                          | string               |
 | `Source`                        | string               |
+| `Sql`                           | string               |
 | `StartDate`                     | string               |
 | `State`                         | int, string          |
 | `Street`                        | string               |
