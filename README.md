@@ -233,6 +233,7 @@ class Person implements PersonInterface
 | `Vendor`                        | string               |
 | `Version`                       | string               |
 | **W**                           |                      |
+| `Width`                         | int, float           |
 | `Wildcard`                      | string               |
 | **X**                           |                      |
 | `Xml`                           | string               |
