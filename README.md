@@ -242,7 +242,7 @@ class Person implements PersonInterface
 | `X`                             | int, float, mixed    |
 | `Xml`                           | string               |
 | **Y**                           |                      |
-| _N/A (no properties yet added)_ |                      |
+| `Y`                             | int, float, mixed    |
 | **Z**                           |                      |
 | `Zone`                          | int, string          |
 
