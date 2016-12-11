@@ -244,6 +244,7 @@ class Person implements PersonInterface
 | **Y**                           |                      |
 | `Y`                             | int, float, mixed    |
 | **Z**                           |                      |
+| `Z`                             | int, float, mixed    |
 | `Zone`                          | int, string          |
 
 
