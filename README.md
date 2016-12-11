@@ -164,13 +164,13 @@ class Person implements PersonInterface
 | `Key`                           | string               |
 | `Kind`                          | string               |
 | **L**                           |                      |
-| `Length`                        | int, float           |
 | `Label`                         | string               |
 | `Language`                      | string               |
 | `LastName`                      | string               |
 | `Latitude`                      | float, string        |
-| `Locations`                     | array                |
+| `Length`                        | int, float           |
 | `Locale`                        | string               |
+| `Locations`                     | array                |
 | `Logo`                          | string               |
 | `Longitude`                     | float, string        |
 | **M**                           |                      |
