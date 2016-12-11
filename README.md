@@ -122,6 +122,7 @@ class Person implements PersonInterface
 | `DeceasedAt`                    | string               |
 | `DeletedAt`                     | string               |
 | `DeliveryAddress`               | string               |
+| `Depth`                         | int, float           |
 | `Description`                   | string               |
 | `Directory`                     | string               |
 | `Discount`                      | int, float, string   |
