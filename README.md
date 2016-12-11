@@ -164,6 +164,7 @@ class Person implements PersonInterface
 | `Key`                           | string               |
 | `Kind`                          | string               |
 | **L**                           |                      |
+| `Length`                        | int, float           |
 | `Label`                         | string               |
 | `Language`                      | string               |
 | `LastName`                      | string               |
