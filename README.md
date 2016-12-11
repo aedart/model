@@ -143,6 +143,7 @@ class Person implements PersonInterface
 | **G**                           |                      |
 | `Gender`                        | string               |
 | **H**                           |                      |
+| `Height`                        | int, float           |
 | `Host`                          | string               |
 | `Html`                          | string               |
 | **I**                           |                      |
