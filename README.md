@@ -239,6 +239,7 @@ class Person implements PersonInterface
 | `Width`                         | int, float           |
 | `Wildcard`                      | string               |
 | **X**                           |                      |
+| `X`                             | int, float, mixed    |
 | `Xml`                           | string               |
 | **Y**                           |                      |
 | _N/A (no properties yet added)_ |                      |
