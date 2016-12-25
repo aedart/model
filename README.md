@@ -95,7 +95,7 @@ class Person implements PersonInterface
 | **B**                           |                      |
 | `BasePath`                      | string               |
 | `Begin`                         | string               |
-| `Birthdate`                     | string               |
+| `Birthdate`                     | int, string          |
 | `BuildingNumber`                | string               |
 | **C**                           |                      |
 | `Calandar`                      | string               |
