@@ -226,7 +226,7 @@ class Person implements PersonInterface
 | `Topic`                         | string               |
 | `Type`                          | int, string          |
 | **U**                           |                      |
-| `UpdatedAt`                     | string               |
+| `UpdatedAt`                     | int, string          |
 | `Url`                           | string               |
 | `Username`                      | string               |
 | `Uuid`                          | string               |
