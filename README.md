@@ -120,7 +120,7 @@ class Person implements PersonInterface
 | `Database`                      | string               |
 | `Date`                          | string               |
 | `DeceasedAt`                    | int, string          |
-| `DeletedAt`                     | string               |
+| `DeletedAt`                     | int, string          |
 | `DeliveryAddress`               | string               |
 | `Depth`                         | int, float           |
 | `Description`                   | string               |
