@@ -88,7 +88,7 @@ class Person implements PersonInterface
 | `Address`                       | string               |
 | `Age`                           | int                  |
 | `Agent`                         | string               |
-| `Anniversary`                   | string               |
+| `Anniversary`                   | int, string          |
 | `Area`                          | string               |
 | `Ask`                           | bool                 |
 | `Author`                        | string               |
