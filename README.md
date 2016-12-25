@@ -133,7 +133,7 @@ class Person implements PersonInterface
 | `Ean13`                         | string               |
 | `Email`                         | string               |
 | `End`                           | string               |
-| `EndDate`                       | string               |
+| `EndDate`                       | int, string          |
 | `ExpiresAt`                     | string               |
 | **F**                           |                      |
 | `FileExtension`                 | string               |
