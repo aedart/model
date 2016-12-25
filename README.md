@@ -208,7 +208,7 @@ class Person implements PersonInterface
 | `Slug`                          | string               |
 | `Source`                        | string               |
 | `Sql`                           | string               |
-| `StartDate`                     | string               |
+| `StartDate`                     | int, string          |
 | `State`                         | int, string          |
 | `Street`                        | string               |
 | `Suffix`                        | string               |
