@@ -21,9 +21,9 @@
   },
   "require-dev": {
     "aedart/license": "1.*",
-    "aedart/license-file-manager": "~1.5",
-    "aedart/testing-gst": "~1.2",
-    "aedart/scaffold-bundle": "~1.1"
+    "aedart/license-file-manager": "~1.8",
+    "aedart/testing-gst": "~1.4",
+    "aedart/scaffold-bundle": "~1.2"
   },
   "autoload": {
     "psr-4": {
@@ -42,11 +42,11 @@
     "aedart/dto": "This package is ideal for the Data Transfer Object (DTO) abstraction"
   },
   "scripts": {
-    "post-update-cmd": "vendor/bin/license-manager license:copy vendor/aedart/license/aedart/BSD-3-Clause"
+    "post-update-cmd": "vendor/bin/license-manager license:copy vendor/aedart/license/aedart/BSD-3-Clause --ansi"
   },
   "extra": {
     "branch-alias": {
-      "dev-master": "2.4.x-dev"
+      "dev-master": "3.0.x-dev"
     }
   }
 }
