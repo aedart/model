@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Mixed;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Mixed;
 
 /**
  * <h1>Value Trait</h1>
@@ -22,11 +25,13 @@ trait ValueTrait
      *
      * @param mixed $value The value of this component
      *
-     * @return void
+     * @return self
      */
     public function setValue($value)
     {
         $this->value = $value;
+
+        return $this;
     }
 
     /**
@@ -42,10 +47,20 @@ trait ValueTrait
      */
     public function getValue()
     {
-        if (!$this->hasValue() && $this->hasDefaultValue()) {
+        if ( ! $this->hasValue()) {
             $this->setValue($this->getDefaultValue());
         }
         return $this->value;
+    }
+
+    /**
+     * Check if "value" has been set
+     *
+     * @return bool True if "value" value has been set, false if not
+     */
+    public function hasValue() : bool
+    {
+        return isset($this->value);
     }
 
     /**
@@ -56,26 +71,5 @@ trait ValueTrait
     public function getDefaultValue()
     {
         return null;
-    }
-
-    /**
-     * Check if "value" has been set
-     *
-     * @return bool True if "value" value has been set, false if not
-     */
-    public function hasValue()
-    {
-        return isset($this->value);
-    }
-
-    /**
-     * Check if a default "value" is available or not
-     *
-     * @return bool True of a default "value" value is available, false if not
-     */
-    public function hasDefaultValue()
-    {
-        $default = $this->getDefaultValue();
-        return isset($default);
     }
 }

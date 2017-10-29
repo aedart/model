@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Mixed;
+<?php
+
+namespace Aedart\Model\Contracts\Mixed;
 
 /**
  * <h1>Value Aware</h1>
@@ -16,7 +18,7 @@ interface ValueAware
      *
      * @param mixed $value The value of this component
      *
-     * @return void
+     * @return self
      */
     public function setValue($value);
 
@@ -34,23 +36,16 @@ interface ValueAware
     public function getValue();
 
     /**
+     * Check if "value" has been set
+     *
+     * @return bool True if "value" value has been set, false if not
+     */
+    public function hasValue() : bool ;
+
+    /**
      * Get a default "value" value, if any is available
      *
      * @return mixed|null A default "value" value or null if no default value is available
      */
     public function getDefaultValue();
-
-    /**
-     * Check if "value" has been set
-     *
-     * @return bool True if "value" value has been set, false if not
-     */
-    public function hasValue();
-
-    /**
-     * Check if a default "value" is available or not
-     *
-     * @return bool True of a default "value" value is available, false if not
-     */
-    public function hasDefaultValue();
 }
