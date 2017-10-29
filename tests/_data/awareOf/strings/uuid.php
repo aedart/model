@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string uuid'   => [
             \Aedart\Model\Traits\Strings\UuidTrait::class,
             \Aedart\Model\Contracts\Strings\UuidAware::class,
-            $faker->uuid,
-            $faker->uuid,
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

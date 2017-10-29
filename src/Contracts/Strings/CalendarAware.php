@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Calendar Aware</h1>
@@ -14,11 +16,11 @@ interface CalendarAware
     /**
      * Set calendar
      *
-     * @param string $location Location to a calendar, e.g. URI, name, ID or other identifier
+     * @param string|null $location Location to calendar, e.g. URI, name, ID or other identifier
      *
-     * @return void
+     * @return self
      */
-    public function setCalendar($location);
+    public function setCalendar(?string $location);
 
     /**
      * Get calendar
@@ -29,28 +31,21 @@ interface CalendarAware
      *
      * @see getDefaultCalendar()
      *
-     * @return string|null "calendar" value or null if no "calendar" value has been set
+     * @return string|null calendar or null if no calendar has been set
      */
-    public function getCalendar();
-
-    /**
-     * Get a default "calendar" value, if any is available
-     *
-     * @return string|null A default "calendar" value or null if no default value is available
-     */
-    public function getDefaultCalendar();
+    public function getCalendar() : ?string ;
 
     /**
      * Check if "calendar" has been set
      *
-     * @return bool True if "calendar" value has been set, false if not
+     * @return bool True if "calendar" has been set, false if not
      */
-    public function hasCalendar();
+    public function hasCalendar() : bool;
 
     /**
-     * Check if a default "calendar" is available or not
+     * Get a default "calendar" value, if any is available
      *
-     * @return bool True of a default "calendar" value is available, false if not
+     * @return string|null Default "calendar" value or null if no default value is available
      */
-    public function hasDefaultCalendar();
+    public function getDefaultCalendar() : ?string;
 }

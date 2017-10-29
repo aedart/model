@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Invoice Address Aware</h1>
@@ -14,11 +16,11 @@ interface InvoiceAddressAware
     /**
      * Set invoice address
      *
-     * @param string $address Invoice Address. Can be formatted.
+     * @param string|null $address Invoice Address. Can be formatted.
      *
-     * @return void
+     * @return self
      */
-    public function setInvoiceAddress($address);
+    public function setInvoiceAddress(?string $address);
 
     /**
      * Get invoice address
@@ -29,28 +31,21 @@ interface InvoiceAddressAware
      *
      * @see getDefaultInvoiceAddress()
      *
-     * @return string|null "invoice address" value or null if no "invoice address" value has been set
+     * @return string|null invoice address or null if no invoice address has been set
      */
-    public function getInvoiceAddress();
-
-    /**
-     * Get a default "invoice address" value, if any is available
-     *
-     * @return string|null A default "invoice address" value or null if no default value is available
-     */
-    public function getDefaultInvoiceAddress();
+    public function getInvoiceAddress() : ?string ;
 
     /**
      * Check if "invoice address" has been set
      *
-     * @return bool True if "invoice address" value has been set, false if not
+     * @return bool True if "invoice address" has been set, false if not
      */
-    public function hasInvoiceAddress();
+    public function hasInvoiceAddress() : bool;
 
     /**
-     * Check if a default "invoice address" is available or not
+     * Get a default "invoice address" value, if any is available
      *
-     * @return bool True of a default "invoice address" value is available, false if not
+     * @return string|null Default "invoice address" value or null if no default value is available
      */
-    public function hasDefaultInvoiceAddress();
+    public function getDefaultInvoiceAddress() : ?string;
 }

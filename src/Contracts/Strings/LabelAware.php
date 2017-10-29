@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Label Aware</h1>
@@ -14,11 +16,11 @@ interface LabelAware
     /**
      * Set label
      *
-     * @param string $name Label name
+     * @param string|null $name Label name
      *
-     * @return void
+     * @return self
      */
-    public function setLabel($name);
+    public function setLabel(?string $name);
 
     /**
      * Get label
@@ -29,28 +31,21 @@ interface LabelAware
      *
      * @see getDefaultLabel()
      *
-     * @return string|null "label" value or null if no "label" value has been set
+     * @return string|null label or null if no label has been set
      */
-    public function getLabel();
-
-    /**
-     * Get a default "label" value, if any is available
-     *
-     * @return string|null A default "label" value or null if no default value is available
-     */
-    public function getDefaultLabel();
+    public function getLabel() : ?string ;
 
     /**
      * Check if "label" has been set
      *
-     * @return bool True if "label" value has been set, false if not
+     * @return bool True if "label" has been set, false if not
      */
-    public function hasLabel();
+    public function hasLabel() : bool;
 
     /**
-     * Check if a default "label" is available or not
+     * Get a default "label" value, if any is available
      *
-     * @return bool True of a default "label" value is available, false if not
+     * @return string|null Default "label" value or null if no default value is available
      */
-    public function hasDefaultLabel();
+    public function getDefaultLabel() : ?string;
 }

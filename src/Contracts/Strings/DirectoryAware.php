@@ -1,13 +1,12 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Directory Aware</h1>
  *
- * Components are aware of a directory path, which can either be
- * relative, e.g. relative to the root level or perhaps just the
- * directory name, or absolute.
- *
- * Furthermore, the path might or might not exist
+ * Component is aware of a string "directory" value, which can
+ * also be specified.
  *
  * @author Alin Eugen Deac <aedart@gmail.com>
  * @package Aedart\Model\Contracts\Strings
@@ -17,11 +16,11 @@ interface DirectoryAware
     /**
      * Set directory
      *
-     * @param string $path Path to a given directory, relative or absolute, existing or none-existing
+     * @param string|null $path Path to a given directory, relative or absolute, existing or none-existing
      *
-     * @return void
+     * @return self
      */
-    public function setDirectory($path);
+    public function setDirectory(?string $path);
 
     /**
      * Get directory
@@ -32,28 +31,21 @@ interface DirectoryAware
      *
      * @see getDefaultDirectory()
      *
-     * @return string|null "directory" value or null if no "directory" value has been set
+     * @return string|null directory or null if no directory has been set
      */
-    public function getDirectory();
-
-    /**
-     * Get a default "directory" value, if any is available
-     *
-     * @return string|null A default "directory" value or null if no default value is available
-     */
-    public function getDefaultDirectory();
+    public function getDirectory() : ?string ;
 
     /**
      * Check if "directory" has been set
      *
-     * @return bool True if "directory" value has been set, false if not
+     * @return bool True if "directory" has been set, false if not
      */
-    public function hasDirectory();
+    public function hasDirectory() : bool;
 
     /**
-     * Check if a default "directory" is available or not
+     * Get a default "directory" value, if any is available
      *
-     * @return bool True of a default "directory" value is available, false if not
+     * @return string|null Default "directory" value or null if no default value is available
      */
-    public function hasDefaultDirectory();
+    public function getDefaultDirectory() : ?string;
 }

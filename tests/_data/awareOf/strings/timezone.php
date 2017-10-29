@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string timezone'   => [
             \Aedart\Model\Traits\Strings\TimezoneTrait::class,
             \Aedart\Model\Contracts\Strings\TimezoneAware::class,
-            $faker->timezone,
-            $faker->timezone,
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

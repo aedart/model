@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>File Path Trait</h1>
@@ -20,13 +23,15 @@ trait FilePathTrait
     /**
      * Set file path
      *
-     * @param string $path Path to a file
+     * @param string|null $path Path to a file
      *
-     * @return void
+     * @return self
      */
-    public function setFilePath($path)
+    public function setFilePath(?string $path)
     {
-        $this->filePath = (string) $path;
+        $this->filePath = $path;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait FilePathTrait
      *
      * @see getDefaultFilePath()
      *
-     * @return string|null "file path" value or null if no "file path" value has been set
+     * @return string|null file path or null if no file path has been set
      */
-    public function getFilePath()
+    public function getFilePath() : ?string 
     {
-        if (!$this->hasFilePath() && $this->hasDefaultFilePath()) {
+        if ( ! $this->hasFilePath()) {
             $this->setFilePath($this->getDefaultFilePath());
         }
         return $this->filePath;
     }
 
     /**
-     * Get a default "file path" value, if any is available
-     *
-     * @return string|null A default "file path" value or null if no default value is available
-     */
-    public function getDefaultFilePath()
-    {
-        return null;
-    }
-
-    /**
      * Check if "file path" has been set
      *
-     * @return bool True if "file path" value has been set, false if not
+     * @return bool True if "file path" has been set, false if not
      */
-    public function hasFilePath()
+    public function hasFilePath() : bool
     {
         return isset($this->filePath);
     }
 
     /**
-     * Check if a default "file path" is available or not
+     * Get a default "file path" value, if any is available
      *
-     * @return bool True of a default "file path" value is available, false if not
+     * @return string|null Default "file path" value or null if no default value is available
      */
-    public function hasDefaultFilePath()
+    public function getDefaultFilePath() : ?string
     {
-        $default = $this->getDefaultFilePath();
-        return isset($default);
+        return null;
     }
 }

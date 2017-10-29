@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string logo'   => [
             \Aedart\Model\Traits\Strings\LogoTrait::class,
             \Aedart\Model\Contracts\Strings\LogoAware::class,
-            $faker->imageUrl(),
-            $faker->imageUrl(),
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

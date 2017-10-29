@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string address'   => [
             \Aedart\Model\Traits\Strings\AddressTrait::class,
             \Aedart\Model\Contracts\Strings\AddressAware::class,
-            $faker->address,
-            $faker->address,
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

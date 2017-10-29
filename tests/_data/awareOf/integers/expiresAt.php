@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'int expiresAt'   => [
             \Aedart\Model\Traits\Integers\ExpiresAtTrait::class,
             \Aedart\Model\Contracts\Integers\ExpiresAtAware::class,
-            $faker->unixTime,
-            $faker->unixTime,
+            $faker->randomNumber($faker->randomDigitNotNull),
+            $faker->randomNumber($faker->randomDigitNotNull),
         ]
     ];
 };

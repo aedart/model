@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Organisation Trait</h1>
@@ -11,7 +14,7 @@
 trait OrganisationTrait
 {
     /**
-     * Name of an organisation
+     * Name of organisation
      *
      * @var string|null
      */
@@ -20,13 +23,15 @@ trait OrganisationTrait
     /**
      * Set organisation
      *
-     * @param string $name Name of an organisation
+     * @param string|null $name Name of organisation
      *
-     * @return void
+     * @return self
      */
-    public function setOrganisation($name)
+    public function setOrganisation(?string $name)
     {
-        $this->organisation = (string) $name;
+        $this->organisation = $name;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait OrganisationTrait
      *
      * @see getDefaultOrganisation()
      *
-     * @return string|null "organisation" value or null if no "organisation" value has been set
+     * @return string|null organisation or null if no organisation has been set
      */
-    public function getOrganisation()
+    public function getOrganisation() : ?string 
     {
-        if (!$this->hasOrganisation() && $this->hasDefaultOrganisation()) {
+        if ( ! $this->hasOrganisation()) {
             $this->setOrganisation($this->getDefaultOrganisation());
         }
         return $this->organisation;
     }
 
     /**
-     * Get a default "organisation" value, if any is available
-     *
-     * @return string|null A default "organisation" value or null if no default value is available
-     */
-    public function getDefaultOrganisation()
-    {
-        return null;
-    }
-
-    /**
      * Check if "organisation" has been set
      *
-     * @return bool True if "organisation" value has been set, false if not
+     * @return bool True if "organisation" has been set, false if not
      */
-    public function hasOrganisation()
+    public function hasOrganisation() : bool
     {
         return isset($this->organisation);
     }
 
     /**
-     * Check if a default "organisation" is available or not
+     * Get a default "organisation" value, if any is available
      *
-     * @return bool True of a default "organisation" value is available, false if not
+     * @return string|null Default "organisation" value or null if no default value is available
      */
-    public function hasDefaultOrganisation()
+    public function getDefaultOrganisation() : ?string
     {
-        $default = $this->getDefaultOrganisation();
-        return isset($default);
+        return null;
     }
 }

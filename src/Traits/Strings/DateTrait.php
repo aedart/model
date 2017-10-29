@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Date Trait</h1>
@@ -11,7 +14,7 @@
 trait DateTrait
 {
     /**
-     * Date
+     * Date of event
      *
      * @var string|null
      */
@@ -20,13 +23,15 @@ trait DateTrait
     /**
      * Set date
      *
-     * @param string $date Date
+     * @param string|null $date Date of event
      *
-     * @return void
+     * @return self
      */
-    public function setDate($date)
+    public function setDate(?string $date)
     {
-        $this->date = (string) $date;
+        $this->date = $date;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait DateTrait
      *
      * @see getDefaultDate()
      *
-     * @return string|null "date" value or null if no "date" value has been set
+     * @return string|null date or null if no date has been set
      */
-    public function getDate()
+    public function getDate() : ?string 
     {
-        if (!$this->hasDate() && $this->hasDefaultDate()) {
+        if ( ! $this->hasDate()) {
             $this->setDate($this->getDefaultDate());
         }
         return $this->date;
     }
 
     /**
-     * Get a default "date" value, if any is available
-     *
-     * @return string|null A default "date" value or null if no default value is available
-     */
-    public function getDefaultDate()
-    {
-        return null;
-    }
-
-    /**
      * Check if "date" has been set
      *
-     * @return bool True if "date" value has been set, false if not
+     * @return bool True if "date" has been set, false if not
      */
-    public function hasDate()
+    public function hasDate() : bool
     {
         return isset($this->date);
     }
 
     /**
-     * Check if a default "date" is available or not
+     * Get a default "date" value, if any is available
      *
-     * @return bool True of a default "date" value is available, false if not
+     * @return string|null Default "date" value or null if no default value is available
      */
-    public function hasDefaultDate()
+    public function getDefaultDate() : ?string
     {
-        $default = $this->getDefaultDate();
-        return isset($default);
+        return null;
     }
 }

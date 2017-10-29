@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Area Aware</h1>
@@ -14,11 +16,11 @@ interface AreaAware
     /**
      * Set area
      *
-     * @param string $name Name of an area, e.g. in a building, in a city, outside the city, ...etc
+     * @param string|null $name Name of area, e.g. in a building, in a city, outside the city, ...etc
      *
-     * @return void
+     * @return self
      */
-    public function setArea($name);
+    public function setArea(?string $name);
 
     /**
      * Get area
@@ -29,28 +31,21 @@ interface AreaAware
      *
      * @see getDefaultArea()
      *
-     * @return string|null "area" value or null if no "area" value has been set
+     * @return string|null area or null if no area has been set
      */
-    public function getArea();
-
-    /**
-     * Get a default "area" value, if any is available
-     *
-     * @return string|null A default "area" value or null if no default value is available
-     */
-    public function getDefaultArea();
+    public function getArea() : ?string ;
 
     /**
      * Check if "area" has been set
      *
-     * @return bool True if "area" value has been set, false if not
+     * @return bool True if "area" has been set, false if not
      */
-    public function hasArea();
+    public function hasArea() : bool;
 
     /**
-     * Check if a default "area" is available or not
+     * Get a default "area" value, if any is available
      *
-     * @return bool True of a default "area" value is available, false if not
+     * @return string|null Default "area" value or null if no default value is available
      */
-    public function hasDefaultArea();
+    public function getDefaultArea() : ?string;
 }

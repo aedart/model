@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Code Trait</h1>
@@ -20,13 +23,15 @@ trait CodeTrait
     /**
      * Set code
      *
-     * @param string $code The code for something, e.g. language code, classification code, or perhaps an artifacts identifier
+     * @param string|null $code The code for something, e.g. language code, classification code, or perhaps an artifacts identifier
      *
-     * @return void
+     * @return self
      */
-    public function setCode($code)
+    public function setCode(?string $code)
     {
-        $this->code = (string) $code;
+        $this->code = $code;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait CodeTrait
      *
      * @see getDefaultCode()
      *
-     * @return string|null "code" value or null if no "code" value has been set
+     * @return string|null code or null if no code has been set
      */
-    public function getCode()
+    public function getCode() : ?string 
     {
-        if (!$this->hasCode() && $this->hasDefaultCode()) {
+        if ( ! $this->hasCode()) {
             $this->setCode($this->getDefaultCode());
         }
         return $this->code;
     }
 
     /**
-     * Get a default "code" value, if any is available
-     *
-     * @return string|null A default "code" value or null if no default value is available
-     */
-    public function getDefaultCode()
-    {
-        return null;
-    }
-
-    /**
      * Check if "code" has been set
      *
-     * @return bool True if "code" value has been set, false if not
+     * @return bool True if "code" has been set, false if not
      */
-    public function hasCode()
+    public function hasCode() : bool
     {
         return isset($this->code);
     }
 
     /**
-     * Check if a default "code" is available or not
+     * Get a default "code" value, if any is available
      *
-     * @return bool True of a default "code" value is available, false if not
+     * @return string|null Default "code" value or null if no default value is available
      */
-    public function hasDefaultCode()
+    public function getDefaultCode() : ?string
     {
-        $default = $this->getDefaultCode();
-        return isset($default);
+        return null;
     }
 }

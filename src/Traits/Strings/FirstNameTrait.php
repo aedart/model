@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>First Name Trait</h1>
@@ -20,13 +23,15 @@ trait FirstNameTrait
     /**
      * Set first name
      *
-     * @param string $name First name (given name) or forename of a person
+     * @param string|null $name First name (given name) or forename of a person
      *
-     * @return void
+     * @return self
      */
-    public function setFirstName($name)
+    public function setFirstName(?string $name)
     {
-        $this->firstName = (string) $name;
+        $this->firstName = $name;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait FirstNameTrait
      *
      * @see getDefaultFirstName()
      *
-     * @return string|null "first name" value or null if no "first name" value has been set
+     * @return string|null first name or null if no first name has been set
      */
-    public function getFirstName()
+    public function getFirstName() : ?string 
     {
-        if (!$this->hasFirstName() && $this->hasDefaultFirstName()) {
+        if ( ! $this->hasFirstName()) {
             $this->setFirstName($this->getDefaultFirstName());
         }
         return $this->firstName;
     }
 
     /**
-     * Get a default "first name" value, if any is available
-     *
-     * @return string|null A default "first name" value or null if no default value is available
-     */
-    public function getDefaultFirstName()
-    {
-        return null;
-    }
-
-    /**
      * Check if "first name" has been set
      *
-     * @return bool True if "first name" value has been set, false if not
+     * @return bool True if "first name" has been set, false if not
      */
-    public function hasFirstName()
+    public function hasFirstName() : bool
     {
         return isset($this->firstName);
     }
 
     /**
-     * Check if a default "first name" is available or not
+     * Get a default "first name" value, if any is available
      *
-     * @return bool True of a default "first name" value is available, false if not
+     * @return string|null Default "first name" value or null if no default value is available
      */
-    public function hasDefaultFirstName()
+    public function getDefaultFirstName() : ?string
     {
-        $default = $this->getDefaultFirstName();
-        return isset($default);
+        return null;
     }
 }

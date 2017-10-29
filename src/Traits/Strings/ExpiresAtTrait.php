@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Expires At Trait</h1>
@@ -20,13 +23,15 @@ trait ExpiresAtTrait
     /**
      * Set expires at
      *
-     * @param string $date Date of when this component, entity or resource is going to expire
+     * @param string|null $date Date of when this component, entity or resource is going to expire
      *
-     * @return void
+     * @return self
      */
-    public function setExpiresAt($date)
+    public function setExpiresAt(?string $date)
     {
-        $this->expiresAt = (string) $date;
+        $this->expiresAt = $date;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait ExpiresAtTrait
      *
      * @see getDefaultExpiresAt()
      *
-     * @return string|null "expires at" value or null if no "expires at" value has been set
+     * @return string|null expires at or null if no expires at has been set
      */
-    public function getExpiresAt()
+    public function getExpiresAt() : ?string 
     {
-        if (!$this->hasExpiresAt() && $this->hasDefaultExpiresAt()) {
+        if ( ! $this->hasExpiresAt()) {
             $this->setExpiresAt($this->getDefaultExpiresAt());
         }
         return $this->expiresAt;
     }
 
     /**
-     * Get a default "expires at" value, if any is available
-     *
-     * @return string|null A default "expires at" value or null if no default value is available
-     */
-    public function getDefaultExpiresAt()
-    {
-        return null;
-    }
-
-    /**
      * Check if "expires at" has been set
      *
-     * @return bool True if "expires at" value has been set, false if not
+     * @return bool True if "expires at" has been set, false if not
      */
-    public function hasExpiresAt()
+    public function hasExpiresAt() : bool
     {
         return isset($this->expiresAt);
     }
 
     /**
-     * Check if a default "expires at" is available or not
+     * Get a default "expires at" value, if any is available
      *
-     * @return bool True of a default "expires at" value is available, false if not
+     * @return string|null Default "expires at" value or null if no default value is available
      */
-    public function hasDefaultExpiresAt()
+    public function getDefaultExpiresAt() : ?string
     {
-        $default = $this->getDefaultExpiresAt();
-        return isset($default);
+        return null;
     }
 }

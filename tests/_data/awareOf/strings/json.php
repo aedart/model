@@ -8,14 +8,8 @@ return function(\Faker\Generator $faker){
         'string json'   => [
             \Aedart\Model\Traits\Strings\JsonTrait::class,
             \Aedart\Model\Contracts\Strings\JsonAware::class,
-            json_encode([
-                $faker->word => $faker->uuid,
-                $faker->word => $faker->words(),
-            ]),
-            json_encode([
-                $faker->word => $faker->uuid,
-                $faker->word => $faker->words(),
-            ]),
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

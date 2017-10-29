@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string anniversary'   => [
             \Aedart\Model\Traits\Strings\AnniversaryTrait::class,
             \Aedart\Model\Contracts\Strings\AnniversaryAware::class,
-            $faker->date(),
-            $faker->date(),
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

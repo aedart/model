@@ -8,7 +8,7 @@ return function(\Faker\Generator $faker){
         'string begin'   => [
             \Aedart\Model\Traits\Strings\BeginTrait::class,
             \Aedart\Model\Contracts\Strings\BeginAware::class,
-            $faker->sentence,
+            $faker->word,
             $faker->word,
         ]
     ];

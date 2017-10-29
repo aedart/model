@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Category Aware</h1>
@@ -14,11 +16,11 @@ interface CategoryAware
     /**
      * Set category
      *
-     * @param string $name Name of a category
+     * @param string|null $name Name of category
      *
-     * @return void
+     * @return self
      */
-    public function setCategory($name);
+    public function setCategory(?string $name);
 
     /**
      * Get category
@@ -29,28 +31,21 @@ interface CategoryAware
      *
      * @see getDefaultCategory()
      *
-     * @return string|null "category" value or null if no "category" value has been set
+     * @return string|null category or null if no category has been set
      */
-    public function getCategory();
-
-    /**
-     * Get a default "category" value, if any is available
-     *
-     * @return string|null A default "category" value or null if no default value is available
-     */
-    public function getDefaultCategory();
+    public function getCategory() : ?string ;
 
     /**
      * Check if "category" has been set
      *
-     * @return bool True if "category" value has been set, false if not
+     * @return bool True if "category" has been set, false if not
      */
-    public function hasCategory();
+    public function hasCategory() : bool;
 
     /**
-     * Check if a default "category" is available or not
+     * Get a default "category" value, if any is available
      *
-     * @return bool True of a default "category" value is available, false if not
+     * @return string|null Default "category" value or null if no default value is available
      */
-    public function hasDefaultCategory();
+    public function getDefaultCategory() : ?string;
 }

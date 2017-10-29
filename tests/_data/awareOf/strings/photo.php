@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string photo'   => [
             \Aedart\Model\Traits\Strings\PhotoTrait::class,
             \Aedart\Model\Contracts\Strings\PhotoAware::class,
-            $faker->imageUrl(),
-            $faker->imageUrl(),
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

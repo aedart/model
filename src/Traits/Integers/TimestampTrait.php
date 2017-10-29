@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Integers;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Integers;
 
 /**
  * <h1>Timestamp Trait</h1>
@@ -20,13 +23,15 @@ trait TimestampTrait
     /**
      * Set timestamp
      *
-     * @param int $timestamp Unix timestamp
+     * @param int|null $timestamp Unix timestamp
      *
-     * @return void
+     * @return self
      */
-    public function setTimestamp($timestamp)
+    public function setTimestamp(?int $timestamp)
     {
-        $this->timestamp = (int) $timestamp;
+        $this->timestamp = $timestamp;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait TimestampTrait
      *
      * @see getDefaultTimestamp()
      *
-     * @return int|null "timestamp" value or null if no "timestamp" value has been set
+     * @return int|null timestamp or null if no timestamp has been set
      */
-    public function getTimestamp()
+    public function getTimestamp() : ?int 
     {
-        if (!$this->hasTimestamp() && $this->hasDefaultTimestamp()) {
+        if ( ! $this->hasTimestamp()) {
             $this->setTimestamp($this->getDefaultTimestamp());
         }
         return $this->timestamp;
     }
 
     /**
-     * Get a default "timestamp" value, if any is available
-     *
-     * @return int|null A default "timestamp" value or null if no default value is available
-     */
-    public function getDefaultTimestamp()
-    {
-        return null;
-    }
-
-    /**
      * Check if "timestamp" has been set
      *
-     * @return bool True if "timestamp" value has been set, false if not
+     * @return bool True if "timestamp" has been set, false if not
      */
-    public function hasTimestamp()
+    public function hasTimestamp() : bool
     {
         return isset($this->timestamp);
     }
 
     /**
-     * Check if a default "timestamp" is available or not
+     * Get a default "timestamp" value, if any is available
      *
-     * @return bool True of a default "timestamp" value is available, false if not
+     * @return int|null Default "timestamp" value or null if no default value is available
      */
-    public function hasDefaultTimestamp()
+    public function getDefaultTimestamp() : ?int
     {
-        $default = $this->getDefaultTimestamp();
-        return isset($default);
+        return null;
     }
 }

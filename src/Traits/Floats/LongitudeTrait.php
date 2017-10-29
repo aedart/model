@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Floats;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Floats;
 
 /**
  * <h1>Longitude Trait</h1>
@@ -11,7 +14,7 @@
 trait LongitudeTrait
 {
     /**
-     * East-West position on Earth's surface
+     * East-West position on Earth&#039;s surface
      *
      * @var float|null
      */
@@ -20,13 +23,15 @@ trait LongitudeTrait
     /**
      * Set longitude
      *
-     * @param float $value East-West position on Earth's surface
+     * @param float|null $value East-West position on Earth&#039;s surface
      *
-     * @return void
+     * @return self
      */
-    public function setLongitude($value)
+    public function setLongitude(?float $value)
     {
-        $this->longitude = (float) $value;
+        $this->longitude = $value;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait LongitudeTrait
      *
      * @see getDefaultLongitude()
      *
-     * @return float|null "longitude" value or null if no "longitude" value has been set
+     * @return float|null longitude or null if no longitude has been set
      */
-    public function getLongitude()
+    public function getLongitude() : ?float 
     {
-        if (!$this->hasLongitude() && $this->hasDefaultLongitude()) {
+        if ( ! $this->hasLongitude()) {
             $this->setLongitude($this->getDefaultLongitude());
         }
         return $this->longitude;
     }
 
     /**
-     * Get a default "longitude" value, if any is available
-     *
-     * @return float|null A default "longitude" value or null if no default value is available
-     */
-    public function getDefaultLongitude()
-    {
-        return null;
-    }
-
-    /**
      * Check if "longitude" has been set
      *
-     * @return bool True if "longitude" value has been set, false if not
+     * @return bool True if "longitude" has been set, false if not
      */
-    public function hasLongitude()
+    public function hasLongitude() : bool
     {
         return isset($this->longitude);
     }
 
     /**
-     * Check if a default "longitude" is available or not
+     * Get a default "longitude" value, if any is available
      *
-     * @return bool True of a default "longitude" value is available, false if not
+     * @return float|null Default "longitude" value or null if no default value is available
      */
-    public function hasDefaultLongitude()
+    public function getDefaultLongitude() : ?float
     {
-        $default = $this->getDefaultLongitude();
-        return isset($default);
+        return null;
     }
 }

@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Formatted Name Trait</h1>
@@ -20,13 +23,15 @@ trait FormattedNameTrait
     /**
      * Set formatted name
      *
-     * @param string $name Formatted name of someone or something
+     * @param string|null $name Formatted name of someone or something
      *
-     * @return void
+     * @return self
      */
-    public function setFormattedName($name)
+    public function setFormattedName(?string $name)
     {
-        $this->formattedName = (string) $name;
+        $this->formattedName = $name;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait FormattedNameTrait
      *
      * @see getDefaultFormattedName()
      *
-     * @return string|null "formatted name" value or null if no "formatted name" value has been set
+     * @return string|null formatted name or null if no formatted name has been set
      */
-    public function getFormattedName()
+    public function getFormattedName() : ?string 
     {
-        if (!$this->hasFormattedName() && $this->hasDefaultFormattedName()) {
+        if ( ! $this->hasFormattedName()) {
             $this->setFormattedName($this->getDefaultFormattedName());
         }
         return $this->formattedName;
     }
 
     /**
-     * Get a default "formatted name" value, if any is available
-     *
-     * @return string|null A default "formatted name" value or null if no default value is available
-     */
-    public function getDefaultFormattedName()
-    {
-        return null;
-    }
-
-    /**
      * Check if "formatted name" has been set
      *
-     * @return bool True if "formatted name" value has been set, false if not
+     * @return bool True if "formatted name" has been set, false if not
      */
-    public function hasFormattedName()
+    public function hasFormattedName() : bool
     {
         return isset($this->formattedName);
     }
 
     /**
-     * Check if a default "formatted name" is available or not
+     * Get a default "formatted name" value, if any is available
      *
-     * @return bool True of a default "formatted name" value is available, false if not
+     * @return string|null Default "formatted name" value or null if no default value is available
      */
-    public function hasDefaultFormattedName()
+    public function getDefaultFormattedName() : ?string
     {
-        $default = $this->getDefaultFormattedName();
-        return isset($default);
+        return null;
     }
 }

@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Price Trait</h1>
@@ -11,7 +14,7 @@
 trait PriceTrait
 {
     /**
-     * Formatted price
+     * Numeric price
      *
      * @var string|null
      */
@@ -20,13 +23,15 @@ trait PriceTrait
     /**
      * Set price
      *
-     * @param string $price Formatted price
+     * @param string|null $amount Numeric price
      *
-     * @return void
+     * @return self
      */
-    public function setPrice($price)
+    public function setPrice(?string $amount)
     {
-        $this->price = (string) $price;
+        $this->price = $amount;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait PriceTrait
      *
      * @see getDefaultPrice()
      *
-     * @return string|null "price" value or null if no "price" value has been set
+     * @return string|null price or null if no price has been set
      */
-    public function getPrice()
+    public function getPrice() : ?string 
     {
-        if (!$this->hasPrice() && $this->hasDefaultPrice()) {
+        if ( ! $this->hasPrice()) {
             $this->setPrice($this->getDefaultPrice());
         }
         return $this->price;
     }
 
     /**
-     * Get a default "price" value, if any is available
-     *
-     * @return string|null A default "price" value or null if no default value is available
-     */
-    public function getDefaultPrice()
-    {
-        return null;
-    }
-
-    /**
      * Check if "price" has been set
      *
-     * @return bool True if "price" value has been set, false if not
+     * @return bool True if "price" has been set, false if not
      */
-    public function hasPrice()
+    public function hasPrice() : bool
     {
         return isset($this->price);
     }
 
     /**
-     * Check if a default "price" is available or not
+     * Get a default "price" value, if any is available
      *
-     * @return bool True of a default "price" value is available, false if not
+     * @return string|null Default "price" value or null if no default value is available
      */
-    public function hasDefaultPrice()
+    public function getDefaultPrice() : ?string
     {
-        $default = $this->getDefaultPrice();
-        return isset($default);
+        return null;
     }
 }

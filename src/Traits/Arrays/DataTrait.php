@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Arrays;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Arrays;
 
 /**
  * <h1>Data Trait</h1>
@@ -20,13 +23,15 @@ trait DataTrait
     /**
      * Set data
      *
-     * @param array $values A list (array) containing a set of values
+     * @param array|null $values A list (array) containing a set of values
      *
-     * @return void
+     * @return self
      */
-    public function setData(array $values)
+    public function setData(?array $values)
     {
         $this->data = $values;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait DataTrait
      *
      * @see getDefaultData()
      *
-     * @return array|null "data" value or null if no "data" value has been set
+     * @return array|null data or null if no data has been set
      */
-    public function getData()
+    public function getData() : ?array 
     {
-        if (!$this->hasData() && $this->hasDefaultData()) {
+        if ( ! $this->hasData()) {
             $this->setData($this->getDefaultData());
         }
         return $this->data;
     }
 
     /**
-     * Get a default "data" value, if any is available
-     *
-     * @return array|null A default "data" value or null if no default value is available
-     */
-    public function getDefaultData()
-    {
-        return null;
-    }
-
-    /**
      * Check if "data" has been set
      *
-     * @return bool True if "data" value has been set, false if not
+     * @return bool True if "data" has been set, false if not
      */
-    public function hasData()
+    public function hasData() : bool
     {
         return isset($this->data);
     }
 
     /**
-     * Check if a default "data" is available or not
+     * Get a default "data" value, if any is available
      *
-     * @return bool True of a default "data" value is available, false if not
+     * @return array|null Default "data" value or null if no default value is available
      */
-    public function hasDefaultData()
+    public function getDefaultData() : ?array
     {
-        $default = $this->getDefaultData();
-        return isset($default);
+        return null;
     }
 }

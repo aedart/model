@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Floats;
+<?php
+
+namespace Aedart\Model\Contracts\Floats;
 
 /**
  * <h1>Y Aware</h1>
@@ -14,11 +16,11 @@ interface YAware
     /**
      * Set y
      *
-     * @param float $value Co-ordinate or value
+     * @param float|null $value Co-ordinate or value
      *
-     * @return void
+     * @return self
      */
-    public function setY($value);
+    public function setY(?float $value);
 
     /**
      * Get y
@@ -29,28 +31,21 @@ interface YAware
      *
      * @see getDefaultY()
      *
-     * @return float|null "y" value or null if no "y" value has been set
+     * @return float|null y or null if no y has been set
      */
-    public function getY();
-
-    /**
-     * Get a default "y" value, if any is available
-     *
-     * @return float|null A default "y" value or null if no default value is available
-     */
-    public function getDefaultY();
+    public function getY() : ?float ;
 
     /**
      * Check if "y" has been set
      *
-     * @return bool True if "y" value has been set, false if not
+     * @return bool True if "y" has been set, false if not
      */
-    public function hasY();
+    public function hasY() : bool;
 
     /**
-     * Check if a default "y" is available or not
+     * Get a default "y" value, if any is available
      *
-     * @return bool True of a default "y" value is available, false if not
+     * @return float|null Default "y" value or null if no default value is available
      */
-    public function hasDefaultY();
+    public function getDefaultY() : ?float;
 }

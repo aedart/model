@@ -9,7 +9,7 @@ return function(\Faker\Generator $faker){
             \Aedart\Model\Traits\Strings\DomainTrait::class,
             \Aedart\Model\Contracts\Strings\DomainAware::class,
             $faker->word,
-            $faker->domainName,
+            $faker->word,
         ]
     ];
 };

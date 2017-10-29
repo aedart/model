@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Ean Aware</h1>
@@ -14,11 +16,11 @@ interface EanAware
     /**
      * Set ean
      *
-     * @param string $ean International Article Number (EAN)
+     * @param string|null $ean International Article Number (EAN)
      *
-     * @return void
+     * @return self
      */
-    public function setEan($ean);
+    public function setEan(?string $ean);
 
     /**
      * Get ean
@@ -29,28 +31,21 @@ interface EanAware
      *
      * @see getDefaultEan()
      *
-     * @return string|null "ean" value or null if no "ean" value has been set
+     * @return string|null ean or null if no ean has been set
      */
-    public function getEan();
-
-    /**
-     * Get a default "ean" value, if any is available
-     *
-     * @return string|null A default "ean" value or null if no default value is available
-     */
-    public function getDefaultEan();
+    public function getEan() : ?string ;
 
     /**
      * Check if "ean" has been set
      *
-     * @return bool True if "ean" value has been set, false if not
+     * @return bool True if "ean" has been set, false if not
      */
-    public function hasEan();
+    public function hasEan() : bool;
 
     /**
-     * Check if a default "ean" is available or not
+     * Get a default "ean" value, if any is available
      *
-     * @return bool True of a default "ean" value is available, false if not
+     * @return string|null Default "ean" value or null if no default value is available
      */
-    public function hasDefaultEan();
+    public function getDefaultEan() : ?string;
 }

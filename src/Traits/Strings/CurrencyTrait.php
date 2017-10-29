@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Currency Trait</h1>
@@ -11,7 +14,7 @@
 trait CurrencyTrait
 {
     /**
-     * Name, code or other identifier of a currency
+     * Name, code or other identifier of currency
      *
      * @var string|null
      */
@@ -20,13 +23,15 @@ trait CurrencyTrait
     /**
      * Set currency
      *
-     * @param string $identifier Name, code or other identifier of a currency
+     * @param string|null $identifier Name, code or other identifier of currency
      *
-     * @return void
+     * @return self
      */
-    public function setCurrency($identifier)
+    public function setCurrency(?string $identifier)
     {
-        $this->currency = (string) $identifier;
+        $this->currency = $identifier;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait CurrencyTrait
      *
      * @see getDefaultCurrency()
      *
-     * @return string|null "currency" value or null if no "currency" value has been set
+     * @return string|null currency or null if no currency has been set
      */
-    public function getCurrency()
+    public function getCurrency() : ?string 
     {
-        if (!$this->hasCurrency() && $this->hasDefaultCurrency()) {
+        if ( ! $this->hasCurrency()) {
             $this->setCurrency($this->getDefaultCurrency());
         }
         return $this->currency;
     }
 
     /**
-     * Get a default "currency" value, if any is available
-     *
-     * @return string|null A default "currency" value or null if no default value is available
-     */
-    public function getDefaultCurrency()
-    {
-        return null;
-    }
-
-    /**
      * Check if "currency" has been set
      *
-     * @return bool True if "currency" value has been set, false if not
+     * @return bool True if "currency" has been set, false if not
      */
-    public function hasCurrency()
+    public function hasCurrency() : bool
     {
         return isset($this->currency);
     }
 
     /**
-     * Check if a default "currency" is available or not
+     * Get a default "currency" value, if any is available
      *
-     * @return bool True of a default "currency" value is available, false if not
+     * @return string|null Default "currency" value or null if no default value is available
      */
-    public function hasDefaultCurrency()
+    public function getDefaultCurrency() : ?string
     {
-        $default = $this->getDefaultCurrency();
-        return isset($default);
+        return null;
     }
 }

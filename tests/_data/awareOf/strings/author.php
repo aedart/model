@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string author'   => [
             \Aedart\Model\Traits\Strings\AuthorTrait::class,
             \Aedart\Model\Contracts\Strings\AuthorAware::class,
-            $faker->name,
-            $faker->name,
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

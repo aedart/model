@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string country'   => [
             \Aedart\Model\Traits\Strings\CountryTrait::class,
             \Aedart\Model\Contracts\Strings\CountryAware::class,
-            $faker->country,
-            $faker->country,
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

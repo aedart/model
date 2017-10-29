@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Ean13 Trait</h1>
@@ -20,13 +23,15 @@ trait Ean13Trait
     /**
      * Set ean13
      *
-     * @param string $ean13 International Article Number (EAN), 13-digit
+     * @param string|null $ean13 International Article Number (EAN), 13-digit
      *
-     * @return void
+     * @return self
      */
-    public function setEan13($ean13)
+    public function setEan13(?string $ean13)
     {
-        $this->ean13 = (string) $ean13;
+        $this->ean13 = $ean13;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait Ean13Trait
      *
      * @see getDefaultEan13()
      *
-     * @return string|null "ean13" value or null if no "ean13" value has been set
+     * @return string|null ean13 or null if no ean13 has been set
      */
-    public function getEan13()
+    public function getEan13() : ?string 
     {
-        if (!$this->hasEan13() && $this->hasDefaultEan13()) {
+        if ( ! $this->hasEan13()) {
             $this->setEan13($this->getDefaultEan13());
         }
         return $this->ean13;
     }
 
     /**
-     * Get a default "ean13" value, if any is available
-     *
-     * @return string|null A default "ean13" value or null if no default value is available
-     */
-    public function getDefaultEan13()
-    {
-        return null;
-    }
-
-    /**
      * Check if "ean13" has been set
      *
-     * @return bool True if "ean13" value has been set, false if not
+     * @return bool True if "ean13" has been set, false if not
      */
-    public function hasEan13()
+    public function hasEan13() : bool
     {
         return isset($this->ean13);
     }
 
     /**
-     * Check if a default "ean13" is available or not
+     * Get a default "ean13" value, if any is available
      *
-     * @return bool True of a default "ean13" value is available, false if not
+     * @return string|null Default "ean13" value or null if no default value is available
      */
-    public function hasDefaultEan13()
+    public function getDefaultEan13() : ?string
     {
-        $default = $this->getDefaultEan13();
-        return isset($default);
+        return null;
     }
 }

@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Date Aware</h1>
@@ -14,11 +16,11 @@ interface DateAware
     /**
      * Set date
      *
-     * @param string $date Date
+     * @param string|null $date Date of event
      *
-     * @return void
+     * @return self
      */
-    public function setDate($date);
+    public function setDate(?string $date);
 
     /**
      * Get date
@@ -29,28 +31,21 @@ interface DateAware
      *
      * @see getDefaultDate()
      *
-     * @return string|null "date" value or null if no "date" value has been set
+     * @return string|null date or null if no date has been set
      */
-    public function getDate();
-
-    /**
-     * Get a default "date" value, if any is available
-     *
-     * @return string|null A default "date" value or null if no default value is available
-     */
-    public function getDefaultDate();
+    public function getDate() : ?string ;
 
     /**
      * Check if "date" has been set
      *
-     * @return bool True if "date" value has been set, false if not
+     * @return bool True if "date" has been set, false if not
      */
-    public function hasDate();
+    public function hasDate() : bool;
 
     /**
-     * Check if a default "date" is available or not
+     * Get a default "date" value, if any is available
      *
-     * @return bool True of a default "date" value is available, false if not
+     * @return string|null Default "date" value or null if no default value is available
      */
-    public function hasDefaultDate();
+    public function getDefaultDate() : ?string;
 }

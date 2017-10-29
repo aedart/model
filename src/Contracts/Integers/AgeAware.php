@@ -1,11 +1,12 @@
-<?php namespace Aedart\Model\Contracts\Integers;
+<?php
+
+namespace Aedart\Model\Contracts\Integers;
 
 /**
  * <h1>Age Aware</h1>
  *
- * Components implementing this interface are aware of a someone's or somethings age,
- * stated in numeric value... Depending upon context, age can be days, months,
- * years, and so on.
+ * Component is aware of a int "age" value, which can
+ * also be specified.
  *
  * @author Alin Eugen Deac <aedart@gmail.com>
  * @package Aedart\Model\Contracts\Integers
@@ -15,11 +16,11 @@ interface AgeAware
     /**
      * Set age
      *
-     * @param int $age Age of someone or something
+     * @param int|null $age Age of someone or something
      *
-     * @return void
+     * @return self
      */
-    public function setAge($age);
+    public function setAge(?int $age);
 
     /**
      * Get age
@@ -30,28 +31,21 @@ interface AgeAware
      *
      * @see getDefaultAge()
      *
-     * @return int|null "age" value or null if no "age" value has been set
+     * @return int|null age or null if no age has been set
      */
-    public function getAge();
-
-    /**
-     * Get a default "age" value, if any is available
-     *
-     * @return int|null A default "age" value or null if no default value is available
-     */
-    public function getDefaultAge();
+    public function getAge() : ?int ;
 
     /**
      * Check if "age" has been set
      *
-     * @return bool True if "age" value has been set, false if not
+     * @return bool True if "age" has been set, false if not
      */
-    public function hasAge();
+    public function hasAge() : bool;
 
     /**
-     * Check if a default "age" is available or not
+     * Get a default "age" value, if any is available
      *
-     * @return bool True of a default "age" value is available, false if not
+     * @return int|null Default "age" value or null if no default value is available
      */
-    public function hasDefaultAge();
+    public function getDefaultAge() : ?int;
 }

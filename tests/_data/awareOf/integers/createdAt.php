@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'int createdAt'   => [
             \Aedart\Model\Traits\Integers\CreatedAtTrait::class,
             \Aedart\Model\Contracts\Integers\CreatedAtAware::class,
-            $faker->unixTime,
-            $faker->unixTime,
+            $faker->randomNumber($faker->randomDigitNotNull),
+            $faker->randomNumber($faker->randomDigitNotNull),
         ]
     ];
 };

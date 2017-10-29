@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Colour Aware</h1>
@@ -14,11 +16,11 @@ interface ColourAware
     /**
      * Set colour
      *
-     * @param string $value Name of a colour or colour value, e.g. rgb, cmyk, hsl or other format
+     * @param string|null $colour Name of colour or colour value, e.g. RGB, CMYK, HSL or other format
      *
-     * @return void
+     * @return self
      */
-    public function setColour($value);
+    public function setColour(?string $colour);
 
     /**
      * Get colour
@@ -29,28 +31,21 @@ interface ColourAware
      *
      * @see getDefaultColour()
      *
-     * @return string|null "colour" value or null if no "colour" value has been set
+     * @return string|null colour or null if no colour has been set
      */
-    public function getColour();
-
-    /**
-     * Get a default "colour" value, if any is available
-     *
-     * @return string|null A default "colour" value or null if no default value is available
-     */
-    public function getDefaultColour();
+    public function getColour() : ?string ;
 
     /**
      * Check if "colour" has been set
      *
-     * @return bool True if "colour" value has been set, false if not
+     * @return bool True if "colour" has been set, false if not
      */
-    public function hasColour();
+    public function hasColour() : bool;
 
     /**
-     * Check if a default "colour" is available or not
+     * Get a default "colour" value, if any is available
      *
-     * @return bool True of a default "colour" value is available, false if not
+     * @return string|null Default "colour" value or null if no default value is available
      */
-    public function hasDefaultColour();
+    public function getDefaultColour() : ?string;
 }

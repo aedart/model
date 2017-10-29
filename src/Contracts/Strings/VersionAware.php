@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Version Aware</h1>
@@ -14,11 +16,11 @@ interface VersionAware
     /**
      * Set version
      *
-     * @param string $version Version
+     * @param string|null $version Version
      *
-     * @return void
+     * @return self
      */
-    public function setVersion($version);
+    public function setVersion(?string $version);
 
     /**
      * Get version
@@ -29,28 +31,21 @@ interface VersionAware
      *
      * @see getDefaultVersion()
      *
-     * @return string|null "version" value or null if no "version" value has been set
+     * @return string|null version or null if no version has been set
      */
-    public function getVersion();
-
-    /**
-     * Get a default "version" value, if any is available
-     *
-     * @return string|null A default "version" value or null if no default value is available
-     */
-    public function getDefaultVersion();
+    public function getVersion() : ?string ;
 
     /**
      * Check if "version" has been set
      *
-     * @return bool True if "version" value has been set, false if not
+     * @return bool True if "version" has been set, false if not
      */
-    public function hasVersion();
+    public function hasVersion() : bool;
 
     /**
-     * Check if a default "version" is available or not
+     * Get a default "version" value, if any is available
      *
-     * @return bool True of a default "version" value is available, false if not
+     * @return string|null Default "version" value or null if no default value is available
      */
-    public function hasDefaultVersion();
+    public function getDefaultVersion() : ?string;
 }

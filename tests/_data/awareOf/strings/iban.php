@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string iban'   => [
             \Aedart\Model\Traits\Strings\IbanTrait::class,
             \Aedart\Model\Contracts\Strings\IbanAware::class,
-            $faker->iban($faker->countryCode),
-            $faker->iban($faker->countryCode),
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

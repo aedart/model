@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Suffix Aware</h1>
@@ -14,11 +16,11 @@ interface SuffixAware
     /**
      * Set suffix
      *
-     * @param string $affix Affix that is placed after something
+     * @param string|null $suffix Suffix
      *
-     * @return void
+     * @return self
      */
-    public function setSuffix($affix);
+    public function setSuffix(?string $suffix);
 
     /**
      * Get suffix
@@ -29,28 +31,21 @@ interface SuffixAware
      *
      * @see getDefaultSuffix()
      *
-     * @return string|null "suffix" value or null if no "suffix" value has been set
+     * @return string|null suffix or null if no suffix has been set
      */
-    public function getSuffix();
-
-    /**
-     * Get a default "suffix" value, if any is available
-     *
-     * @return string|null A default "suffix" value or null if no default value is available
-     */
-    public function getDefaultSuffix();
+    public function getSuffix() : ?string ;
 
     /**
      * Check if "suffix" has been set
      *
-     * @return bool True if "suffix" value has been set, false if not
+     * @return bool True if "suffix" has been set, false if not
      */
-    public function hasSuffix();
+    public function hasSuffix() : bool;
 
     /**
-     * Check if a default "suffix" is available or not
+     * Get a default "suffix" value, if any is available
      *
-     * @return bool True of a default "suffix" value is available, false if not
+     * @return string|null Default "suffix" value or null if no default value is available
      */
-    public function hasDefaultSuffix();
+    public function getDefaultSuffix() : ?string;
 }

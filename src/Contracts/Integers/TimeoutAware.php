@@ -1,15 +1,12 @@
-<?php namespace Aedart\Model\Contracts\Integers;
+<?php
+
+namespace Aedart\Model\Contracts\Integers;
 
 /**
  * <h1>Timeout Aware</h1>
  *
- * Component is aware of a numeric timeout value that can also
- * be specified.
- *
- * <br />
- *
- * Depending upon implementation context, the timeout can be
- * stated in milliseconds, seconds, minutes, hours, days... etc
+ * Component is aware of a int "timeout" value, which can
+ * also be specified.
  *
  * @author Alin Eugen Deac <aedart@gmail.com>
  * @package Aedart\Model\Contracts\Integers
@@ -19,11 +16,11 @@ interface TimeoutAware
     /**
      * Set timeout
      *
-     * @param int $value Timeout
+     * @param int|null $amount Timeout amount
      *
-     * @return void
+     * @return self
      */
-    public function setTimeout($value);
+    public function setTimeout(?int $amount);
 
     /**
      * Get timeout
@@ -34,28 +31,21 @@ interface TimeoutAware
      *
      * @see getDefaultTimeout()
      *
-     * @return int|null "timeout" value or null if no "timeout" value has been set
+     * @return int|null timeout or null if no timeout has been set
      */
-    public function getTimeout();
-
-    /**
-     * Get a default "timeout" value, if any is available
-     *
-     * @return int|null A default "timeout" value or null if no default value is available
-     */
-    public function getDefaultTimeout();
+    public function getTimeout() : ?int ;
 
     /**
      * Check if "timeout" has been set
      *
-     * @return bool True if "timeout" value has been set, false if not
+     * @return bool True if "timeout" has been set, false if not
      */
-    public function hasTimeout();
+    public function hasTimeout() : bool;
 
     /**
-     * Check if a default "timeout" is available or not
+     * Get a default "timeout" value, if any is available
      *
-     * @return bool True of a default "timeout" value is available, false if not
+     * @return int|null Default "timeout" value or null if no default value is available
      */
-    public function hasDefaultTimeout();
+    public function getDefaultTimeout() : ?int;
 }

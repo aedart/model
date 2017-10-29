@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Author Aware</h1>
@@ -14,11 +16,11 @@ interface AuthorAware
     /**
      * Set author
      *
-     * @param string $name Name of an author
+     * @param string|null $name Name of author
      *
-     * @return void
+     * @return self
      */
-    public function setAuthor($name);
+    public function setAuthor(?string $name);
 
     /**
      * Get author
@@ -29,28 +31,21 @@ interface AuthorAware
      *
      * @see getDefaultAuthor()
      *
-     * @return string|null "author" value or null if no "author" value has been set
+     * @return string|null author or null if no author has been set
      */
-    public function getAuthor();
-
-    /**
-     * Get a default "author" value, if any is available
-     *
-     * @return string|null A default "author" value or null if no default value is available
-     */
-    public function getDefaultAuthor();
+    public function getAuthor() : ?string ;
 
     /**
      * Check if "author" has been set
      *
-     * @return bool True if "author" value has been set, false if not
+     * @return bool True if "author" has been set, false if not
      */
-    public function hasAuthor();
+    public function hasAuthor() : bool;
 
     /**
-     * Check if a default "author" is available or not
+     * Get a default "author" value, if any is available
      *
-     * @return bool True of a default "author" value is available, false if not
+     * @return string|null Default "author" value or null if no default value is available
      */
-    public function hasDefaultAuthor();
+    public function getDefaultAuthor() : ?string;
 }

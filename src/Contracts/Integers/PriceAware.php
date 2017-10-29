@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Integers;
+<?php
+
+namespace Aedart\Model\Contracts\Integers;
 
 /**
  * <h1>Price Aware</h1>
@@ -14,11 +16,11 @@ interface PriceAware
     /**
      * Set price
      *
-     * @param int $price Price of something stated in smallest units, e.g. cents
+     * @param int|null $amount Numeric price
      *
-     * @return void
+     * @return self
      */
-    public function setPrice($price);
+    public function setPrice(?int $amount);
 
     /**
      * Get price
@@ -29,28 +31,21 @@ interface PriceAware
      *
      * @see getDefaultPrice()
      *
-     * @return int|null "price" value or null if no "price" value has been set
+     * @return int|null price or null if no price has been set
      */
-    public function getPrice();
-
-    /**
-     * Get a default "price" value, if any is available
-     *
-     * @return int|null A default "price" value or null if no default value is available
-     */
-    public function getDefaultPrice();
+    public function getPrice() : ?int ;
 
     /**
      * Check if "price" has been set
      *
-     * @return bool True if "price" value has been set, false if not
+     * @return bool True if "price" has been set, false if not
      */
-    public function hasPrice();
+    public function hasPrice() : bool;
 
     /**
-     * Check if a default "price" is available or not
+     * Get a default "price" value, if any is available
      *
-     * @return bool True of a default "price" value is available, false if not
+     * @return int|null Default "price" value or null if no default value is available
      */
-    public function hasDefaultPrice();
+    public function getDefaultPrice() : ?int;
 }

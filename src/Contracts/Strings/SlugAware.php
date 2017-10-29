@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Slug Aware</h1>
@@ -14,11 +16,11 @@ interface SlugAware
     /**
      * Set slug
      *
-     * @param string $slug Human readable keyword(s) that can be part or a Url
+     * @param string|null $slug Human readable keyword(s) that can be part or a Url
      *
-     * @return void
+     * @return self
      */
-    public function setSlug($slug);
+    public function setSlug(?string $slug);
 
     /**
      * Get slug
@@ -29,28 +31,21 @@ interface SlugAware
      *
      * @see getDefaultSlug()
      *
-     * @return string|null "slug" value or null if no "slug" value has been set
+     * @return string|null slug or null if no slug has been set
      */
-    public function getSlug();
-
-    /**
-     * Get a default "slug" value, if any is available
-     *
-     * @return string|null A default "slug" value or null if no default value is available
-     */
-    public function getDefaultSlug();
+    public function getSlug() : ?string ;
 
     /**
      * Check if "slug" has been set
      *
-     * @return bool True if "slug" value has been set, false if not
+     * @return bool True if "slug" has been set, false if not
      */
-    public function hasSlug();
+    public function hasSlug() : bool;
 
     /**
-     * Check if a default "slug" is available or not
+     * Get a default "slug" value, if any is available
      *
-     * @return bool True of a default "slug" value is available, false if not
+     * @return string|null Default "slug" value or null if no default value is available
      */
-    public function hasDefaultSlug();
+    public function getDefaultSlug() : ?string;
 }

@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Arrays;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Arrays;
 
 /**
  * <h1>Choices Trait</h1>
@@ -20,13 +23,15 @@ trait ChoicesTrait
     /**
      * Set choices
      *
-     * @param array $list Various choices that can be made
+     * @param array|null $list Various choices that can be made
      *
-     * @return void
+     * @return self
      */
-    public function setChoices(array $list)
+    public function setChoices(?array $list)
     {
         $this->choices = $list;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait ChoicesTrait
      *
      * @see getDefaultChoices()
      *
-     * @return array|null "choices" value or null if no "choices" value has been set
+     * @return array|null choices or null if no choices has been set
      */
-    public function getChoices()
+    public function getChoices() : ?array 
     {
-        if (!$this->hasChoices() && $this->hasDefaultChoices()) {
+        if ( ! $this->hasChoices()) {
             $this->setChoices($this->getDefaultChoices());
         }
         return $this->choices;
     }
 
     /**
-     * Get a default "choices" value, if any is available
-     *
-     * @return array|null A default "choices" value or null if no default value is available
-     */
-    public function getDefaultChoices()
-    {
-        return null;
-    }
-
-    /**
      * Check if "choices" has been set
      *
-     * @return bool True if "choices" value has been set, false if not
+     * @return bool True if "choices" has been set, false if not
      */
-    public function hasChoices()
+    public function hasChoices() : bool
     {
         return isset($this->choices);
     }
 
     /**
-     * Check if a default "choices" is available or not
+     * Get a default "choices" value, if any is available
      *
-     * @return bool True of a default "choices" value is available, false if not
+     * @return array|null Default "choices" value or null if no default value is available
      */
-    public function hasDefaultChoices()
+    public function getDefaultChoices() : ?array
     {
-        $default = $this->getDefaultChoices();
-        return isset($default);
+        return null;
     }
 }

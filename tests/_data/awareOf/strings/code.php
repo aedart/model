@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string code'   => [
             \Aedart\Model\Traits\Strings\CodeTrait::class,
             \Aedart\Model\Contracts\Strings\CodeAware::class,
-            $faker->languageCode,
-            $faker->sha1,
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

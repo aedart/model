@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Integers;
+<?php
+
+namespace Aedart\Model\Contracts\Integers;
 
 /**
  * <h1>Updated At Aware</h1>
@@ -14,11 +16,11 @@ interface UpdatedAtAware
     /**
      * Set updated at
      *
-     * @param int $date Date (UNIX timestamp) of when this component, entity or resource was updated
+     * @param int|null $date Date of when this component, entity or resource was updated
      *
-     * @return void
+     * @return self
      */
-    public function setUpdatedAt($date);
+    public function setUpdatedAt(?int $date);
 
     /**
      * Get updated at
@@ -29,28 +31,21 @@ interface UpdatedAtAware
      *
      * @see getDefaultUpdatedAt()
      *
-     * @return int|null "updated at" value or null if no "updated at" value has been set
+     * @return int|null updated at or null if no updated at has been set
      */
-    public function getUpdatedAt();
-
-    /**
-     * Get a default "updated at" value, if any is available
-     *
-     * @return int|null A default "updated at" value or null if no default value is available
-     */
-    public function getDefaultUpdatedAt();
+    public function getUpdatedAt() : ?int ;
 
     /**
      * Check if "updated at" has been set
      *
-     * @return bool True if "updated at" value has been set, false if not
+     * @return bool True if "updated at" has been set, false if not
      */
-    public function hasUpdatedAt();
+    public function hasUpdatedAt() : bool;
 
     /**
-     * Check if a default "updated at" is available or not
+     * Get a default "updated at" value, if any is available
      *
-     * @return bool True of a default "updated at" value is available, false if not
+     * @return int|null Default "updated at" value or null if no default value is available
      */
-    public function hasDefaultUpdatedAt();
+    public function getDefaultUpdatedAt() : ?int;
 }

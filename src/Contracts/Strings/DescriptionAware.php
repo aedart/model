@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Description Aware</h1>
@@ -14,11 +16,11 @@ interface DescriptionAware
     /**
      * Set description
      *
-     * @param string $description Description
+     * @param string|null $description Description
      *
-     * @return void
+     * @return self
      */
-    public function setDescription($description);
+    public function setDescription(?string $description);
 
     /**
      * Get description
@@ -29,28 +31,21 @@ interface DescriptionAware
      *
      * @see getDefaultDescription()
      *
-     * @return string|null "description" value or null if no "description" value has been set
+     * @return string|null description or null if no description has been set
      */
-    public function getDescription();
-
-    /**
-     * Get a default "description" value, if any is available
-     *
-     * @return string|null A default "description" value or null if no default value is available
-     */
-    public function getDefaultDescription();
+    public function getDescription() : ?string ;
 
     /**
      * Check if "description" has been set
      *
-     * @return bool True if "description" value has been set, false if not
+     * @return bool True if "description" has been set, false if not
      */
-    public function hasDescription();
+    public function hasDescription() : bool;
 
     /**
-     * Check if a default "description" is available or not
+     * Get a default "description" value, if any is available
      *
-     * @return bool True of a default "description" value is available, false if not
+     * @return string|null Default "description" value or null if no default value is available
      */
-    public function hasDefaultDescription();
+    public function getDefaultDescription() : ?string;
 }

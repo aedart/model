@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Wildcard Trait</h1>
@@ -11,7 +14,7 @@
 trait WildcardTrait
 {
     /**
-     * A wildcard identifier
+     * Wildcard identifier
      *
      * @var string|null
      */
@@ -20,13 +23,15 @@ trait WildcardTrait
     /**
      * Set wildcard
      *
-     * @param string $identifier A wildcard identifier
+     * @param string|null $identifier Wildcard identifier
      *
-     * @return void
+     * @return self
      */
-    public function setWildcard($identifier)
+    public function setWildcard(?string $identifier)
     {
-        $this->wildcard = (string) $identifier;
+        $this->wildcard = $identifier;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait WildcardTrait
      *
      * @see getDefaultWildcard()
      *
-     * @return string|null "wildcard" value or null if no "wildcard" value has been set
+     * @return string|null wildcard or null if no wildcard has been set
      */
-    public function getWildcard()
+    public function getWildcard() : ?string 
     {
-        if (!$this->hasWildcard() && $this->hasDefaultWildcard()) {
+        if ( ! $this->hasWildcard()) {
             $this->setWildcard($this->getDefaultWildcard());
         }
         return $this->wildcard;
     }
 
     /**
-     * Get a default "wildcard" value, if any is available
-     *
-     * @return string|null A default "wildcard" value or null if no default value is available
-     */
-    public function getDefaultWildcard()
-    {
-        return null;
-    }
-
-    /**
      * Check if "wildcard" has been set
      *
-     * @return bool True if "wildcard" value has been set, false if not
+     * @return bool True if "wildcard" has been set, false if not
      */
-    public function hasWildcard()
+    public function hasWildcard() : bool
     {
         return isset($this->wildcard);
     }
 
     /**
-     * Check if a default "wildcard" is available or not
+     * Get a default "wildcard" value, if any is available
      *
-     * @return bool True of a default "wildcard" value is available, false if not
+     * @return string|null Default "wildcard" value or null if no default value is available
      */
-    public function hasDefaultWildcard()
+    public function getDefaultWildcard() : ?string
     {
-        $default = $this->getDefaultWildcard();
-        return isset($default);
+        return null;
     }
 }

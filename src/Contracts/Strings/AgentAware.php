@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Agent Aware</h1>
@@ -14,11 +16,11 @@ interface AgentAware
     /**
      * Set agent
      *
-     * @param string $info Someone or something that acts on behalf of someone else or something else
+     * @param string|null $agent Someone or something that acts on behalf of someone else or something else
      *
-     * @return void
+     * @return self
      */
-    public function setAgent($info);
+    public function setAgent(?string $agent);
 
     /**
      * Get agent
@@ -29,28 +31,21 @@ interface AgentAware
      *
      * @see getDefaultAgent()
      *
-     * @return string|null "agent" value or null if no "agent" value has been set
+     * @return string|null agent or null if no agent has been set
      */
-    public function getAgent();
-
-    /**
-     * Get a default "agent" value, if any is available
-     *
-     * @return string|null A default "agent" value or null if no default value is available
-     */
-    public function getDefaultAgent();
+    public function getAgent() : ?string ;
 
     /**
      * Check if "agent" has been set
      *
-     * @return bool True if "agent" value has been set, false if not
+     * @return bool True if "agent" has been set, false if not
      */
-    public function hasAgent();
+    public function hasAgent() : bool;
 
     /**
-     * Check if a default "agent" is available or not
+     * Get a default "agent" value, if any is available
      *
-     * @return bool True of a default "agent" value is available, false if not
+     * @return string|null Default "agent" value or null if no default value is available
      */
-    public function hasDefaultAgent();
+    public function getDefaultAgent() : ?string;
 }

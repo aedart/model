@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string longitude'   => [
             \Aedart\Model\Traits\Strings\LongitudeTrait::class,
             \Aedart\Model\Contracts\Strings\LongitudeAware::class,
-            (string) $faker->longitude,
-            (string) $faker->longitude,
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

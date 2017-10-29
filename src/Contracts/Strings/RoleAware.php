@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Role Aware</h1>
@@ -14,11 +16,11 @@ interface RoleAware
     /**
      * Set role
      *
-     * @param string $name Name of a role or the role that someone or something has
+     * @param string|null $identifier Name or identifier of role
      *
-     * @return void
+     * @return self
      */
-    public function setRole($name);
+    public function setRole(?string $identifier);
 
     /**
      * Get role
@@ -29,28 +31,21 @@ interface RoleAware
      *
      * @see getDefaultRole()
      *
-     * @return string|null "role" value or null if no "role" value has been set
+     * @return string|null role or null if no role has been set
      */
-    public function getRole();
-
-    /**
-     * Get a default "role" value, if any is available
-     *
-     * @return string|null A default "role" value or null if no default value is available
-     */
-    public function getDefaultRole();
+    public function getRole() : ?string ;
 
     /**
      * Check if "role" has been set
      *
-     * @return bool True if "role" value has been set, false if not
+     * @return bool True if "role" has been set, false if not
      */
-    public function hasRole();
+    public function hasRole() : bool;
 
     /**
-     * Check if a default "role" is available or not
+     * Get a default "role" value, if any is available
      *
-     * @return bool True of a default "role" value is available, false if not
+     * @return string|null Default "role" value or null if no default value is available
      */
-    public function hasDefaultRole();
+    public function getDefaultRole() : ?string;
 }

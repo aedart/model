@@ -1,10 +1,12 @@
-<?php namespace Aedart\Model\Contracts\Arrays;
+<?php
+
+namespace Aedart\Model\Contracts\Arrays;
 
 /**
  * <h1>Choices Aware</h1>
  *
- * Component is aware of a list of choices that
- * can be made, proposed or asked for.
+ * Component is aware of a array "choices" value, which can
+ * also be specified.
  *
  * @author Alin Eugen Deac <aedart@gmail.com>
  * @package Aedart\Model\Contracts\Arrays
@@ -14,11 +16,11 @@ interface ChoicesAware
     /**
      * Set choices
      *
-     * @param array $list Various choices that can be made
+     * @param array|null $list Various choices that can be made
      *
-     * @return void
+     * @return self
      */
-    public function setChoices(array $list);
+    public function setChoices(?array $list);
 
     /**
      * Get choices
@@ -29,28 +31,21 @@ interface ChoicesAware
      *
      * @see getDefaultChoices()
      *
-     * @return array|null "choices" value or null if no "choices" value has been set
+     * @return array|null choices or null if no choices has been set
      */
-    public function getChoices();
-
-    /**
-     * Get a default "choices" value, if any is available
-     *
-     * @return array|null A default "choices" value or null if no default value is available
-     */
-    public function getDefaultChoices();
+    public function getChoices() : ?array ;
 
     /**
      * Check if "choices" has been set
      *
-     * @return bool True if "choices" value has been set, false if not
+     * @return bool True if "choices" has been set, false if not
      */
-    public function hasChoices();
+    public function hasChoices() : bool;
 
     /**
-     * Check if a default "choices" is available or not
+     * Get a default "choices" value, if any is available
      *
-     * @return bool True of a default "choices" value is available, false if not
+     * @return array|null Default "choices" value or null if no default value is available
      */
-    public function hasDefaultChoices();
+    public function getDefaultChoices() : ?array;
 }

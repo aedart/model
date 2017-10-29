@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Integers;
+<?php
+
+namespace Aedart\Model\Contracts\Integers;
 
 /**
  * <h1>Z Aware</h1>
@@ -14,11 +16,11 @@ interface ZAware
     /**
      * Set z
      *
-     * @param int $value Co-ordinate or value
+     * @param int|null $value Co-ordinate or value
      *
-     * @return void
+     * @return self
      */
-    public function setZ($value);
+    public function setZ(?int $value);
 
     /**
      * Get z
@@ -29,28 +31,21 @@ interface ZAware
      *
      * @see getDefaultZ()
      *
-     * @return int|null "z" value or null if no "z" value has been set
+     * @return int|null z or null if no z has been set
      */
-    public function getZ();
-
-    /**
-     * Get a default "z" value, if any is available
-     *
-     * @return int|null A default "z" value or null if no default value is available
-     */
-    public function getDefaultZ();
+    public function getZ() : ?int ;
 
     /**
      * Check if "z" has been set
      *
-     * @return bool True if "z" value has been set, false if not
+     * @return bool True if "z" has been set, false if not
      */
-    public function hasZ();
+    public function hasZ() : bool;
 
     /**
-     * Check if a default "z" is available or not
+     * Get a default "z" value, if any is available
      *
-     * @return bool True of a default "z" value is available, false if not
+     * @return int|null Default "z" value or null if no default value is available
      */
-    public function hasDefaultZ();
+    public function getDefaultZ() : ?int;
 }

@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Formatted Name Aware</h1>
@@ -14,11 +16,11 @@ interface FormattedNameAware
     /**
      * Set formatted name
      *
-     * @param string $name Formatted name of someone or something
+     * @param string|null $name Formatted name of someone or something
      *
-     * @return void
+     * @return self
      */
-    public function setFormattedName($name);
+    public function setFormattedName(?string $name);
 
     /**
      * Get formatted name
@@ -29,28 +31,21 @@ interface FormattedNameAware
      *
      * @see getDefaultFormattedName()
      *
-     * @return string|null "formatted name" value or null if no "formatted name" value has been set
+     * @return string|null formatted name or null if no formatted name has been set
      */
-    public function getFormattedName();
-
-    /**
-     * Get a default "formatted name" value, if any is available
-     *
-     * @return string|null A default "formatted name" value or null if no default value is available
-     */
-    public function getDefaultFormattedName();
+    public function getFormattedName() : ?string ;
 
     /**
      * Check if "formatted name" has been set
      *
-     * @return bool True if "formatted name" value has been set, false if not
+     * @return bool True if "formatted name" has been set, false if not
      */
-    public function hasFormattedName();
+    public function hasFormattedName() : bool;
 
     /**
-     * Check if a default "formatted name" is available or not
+     * Get a default "formatted name" value, if any is available
      *
-     * @return bool True of a default "formatted name" value is available, false if not
+     * @return string|null Default "formatted name" value or null if no default value is available
      */
-    public function hasDefaultFormattedName();
+    public function getDefaultFormattedName() : ?string;
 }

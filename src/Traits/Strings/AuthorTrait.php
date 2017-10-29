@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Author Trait</h1>
@@ -11,7 +14,7 @@
 trait AuthorTrait
 {
     /**
-     * Name of an author
+     * Name of author
      *
      * @var string|null
      */
@@ -20,13 +23,15 @@ trait AuthorTrait
     /**
      * Set author
      *
-     * @param string $name Name of an author
+     * @param string|null $name Name of author
      *
-     * @return void
+     * @return self
      */
-    public function setAuthor($name)
+    public function setAuthor(?string $name)
     {
-        $this->author = (string) $name;
+        $this->author = $name;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait AuthorTrait
      *
      * @see getDefaultAuthor()
      *
-     * @return string|null "author" value or null if no "author" value has been set
+     * @return string|null author or null if no author has been set
      */
-    public function getAuthor()
+    public function getAuthor() : ?string 
     {
-        if (!$this->hasAuthor() && $this->hasDefaultAuthor()) {
+        if ( ! $this->hasAuthor()) {
             $this->setAuthor($this->getDefaultAuthor());
         }
         return $this->author;
     }
 
     /**
-     * Get a default "author" value, if any is available
-     *
-     * @return string|null A default "author" value or null if no default value is available
-     */
-    public function getDefaultAuthor()
-    {
-        return null;
-    }
-
-    /**
      * Check if "author" has been set
      *
-     * @return bool True if "author" value has been set, false if not
+     * @return bool True if "author" has been set, false if not
      */
-    public function hasAuthor()
+    public function hasAuthor() : bool
     {
         return isset($this->author);
     }
 
     /**
-     * Check if a default "author" is available or not
+     * Get a default "author" value, if any is available
      *
-     * @return bool True of a default "author" value is available, false if not
+     * @return string|null Default "author" value or null if no default value is available
      */
-    public function hasDefaultAuthor()
+    public function getDefaultAuthor() : ?string
     {
-        $default = $this->getDefaultAuthor();
-        return isset($default);
+        return null;
     }
 }

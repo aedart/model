@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string host'   => [
             \Aedart\Model\Traits\Strings\HostTrait::class,
             \Aedart\Model\Contracts\Strings\HostAware::class,
-            $faker->ipv4,
-            $faker->url,
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Gender Aware</h1>
@@ -14,11 +16,11 @@ interface GenderAware
     /**
      * Set gender
      *
-     * @param string $identity Gender (sex) identity of a person, animal or something
+     * @param string|null $identity Gender (sex) identity of a person, animal or something
      *
-     * @return void
+     * @return self
      */
-    public function setGender($identity);
+    public function setGender(?string $identity);
 
     /**
      * Get gender
@@ -29,28 +31,21 @@ interface GenderAware
      *
      * @see getDefaultGender()
      *
-     * @return string|null "gender" value or null if no "gender" value has been set
+     * @return string|null gender or null if no gender has been set
      */
-    public function getGender();
-
-    /**
-     * Get a default "gender" value, if any is available
-     *
-     * @return string|null A default "gender" value or null if no default value is available
-     */
-    public function getDefaultGender();
+    public function getGender() : ?string ;
 
     /**
      * Check if "gender" has been set
      *
-     * @return bool True if "gender" value has been set, false if not
+     * @return bool True if "gender" has been set, false if not
      */
-    public function hasGender();
+    public function hasGender() : bool;
 
     /**
-     * Check if a default "gender" is available or not
+     * Get a default "gender" value, if any is available
      *
-     * @return bool True of a default "gender" value is available, false if not
+     * @return string|null Default "gender" value or null if no default value is available
      */
-    public function hasDefaultGender();
+    public function getDefaultGender() : ?string;
 }

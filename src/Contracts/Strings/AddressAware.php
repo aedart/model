@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Address Aware</h1>
@@ -14,11 +16,11 @@ interface AddressAware
     /**
      * Set address
      *
-     * @param string $address Address to something. Can be formatted.
+     * @param string|null $address Address to someone or something
      *
-     * @return void
+     * @return self
      */
-    public function setAddress($address);
+    public function setAddress(?string $address);
 
     /**
      * Get address
@@ -29,28 +31,21 @@ interface AddressAware
      *
      * @see getDefaultAddress()
      *
-     * @return string|null "address" value or null if no "address" value has been set
+     * @return string|null address or null if no address has been set
      */
-    public function getAddress();
-
-    /**
-     * Get a default "address" value, if any is available
-     *
-     * @return string|null A default "address" value or null if no default value is available
-     */
-    public function getDefaultAddress();
+    public function getAddress() : ?string ;
 
     /**
      * Check if "address" has been set
      *
-     * @return bool True if "address" value has been set, false if not
+     * @return bool True if "address" has been set, false if not
      */
-    public function hasAddress();
+    public function hasAddress() : bool;
 
     /**
-     * Check if a default "address" is available or not
+     * Get a default "address" value, if any is available
      *
-     * @return bool True of a default "address" value is available, false if not
+     * @return string|null Default "address" value or null if no default value is available
      */
-    public function hasDefaultAddress();
+    public function getDefaultAddress() : ?string;
 }

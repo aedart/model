@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Json Trait</h1>
@@ -20,13 +23,15 @@ trait JsonTrait
     /**
      * Set json
      *
-     * @param string $json JavaScript Object Notation (JSON)
+     * @param string|null $json JavaScript Object Notation (JSON)
      *
-     * @return void
+     * @return self
      */
-    public function setJson($json)
+    public function setJson(?string $json)
     {
-        $this->json = (string) $json;
+        $this->json = $json;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait JsonTrait
      *
      * @see getDefaultJson()
      *
-     * @return string|null "json" value or null if no "json" value has been set
+     * @return string|null json or null if no json has been set
      */
-    public function getJson()
+    public function getJson() : ?string 
     {
-        if (!$this->hasJson() && $this->hasDefaultJson()) {
+        if ( ! $this->hasJson()) {
             $this->setJson($this->getDefaultJson());
         }
         return $this->json;
     }
 
     /**
-     * Get a default "json" value, if any is available
-     *
-     * @return string|null A default "json" value or null if no default value is available
-     */
-    public function getDefaultJson()
-    {
-        return null;
-    }
-
-    /**
      * Check if "json" has been set
      *
-     * @return bool True if "json" value has been set, false if not
+     * @return bool True if "json" has been set, false if not
      */
-    public function hasJson()
+    public function hasJson() : bool
     {
         return isset($this->json);
     }
 
     /**
-     * Check if a default "json" is available or not
+     * Get a default "json" value, if any is available
      *
-     * @return bool True of a default "json" value is available, false if not
+     * @return string|null Default "json" value or null if no default value is available
      */
-    public function hasDefaultJson()
+    public function getDefaultJson() : ?string
     {
-        $default = $this->getDefaultJson();
-        return isset($default);
+        return null;
     }
 }

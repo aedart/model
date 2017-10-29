@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Floats;
+<?php
+
+namespace Aedart\Model\Contracts\Floats;
 
 /**
  * <h1>Length Aware</h1>
@@ -14,11 +16,11 @@ interface LengthAware
     /**
      * Set length
      *
-     * @param float $amount Length of something
+     * @param float|null $amount Length of something
      *
-     * @return void
+     * @return self
      */
-    public function setLength($amount);
+    public function setLength(?float $amount);
 
     /**
      * Get length
@@ -29,28 +31,21 @@ interface LengthAware
      *
      * @see getDefaultLength()
      *
-     * @return float|null "length" value or null if no "length" value has been set
+     * @return float|null length or null if no length has been set
      */
-    public function getLength();
-
-    /**
-     * Get a default "length" value, if any is available
-     *
-     * @return float|null A default "length" value or null if no default value is available
-     */
-    public function getDefaultLength();
+    public function getLength() : ?float ;
 
     /**
      * Check if "length" has been set
      *
-     * @return bool True if "length" value has been set, false if not
+     * @return bool True if "length" has been set, false if not
      */
-    public function hasLength();
+    public function hasLength() : bool;
 
     /**
-     * Check if a default "length" is available or not
+     * Get a default "length" value, if any is available
      *
-     * @return bool True of a default "length" value is available, false if not
+     * @return float|null Default "length" value or null if no default value is available
      */
-    public function hasDefaultLength();
+    public function getDefaultLength() : ?float;
 }

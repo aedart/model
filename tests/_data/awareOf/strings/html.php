@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string html'   => [
             \Aedart\Model\Traits\Strings\HtmlTrait::class,
             \Aedart\Model\Contracts\Strings\HtmlAware::class,
-            '<' . $faker->word . ' />',
-            '<' . $faker->word . ' />',
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

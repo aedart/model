@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Arrays;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Arrays;
 
 /**
  * <h1>Categories Trait</h1>
@@ -13,20 +16,22 @@ trait CategoriesTrait
     /**
      * List of category names
      *
-     * @var string[]|null
+     * @var array|null
      */
     protected $categories = null;
 
     /**
      * Set categories
      *
-     * @param string[] $list List of category names
+     * @param array|null $list List of category names
      *
-     * @return void
+     * @return self
      */
-    public function setCategories(array $list)
+    public function setCategories(?array $list)
     {
         $this->categories = $list;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait CategoriesTrait
      *
      * @see getDefaultCategories()
      *
-     * @return string[]|null "categories" value or null if no "categories" value has been set
+     * @return array|null categories or null if no categories has been set
      */
-    public function getCategories()
+    public function getCategories() : ?array 
     {
-        if (!$this->hasCategories() && $this->hasDefaultCategories()) {
+        if ( ! $this->hasCategories()) {
             $this->setCategories($this->getDefaultCategories());
         }
         return $this->categories;
     }
 
     /**
-     * Get a default "categories" value, if any is available
-     *
-     * @return string[]|null A default "categories" value or null if no default value is available
-     */
-    public function getDefaultCategories()
-    {
-        return null;
-    }
-
-    /**
      * Check if "categories" has been set
      *
-     * @return bool True if "categories" value has been set, false if not
+     * @return bool True if "categories" has been set, false if not
      */
-    public function hasCategories()
+    public function hasCategories() : bool
     {
         return isset($this->categories);
     }
 
     /**
-     * Check if a default "categories" is available or not
+     * Get a default "categories" value, if any is available
      *
-     * @return bool True of a default "categories" value is available, false if not
+     * @return array|null Default "categories" value or null if no default value is available
      */
-    public function hasDefaultCategories()
+    public function getDefaultCategories() : ?array
     {
-        $default = $this->getDefaultCategories();
-        return isset($default);
+        return null;
     }
 }

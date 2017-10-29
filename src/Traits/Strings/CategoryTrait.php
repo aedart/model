@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Category Trait</h1>
@@ -11,7 +14,7 @@
 trait CategoryTrait
 {
     /**
-     * Name of a category
+     * Name of category
      *
      * @var string|null
      */
@@ -20,13 +23,15 @@ trait CategoryTrait
     /**
      * Set category
      *
-     * @param string $name Name of a category
+     * @param string|null $name Name of category
      *
-     * @return void
+     * @return self
      */
-    public function setCategory($name)
+    public function setCategory(?string $name)
     {
-        $this->category = (string) $name;
+        $this->category = $name;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait CategoryTrait
      *
      * @see getDefaultCategory()
      *
-     * @return string|null "category" value or null if no "category" value has been set
+     * @return string|null category or null if no category has been set
      */
-    public function getCategory()
+    public function getCategory() : ?string 
     {
-        if (!$this->hasCategory() && $this->hasDefaultCategory()) {
+        if ( ! $this->hasCategory()) {
             $this->setCategory($this->getDefaultCategory());
         }
         return $this->category;
     }
 
     /**
-     * Get a default "category" value, if any is available
-     *
-     * @return string|null A default "category" value or null if no default value is available
-     */
-    public function getDefaultCategory()
-    {
-        return null;
-    }
-
-    /**
      * Check if "category" has been set
      *
-     * @return bool True if "category" value has been set, false if not
+     * @return bool True if "category" has been set, false if not
      */
-    public function hasCategory()
+    public function hasCategory() : bool
     {
         return isset($this->category);
     }
 
     /**
-     * Check if a default "category" is available or not
+     * Get a default "category" value, if any is available
      *
-     * @return bool True of a default "category" value is available, false if not
+     * @return string|null Default "category" value or null if no default value is available
      */
-    public function hasDefaultCategory()
+    public function getDefaultCategory() : ?string
     {
-        $default = $this->getDefaultCategory();
-        return isset($default);
+        return null;
     }
 }

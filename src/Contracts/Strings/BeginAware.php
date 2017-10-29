@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Begin Aware</h1>
@@ -14,11 +16,11 @@ interface BeginAware
     /**
      * Set begin
      *
-     * @param string $location Location, index or some other identifier of where something begins
+     * @param string|null $location Location, index or some other identifier of where something begins
      *
-     * @return void
+     * @return self
      */
-    public function setBegin($location);
+    public function setBegin(?string $location);
 
     /**
      * Get begin
@@ -29,28 +31,21 @@ interface BeginAware
      *
      * @see getDefaultBegin()
      *
-     * @return string|null "begin" value or null if no "begin" value has been set
+     * @return string|null begin or null if no begin has been set
      */
-    public function getBegin();
-
-    /**
-     * Get a default "begin" value, if any is available
-     *
-     * @return string|null A default "begin" value or null if no default value is available
-     */
-    public function getDefaultBegin();
+    public function getBegin() : ?string ;
 
     /**
      * Check if "begin" has been set
      *
-     * @return bool True if "begin" value has been set, false if not
+     * @return bool True if "begin" has been set, false if not
      */
-    public function hasBegin();
+    public function hasBegin() : bool;
 
     /**
-     * Check if a default "begin" is available or not
+     * Get a default "begin" value, if any is available
      *
-     * @return bool True of a default "begin" value is available, false if not
+     * @return string|null Default "begin" value or null if no default value is available
      */
-    public function hasDefaultBegin();
+    public function getDefaultBegin() : ?string;
 }

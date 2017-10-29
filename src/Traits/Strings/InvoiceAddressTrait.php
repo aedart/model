@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Invoice Address Trait</h1>
@@ -20,13 +23,15 @@ trait InvoiceAddressTrait
     /**
      * Set invoice address
      *
-     * @param string $address Invoice Address. Can be formatted.
+     * @param string|null $address Invoice Address. Can be formatted.
      *
-     * @return void
+     * @return self
      */
-    public function setInvoiceAddress($address)
+    public function setInvoiceAddress(?string $address)
     {
-        $this->invoiceAddress = (string) $address;
+        $this->invoiceAddress = $address;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait InvoiceAddressTrait
      *
      * @see getDefaultInvoiceAddress()
      *
-     * @return string|null "invoice address" value or null if no "invoice address" value has been set
+     * @return string|null invoice address or null if no invoice address has been set
      */
-    public function getInvoiceAddress()
+    public function getInvoiceAddress() : ?string 
     {
-        if (!$this->hasInvoiceAddress() && $this->hasDefaultInvoiceAddress()) {
+        if ( ! $this->hasInvoiceAddress()) {
             $this->setInvoiceAddress($this->getDefaultInvoiceAddress());
         }
         return $this->invoiceAddress;
     }
 
     /**
-     * Get a default "invoice address" value, if any is available
-     *
-     * @return string|null A default "invoice address" value or null if no default value is available
-     */
-    public function getDefaultInvoiceAddress()
-    {
-        return null;
-    }
-
-    /**
      * Check if "invoice address" has been set
      *
-     * @return bool True if "invoice address" value has been set, false if not
+     * @return bool True if "invoice address" has been set, false if not
      */
-    public function hasInvoiceAddress()
+    public function hasInvoiceAddress() : bool
     {
         return isset($this->invoiceAddress);
     }
 
     /**
-     * Check if a default "invoice address" is available or not
+     * Get a default "invoice address" value, if any is available
      *
-     * @return bool True of a default "invoice address" value is available, false if not
+     * @return string|null Default "invoice address" value or null if no default value is available
      */
-    public function hasDefaultInvoiceAddress()
+    public function getDefaultInvoiceAddress() : ?string
     {
-        $default = $this->getDefaultInvoiceAddress();
-        return isset($default);
+        return null;
     }
 }

@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Name Aware</h1>
@@ -14,11 +16,11 @@ interface NameAware
     /**
      * Set name
      *
-     * @param string $name Name
+     * @param string|null $name Name
      *
-     * @return void
+     * @return self
      */
-    public function setName($name);
+    public function setName(?string $name);
 
     /**
      * Get name
@@ -29,28 +31,21 @@ interface NameAware
      *
      * @see getDefaultName()
      *
-     * @return string|null "name" value or null if no "name" value has been set
+     * @return string|null name or null if no name has been set
      */
-    public function getName();
-
-    /**
-     * Get a default "name" value, if any is available
-     *
-     * @return string|null A default "name" value or null if no default value is available
-     */
-    public function getDefaultName();
+    public function getName() : ?string ;
 
     /**
      * Check if "name" has been set
      *
-     * @return bool True if "name" value has been set, false if not
+     * @return bool True if "name" has been set, false if not
      */
-    public function hasName();
+    public function hasName() : bool;
 
     /**
-     * Check if a default "name" is available or not
+     * Get a default "name" value, if any is available
      *
-     * @return bool True of a default "name" value is available, false if not
+     * @return string|null Default "name" value or null if no default value is available
      */
-    public function hasDefaultName();
+    public function getDefaultName() : ?string;
 }

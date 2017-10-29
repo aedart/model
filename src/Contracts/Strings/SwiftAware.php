@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Swift Aware</h1>
@@ -14,11 +16,11 @@ interface SwiftAware
     /**
      * Set swift
      *
-     * @param string $code ISO-9362 Swift Code
+     * @param string|null $code ISO-9362 Swift Code
      *
-     * @return void
+     * @return self
      */
-    public function setSwift($code);
+    public function setSwift(?string $code);
 
     /**
      * Get swift
@@ -29,28 +31,21 @@ interface SwiftAware
      *
      * @see getDefaultSwift()
      *
-     * @return string|null "swift" value or null if no "swift" value has been set
+     * @return string|null swift or null if no swift has been set
      */
-    public function getSwift();
-
-    /**
-     * Get a default "swift" value, if any is available
-     *
-     * @return string|null A default "swift" value or null if no default value is available
-     */
-    public function getDefaultSwift();
+    public function getSwift() : ?string ;
 
     /**
      * Check if "swift" has been set
      *
-     * @return bool True if "swift" value has been set, false if not
+     * @return bool True if "swift" has been set, false if not
      */
-    public function hasSwift();
+    public function hasSwift() : bool;
 
     /**
-     * Check if a default "swift" is available or not
+     * Get a default "swift" value, if any is available
      *
-     * @return bool True of a default "swift" value is available, false if not
+     * @return string|null Default "swift" value or null if no default value is available
      */
-    public function hasDefaultSwift();
+    public function getDefaultSwift() : ?string;
 }

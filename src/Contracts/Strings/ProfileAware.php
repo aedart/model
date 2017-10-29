@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Profile Aware</h1>
@@ -14,11 +16,11 @@ interface ProfileAware
     /**
      * Set profile
      *
-     * @param string $value The profile or someone or something
+     * @param string|null $profile The profile or someone or something
      *
-     * @return void
+     * @return self
      */
-    public function setProfile($value);
+    public function setProfile(?string $profile);
 
     /**
      * Get profile
@@ -29,28 +31,21 @@ interface ProfileAware
      *
      * @see getDefaultProfile()
      *
-     * @return string|null "profile" value or null if no "profile" value has been set
+     * @return string|null profile or null if no profile has been set
      */
-    public function getProfile();
-
-    /**
-     * Get a default "profile" value, if any is available
-     *
-     * @return string|null A default "profile" value or null if no default value is available
-     */
-    public function getDefaultProfile();
+    public function getProfile() : ?string ;
 
     /**
      * Check if "profile" has been set
      *
-     * @return bool True if "profile" value has been set, false if not
+     * @return bool True if "profile" has been set, false if not
      */
-    public function hasProfile();
+    public function hasProfile() : bool;
 
     /**
-     * Check if a default "profile" is available or not
+     * Get a default "profile" value, if any is available
      *
-     * @return bool True of a default "profile" value is available, false if not
+     * @return string|null Default "profile" value or null if no default value is available
      */
-    public function hasDefaultProfile();
+    public function getDefaultProfile() : ?string;
 }

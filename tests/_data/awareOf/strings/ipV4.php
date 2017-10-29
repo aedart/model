@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string ipV4'   => [
             \Aedart\Model\Traits\Strings\IpV4Trait::class,
             \Aedart\Model\Contracts\Strings\IpV4Aware::class,
-            $faker->ipv4,
-            $faker->ipv4,
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

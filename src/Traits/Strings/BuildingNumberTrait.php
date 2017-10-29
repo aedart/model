@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Building Number Trait</h1>
@@ -11,7 +14,7 @@
 trait BuildingNumberTrait
 {
     /**
-     * The house number assigned to a building in a street or area
+     * The house number assigned to a building or apartment in a street or area, e.g. 12a
      *
      * @var string|null
      */
@@ -20,13 +23,15 @@ trait BuildingNumberTrait
     /**
      * Set building number
      *
-     * @param string $number The house number assigned to a building or apartment in a street or area, e.g. 12a
+     * @param string|null $number The house number assigned to a building or apartment in a street or area, e.g. 12a
      *
-     * @return void
+     * @return self
      */
-    public function setBuildingNumber($number)
+    public function setBuildingNumber(?string $number)
     {
-        $this->buildingNumber = (string) $number;
+        $this->buildingNumber = $number;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait BuildingNumberTrait
      *
      * @see getDefaultBuildingNumber()
      *
-     * @return string|null "building number" value or null if no "building number" value has been set
+     * @return string|null building number or null if no building number has been set
      */
-    public function getBuildingNumber()
+    public function getBuildingNumber() : ?string 
     {
-        if (!$this->hasBuildingNumber() && $this->hasDefaultBuildingNumber()) {
+        if ( ! $this->hasBuildingNumber()) {
             $this->setBuildingNumber($this->getDefaultBuildingNumber());
         }
         return $this->buildingNumber;
     }
 
     /**
-     * Get a default "building number" value, if any is available
-     *
-     * @return string|null A default "building number" value or null if no default value is available
-     */
-    public function getDefaultBuildingNumber()
-    {
-        return null;
-    }
-
-    /**
      * Check if "building number" has been set
      *
-     * @return bool True if "building number" value has been set, false if not
+     * @return bool True if "building number" has been set, false if not
      */
-    public function hasBuildingNumber()
+    public function hasBuildingNumber() : bool
     {
         return isset($this->buildingNumber);
     }
 
     /**
-     * Check if a default "building number" is available or not
+     * Get a default "building number" value, if any is available
      *
-     * @return bool True of a default "building number" value is available, false if not
+     * @return string|null Default "building number" value or null if no default value is available
      */
-    public function hasDefaultBuildingNumber()
+    public function getDefaultBuildingNumber() : ?string
     {
-        $default = $this->getDefaultBuildingNumber();
-        return isset($default);
+        return null;
     }
 }

@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Content Trait</h1>
@@ -20,13 +23,15 @@ trait ContentTrait
     /**
      * Set content
      *
-     * @param string $content Content
+     * @param string|null $content Content
      *
-     * @return void
+     * @return self
      */
-    public function setContent($content)
+    public function setContent(?string $content)
     {
-        $this->content = (string) $content;
+        $this->content = $content;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait ContentTrait
      *
      * @see getDefaultContent()
      *
-     * @return string|null "content" value or null if no "content" value has been set
+     * @return string|null content or null if no content has been set
      */
-    public function getContent()
+    public function getContent() : ?string 
     {
-        if (!$this->hasContent() && $this->hasDefaultContent()) {
+        if ( ! $this->hasContent()) {
             $this->setContent($this->getDefaultContent());
         }
         return $this->content;
     }
 
     /**
-     * Get a default "content" value, if any is available
-     *
-     * @return string|null A default "content" value or null if no default value is available
-     */
-    public function getDefaultContent()
-    {
-        return null;
-    }
-
-    /**
      * Check if "content" has been set
      *
-     * @return bool True if "content" value has been set, false if not
+     * @return bool True if "content" has been set, false if not
      */
-    public function hasContent()
+    public function hasContent() : bool
     {
         return isset($this->content);
     }
 
     /**
-     * Check if a default "content" is available or not
+     * Get a default "content" value, if any is available
      *
-     * @return bool True of a default "content" value is available, false if not
+     * @return string|null Default "content" value or null if no default value is available
      */
-    public function hasDefaultContent()
+    public function getDefaultContent() : ?string
     {
-        $default = $this->getDefaultContent();
-        return isset($default);
+        return null;
     }
 }

@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Integers;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Integers;
 
 /**
  * <h1>Start Date Trait</h1>
@@ -11,7 +14,7 @@
 trait StartDateTrait
 {
     /**
-     * Start date (UNIX timestamp) of some kind of event
+     * Start date of event
      *
      * @var int|null
      */
@@ -20,13 +23,15 @@ trait StartDateTrait
     /**
      * Set start date
      *
-     * @param int $date Start date (UNIX timestamp) of some kind of event
+     * @param int|null $date Start date of event
      *
-     * @return void
+     * @return self
      */
-    public function setStartDate($date)
+    public function setStartDate(?int $date)
     {
-        $this->startDate = (int) $date;
+        $this->startDate = $date;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait StartDateTrait
      *
      * @see getDefaultStartDate()
      *
-     * @return int|null "start date" value or null if no "start date" value has been set
+     * @return int|null start date or null if no start date has been set
      */
-    public function getStartDate()
+    public function getStartDate() : ?int 
     {
-        if (!$this->hasStartDate() && $this->hasDefaultStartDate()) {
+        if ( ! $this->hasStartDate()) {
             $this->setStartDate($this->getDefaultStartDate());
         }
         return $this->startDate;
     }
 
     /**
-     * Get a default "start date" value, if any is available
-     *
-     * @return int|null A default "start date" value or null if no default value is available
-     */
-    public function getDefaultStartDate()
-    {
-        return null;
-    }
-
-    /**
      * Check if "start date" has been set
      *
-     * @return bool True if "start date" value has been set, false if not
+     * @return bool True if "start date" has been set, false if not
      */
-    public function hasStartDate()
+    public function hasStartDate() : bool
     {
         return isset($this->startDate);
     }
 
     /**
-     * Check if a default "start date" is available or not
+     * Get a default "start date" value, if any is available
      *
-     * @return bool True of a default "start date" value is available, false if not
+     * @return int|null Default "start date" value or null if no default value is available
      */
-    public function hasDefaultStartDate()
+    public function getDefaultStartDate() : ?int
     {
-        $default = $this->getDefaultStartDate();
-        return isset($default);
+        return null;
     }
 }

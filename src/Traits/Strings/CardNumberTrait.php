@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Card Number Trait</h1>
@@ -20,13 +23,15 @@ trait CardNumberTrait
     /**
      * Set card number
      *
-     * @param string $number Numeric or Alphanumeric card number, e.g. for credit cards or other types of cards
+     * @param string|null $number Numeric or Alphanumeric card number, e.g. for credit cards or other types of cards
      *
-     * @return void
+     * @return self
      */
-    public function setCardNumber($number)
+    public function setCardNumber(?string $number)
     {
-        $this->cardNumber = (string) $number;
+        $this->cardNumber = $number;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait CardNumberTrait
      *
      * @see getDefaultCardNumber()
      *
-     * @return string|null "card number" value or null if no "card number" value has been set
+     * @return string|null card number or null if no card number has been set
      */
-    public function getCardNumber()
+    public function getCardNumber() : ?string 
     {
-        if (!$this->hasCardNumber() && $this->hasDefaultCardNumber()) {
+        if ( ! $this->hasCardNumber()) {
             $this->setCardNumber($this->getDefaultCardNumber());
         }
         return $this->cardNumber;
     }
 
     /**
-     * Get a default "card number" value, if any is available
-     *
-     * @return string|null A default "card number" value or null if no default value is available
-     */
-    public function getDefaultCardNumber()
-    {
-        return null;
-    }
-
-    /**
      * Check if "card number" has been set
      *
-     * @return bool True if "card number" value has been set, false if not
+     * @return bool True if "card number" has been set, false if not
      */
-    public function hasCardNumber()
+    public function hasCardNumber() : bool
     {
         return isset($this->cardNumber);
     }
 
     /**
-     * Check if a default "card number" is available or not
+     * Get a default "card number" value, if any is available
      *
-     * @return bool True of a default "card number" value is available, false if not
+     * @return string|null Default "card number" value or null if no default value is available
      */
-    public function hasDefaultCardNumber()
+    public function getDefaultCardNumber() : ?string
     {
-        $default = $this->getDefaultCardNumber();
-        return isset($default);
+        return null;
     }
 }

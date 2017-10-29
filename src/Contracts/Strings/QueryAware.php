@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Query Aware</h1>
@@ -14,11 +16,11 @@ interface QueryAware
     /**
      * Set query
      *
-     * @param string $query Query
+     * @param string|null $query Query
      *
-     * @return void
+     * @return self
      */
-    public function setQuery($query);
+    public function setQuery(?string $query);
 
     /**
      * Get query
@@ -29,28 +31,21 @@ interface QueryAware
      *
      * @see getDefaultQuery()
      *
-     * @return string|null "query" value or null if no "query" value has been set
+     * @return string|null query or null if no query has been set
      */
-    public function getQuery();
-
-    /**
-     * Get a default "query" value, if any is available
-     *
-     * @return string|null A default "query" value or null if no default value is available
-     */
-    public function getDefaultQuery();
+    public function getQuery() : ?string ;
 
     /**
      * Check if "query" has been set
      *
-     * @return bool True if "query" value has been set, false if not
+     * @return bool True if "query" has been set, false if not
      */
-    public function hasQuery();
+    public function hasQuery() : bool;
 
     /**
-     * Check if a default "query" is available or not
+     * Get a default "query" value, if any is available
      *
-     * @return bool True of a default "query" value is available, false if not
+     * @return string|null Default "query" value or null if no default value is available
      */
-    public function hasDefaultQuery();
+    public function getDefaultQuery() : ?string;
 }

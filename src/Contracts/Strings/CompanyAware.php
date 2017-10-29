@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Company Aware</h1>
@@ -14,11 +16,11 @@ interface CompanyAware
     /**
      * Set company
      *
-     * @param string $name Name of a company
+     * @param string|null $name Name of company
      *
-     * @return void
+     * @return self
      */
-    public function setCompany($name);
+    public function setCompany(?string $name);
 
     /**
      * Get company
@@ -29,28 +31,21 @@ interface CompanyAware
      *
      * @see getDefaultCompany()
      *
-     * @return string|null "company" value or null if no "company" value has been set
+     * @return string|null company or null if no company has been set
      */
-    public function getCompany();
-
-    /**
-     * Get a default "company" value, if any is available
-     *
-     * @return string|null A default "company" value or null if no default value is available
-     */
-    public function getDefaultCompany();
+    public function getCompany() : ?string ;
 
     /**
      * Check if "company" has been set
      *
-     * @return bool True if "company" value has been set, false if not
+     * @return bool True if "company" has been set, false if not
      */
-    public function hasCompany();
+    public function hasCompany() : bool;
 
     /**
-     * Check if a default "company" is available or not
+     * Get a default "company" value, if any is available
      *
-     * @return bool True of a default "company" value is available, false if not
+     * @return string|null Default "company" value or null if no default value is available
      */
-    public function hasDefaultCompany();
+    public function getDefaultCompany() : ?string;
 }

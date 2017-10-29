@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Index Aware</h1>
@@ -14,11 +16,11 @@ interface IndexAware
     /**
      * Set index
      *
-     * @param string $index An index
+     * @param string|null $index Index
      *
-     * @return void
+     * @return self
      */
-    public function setIndex($index);
+    public function setIndex(?string $index);
 
     /**
      * Get index
@@ -29,28 +31,21 @@ interface IndexAware
      *
      * @see getDefaultIndex()
      *
-     * @return string|null "index" value or null if no "index" value has been set
+     * @return string|null index or null if no index has been set
      */
-    public function getIndex();
-
-    /**
-     * Get a default "index" value, if any is available
-     *
-     * @return string|null A default "index" value or null if no default value is available
-     */
-    public function getDefaultIndex();
+    public function getIndex() : ?string ;
 
     /**
      * Check if "index" has been set
      *
-     * @return bool True if "index" value has been set, false if not
+     * @return bool True if "index" has been set, false if not
      */
-    public function hasIndex();
+    public function hasIndex() : bool;
 
     /**
-     * Check if a default "index" is available or not
+     * Get a default "index" value, if any is available
      *
-     * @return bool True of a default "index" value is available, false if not
+     * @return string|null Default "index" value or null if no default value is available
      */
-    public function hasDefaultIndex();
+    public function getDefaultIndex() : ?string;
 }

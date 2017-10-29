@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string agent'   => [
             \Aedart\Model\Traits\Strings\AgentTrait::class,
             \Aedart\Model\Contracts\Strings\AgentAware::class,
-            $faker->userAgent,
-            $faker->userAgent,
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

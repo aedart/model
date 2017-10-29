@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Slug Trait</h1>
@@ -20,13 +23,15 @@ trait SlugTrait
     /**
      * Set slug
      *
-     * @param string $slug Human readable keyword(s) that can be part or a Url
+     * @param string|null $slug Human readable keyword(s) that can be part or a Url
      *
-     * @return void
+     * @return self
      */
-    public function setSlug($slug)
+    public function setSlug(?string $slug)
     {
-        $this->slug = (string) $slug;
+        $this->slug = $slug;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait SlugTrait
      *
      * @see getDefaultSlug()
      *
-     * @return string|null "slug" value or null if no "slug" value has been set
+     * @return string|null slug or null if no slug has been set
      */
-    public function getSlug()
+    public function getSlug() : ?string 
     {
-        if (!$this->hasSlug() && $this->hasDefaultSlug()) {
+        if ( ! $this->hasSlug()) {
             $this->setSlug($this->getDefaultSlug());
         }
         return $this->slug;
     }
 
     /**
-     * Get a default "slug" value, if any is available
-     *
-     * @return string|null A default "slug" value or null if no default value is available
-     */
-    public function getDefaultSlug()
-    {
-        return null;
-    }
-
-    /**
      * Check if "slug" has been set
      *
-     * @return bool True if "slug" value has been set, false if not
+     * @return bool True if "slug" has been set, false if not
      */
-    public function hasSlug()
+    public function hasSlug() : bool
     {
         return isset($this->slug);
     }
 
     /**
-     * Check if a default "slug" is available or not
+     * Get a default "slug" value, if any is available
      *
-     * @return bool True of a default "slug" value is available, false if not
+     * @return string|null Default "slug" value or null if no default value is available
      */
-    public function hasDefaultSlug()
+    public function getDefaultSlug() : ?string
     {
-        $default = $this->getDefaultSlug();
-        return isset($default);
+        return null;
     }
 }

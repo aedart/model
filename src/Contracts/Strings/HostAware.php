@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Host Aware</h1>
@@ -14,11 +16,11 @@ interface HostAware
     /**
      * Set host
      *
-     * @param string $identifier Identifier of a host
+     * @param string|null $identifier Identifier of a host
      *
-     * @return void
+     * @return self
      */
-    public function setHost($identifier);
+    public function setHost(?string $identifier);
 
     /**
      * Get host
@@ -29,28 +31,21 @@ interface HostAware
      *
      * @see getDefaultHost()
      *
-     * @return string|null "host" value or null if no "host" value has been set
+     * @return string|null host or null if no host has been set
      */
-    public function getHost();
-
-    /**
-     * Get a default "host" value, if any is available
-     *
-     * @return string|null A default "host" value or null if no default value is available
-     */
-    public function getDefaultHost();
+    public function getHost() : ?string ;
 
     /**
      * Check if "host" has been set
      *
-     * @return bool True if "host" value has been set, false if not
+     * @return bool True if "host" has been set, false if not
      */
-    public function hasHost();
+    public function hasHost() : bool;
 
     /**
-     * Check if a default "host" is available or not
+     * Get a default "host" value, if any is available
      *
-     * @return bool True of a default "host" value is available, false if not
+     * @return string|null Default "host" value or null if no default value is available
      */
-    public function hasDefaultHost();
+    public function getDefaultHost() : ?string;
 }

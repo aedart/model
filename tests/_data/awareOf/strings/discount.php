@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string discount'   => [
             \Aedart\Model\Traits\Strings\DiscountTrait::class,
             \Aedart\Model\Contracts\Strings\DiscountAware::class,
-            (string) $faker->randomFloat() . ' ' . $faker->currencyCode,
-            (string) $faker->randomFloat() . ' ' . $faker->currencyCode,
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

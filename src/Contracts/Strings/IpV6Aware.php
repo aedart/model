@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Ip V6 Aware</h1>
@@ -14,11 +16,11 @@ interface IpV6Aware
     /**
      * Set ip v6
      *
-     * @param string $address IPv6 address
+     * @param string|null $address IPv6 address
      *
-     * @return void
+     * @return self
      */
-    public function setIpV6($address);
+    public function setIpV6(?string $address);
 
     /**
      * Get ip v6
@@ -29,28 +31,21 @@ interface IpV6Aware
      *
      * @see getDefaultIpV6()
      *
-     * @return string|null "ip v6" value or null if no "ip v6" value has been set
+     * @return string|null ip v6 or null if no ip v6 has been set
      */
-    public function getIpV6();
-
-    /**
-     * Get a default "ip v6" value, if any is available
-     *
-     * @return string|null A default "ip v6" value or null if no default value is available
-     */
-    public function getDefaultIpV6();
+    public function getIpV6() : ?string ;
 
     /**
      * Check if "ip v6" has been set
      *
-     * @return bool True if "ip v6" value has been set, false if not
+     * @return bool True if "ip v6" has been set, false if not
      */
-    public function hasIpV6();
+    public function hasIpV6() : bool;
 
     /**
-     * Check if a default "ip v6" is available or not
+     * Get a default "ip v6" value, if any is available
      *
-     * @return bool True of a default "ip v6" value is available, false if not
+     * @return string|null Default "ip v6" value or null if no default value is available
      */
-    public function hasDefaultIpV6();
+    public function getDefaultIpV6() : ?string;
 }

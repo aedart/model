@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Isbn13 Aware</h1>
@@ -14,11 +16,11 @@ interface Isbn13Aware
     /**
      * Set isbn13
      *
-     * @param string $isbn13 International Standard Book Number (ISBN), 13-digit
+     * @param string|null $ibn13 International Standard Book Number (ISBN), 13-digits
      *
-     * @return void
+     * @return self
      */
-    public function setIsbn13($isbn13);
+    public function setIsbn13(?string $ibn13);
 
     /**
      * Get isbn13
@@ -29,28 +31,21 @@ interface Isbn13Aware
      *
      * @see getDefaultIsbn13()
      *
-     * @return string|null "isbn13" value or null if no "isbn13" value has been set
+     * @return string|null isbn13 or null if no isbn13 has been set
      */
-    public function getIsbn13();
-
-    /**
-     * Get a default "isbn13" value, if any is available
-     *
-     * @return string|null A default "isbn13" value or null if no default value is available
-     */
-    public function getDefaultIsbn13();
+    public function getIsbn13() : ?string ;
 
     /**
      * Check if "isbn13" has been set
      *
-     * @return bool True if "isbn13" value has been set, false if not
+     * @return bool True if "isbn13" has been set, false if not
      */
-    public function hasIsbn13();
+    public function hasIsbn13() : bool;
 
     /**
-     * Check if a default "isbn13" is available or not
+     * Get a default "isbn13" value, if any is available
      *
-     * @return bool True of a default "isbn13" value is available, false if not
+     * @return string|null Default "isbn13" value or null if no default value is available
      */
-    public function hasDefaultIsbn13();
+    public function getDefaultIsbn13() : ?string;
 }

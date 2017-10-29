@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Colour Trait</h1>
@@ -11,7 +14,7 @@
 trait ColourTrait
 {
     /**
-     * Name of a colour or colour value, e.g. rgb, cmyk, hsl or other format
+     * Name of colour or colour value, e.g. RGB, CMYK, HSL or other format
      *
      * @var string|null
      */
@@ -20,13 +23,15 @@ trait ColourTrait
     /**
      * Set colour
      *
-     * @param string $value Name of a colour or colour value, e.g. rgb, cmyk, hsl or other format
+     * @param string|null $colour Name of colour or colour value, e.g. RGB, CMYK, HSL or other format
      *
-     * @return void
+     * @return self
      */
-    public function setColour($value)
+    public function setColour(?string $colour)
     {
-        $this->colour = (string) $value;
+        $this->colour = $colour;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait ColourTrait
      *
      * @see getDefaultColour()
      *
-     * @return string|null "colour" value or null if no "colour" value has been set
+     * @return string|null colour or null if no colour has been set
      */
-    public function getColour()
+    public function getColour() : ?string 
     {
-        if (!$this->hasColour() && $this->hasDefaultColour()) {
+        if ( ! $this->hasColour()) {
             $this->setColour($this->getDefaultColour());
         }
         return $this->colour;
     }
 
     /**
-     * Get a default "colour" value, if any is available
-     *
-     * @return string|null A default "colour" value or null if no default value is available
-     */
-    public function getDefaultColour()
-    {
-        return null;
-    }
-
-    /**
      * Check if "colour" has been set
      *
-     * @return bool True if "colour" value has been set, false if not
+     * @return bool True if "colour" has been set, false if not
      */
-    public function hasColour()
+    public function hasColour() : bool
     {
         return isset($this->colour);
     }
 
     /**
-     * Check if a default "colour" is available or not
+     * Get a default "colour" value, if any is available
      *
-     * @return bool True of a default "colour" value is available, false if not
+     * @return string|null Default "colour" value or null if no default value is available
      */
-    public function hasDefaultColour()
+    public function getDefaultColour() : ?string
     {
-        $default = $this->getDefaultColour();
-        return isset($default);
+        return null;
     }
 }

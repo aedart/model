@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Ean8 Aware</h1>
@@ -14,11 +16,11 @@ interface Ean8Aware
     /**
      * Set ean8
      *
-     * @param string $ean8 International Article Number (EAN), 8-digit
+     * @param string|null $ean8 International Article Number (EAN), 8-digit
      *
-     * @return void
+     * @return self
      */
-    public function setEan8($ean8);
+    public function setEan8(?string $ean8);
 
     /**
      * Get ean8
@@ -29,28 +31,21 @@ interface Ean8Aware
      *
      * @see getDefaultEan8()
      *
-     * @return string|null "ean8" value or null if no "ean8" value has been set
+     * @return string|null ean8 or null if no ean8 has been set
      */
-    public function getEan8();
-
-    /**
-     * Get a default "ean8" value, if any is available
-     *
-     * @return string|null A default "ean8" value or null if no default value is available
-     */
-    public function getDefaultEan8();
+    public function getEan8() : ?string ;
 
     /**
      * Check if "ean8" has been set
      *
-     * @return bool True if "ean8" value has been set, false if not
+     * @return bool True if "ean8" has been set, false if not
      */
-    public function hasEan8();
+    public function hasEan8() : bool;
 
     /**
-     * Check if a default "ean8" is available or not
+     * Get a default "ean8" value, if any is available
      *
-     * @return bool True of a default "ean8" value is available, false if not
+     * @return string|null Default "ean8" value or null if no default value is available
      */
-    public function hasDefaultEan8();
+    public function getDefaultEan8() : ?string;
 }

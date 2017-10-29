@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Generated data provider for string[] tags unit test
+ * Generated data provider for array tags unit test
  */
 return function(\Faker\Generator $faker){
     return [
-        'string[] tags'   => [
+        'array tags'   => [
             \Aedart\Model\Traits\Arrays\TagsTrait::class,
             \Aedart\Model\Contracts\Arrays\TagsAware::class,
             $faker->words($faker->randomDigitNotNull),

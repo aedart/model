@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Sql Trait</h1>
@@ -20,13 +23,15 @@ trait SqlTrait
     /**
      * Set sql
      *
-     * @param string $query A Structured Query Language (SQL) query
+     * @param string|null $query A Structured Query Language (SQL) query
      *
-     * @return void
+     * @return self
      */
-    public function setSql($query)
+    public function setSql(?string $query)
     {
-        $this->sql = (string) $query;
+        $this->sql = $query;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait SqlTrait
      *
      * @see getDefaultSql()
      *
-     * @return string|null "sql" value or null if no "sql" value has been set
+     * @return string|null sql or null if no sql has been set
      */
-    public function getSql()
+    public function getSql() : ?string 
     {
-        if (!$this->hasSql() && $this->hasDefaultSql()) {
+        if ( ! $this->hasSql()) {
             $this->setSql($this->getDefaultSql());
         }
         return $this->sql;
     }
 
     /**
-     * Get a default "sql" value, if any is available
-     *
-     * @return string|null A default "sql" value or null if no default value is available
-     */
-    public function getDefaultSql()
-    {
-        return null;
-    }
-
-    /**
      * Check if "sql" has been set
      *
-     * @return bool True if "sql" value has been set, false if not
+     * @return bool True if "sql" has been set, false if not
      */
-    public function hasSql()
+    public function hasSql() : bool
     {
         return isset($this->sql);
     }
 
     /**
-     * Check if a default "sql" is available or not
+     * Get a default "sql" value, if any is available
      *
-     * @return bool True of a default "sql" value is available, false if not
+     * @return string|null Default "sql" value or null if no default value is available
      */
-    public function hasDefaultSql()
+    public function getDefaultSql() : ?string
     {
-        $default = $this->getDefaultSql();
-        return isset($default);
+        return null;
     }
 }

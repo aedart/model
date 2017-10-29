@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Email Trait</h1>
@@ -20,13 +23,15 @@ trait EmailTrait
     /**
      * Set email
      *
-     * @param string $email Email
+     * @param string|null $email Email
      *
-     * @return void
+     * @return self
      */
-    public function setEmail($email)
+    public function setEmail(?string $email)
     {
-        $this->email = (string) $email;
+        $this->email = $email;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait EmailTrait
      *
      * @see getDefaultEmail()
      *
-     * @return string|null "email" value or null if no "email" value has been set
+     * @return string|null email or null if no email has been set
      */
-    public function getEmail()
+    public function getEmail() : ?string 
     {
-        if (!$this->hasEmail() && $this->hasDefaultEmail()) {
+        if ( ! $this->hasEmail()) {
             $this->setEmail($this->getDefaultEmail());
         }
         return $this->email;
     }
 
     /**
-     * Get a default "email" value, if any is available
-     *
-     * @return string|null A default "email" value or null if no default value is available
-     */
-    public function getDefaultEmail()
-    {
-        return null;
-    }
-
-    /**
      * Check if "email" has been set
      *
-     * @return bool True if "email" value has been set, false if not
+     * @return bool True if "email" has been set, false if not
      */
-    public function hasEmail()
+    public function hasEmail() : bool
     {
         return isset($this->email);
     }
 
     /**
-     * Check if a default "email" is available or not
+     * Get a default "email" value, if any is available
      *
-     * @return bool True of a default "email" value is available, false if not
+     * @return string|null Default "email" value or null if no default value is available
      */
-    public function hasDefaultEmail()
+    public function getDefaultEmail() : ?string
     {
-        $default = $this->getDefaultEmail();
-        return isset($default);
+        return null;
     }
 }

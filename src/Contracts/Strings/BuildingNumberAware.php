@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Building Number Aware</h1>
@@ -14,11 +16,11 @@ interface BuildingNumberAware
     /**
      * Set building number
      *
-     * @param string $number The house number assigned to a building or apartment in a street or area, e.g. 12a
+     * @param string|null $number The house number assigned to a building or apartment in a street or area, e.g. 12a
      *
-     * @return void
+     * @return self
      */
-    public function setBuildingNumber($number);
+    public function setBuildingNumber(?string $number);
 
     /**
      * Get building number
@@ -29,28 +31,21 @@ interface BuildingNumberAware
      *
      * @see getDefaultBuildingNumber()
      *
-     * @return string|null "building number" value or null if no "building number" value has been set
+     * @return string|null building number or null if no building number has been set
      */
-    public function getBuildingNumber();
-
-    /**
-     * Get a default "building number" value, if any is available
-     *
-     * @return string|null A default "building number" value or null if no default value is available
-     */
-    public function getDefaultBuildingNumber();
+    public function getBuildingNumber() : ?string ;
 
     /**
      * Check if "building number" has been set
      *
-     * @return bool True if "building number" value has been set, false if not
+     * @return bool True if "building number" has been set, false if not
      */
-    public function hasBuildingNumber();
+    public function hasBuildingNumber() : bool;
 
     /**
-     * Check if a default "building number" is available or not
+     * Get a default "building number" value, if any is available
      *
-     * @return bool True of a default "building number" value is available, false if not
+     * @return string|null Default "building number" value or null if no default value is available
      */
-    public function hasDefaultBuildingNumber();
+    public function getDefaultBuildingNumber() : ?string;
 }

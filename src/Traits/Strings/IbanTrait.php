@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Iban Trait</h1>
@@ -20,13 +23,15 @@ trait IbanTrait
     /**
      * Set iban
      *
-     * @param string $number International Bank Account Number (IBAN)
+     * @param string|null $number International Bank Account Number (IBAN)
      *
-     * @return void
+     * @return self
      */
-    public function setIban($number)
+    public function setIban(?string $number)
     {
-        $this->iban = (string) $number;
+        $this->iban = $number;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait IbanTrait
      *
      * @see getDefaultIban()
      *
-     * @return string|null "iban" value or null if no "iban" value has been set
+     * @return string|null iban or null if no iban has been set
      */
-    public function getIban()
+    public function getIban() : ?string 
     {
-        if (!$this->hasIban() && $this->hasDefaultIban()) {
+        if ( ! $this->hasIban()) {
             $this->setIban($this->getDefaultIban());
         }
         return $this->iban;
     }
 
     /**
-     * Get a default "iban" value, if any is available
-     *
-     * @return string|null A default "iban" value or null if no default value is available
-     */
-    public function getDefaultIban()
-    {
-        return null;
-    }
-
-    /**
      * Check if "iban" has been set
      *
-     * @return bool True if "iban" value has been set, false if not
+     * @return bool True if "iban" has been set, false if not
      */
-    public function hasIban()
+    public function hasIban() : bool
     {
         return isset($this->iban);
     }
 
     /**
-     * Check if a default "iban" is available or not
+     * Get a default "iban" value, if any is available
      *
-     * @return bool True of a default "iban" value is available, false if not
+     * @return string|null Default "iban" value or null if no default value is available
      */
-    public function hasDefaultIban()
+    public function getDefaultIban() : ?string
     {
-        $default = $this->getDefaultIban();
-        return isset($default);
+        return null;
     }
 }

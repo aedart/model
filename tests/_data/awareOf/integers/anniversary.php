@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'int anniversary'   => [
             \Aedart\Model\Traits\Integers\AnniversaryTrait::class,
             \Aedart\Model\Contracts\Integers\AnniversaryAware::class,
-            $faker->unixTime,
-            $faker->unixTime,
+            $faker->randomNumber($faker->randomDigitNotNull),
+            $faker->randomNumber($faker->randomDigitNotNull),
         ]
     ];
 };

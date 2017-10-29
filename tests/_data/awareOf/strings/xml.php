@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string xml'   => [
             \Aedart\Model\Traits\Strings\XmlTrait::class,
             \Aedart\Model\Contracts\Strings\XmlAware::class,
-            '<' . $faker->word . ' />',
-            '<' . $faker->word . ' />',
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

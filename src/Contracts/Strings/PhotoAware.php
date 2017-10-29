@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Photo Aware</h1>
@@ -14,11 +16,11 @@ interface PhotoAware
     /**
      * Set photo
      *
-     * @param string $location Path, Uri or other type of location to a photo
+     * @param string|null $location Path, Uri or other type of location to a photo
      *
-     * @return void
+     * @return self
      */
-    public function setPhoto($location);
+    public function setPhoto(?string $location);
 
     /**
      * Get photo
@@ -29,28 +31,21 @@ interface PhotoAware
      *
      * @see getDefaultPhoto()
      *
-     * @return string|null "photo" value or null if no "photo" value has been set
+     * @return string|null photo or null if no photo has been set
      */
-    public function getPhoto();
-
-    /**
-     * Get a default "photo" value, if any is available
-     *
-     * @return string|null A default "photo" value or null if no default value is available
-     */
-    public function getDefaultPhoto();
+    public function getPhoto() : ?string ;
 
     /**
      * Check if "photo" has been set
      *
-     * @return bool True if "photo" value has been set, false if not
+     * @return bool True if "photo" has been set, false if not
      */
-    public function hasPhoto();
+    public function hasPhoto() : bool;
 
     /**
-     * Check if a default "photo" is available or not
+     * Get a default "photo" value, if any is available
      *
-     * @return bool True of a default "photo" value is available, false if not
+     * @return string|null Default "photo" value or null if no default value is available
      */
-    public function hasDefaultPhoto();
+    public function getDefaultPhoto() : ?string;
 }

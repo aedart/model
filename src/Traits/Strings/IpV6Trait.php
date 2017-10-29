@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Ip V6 Trait</h1>
@@ -20,13 +23,15 @@ trait IpV6Trait
     /**
      * Set ip v6
      *
-     * @param string $address IPv6 address
+     * @param string|null $address IPv6 address
      *
-     * @return void
+     * @return self
      */
-    public function setIpV6($address)
+    public function setIpV6(?string $address)
     {
-        $this->ipV6 = (string) $address;
+        $this->ipV6 = $address;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait IpV6Trait
      *
      * @see getDefaultIpV6()
      *
-     * @return string|null "ip v6" value or null if no "ip v6" value has been set
+     * @return string|null ip v6 or null if no ip v6 has been set
      */
-    public function getIpV6()
+    public function getIpV6() : ?string 
     {
-        if (!$this->hasIpV6() && $this->hasDefaultIpV6()) {
+        if ( ! $this->hasIpV6()) {
             $this->setIpV6($this->getDefaultIpV6());
         }
         return $this->ipV6;
     }
 
     /**
-     * Get a default "ip v6" value, if any is available
-     *
-     * @return string|null A default "ip v6" value or null if no default value is available
-     */
-    public function getDefaultIpV6()
-    {
-        return null;
-    }
-
-    /**
      * Check if "ip v6" has been set
      *
-     * @return bool True if "ip v6" value has been set, false if not
+     * @return bool True if "ip v6" has been set, false if not
      */
-    public function hasIpV6()
+    public function hasIpV6() : bool
     {
         return isset($this->ipV6);
     }
 
     /**
-     * Check if a default "ip v6" is available or not
+     * Get a default "ip v6" value, if any is available
      *
-     * @return bool True of a default "ip v6" value is available, false if not
+     * @return string|null Default "ip v6" value or null if no default value is available
      */
-    public function hasDefaultIpV6()
+    public function getDefaultIpV6() : ?string
     {
-        $default = $this->getDefaultIpV6();
-        return isset($default);
+        return null;
     }
 }

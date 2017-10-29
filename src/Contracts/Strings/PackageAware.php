@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Package Aware</h1>
@@ -14,11 +16,11 @@ interface PackageAware
     /**
      * Set package
      *
-     * @param string $name Name of a package
+     * @param string|null $name Name of package. Can evt. contain path to package as well
      *
-     * @return void
+     * @return self
      */
-    public function setPackage($name);
+    public function setPackage(?string $name);
 
     /**
      * Get package
@@ -29,28 +31,21 @@ interface PackageAware
      *
      * @see getDefaultPackage()
      *
-     * @return string|null "package" value or null if no "package" value has been set
+     * @return string|null package or null if no package has been set
      */
-    public function getPackage();
-
-    /**
-     * Get a default "package" value, if any is available
-     *
-     * @return string|null A default "package" value or null if no default value is available
-     */
-    public function getDefaultPackage();
+    public function getPackage() : ?string ;
 
     /**
      * Check if "package" has been set
      *
-     * @return bool True if "package" value has been set, false if not
+     * @return bool True if "package" has been set, false if not
      */
-    public function hasPackage();
+    public function hasPackage() : bool;
 
     /**
-     * Check if a default "package" is available or not
+     * Get a default "package" value, if any is available
      *
-     * @return bool True of a default "package" value is available, false if not
+     * @return string|null Default "package" value or null if no default value is available
      */
-    public function hasDefaultPackage();
+    public function getDefaultPackage() : ?string;
 }

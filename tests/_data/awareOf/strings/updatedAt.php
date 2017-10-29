@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string updatedAt'   => [
             \Aedart\Model\Traits\Strings\UpdatedAtTrait::class,
             \Aedart\Model\Contracts\Strings\UpdatedAtAware::class,
-            $faker->date(),
-            $faker->date(),
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

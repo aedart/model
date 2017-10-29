@@ -1,81 +1,75 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
- * <h1>Nickname Trait</h1>
+ * <h1>Nick Name Trait</h1>
  *
- * @see \Aedart\Model\Contracts\Strings\NicknameAware
+ * @see \Aedart\Model\Contracts\Strings\NickNameAware
  *
  * @author Alin Eugen Deac <aedart@gmail.com>
  * @package Aedart\Model\Traits\Strings
  */
-trait NicknameTrait
+trait NickNameTrait
 {
     /**
      * Nickname of someone or something
      *
      * @var string|null
      */
-    protected $nickname = null;
+    protected $nickName = null;
 
     /**
-     * Set nickname
+     * Set nick name
      *
-     * @param string $name Nickname of someone or something
+     * @param string|null $name Nickname of someone or something
      *
-     * @return void
+     * @return self
      */
-    public function setNickname($name)
+    public function setNickName(?string $name)
     {
-        $this->nickname = (string) $name;
+        $this->nickName = $name;
+
+        return $this;
     }
 
     /**
-     * Get nickname
+     * Get nick name
      *
-     * If no "nickname" value has been set, this method will
-     * set and return a default "nickname" value,
+     * If no "nick name" value has been set, this method will
+     * set and return a default "nick name" value,
      * if any such value is available
      *
-     * @see getDefaultNickname()
+     * @see getDefaultNickName()
      *
-     * @return string|null "nickname" value or null if no "nickname" value has been set
+     * @return string|null nick name or null if no nick name has been set
      */
-    public function getNickname()
+    public function getNickName() : ?string 
     {
-        if (!$this->hasNickname() && $this->hasDefaultNickname()) {
-            $this->setNickname($this->getDefaultNickname());
+        if ( ! $this->hasNickName()) {
+            $this->setNickName($this->getDefaultNickName());
         }
-        return $this->nickname;
+        return $this->nickName;
     }
 
     /**
-     * Get a default "nickname" value, if any is available
+     * Check if "nick name" has been set
      *
-     * @return string|null A default "nickname" value or null if no default value is available
+     * @return bool True if "nick name" has been set, false if not
      */
-    public function getDefaultNickname()
+    public function hasNickName() : bool
+    {
+        return isset($this->nickName);
+    }
+
+    /**
+     * Get a default "nick name" value, if any is available
+     *
+     * @return string|null Default "nick name" value or null if no default value is available
+     */
+    public function getDefaultNickName() : ?string
     {
         return null;
-    }
-
-    /**
-     * Check if "nickname" has been set
-     *
-     * @return bool True if "nickname" value has been set, false if not
-     */
-    public function hasNickname()
-    {
-        return isset($this->nickname);
-    }
-
-    /**
-     * Check if a default "nickname" is available or not
-     *
-     * @return bool True of a default "nickname" value is available, false if not
-     */
-    public function hasDefaultNickname()
-    {
-        $default = $this->getDefaultNickname();
-        return isset($default);
     }
 }

@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Deceased At Aware</h1>
@@ -14,11 +16,11 @@ interface DeceasedAtAware
     /**
      * Set deceased at
      *
-     * @param string $date Date of when a person, animal of something has died
+     * @param string|null $date Date of when person, animal of something has died
      *
-     * @return void
+     * @return self
      */
-    public function setDeceasedAt($date);
+    public function setDeceasedAt(?string $date);
 
     /**
      * Get deceased at
@@ -29,28 +31,21 @@ interface DeceasedAtAware
      *
      * @see getDefaultDeceasedAt()
      *
-     * @return string|null "deceased at" value or null if no "deceased at" value has been set
+     * @return string|null deceased at or null if no deceased at has been set
      */
-    public function getDeceasedAt();
-
-    /**
-     * Get a default "deceased at" value, if any is available
-     *
-     * @return string|null A default "deceased at" value or null if no default value is available
-     */
-    public function getDefaultDeceasedAt();
+    public function getDeceasedAt() : ?string ;
 
     /**
      * Check if "deceased at" has been set
      *
-     * @return bool True if "deceased at" value has been set, false if not
+     * @return bool True if "deceased at" has been set, false if not
      */
-    public function hasDeceasedAt();
+    public function hasDeceasedAt() : bool;
 
     /**
-     * Check if a default "deceased at" is available or not
+     * Get a default "deceased at" value, if any is available
      *
-     * @return bool True of a default "deceased at" value is available, false if not
+     * @return string|null Default "deceased at" value or null if no default value is available
      */
-    public function hasDefaultDeceasedAt();
+    public function getDefaultDeceasedAt() : ?string;
 }

@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Integers;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Integers;
 
 /**
  * <h1>Width Trait</h1>
@@ -20,13 +23,15 @@ trait WidthTrait
     /**
      * Set width
      *
-     * @param int $amount Width of something
+     * @param int|null $amount Width of something
      *
-     * @return void
+     * @return self
      */
-    public function setWidth($amount)
+    public function setWidth(?int $amount)
     {
-        $this->width = (int) $amount;
+        $this->width = $amount;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait WidthTrait
      *
      * @see getDefaultWidth()
      *
-     * @return int|null "width" value or null if no "width" value has been set
+     * @return int|null width or null if no width has been set
      */
-    public function getWidth()
+    public function getWidth() : ?int 
     {
-        if (!$this->hasWidth() && $this->hasDefaultWidth()) {
+        if ( ! $this->hasWidth()) {
             $this->setWidth($this->getDefaultWidth());
         }
         return $this->width;
     }
 
     /**
-     * Get a default "width" value, if any is available
-     *
-     * @return int|null A default "width" value or null if no default value is available
-     */
-    public function getDefaultWidth()
-    {
-        return null;
-    }
-
-    /**
      * Check if "width" has been set
      *
-     * @return bool True if "width" value has been set, false if not
+     * @return bool True if "width" has been set, false if not
      */
-    public function hasWidth()
+    public function hasWidth() : bool
     {
         return isset($this->width);
     }
 
     /**
-     * Check if a default "width" is available or not
+     * Get a default "width" value, if any is available
      *
-     * @return bool True of a default "width" value is available, false if not
+     * @return int|null Default "width" value or null if no default value is available
      */
-    public function hasDefaultWidth()
+    public function getDefaultWidth() : ?int
     {
-        $default = $this->getDefaultWidth();
-        return isset($default);
+        return null;
     }
 }

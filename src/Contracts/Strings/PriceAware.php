@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Price Aware</h1>
@@ -14,11 +16,11 @@ interface PriceAware
     /**
      * Set price
      *
-     * @param string $price Formatted price
+     * @param string|null $amount Numeric price
      *
-     * @return void
+     * @return self
      */
-    public function setPrice($price);
+    public function setPrice(?string $amount);
 
     /**
      * Get price
@@ -29,28 +31,21 @@ interface PriceAware
      *
      * @see getDefaultPrice()
      *
-     * @return string|null "price" value or null if no "price" value has been set
+     * @return string|null price or null if no price has been set
      */
-    public function getPrice();
-
-    /**
-     * Get a default "price" value, if any is available
-     *
-     * @return string|null A default "price" value or null if no default value is available
-     */
-    public function getDefaultPrice();
+    public function getPrice() : ?string ;
 
     /**
      * Check if "price" has been set
      *
-     * @return bool True if "price" value has been set, false if not
+     * @return bool True if "price" has been set, false if not
      */
-    public function hasPrice();
+    public function hasPrice() : bool;
 
     /**
-     * Check if a default "price" is available or not
+     * Get a default "price" value, if any is available
      *
-     * @return bool True of a default "price" value is available, false if not
+     * @return string|null Default "price" value or null if no default value is available
      */
-    public function hasDefaultPrice();
+    public function getDefaultPrice() : ?string;
 }

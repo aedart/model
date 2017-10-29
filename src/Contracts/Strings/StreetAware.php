@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Street Aware</h1>
@@ -14,11 +16,11 @@ interface StreetAware
     /**
      * Set street
      *
-     * @param string $address Full street address, which might include building or appartment number(s)
+     * @param string|null $address Full street address, which might include building or apartment number(s)
      *
-     * @return void
+     * @return self
      */
-    public function setStreet($address);
+    public function setStreet(?string $address);
 
     /**
      * Get street
@@ -29,28 +31,21 @@ interface StreetAware
      *
      * @see getDefaultStreet()
      *
-     * @return string|null "street" value or null if no "street" value has been set
+     * @return string|null street or null if no street has been set
      */
-    public function getStreet();
-
-    /**
-     * Get a default "street" value, if any is available
-     *
-     * @return string|null A default "street" value or null if no default value is available
-     */
-    public function getDefaultStreet();
+    public function getStreet() : ?string ;
 
     /**
      * Check if "street" has been set
      *
-     * @return bool True if "street" value has been set, false if not
+     * @return bool True if "street" has been set, false if not
      */
-    public function hasStreet();
+    public function hasStreet() : bool;
 
     /**
-     * Check if a default "street" is available or not
+     * Get a default "street" value, if any is available
      *
-     * @return bool True of a default "street" value is available, false if not
+     * @return string|null Default "street" value or null if no default value is available
      */
-    public function hasDefaultStreet();
+    public function getDefaultStreet() : ?string;
 }

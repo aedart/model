@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Language Aware</h1>
@@ -14,11 +16,11 @@ interface LanguageAware
     /**
      * Set language
      *
-     * @param string $language Name or identifier of a language
+     * @param string|null $identifier Name or identifier of a language
      *
-     * @return void
+     * @return self
      */
-    public function setLanguage($language);
+    public function setLanguage(?string $identifier);
 
     /**
      * Get language
@@ -29,28 +31,21 @@ interface LanguageAware
      *
      * @see getDefaultLanguage()
      *
-     * @return string|null "language" value or null if no "language" value has been set
+     * @return string|null language or null if no language has been set
      */
-    public function getLanguage();
-
-    /**
-     * Get a default "language" value, if any is available
-     *
-     * @return string|null A default "language" value or null if no default value is available
-     */
-    public function getDefaultLanguage();
+    public function getLanguage() : ?string ;
 
     /**
      * Check if "language" has been set
      *
-     * @return bool True if "language" value has been set, false if not
+     * @return bool True if "language" has been set, false if not
      */
-    public function hasLanguage();
+    public function hasLanguage() : bool;
 
     /**
-     * Check if a default "language" is available or not
+     * Get a default "language" value, if any is available
      *
-     * @return bool True of a default "language" value is available, false if not
+     * @return string|null Default "language" value or null if no default value is available
      */
-    public function hasDefaultLanguage();
+    public function getDefaultLanguage() : ?string;
 }

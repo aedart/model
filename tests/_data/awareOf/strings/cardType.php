@@ -8,7 +8,7 @@ return function(\Faker\Generator $faker){
         'string cardType'   => [
             \Aedart\Model\Traits\Strings\CardTypeTrait::class,
             \Aedart\Model\Contracts\Strings\CardTypeAware::class,
-            $faker->creditCardType,
+            $faker->word,
             $faker->word,
         ]
     ];

@@ -9,7 +9,7 @@ return function(\Faker\Generator $faker){
             \Aedart\Model\Traits\Strings\KeyTrait::class,
             \Aedart\Model\Contracts\Strings\KeyAware::class,
             $faker->word,
-            $faker->sha1,
+            $faker->word,
         ]
     ];
 };

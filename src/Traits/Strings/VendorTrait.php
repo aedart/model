@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Vendor Trait</h1>
@@ -11,7 +14,7 @@
 trait VendorTrait
 {
     /**
-     * Name of a vendor
+     * Name or path of a vendor
      *
      * @var string|null
      */
@@ -20,13 +23,15 @@ trait VendorTrait
     /**
      * Set vendor
      *
-     * @param string $name Name of a vendor
+     * @param string|null $vendor Name or path of a vendor
      *
-     * @return void
+     * @return self
      */
-    public function setVendor($name)
+    public function setVendor(?string $vendor)
     {
-        $this->vendor = (string) $name;
+        $this->vendor = $vendor;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait VendorTrait
      *
      * @see getDefaultVendor()
      *
-     * @return string|null "vendor" value or null if no "vendor" value has been set
+     * @return string|null vendor or null if no vendor has been set
      */
-    public function getVendor()
+    public function getVendor() : ?string 
     {
-        if (!$this->hasVendor() && $this->hasDefaultVendor()) {
+        if ( ! $this->hasVendor()) {
             $this->setVendor($this->getDefaultVendor());
         }
         return $this->vendor;
     }
 
     /**
-     * Get a default "vendor" value, if any is available
-     *
-     * @return string|null A default "vendor" value or null if no default value is available
-     */
-    public function getDefaultVendor()
-    {
-        return null;
-    }
-
-    /**
      * Check if "vendor" has been set
      *
-     * @return bool True if "vendor" value has been set, false if not
+     * @return bool True if "vendor" has been set, false if not
      */
-    public function hasVendor()
+    public function hasVendor() : bool
     {
         return isset($this->vendor);
     }
 
     /**
-     * Check if a default "vendor" is available or not
+     * Get a default "vendor" value, if any is available
      *
-     * @return bool True of a default "vendor" value is available, false if not
+     * @return string|null Default "vendor" value or null if no default value is available
      */
-    public function hasDefaultVendor()
+    public function getDefaultVendor() : ?string
     {
-        $default = $this->getDefaultVendor();
-        return isset($default);
+        return null;
     }
 }

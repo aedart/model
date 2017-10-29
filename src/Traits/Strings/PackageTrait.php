@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Package Trait</h1>
@@ -11,7 +14,7 @@
 trait PackageTrait
 {
     /**
-     * Name of a package
+     * Name of package. Can evt. contain path to package as well
      *
      * @var string|null
      */
@@ -20,13 +23,15 @@ trait PackageTrait
     /**
      * Set package
      *
-     * @param string $name Name of a package
+     * @param string|null $name Name of package. Can evt. contain path to package as well
      *
-     * @return void
+     * @return self
      */
-    public function setPackage($name)
+    public function setPackage(?string $name)
     {
-        $this->package = (string) $name;
+        $this->package = $name;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait PackageTrait
      *
      * @see getDefaultPackage()
      *
-     * @return string|null "package" value or null if no "package" value has been set
+     * @return string|null package or null if no package has been set
      */
-    public function getPackage()
+    public function getPackage() : ?string 
     {
-        if (!$this->hasPackage() && $this->hasDefaultPackage()) {
+        if ( ! $this->hasPackage()) {
             $this->setPackage($this->getDefaultPackage());
         }
         return $this->package;
     }
 
     /**
-     * Get a default "package" value, if any is available
-     *
-     * @return string|null A default "package" value or null if no default value is available
-     */
-    public function getDefaultPackage()
-    {
-        return null;
-    }
-
-    /**
      * Check if "package" has been set
      *
-     * @return bool True if "package" value has been set, false if not
+     * @return bool True if "package" has been set, false if not
      */
-    public function hasPackage()
+    public function hasPackage() : bool
     {
         return isset($this->package);
     }
 
     /**
-     * Check if a default "package" is available or not
+     * Get a default "package" value, if any is available
      *
-     * @return bool True of a default "package" value is available, false if not
+     * @return string|null Default "package" value or null if no default value is available
      */
-    public function hasDefaultPackage()
+    public function getDefaultPackage() : ?string
     {
-        $default = $this->getDefaultPackage();
-        return isset($default);
+        return null;
     }
 }

@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string vat'   => [
             \Aedart\Model\Traits\Strings\VatTrait::class,
             \Aedart\Model\Contracts\Strings\VatAware::class,
-            (string) $faker->randomFloat() . ' ' . $faker->currencyCode,
-            (string) $faker->randomFloat() . ' ' . $faker->currencyCode,
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

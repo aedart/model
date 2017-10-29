@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Topic Trait</h1>
@@ -11,7 +14,7 @@
 trait TopicTrait
 {
     /**
-     * Topic
+     * Name of topic
      *
      * @var string|null
      */
@@ -20,13 +23,15 @@ trait TopicTrait
     /**
      * Set topic
      *
-     * @param string $topic Topic
+     * @param string|null $name Name of topic
      *
-     * @return void
+     * @return self
      */
-    public function setTopic($topic)
+    public function setTopic(?string $name)
     {
-        $this->topic = (string) $topic;
+        $this->topic = $name;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait TopicTrait
      *
      * @see getDefaultTopic()
      *
-     * @return string|null "topic" value or null if no "topic" value has been set
+     * @return string|null topic or null if no topic has been set
      */
-    public function getTopic()
+    public function getTopic() : ?string 
     {
-        if (!$this->hasTopic() && $this->hasDefaultTopic()) {
+        if ( ! $this->hasTopic()) {
             $this->setTopic($this->getDefaultTopic());
         }
         return $this->topic;
     }
 
     /**
-     * Get a default "topic" value, if any is available
-     *
-     * @return string|null A default "topic" value or null if no default value is available
-     */
-    public function getDefaultTopic()
-    {
-        return null;
-    }
-
-    /**
      * Check if "topic" has been set
      *
-     * @return bool True if "topic" value has been set, false if not
+     * @return bool True if "topic" has been set, false if not
      */
-    public function hasTopic()
+    public function hasTopic() : bool
     {
         return isset($this->topic);
     }
 
     /**
-     * Check if a default "topic" is available or not
+     * Get a default "topic" value, if any is available
      *
-     * @return bool True of a default "topic" value is available, false if not
+     * @return string|null Default "topic" value or null if no default value is available
      */
-    public function hasDefaultTopic()
+    public function getDefaultTopic() : ?string
     {
-        $default = $this->getDefaultTopic();
-        return isset($default);
+        return null;
     }
 }

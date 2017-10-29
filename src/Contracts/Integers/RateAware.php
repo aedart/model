@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Integers;
+<?php
+
+namespace Aedart\Model\Contracts\Integers;
 
 /**
  * <h1>Rate Aware</h1>
@@ -14,11 +16,11 @@ interface RateAware
     /**
      * Set rate
      *
-     * @param int $rate The rate of something, e.g. growth rate, tax rate
+     * @param int|null $rate The rate of something, e.g. growth rate, tax rate
      *
-     * @return void
+     * @return self
      */
-    public function setRate($rate);
+    public function setRate(?int $rate);
 
     /**
      * Get rate
@@ -29,28 +31,21 @@ interface RateAware
      *
      * @see getDefaultRate()
      *
-     * @return int|null "rate" value or null if no "rate" value has been set
+     * @return int|null rate or null if no rate has been set
      */
-    public function getRate();
-
-    /**
-     * Get a default "rate" value, if any is available
-     *
-     * @return int|null A default "rate" value or null if no default value is available
-     */
-    public function getDefaultRate();
+    public function getRate() : ?int ;
 
     /**
      * Check if "rate" has been set
      *
-     * @return bool True if "rate" value has been set, false if not
+     * @return bool True if "rate" has been set, false if not
      */
-    public function hasRate();
+    public function hasRate() : bool;
 
     /**
-     * Check if a default "rate" is available or not
+     * Get a default "rate" value, if any is available
      *
-     * @return bool True of a default "rate" value is available, false if not
+     * @return int|null Default "rate" value or null if no default value is available
      */
-    public function hasDefaultRate();
+    public function getDefaultRate() : ?int;
 }

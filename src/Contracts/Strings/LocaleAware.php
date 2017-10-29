@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Locale Aware</h1>
@@ -14,11 +16,11 @@ interface LocaleAware
     /**
      * Set locale
      *
-     * @param string $code Locale language code, e.g. en_us or other format
+     * @param string|null $code Locale language code, e.g. en_us or other format
      *
-     * @return void
+     * @return self
      */
-    public function setLocale($code);
+    public function setLocale(?string $code);
 
     /**
      * Get locale
@@ -29,28 +31,21 @@ interface LocaleAware
      *
      * @see getDefaultLocale()
      *
-     * @return string|null "locale" value or null if no "locale" value has been set
+     * @return string|null locale or null if no locale has been set
      */
-    public function getLocale();
-
-    /**
-     * Get a default "locale" value, if any is available
-     *
-     * @return string|null A default "locale" value or null if no default value is available
-     */
-    public function getDefaultLocale();
+    public function getLocale() : ?string ;
 
     /**
      * Check if "locale" has been set
      *
-     * @return bool True if "locale" value has been set, false if not
+     * @return bool True if "locale" has been set, false if not
      */
-    public function hasLocale();
+    public function hasLocale() : bool;
 
     /**
-     * Check if a default "locale" is available or not
+     * Get a default "locale" value, if any is available
      *
-     * @return bool True of a default "locale" value is available, false if not
+     * @return string|null Default "locale" value or null if no default value is available
      */
-    public function hasDefaultLocale();
+    public function getDefaultLocale() : ?string;
 }

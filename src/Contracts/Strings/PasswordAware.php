@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Password Aware</h1>
@@ -14,11 +16,11 @@ interface PasswordAware
     /**
      * Set password
      *
-     * @param string $password Password
+     * @param string|null $password Password
      *
-     * @return void
+     * @return self
      */
-    public function setPassword($password);
+    public function setPassword(?string $password);
 
     /**
      * Get password
@@ -29,28 +31,21 @@ interface PasswordAware
      *
      * @see getDefaultPassword()
      *
-     * @return string|null "password" value or null if no "password" value has been set
+     * @return string|null password or null if no password has been set
      */
-    public function getPassword();
-
-    /**
-     * Get a default "password" value, if any is available
-     *
-     * @return string|null A default "password" value or null if no default value is available
-     */
-    public function getDefaultPassword();
+    public function getPassword() : ?string ;
 
     /**
      * Check if "password" has been set
      *
-     * @return bool True if "password" value has been set, false if not
+     * @return bool True if "password" has been set, false if not
      */
-    public function hasPassword();
+    public function hasPassword() : bool;
 
     /**
-     * Check if a default "password" is available or not
+     * Get a default "password" value, if any is available
      *
-     * @return bool True of a default "password" value is available, false if not
+     * @return string|null Default "password" value or null if no default value is available
      */
-    public function hasDefaultPassword();
+    public function getDefaultPassword() : ?string;
 }

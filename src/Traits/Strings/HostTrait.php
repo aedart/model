@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Host Trait</h1>
@@ -20,13 +23,15 @@ trait HostTrait
     /**
      * Set host
      *
-     * @param string $identifier Identifier of a host
+     * @param string|null $identifier Identifier of a host
      *
-     * @return void
+     * @return self
      */
-    public function setHost($identifier)
+    public function setHost(?string $identifier)
     {
-        $this->host = (string) $identifier;
+        $this->host = $identifier;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait HostTrait
      *
      * @see getDefaultHost()
      *
-     * @return string|null "host" value or null if no "host" value has been set
+     * @return string|null host or null if no host has been set
      */
-    public function getHost()
+    public function getHost() : ?string 
     {
-        if (!$this->hasHost() && $this->hasDefaultHost()) {
+        if ( ! $this->hasHost()) {
             $this->setHost($this->getDefaultHost());
         }
         return $this->host;
     }
 
     /**
-     * Get a default "host" value, if any is available
-     *
-     * @return string|null A default "host" value or null if no default value is available
-     */
-    public function getDefaultHost()
-    {
-        return null;
-    }
-
-    /**
      * Check if "host" has been set
      *
-     * @return bool True if "host" value has been set, false if not
+     * @return bool True if "host" has been set, false if not
      */
-    public function hasHost()
+    public function hasHost() : bool
     {
         return isset($this->host);
     }
 
     /**
-     * Check if a default "host" is available or not
+     * Get a default "host" value, if any is available
      *
-     * @return bool True of a default "host" value is available, false if not
+     * @return string|null Default "host" value or null if no default value is available
      */
-    public function hasDefaultHost()
+    public function getDefaultHost() : ?string
     {
-        $default = $this->getDefaultHost();
-        return isset($default);
+        return null;
     }
 }

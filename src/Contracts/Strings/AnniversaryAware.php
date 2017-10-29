@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Anniversary Aware</h1>
@@ -14,11 +16,11 @@ interface AnniversaryAware
     /**
      * Set anniversary
      *
-     * @param string $date Date of an anniversary
+     * @param string|null $anniversary Date of anniversary
      *
-     * @return void
+     * @return self
      */
-    public function setAnniversary($date);
+    public function setAnniversary(?string $anniversary);
 
     /**
      * Get anniversary
@@ -29,28 +31,21 @@ interface AnniversaryAware
      *
      * @see getDefaultAnniversary()
      *
-     * @return string|null "anniversary" value or null if no "anniversary" value has been set
+     * @return string|null anniversary or null if no anniversary has been set
      */
-    public function getAnniversary();
-
-    /**
-     * Get a default "anniversary" value, if any is available
-     *
-     * @return string|null A default "anniversary" value or null if no default value is available
-     */
-    public function getDefaultAnniversary();
+    public function getAnniversary() : ?string ;
 
     /**
      * Check if "anniversary" has been set
      *
-     * @return bool True if "anniversary" value has been set, false if not
+     * @return bool True if "anniversary" has been set, false if not
      */
-    public function hasAnniversary();
+    public function hasAnniversary() : bool;
 
     /**
-     * Check if a default "anniversary" is available or not
+     * Get a default "anniversary" value, if any is available
      *
-     * @return bool True of a default "anniversary" value is available, false if not
+     * @return string|null Default "anniversary" value or null if no default value is available
      */
-    public function hasDefaultAnniversary();
+    public function getDefaultAnniversary() : ?string;
 }

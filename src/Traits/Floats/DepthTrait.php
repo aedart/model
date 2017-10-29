@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Floats;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Floats;
 
 /**
  * <h1>Depth Trait</h1>
@@ -20,13 +23,15 @@ trait DepthTrait
     /**
      * Set depth
      *
-     * @param float $amount Depth of something
+     * @param float|null $amount Depth of something
      *
-     * @return void
+     * @return self
      */
-    public function setDepth($amount)
+    public function setDepth(?float $amount)
     {
-        $this->depth = (float) $amount;
+        $this->depth = $amount;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait DepthTrait
      *
      * @see getDefaultDepth()
      *
-     * @return float|null "depth" value or null if no "depth" value has been set
+     * @return float|null depth or null if no depth has been set
      */
-    public function getDepth()
+    public function getDepth() : ?float 
     {
-        if (!$this->hasDepth() && $this->hasDefaultDepth()) {
+        if ( ! $this->hasDepth()) {
             $this->setDepth($this->getDefaultDepth());
         }
         return $this->depth;
     }
 
     /**
-     * Get a default "depth" value, if any is available
-     *
-     * @return float|null A default "depth" value or null if no default value is available
-     */
-    public function getDefaultDepth()
-    {
-        return null;
-    }
-
-    /**
      * Check if "depth" has been set
      *
-     * @return bool True if "depth" value has been set, false if not
+     * @return bool True if "depth" has been set, false if not
      */
-    public function hasDepth()
+    public function hasDepth() : bool
     {
         return isset($this->depth);
     }
 
     /**
-     * Check if a default "depth" is available or not
+     * Get a default "depth" value, if any is available
      *
-     * @return bool True of a default "depth" value is available, false if not
+     * @return float|null Default "depth" value or null if no default value is available
      */
-    public function hasDefaultDepth()
+    public function getDefaultDepth() : ?float
     {
-        $default = $this->getDefaultDepth();
-        return isset($default);
+        return null;
     }
 }

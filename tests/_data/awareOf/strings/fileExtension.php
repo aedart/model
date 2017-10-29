@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string fileExtension'   => [
             \Aedart\Model\Traits\Strings\FileExtensionTrait::class,
             \Aedart\Model\Contracts\Strings\FileExtensionAware::class,
-            $faker->fileExtension,
-            $faker->fileExtension,
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

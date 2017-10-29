@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string sql'   => [
             \Aedart\Model\Traits\Strings\SqlTrait::class,
             \Aedart\Model\Contracts\Strings\SqlAware::class,
-            'SELECT * FROM ' . $faker->word,
-            'SELECT * FROM ' . $faker->word,
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

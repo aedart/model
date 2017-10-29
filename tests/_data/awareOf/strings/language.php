@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string language'   => [
             \Aedart\Model\Traits\Strings\LanguageTrait::class,
             \Aedart\Model\Contracts\Strings\LanguageAware::class,
-            $faker->languageCode,
-            $faker->languageCode,
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

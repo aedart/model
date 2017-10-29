@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Image Trait</h1>
@@ -20,13 +23,15 @@ trait ImageTrait
     /**
      * Set image
      *
-     * @param string $location Path, Uri or other type of location to an image
+     * @param string|null $location Path, Uri or other type of location to an image
      *
-     * @return void
+     * @return self
      */
-    public function setImage($location)
+    public function setImage(?string $location)
     {
-        $this->image = (string) $location;
+        $this->image = $location;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait ImageTrait
      *
      * @see getDefaultImage()
      *
-     * @return string|null "image" value or null if no "image" value has been set
+     * @return string|null image or null if no image has been set
      */
-    public function getImage()
+    public function getImage() : ?string 
     {
-        if (!$this->hasImage() && $this->hasDefaultImage()) {
+        if ( ! $this->hasImage()) {
             $this->setImage($this->getDefaultImage());
         }
         return $this->image;
     }
 
     /**
-     * Get a default "image" value, if any is available
-     *
-     * @return string|null A default "image" value or null if no default value is available
-     */
-    public function getDefaultImage()
-    {
-        return null;
-    }
-
-    /**
      * Check if "image" has been set
      *
-     * @return bool True if "image" value has been set, false if not
+     * @return bool True if "image" has been set, false if not
      */
-    public function hasImage()
+    public function hasImage() : bool
     {
         return isset($this->image);
     }
 
     /**
-     * Check if a default "image" is available or not
+     * Get a default "image" value, if any is available
      *
-     * @return bool True of a default "image" value is available, false if not
+     * @return string|null Default "image" value or null if no default value is available
      */
-    public function hasDefaultImage()
+    public function getDefaultImage() : ?string
     {
-        $default = $this->getDefaultImage();
-        return isset($default);
+        return null;
     }
 }

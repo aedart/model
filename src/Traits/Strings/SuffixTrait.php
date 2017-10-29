@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Suffix Trait</h1>
@@ -11,7 +14,7 @@
 trait SuffixTrait
 {
     /**
-     * Affix that is placed after something
+     * Suffix
      *
      * @var string|null
      */
@@ -20,13 +23,15 @@ trait SuffixTrait
     /**
      * Set suffix
      *
-     * @param string $affix Affix that is placed after something
+     * @param string|null $suffix Suffix
      *
-     * @return void
+     * @return self
      */
-    public function setSuffix($affix)
+    public function setSuffix(?string $suffix)
     {
-        $this->suffix = (string) $affix;
+        $this->suffix = $suffix;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait SuffixTrait
      *
      * @see getDefaultSuffix()
      *
-     * @return string|null "suffix" value or null if no "suffix" value has been set
+     * @return string|null suffix or null if no suffix has been set
      */
-    public function getSuffix()
+    public function getSuffix() : ?string 
     {
-        if (!$this->hasSuffix() && $this->hasDefaultSuffix()) {
+        if ( ! $this->hasSuffix()) {
             $this->setSuffix($this->getDefaultSuffix());
         }
         return $this->suffix;
     }
 
     /**
-     * Get a default "suffix" value, if any is available
-     *
-     * @return string|null A default "suffix" value or null if no default value is available
-     */
-    public function getDefaultSuffix()
-    {
-        return null;
-    }
-
-    /**
      * Check if "suffix" has been set
      *
-     * @return bool True if "suffix" value has been set, false if not
+     * @return bool True if "suffix" has been set, false if not
      */
-    public function hasSuffix()
+    public function hasSuffix() : bool
     {
         return isset($this->suffix);
     }
 
     /**
-     * Check if a default "suffix" is available or not
+     * Get a default "suffix" value, if any is available
      *
-     * @return bool True of a default "suffix" value is available, false if not
+     * @return string|null Default "suffix" value or null if no default value is available
      */
-    public function hasDefaultSuffix()
+    public function getDefaultSuffix() : ?string
     {
-        $default = $this->getDefaultSuffix();
-        return isset($default);
+        return null;
     }
 }

@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Revision Aware</h1>
@@ -14,11 +16,11 @@ interface RevisionAware
     /**
      * Set revision
      *
-     * @param string $revision A revision, path number or other identifier
+     * @param string|null $revision A revision, batch number or other identifier
      *
-     * @return void
+     * @return self
      */
-    public function setRevision($revision);
+    public function setRevision(?string $revision);
 
     /**
      * Get revision
@@ -29,28 +31,21 @@ interface RevisionAware
      *
      * @see getDefaultRevision()
      *
-     * @return string|null "revision" value or null if no "revision" value has been set
+     * @return string|null revision or null if no revision has been set
      */
-    public function getRevision();
-
-    /**
-     * Get a default "revision" value, if any is available
-     *
-     * @return string|null A default "revision" value or null if no default value is available
-     */
-    public function getDefaultRevision();
+    public function getRevision() : ?string ;
 
     /**
      * Check if "revision" has been set
      *
-     * @return bool True if "revision" value has been set, false if not
+     * @return bool True if "revision" has been set, false if not
      */
-    public function hasRevision();
+    public function hasRevision() : bool;
 
     /**
-     * Check if a default "revision" is available or not
+     * Get a default "revision" value, if any is available
      *
-     * @return bool True of a default "revision" value is available, false if not
+     * @return string|null Default "revision" value or null if no default value is available
      */
-    public function hasDefaultRevision();
+    public function getDefaultRevision() : ?string;
 }

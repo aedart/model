@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Phone Aware</h1>
@@ -14,11 +16,11 @@ interface PhoneAware
     /**
      * Set phone
      *
-     * @param string $number Phone number
+     * @param string|null $number Phone number
      *
-     * @return void
+     * @return self
      */
-    public function setPhone($number);
+    public function setPhone(?string $number);
 
     /**
      * Get phone
@@ -29,28 +31,21 @@ interface PhoneAware
      *
      * @see getDefaultPhone()
      *
-     * @return string|null "phone" value or null if no "phone" value has been set
+     * @return string|null phone or null if no phone has been set
      */
-    public function getPhone();
-
-    /**
-     * Get a default "phone" value, if any is available
-     *
-     * @return string|null A default "phone" value or null if no default value is available
-     */
-    public function getDefaultPhone();
+    public function getPhone() : ?string ;
 
     /**
      * Check if "phone" has been set
      *
-     * @return bool True if "phone" value has been set, false if not
+     * @return bool True if "phone" has been set, false if not
      */
-    public function hasPhone();
+    public function hasPhone() : bool;
 
     /**
-     * Check if a default "phone" is available or not
+     * Get a default "phone" value, if any is available
      *
-     * @return bool True of a default "phone" value is available, false if not
+     * @return string|null Default "phone" value or null if no default value is available
      */
-    public function hasDefaultPhone();
+    public function getDefaultPhone() : ?string;
 }

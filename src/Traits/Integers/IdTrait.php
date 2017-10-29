@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Integers;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Integers;
 
 /**
  * <h1>Id Trait</h1>
@@ -20,13 +23,15 @@ trait IdTrait
     /**
      * Set id
      *
-     * @param int $identifier Unique identifier
+     * @param int|null $identifier Unique identifier
      *
-     * @return void
+     * @return self
      */
-    public function setId($identifier)
+    public function setId(?int $identifier)
     {
-        $this->id = (int) $identifier;
+        $this->id = $identifier;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait IdTrait
      *
      * @see getDefaultId()
      *
-     * @return int|null "id" value or null if no "id" value has been set
+     * @return int|null id or null if no id has been set
      */
-    public function getId()
+    public function getId() : ?int 
     {
-        if (!$this->hasId() && $this->hasDefaultId()) {
+        if ( ! $this->hasId()) {
             $this->setId($this->getDefaultId());
         }
         return $this->id;
     }
 
     /**
-     * Get a default "id" value, if any is available
-     *
-     * @return int|null A default "id" value or null if no default value is available
-     */
-    public function getDefaultId()
-    {
-        return null;
-    }
-
-    /**
      * Check if "id" has been set
      *
-     * @return bool True if "id" value has been set, false if not
+     * @return bool True if "id" has been set, false if not
      */
-    public function hasId()
+    public function hasId() : bool
     {
         return isset($this->id);
     }
 
     /**
-     * Check if a default "id" is available or not
+     * Get a default "id" value, if any is available
      *
-     * @return bool True of a default "id" value is available, false if not
+     * @return int|null Default "id" value or null if no default value is available
      */
-    public function hasDefaultId()
+    public function getDefaultId() : ?int
     {
-        $default = $this->getDefaultId();
-        return isset($default);
+        return null;
     }
 }

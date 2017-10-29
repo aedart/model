@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Tld Trait</h1>
@@ -20,13 +23,15 @@ trait TldTrait
     /**
      * Set tld
      *
-     * @param string $tld Top Level Domain (TLD)
+     * @param string|null $tld Top Level Domain (TLD)
      *
-     * @return void
+     * @return self
      */
-    public function setTld($tld)
+    public function setTld(?string $tld)
     {
-        $this->tld = (string) $tld;
+        $this->tld = $tld;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait TldTrait
      *
      * @see getDefaultTld()
      *
-     * @return string|null "tld" value or null if no "tld" value has been set
+     * @return string|null tld or null if no tld has been set
      */
-    public function getTld()
+    public function getTld() : ?string 
     {
-        if (!$this->hasTld() && $this->hasDefaultTld()) {
+        if ( ! $this->hasTld()) {
             $this->setTld($this->getDefaultTld());
         }
         return $this->tld;
     }
 
     /**
-     * Get a default "tld" value, if any is available
-     *
-     * @return string|null A default "tld" value or null if no default value is available
-     */
-    public function getDefaultTld()
-    {
-        return null;
-    }
-
-    /**
      * Check if "tld" has been set
      *
-     * @return bool True if "tld" value has been set, false if not
+     * @return bool True if "tld" has been set, false if not
      */
-    public function hasTld()
+    public function hasTld() : bool
     {
         return isset($this->tld);
     }
 
     /**
-     * Check if a default "tld" is available or not
+     * Get a default "tld" value, if any is available
      *
-     * @return bool True of a default "tld" value is available, false if not
+     * @return string|null Default "tld" value or null if no default value is available
      */
-    public function hasDefaultTld()
+    public function getDefaultTld() : ?string
     {
-        $default = $this->getDefaultTld();
-        return isset($default);
+        return null;
     }
 }

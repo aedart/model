@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Integers;
+<?php
+
+namespace Aedart\Model\Contracts\Integers;
 
 /**
  * <h1>Start Date Aware</h1>
@@ -14,11 +16,11 @@ interface StartDateAware
     /**
      * Set start date
      *
-     * @param int $date Start date (UNIX timestamp) of some kind of event
+     * @param int|null $date Start date of event
      *
-     * @return void
+     * @return self
      */
-    public function setStartDate($date);
+    public function setStartDate(?int $date);
 
     /**
      * Get start date
@@ -29,28 +31,21 @@ interface StartDateAware
      *
      * @see getDefaultStartDate()
      *
-     * @return int|null "start date" value or null if no "start date" value has been set
+     * @return int|null start date or null if no start date has been set
      */
-    public function getStartDate();
-
-    /**
-     * Get a default "start date" value, if any is available
-     *
-     * @return int|null A default "start date" value or null if no default value is available
-     */
-    public function getDefaultStartDate();
+    public function getStartDate() : ?int ;
 
     /**
      * Check if "start date" has been set
      *
-     * @return bool True if "start date" value has been set, false if not
+     * @return bool True if "start date" has been set, false if not
      */
-    public function hasStartDate();
+    public function hasStartDate() : bool;
 
     /**
-     * Check if a default "start date" is available or not
+     * Get a default "start date" value, if any is available
      *
-     * @return bool True of a default "start date" value is available, false if not
+     * @return int|null Default "start date" value or null if no default value is available
      */
-    public function hasDefaultStartDate();
+    public function getDefaultStartDate() : ?int;
 }

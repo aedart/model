@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Postal Code Trait</h1>
@@ -20,13 +23,15 @@ trait PostalCodeTrait
     /**
      * Set postal code
      *
-     * @param string $code Numeric or Alphanumeric postal code (zip code)
+     * @param string|null $code Numeric or Alphanumeric postal code (zip code)
      *
-     * @return void
+     * @return self
      */
-    public function setPostalCode($code)
+    public function setPostalCode(?string $code)
     {
-        $this->postalCode = (string) $code;
+        $this->postalCode = $code;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait PostalCodeTrait
      *
      * @see getDefaultPostalCode()
      *
-     * @return string|null "postal code" value or null if no "postal code" value has been set
+     * @return string|null postal code or null if no postal code has been set
      */
-    public function getPostalCode()
+    public function getPostalCode() : ?string 
     {
-        if (!$this->hasPostalCode() && $this->hasDefaultPostalCode()) {
+        if ( ! $this->hasPostalCode()) {
             $this->setPostalCode($this->getDefaultPostalCode());
         }
         return $this->postalCode;
     }
 
     /**
-     * Get a default "postal code" value, if any is available
-     *
-     * @return string|null A default "postal code" value or null if no default value is available
-     */
-    public function getDefaultPostalCode()
-    {
-        return null;
-    }
-
-    /**
      * Check if "postal code" has been set
      *
-     * @return bool True if "postal code" value has been set, false if not
+     * @return bool True if "postal code" has been set, false if not
      */
-    public function hasPostalCode()
+    public function hasPostalCode() : bool
     {
         return isset($this->postalCode);
     }
 
     /**
-     * Check if a default "postal code" is available or not
+     * Get a default "postal code" value, if any is available
      *
-     * @return bool True of a default "postal code" value is available, false if not
+     * @return string|null Default "postal code" value or null if no default value is available
      */
-    public function hasDefaultPostalCode()
+    public function getDefaultPostalCode() : ?string
     {
-        $default = $this->getDefaultPostalCode();
-        return isset($default);
+        return null;
     }
 }

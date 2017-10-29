@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Type Trait</h1>
@@ -11,7 +14,7 @@
 trait TypeTrait
 {
     /**
-     * Type of something
+     * Type identifier
      *
      * @var string|null
      */
@@ -20,13 +23,15 @@ trait TypeTrait
     /**
      * Set type
      *
-     * @param string $type Type of something
+     * @param string|null $identifier Type identifier
      *
-     * @return void
+     * @return self
      */
-    public function setType($type)
+    public function setType(?string $identifier)
     {
-        $this->type = (string) $type;
+        $this->type = $identifier;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait TypeTrait
      *
      * @see getDefaultType()
      *
-     * @return string|null "type" value or null if no "type" value has been set
+     * @return string|null type or null if no type has been set
      */
-    public function getType()
+    public function getType() : ?string 
     {
-        if (!$this->hasType() && $this->hasDefaultType()) {
+        if ( ! $this->hasType()) {
             $this->setType($this->getDefaultType());
         }
         return $this->type;
     }
 
     /**
-     * Get a default "type" value, if any is available
-     *
-     * @return string|null A default "type" value or null if no default value is available
-     */
-    public function getDefaultType()
-    {
-        return null;
-    }
-
-    /**
      * Check if "type" has been set
      *
-     * @return bool True if "type" value has been set, false if not
+     * @return bool True if "type" has been set, false if not
      */
-    public function hasType()
+    public function hasType() : bool
     {
         return isset($this->type);
     }
 
     /**
-     * Check if a default "type" is available or not
+     * Get a default "type" value, if any is available
      *
-     * @return bool True of a default "type" value is available, false if not
+     * @return string|null Default "type" value or null if no default value is available
      */
-    public function hasDefaultType()
+    public function getDefaultType() : ?string
     {
-        $default = $this->getDefaultType();
-        return isset($default);
+        return null;
     }
 }

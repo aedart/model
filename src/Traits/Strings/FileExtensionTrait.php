@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>File Extension Trait</h1>
@@ -20,13 +23,15 @@ trait FileExtensionTrait
     /**
      * Set file extension
      *
-     * @param string $extension File extension, e.g. php, avi, json, txt...etc
+     * @param string|null $extension File extension, e.g. php, avi, json, txt...etc
      *
-     * @return void
+     * @return self
      */
-    public function setFileExtension($extension)
+    public function setFileExtension(?string $extension)
     {
-        $this->fileExtension = (string) $extension;
+        $this->fileExtension = $extension;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait FileExtensionTrait
      *
      * @see getDefaultFileExtension()
      *
-     * @return string|null "file extension" value or null if no "file extension" value has been set
+     * @return string|null file extension or null if no file extension has been set
      */
-    public function getFileExtension()
+    public function getFileExtension() : ?string 
     {
-        if (!$this->hasFileExtension() && $this->hasDefaultFileExtension()) {
+        if ( ! $this->hasFileExtension()) {
             $this->setFileExtension($this->getDefaultFileExtension());
         }
         return $this->fileExtension;
     }
 
     /**
-     * Get a default "file extension" value, if any is available
-     *
-     * @return string|null A default "file extension" value or null if no default value is available
-     */
-    public function getDefaultFileExtension()
-    {
-        return null;
-    }
-
-    /**
      * Check if "file extension" has been set
      *
-     * @return bool True if "file extension" value has been set, false if not
+     * @return bool True if "file extension" has been set, false if not
      */
-    public function hasFileExtension()
+    public function hasFileExtension() : bool
     {
         return isset($this->fileExtension);
     }
 
     /**
-     * Check if a default "file extension" is available or not
+     * Get a default "file extension" value, if any is available
      *
-     * @return bool True of a default "file extension" value is available, false if not
+     * @return string|null Default "file extension" value or null if no default value is available
      */
-    public function hasDefaultFileExtension()
+    public function getDefaultFileExtension() : ?string
     {
-        $default = $this->getDefaultFileExtension();
-        return isset($default);
+        return null;
     }
 }

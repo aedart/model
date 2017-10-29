@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Question Trait</h1>
@@ -20,13 +23,15 @@ trait QuestionTrait
     /**
      * Set question
      *
-     * @param string $questionToAsk A question that can be asked
+     * @param string|null $question A question that can be asked
      *
-     * @return void
+     * @return self
      */
-    public function setQuestion($questionToAsk)
+    public function setQuestion(?string $question)
     {
-        $this->question = (string) $questionToAsk;
+        $this->question = $question;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait QuestionTrait
      *
      * @see getDefaultQuestion()
      *
-     * @return string|null "question" value or null if no "question" value has been set
+     * @return string|null question or null if no question has been set
      */
-    public function getQuestion()
+    public function getQuestion() : ?string 
     {
-        if (!$this->hasQuestion() && $this->hasDefaultQuestion()) {
+        if ( ! $this->hasQuestion()) {
             $this->setQuestion($this->getDefaultQuestion());
         }
         return $this->question;
     }
 
     /**
-     * Get a default "question" value, if any is available
-     *
-     * @return string|null A default "question" value or null if no default value is available
-     */
-    public function getDefaultQuestion()
-    {
-        return null;
-    }
-
-    /**
      * Check if "question" has been set
      *
-     * @return bool True if "question" value has been set, false if not
+     * @return bool True if "question" has been set, false if not
      */
-    public function hasQuestion()
+    public function hasQuestion() : bool
     {
         return isset($this->question);
     }
 
     /**
-     * Check if a default "question" is available or not
+     * Get a default "question" value, if any is available
      *
-     * @return bool True of a default "question" value is available, false if not
+     * @return string|null Default "question" value or null if no default value is available
      */
-    public function hasDefaultQuestion()
+    public function getDefaultQuestion() : ?string
     {
-        $default = $this->getDefaultQuestion();
-        return isset($default);
+        return null;
     }
 }

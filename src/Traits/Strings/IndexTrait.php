@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Index Trait</h1>
@@ -11,7 +14,7 @@
 trait IndexTrait
 {
     /**
-     * An index
+     * Index
      *
      * @var string|null
      */
@@ -20,13 +23,15 @@ trait IndexTrait
     /**
      * Set index
      *
-     * @param string $index An index
+     * @param string|null $index Index
      *
-     * @return void
+     * @return self
      */
-    public function setIndex($index)
+    public function setIndex(?string $index)
     {
-        $this->index = (string) $index;
+        $this->index = $index;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait IndexTrait
      *
      * @see getDefaultIndex()
      *
-     * @return string|null "index" value or null if no "index" value has been set
+     * @return string|null index or null if no index has been set
      */
-    public function getIndex()
+    public function getIndex() : ?string 
     {
-        if (!$this->hasIndex() && $this->hasDefaultIndex()) {
+        if ( ! $this->hasIndex()) {
             $this->setIndex($this->getDefaultIndex());
         }
         return $this->index;
     }
 
     /**
-     * Get a default "index" value, if any is available
-     *
-     * @return string|null A default "index" value or null if no default value is available
-     */
-    public function getDefaultIndex()
-    {
-        return null;
-    }
-
-    /**
      * Check if "index" has been set
      *
-     * @return bool True if "index" value has been set, false if not
+     * @return bool True if "index" has been set, false if not
      */
-    public function hasIndex()
+    public function hasIndex() : bool
     {
         return isset($this->index);
     }
 
     /**
-     * Check if a default "index" is available or not
+     * Get a default "index" value, if any is available
      *
-     * @return bool True of a default "index" value is available, false if not
+     * @return string|null Default "index" value or null if no default value is available
      */
-    public function hasDefaultIndex()
+    public function getDefaultIndex() : ?string
     {
-        $default = $this->getDefaultIndex();
-        return isset($default);
+        return null;
     }
 }

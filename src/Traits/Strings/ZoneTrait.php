@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Zone Trait</h1>
@@ -11,7 +14,7 @@
 trait ZoneTrait
 {
     /**
-     * Name of an area, district or devision
+     * Name or identifier of area, district or division
      *
      * @var string|null
      */
@@ -20,13 +23,15 @@ trait ZoneTrait
     /**
      * Set zone
      *
-     * @param string $name Name of an area, district or devision
+     * @param string|null $identifier Name or identifier of area, district or division
      *
-     * @return void
+     * @return self
      */
-    public function setZone($name)
+    public function setZone(?string $identifier)
     {
-        $this->zone = (string) $name;
+        $this->zone = $identifier;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait ZoneTrait
      *
      * @see getDefaultZone()
      *
-     * @return string|null "zone" value or null if no "zone" value has been set
+     * @return string|null zone or null if no zone has been set
      */
-    public function getZone()
+    public function getZone() : ?string 
     {
-        if (!$this->hasZone() && $this->hasDefaultZone()) {
+        if ( ! $this->hasZone()) {
             $this->setZone($this->getDefaultZone());
         }
         return $this->zone;
     }
 
     /**
-     * Get a default "zone" value, if any is available
-     *
-     * @return string|null A default "zone" value or null if no default value is available
-     */
-    public function getDefaultZone()
-    {
-        return null;
-    }
-
-    /**
      * Check if "zone" has been set
      *
-     * @return bool True if "zone" value has been set, false if not
+     * @return bool True if "zone" has been set, false if not
      */
-    public function hasZone()
+    public function hasZone() : bool
     {
         return isset($this->zone);
     }
 
     /**
-     * Check if a default "zone" is available or not
+     * Get a default "zone" value, if any is available
      *
-     * @return bool True of a default "zone" value is available, false if not
+     * @return string|null Default "zone" value or null if no default value is available
      */
-    public function hasDefaultZone()
+    public function getDefaultZone() : ?string
     {
-        $default = $this->getDefaultZone();
-        return isset($default);
+        return null;
     }
 }

@@ -1,11 +1,12 @@
-<?php namespace Aedart\Model\Contracts\Arrays;
+<?php
+
+namespace Aedart\Model\Contracts\Arrays;
 
 /**
  * <h1>Locations Aware</h1>
  *
- * Component contains a list of locations, which can also
- * be specified. The locations can be relative or absolute
- * paths or perhaps resources (URLs)... etc
+ * Component is aware of a array "locations" value, which can
+ * also be specified.
  *
  * @author Alin Eugen Deac <aedart@gmail.com>
  * @package Aedart\Model\Contracts\Arrays
@@ -15,11 +16,11 @@ interface LocationsAware
     /**
      * Set locations
      *
-     * @param string[] $locations Locations list
+     * @param array|null $list List of locations
      *
-     * @return void
+     * @return self
      */
-    public function setLocations(array $locations);
+    public function setLocations(?array $list);
 
     /**
      * Get locations
@@ -30,28 +31,21 @@ interface LocationsAware
      *
      * @see getDefaultLocations()
      *
-     * @return string[]|null "locations" value or null if no "locations" value has been set
+     * @return array|null locations or null if no locations has been set
      */
-    public function getLocations();
-
-    /**
-     * Get a default "locations" value, if any is available
-     *
-     * @return string[]|null A default "locations" value or null if no default value is available
-     */
-    public function getDefaultLocations();
+    public function getLocations() : ?array ;
 
     /**
      * Check if "locations" has been set
      *
-     * @return bool True if "locations" value has been set, false if not
+     * @return bool True if "locations" has been set, false if not
      */
-    public function hasLocations();
+    public function hasLocations() : bool;
 
     /**
-     * Check if a default "locations" is available or not
+     * Get a default "locations" value, if any is available
      *
-     * @return bool True of a default "locations" value is available, false if not
+     * @return array|null Default "locations" value or null if no default value is available
      */
-    public function hasDefaultLocations();
+    public function getDefaultLocations() : ?array;
 }

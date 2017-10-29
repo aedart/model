@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Integers;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Integers;
 
 /**
  * <h1>Age Trait</h1>
@@ -20,13 +23,15 @@ trait AgeTrait
     /**
      * Set age
      *
-     * @param int $age Age of someone or something
+     * @param int|null $age Age of someone or something
      *
-     * @return void
+     * @return self
      */
-    public function setAge($age)
+    public function setAge(?int $age)
     {
-        $this->age = (int) $age;
+        $this->age = $age;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait AgeTrait
      *
      * @see getDefaultAge()
      *
-     * @return int|null "age" value or null if no "age" value has been set
+     * @return int|null age or null if no age has been set
      */
-    public function getAge()
+    public function getAge() : ?int 
     {
-        if (!$this->hasAge() && $this->hasDefaultAge()) {
+        if ( ! $this->hasAge()) {
             $this->setAge($this->getDefaultAge());
         }
         return $this->age;
     }
 
     /**
-     * Get a default "age" value, if any is available
-     *
-     * @return int|null A default "age" value or null if no default value is available
-     */
-    public function getDefaultAge()
-    {
-        return null;
-    }
-
-    /**
      * Check if "age" has been set
      *
-     * @return bool True if "age" value has been set, false if not
+     * @return bool True if "age" has been set, false if not
      */
-    public function hasAge()
+    public function hasAge() : bool
     {
         return isset($this->age);
     }
 
     /**
-     * Check if a default "age" is available or not
+     * Get a default "age" value, if any is available
      *
-     * @return bool True of a default "age" value is available, false if not
+     * @return int|null Default "age" value or null if no default value is available
      */
-    public function hasDefaultAge()
+    public function getDefaultAge() : ?int
     {
-        $default = $this->getDefaultAge();
-        return isset($default);
+        return null;
     }
 }

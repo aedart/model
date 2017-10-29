@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Html Trait</h1>
@@ -20,13 +23,15 @@ trait HtmlTrait
     /**
      * Set html
      *
-     * @param string $html HyperText Markup Language (HTML)
+     * @param string|null $html HyperText Markup Language (HTML)
      *
-     * @return void
+     * @return self
      */
-    public function setHtml($html)
+    public function setHtml(?string $html)
     {
-        $this->html = (string) $html;
+        $this->html = $html;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait HtmlTrait
      *
      * @see getDefaultHtml()
      *
-     * @return string|null "html" value or null if no "html" value has been set
+     * @return string|null html or null if no html has been set
      */
-    public function getHtml()
+    public function getHtml() : ?string 
     {
-        if (!$this->hasHtml() && $this->hasDefaultHtml()) {
+        if ( ! $this->hasHtml()) {
             $this->setHtml($this->getDefaultHtml());
         }
         return $this->html;
     }
 
     /**
-     * Get a default "html" value, if any is available
-     *
-     * @return string|null A default "html" value or null if no default value is available
-     */
-    public function getDefaultHtml()
-    {
-        return null;
-    }
-
-    /**
      * Check if "html" has been set
      *
-     * @return bool True if "html" value has been set, false if not
+     * @return bool True if "html" has been set, false if not
      */
-    public function hasHtml()
+    public function hasHtml() : bool
     {
         return isset($this->html);
     }
 
     /**
-     * Check if a default "html" is available or not
+     * Get a default "html" value, if any is available
      *
-     * @return bool True of a default "html" value is available, false if not
+     * @return string|null Default "html" value or null if no default value is available
      */
-    public function hasDefaultHtml()
+    public function getDefaultHtml() : ?string
     {
-        $default = $this->getDefaultHtml();
-        return isset($default);
+        return null;
     }
 }

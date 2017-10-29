@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Name Trait</h1>
@@ -20,13 +23,15 @@ trait NameTrait
     /**
      * Set name
      *
-     * @param string $name Name
+     * @param string|null $name Name
      *
-     * @return void
+     * @return self
      */
-    public function setName($name)
+    public function setName(?string $name)
     {
-        $this->name = (string) $name;
+        $this->name = $name;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait NameTrait
      *
      * @see getDefaultName()
      *
-     * @return string|null "name" value or null if no "name" value has been set
+     * @return string|null name or null if no name has been set
      */
-    public function getName()
+    public function getName() : ?string 
     {
-        if (!$this->hasName() && $this->hasDefaultName()) {
+        if ( ! $this->hasName()) {
             $this->setName($this->getDefaultName());
         }
         return $this->name;
     }
 
     /**
-     * Get a default "name" value, if any is available
-     *
-     * @return string|null A default "name" value or null if no default value is available
-     */
-    public function getDefaultName()
-    {
-        return null;
-    }
-
-    /**
      * Check if "name" has been set
      *
-     * @return bool True if "name" value has been set, false if not
+     * @return bool True if "name" has been set, false if not
      */
-    public function hasName()
+    public function hasName() : bool
     {
         return isset($this->name);
     }
 
     /**
-     * Check if a default "name" is available or not
+     * Get a default "name" value, if any is available
      *
-     * @return bool True of a default "name" value is available, false if not
+     * @return string|null Default "name" value or null if no default value is available
      */
-    public function hasDefaultName()
+    public function getDefaultName() : ?string
     {
-        $default = $this->getDefaultName();
-        return isset($default);
+        return null;
     }
 }

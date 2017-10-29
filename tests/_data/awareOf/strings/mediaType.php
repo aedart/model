@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string mediaType'   => [
             \Aedart\Model\Traits\Strings\MediaTypeTrait::class,
             \Aedart\Model\Contracts\Strings\MediaTypeAware::class,
-            $faker->mimeType,
-            $faker->mimeType,
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Floats;
+<?php
+
+namespace Aedart\Model\Contracts\Floats;
 
 /**
  * <h1>X Aware</h1>
@@ -14,11 +16,11 @@ interface XAware
     /**
      * Set x
      *
-     * @param float $value Co-ordinate or value
+     * @param float|null $value Co-ordinate or value
      *
-     * @return void
+     * @return self
      */
-    public function setX($value);
+    public function setX(?float $value);
 
     /**
      * Get x
@@ -29,28 +31,21 @@ interface XAware
      *
      * @see getDefaultX()
      *
-     * @return float|null "x" value or null if no "x" value has been set
+     * @return float|null x or null if no x has been set
      */
-    public function getX();
-
-    /**
-     * Get a default "x" value, if any is available
-     *
-     * @return float|null A default "x" value or null if no default value is available
-     */
-    public function getDefaultX();
+    public function getX() : ?float ;
 
     /**
      * Check if "x" has been set
      *
-     * @return bool True if "x" value has been set, false if not
+     * @return bool True if "x" has been set, false if not
      */
-    public function hasX();
+    public function hasX() : bool;
 
     /**
-     * Check if a default "x" is available or not
+     * Get a default "x" value, if any is available
      *
-     * @return bool True of a default "x" value is available, false if not
+     * @return float|null Default "x" value or null if no default value is available
      */
-    public function hasDefaultX();
+    public function getDefaultX() : ?float;
 }

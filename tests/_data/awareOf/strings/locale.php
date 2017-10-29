@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string locale'   => [
             \Aedart\Model\Traits\Strings\LocaleTrait::class,
             \Aedart\Model\Contracts\Strings\LocaleAware::class,
-            $faker->locale,
-            $faker->locale,
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

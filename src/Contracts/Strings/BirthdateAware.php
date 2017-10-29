@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Birthdate Aware</h1>
@@ -14,11 +16,11 @@ interface BirthdateAware
     /**
      * Set birthdate
      *
-     * @param string $date Date of birth
+     * @param string|null $date Date of birth
      *
-     * @return void
+     * @return self
      */
-    public function setBirthdate($date);
+    public function setBirthdate(?string $date);
 
     /**
      * Get birthdate
@@ -29,28 +31,21 @@ interface BirthdateAware
      *
      * @see getDefaultBirthdate()
      *
-     * @return string|null "birthdate" value or null if no "birthdate" value has been set
+     * @return string|null birthdate or null if no birthdate has been set
      */
-    public function getBirthdate();
-
-    /**
-     * Get a default "birthdate" value, if any is available
-     *
-     * @return string|null A default "birthdate" value or null if no default value is available
-     */
-    public function getDefaultBirthdate();
+    public function getBirthdate() : ?string ;
 
     /**
      * Check if "birthdate" has been set
      *
-     * @return bool True if "birthdate" value has been set, false if not
+     * @return bool True if "birthdate" has been set, false if not
      */
-    public function hasBirthdate();
+    public function hasBirthdate() : bool;
 
     /**
-     * Check if a default "birthdate" is available or not
+     * Get a default "birthdate" value, if any is available
      *
-     * @return bool True of a default "birthdate" value is available, false if not
+     * @return string|null Default "birthdate" value or null if no default value is available
      */
-    public function hasDefaultBirthdate();
+    public function getDefaultBirthdate() : ?string;
 }

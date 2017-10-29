@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Output Path Trait</h1>
@@ -20,13 +23,15 @@ trait OutputPathTrait
     /**
      * Set output path
      *
-     * @param string $path Location of where some kind of output must be placed or written to
+     * @param string|null $path Location of where some kind of output must be placed or written to
      *
-     * @return void
+     * @return self
      */
-    public function setOutputPath($path)
+    public function setOutputPath(?string $path)
     {
-        $this->outputPath = (string) $path;
+        $this->outputPath = $path;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait OutputPathTrait
      *
      * @see getDefaultOutputPath()
      *
-     * @return string|null "output path" value or null if no "output path" value has been set
+     * @return string|null output path or null if no output path has been set
      */
-    public function getOutputPath()
+    public function getOutputPath() : ?string 
     {
-        if (!$this->hasOutputPath() && $this->hasDefaultOutputPath()) {
+        if ( ! $this->hasOutputPath()) {
             $this->setOutputPath($this->getDefaultOutputPath());
         }
         return $this->outputPath;
     }
 
     /**
-     * Get a default "output path" value, if any is available
-     *
-     * @return string|null A default "output path" value or null if no default value is available
-     */
-    public function getDefaultOutputPath()
-    {
-        return null;
-    }
-
-    /**
      * Check if "output path" has been set
      *
-     * @return bool True if "output path" value has been set, false if not
+     * @return bool True if "output path" has been set, false if not
      */
-    public function hasOutputPath()
+    public function hasOutputPath() : bool
     {
         return isset($this->outputPath);
     }
 
     /**
-     * Check if a default "output path" is available or not
+     * Get a default "output path" value, if any is available
      *
-     * @return bool True of a default "output path" value is available, false if not
+     * @return string|null Default "output path" value or null if no default value is available
      */
-    public function hasDefaultOutputPath()
+    public function getDefaultOutputPath() : ?string
     {
-        $default = $this->getDefaultOutputPath();
-        return isset($default);
+        return null;
     }
 }

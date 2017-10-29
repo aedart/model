@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>City Aware</h1>
@@ -14,11 +16,11 @@ interface CityAware
     /**
      * Set city
      *
-     * @param string $name Name of a city, town or village
+     * @param string|null $name Name of city, town or village
      *
-     * @return void
+     * @return self
      */
-    public function setCity($name);
+    public function setCity(?string $name);
 
     /**
      * Get city
@@ -29,28 +31,21 @@ interface CityAware
      *
      * @see getDefaultCity()
      *
-     * @return string|null "city" value or null if no "city" value has been set
+     * @return string|null city or null if no city has been set
      */
-    public function getCity();
-
-    /**
-     * Get a default "city" value, if any is available
-     *
-     * @return string|null A default "city" value or null if no default value is available
-     */
-    public function getDefaultCity();
+    public function getCity() : ?string ;
 
     /**
      * Check if "city" has been set
      *
-     * @return bool True if "city" value has been set, false if not
+     * @return bool True if "city" has been set, false if not
      */
-    public function hasCity();
+    public function hasCity() : bool;
 
     /**
-     * Check if a default "city" is available or not
+     * Get a default "city" value, if any is available
      *
-     * @return bool True of a default "city" value is available, false if not
+     * @return string|null Default "city" value or null if no default value is available
      */
-    public function hasDefaultCity();
+    public function getDefaultCity() : ?string;
 }

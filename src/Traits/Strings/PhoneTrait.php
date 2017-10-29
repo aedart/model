@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Phone Trait</h1>
@@ -20,13 +23,15 @@ trait PhoneTrait
     /**
      * Set phone
      *
-     * @param string $number Phone number
+     * @param string|null $number Phone number
      *
-     * @return void
+     * @return self
      */
-    public function setPhone($number)
+    public function setPhone(?string $number)
     {
-        $this->phone = (string) $number;
+        $this->phone = $number;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait PhoneTrait
      *
      * @see getDefaultPhone()
      *
-     * @return string|null "phone" value or null if no "phone" value has been set
+     * @return string|null phone or null if no phone has been set
      */
-    public function getPhone()
+    public function getPhone() : ?string 
     {
-        if (!$this->hasPhone() && $this->hasDefaultPhone()) {
+        if ( ! $this->hasPhone()) {
             $this->setPhone($this->getDefaultPhone());
         }
         return $this->phone;
     }
 
     /**
-     * Get a default "phone" value, if any is available
-     *
-     * @return string|null A default "phone" value or null if no default value is available
-     */
-    public function getDefaultPhone()
-    {
-        return null;
-    }
-
-    /**
      * Check if "phone" has been set
      *
-     * @return bool True if "phone" value has been set, false if not
+     * @return bool True if "phone" has been set, false if not
      */
-    public function hasPhone()
+    public function hasPhone() : bool
     {
         return isset($this->phone);
     }
 
     /**
-     * Check if a default "phone" is available or not
+     * Get a default "phone" value, if any is available
      *
-     * @return bool True of a default "phone" value is available, false if not
+     * @return string|null Default "phone" value or null if no default value is available
      */
-    public function hasDefaultPhone()
+    public function getDefaultPhone() : ?string
     {
-        $default = $this->getDefaultPhone();
-        return isset($default);
+        return null;
     }
 }

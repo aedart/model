@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>City Trait</h1>
@@ -11,7 +14,7 @@
 trait CityTrait
 {
     /**
-     * Name of a city, town or village
+     * Name of city, town or village
      *
      * @var string|null
      */
@@ -20,13 +23,15 @@ trait CityTrait
     /**
      * Set city
      *
-     * @param string $name Name of a city, town or village
+     * @param string|null $name Name of city, town or village
      *
-     * @return void
+     * @return self
      */
-    public function setCity($name)
+    public function setCity(?string $name)
     {
-        $this->city = (string) $name;
+        $this->city = $name;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait CityTrait
      *
      * @see getDefaultCity()
      *
-     * @return string|null "city" value or null if no "city" value has been set
+     * @return string|null city or null if no city has been set
      */
-    public function getCity()
+    public function getCity() : ?string 
     {
-        if (!$this->hasCity() && $this->hasDefaultCity()) {
+        if ( ! $this->hasCity()) {
             $this->setCity($this->getDefaultCity());
         }
         return $this->city;
     }
 
     /**
-     * Get a default "city" value, if any is available
-     *
-     * @return string|null A default "city" value or null if no default value is available
-     */
-    public function getDefaultCity()
-    {
-        return null;
-    }
-
-    /**
      * Check if "city" has been set
      *
-     * @return bool True if "city" value has been set, false if not
+     * @return bool True if "city" has been set, false if not
      */
-    public function hasCity()
+    public function hasCity() : bool
     {
         return isset($this->city);
     }
 
     /**
-     * Check if a default "city" is available or not
+     * Get a default "city" value, if any is available
      *
-     * @return bool True of a default "city" value is available, false if not
+     * @return string|null Default "city" value or null if no default value is available
      */
-    public function hasDefaultCity()
+    public function getDefaultCity() : ?string
     {
-        $default = $this->getDefaultCity();
-        return isset($default);
+        return null;
     }
 }

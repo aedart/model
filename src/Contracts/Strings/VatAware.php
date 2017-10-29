@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Vat Aware</h1>
@@ -14,11 +16,11 @@ interface VatAware
     /**
      * Set vat
      *
-     * @param string $value Value Added Tac (VAT), formatted amount or rate
+     * @param string|null $amount Value Added Tac (VAT), formatted amount or rate
      *
-     * @return void
+     * @return self
      */
-    public function setVat($value);
+    public function setVat(?string $amount);
 
     /**
      * Get vat
@@ -29,28 +31,21 @@ interface VatAware
      *
      * @see getDefaultVat()
      *
-     * @return string|null "vat" value or null if no "vat" value has been set
+     * @return string|null vat or null if no vat has been set
      */
-    public function getVat();
-
-    /**
-     * Get a default "vat" value, if any is available
-     *
-     * @return string|null A default "vat" value or null if no default value is available
-     */
-    public function getDefaultVat();
+    public function getVat() : ?string ;
 
     /**
      * Check if "vat" has been set
      *
-     * @return bool True if "vat" value has been set, false if not
+     * @return bool True if "vat" has been set, false if not
      */
-    public function hasVat();
+    public function hasVat() : bool;
 
     /**
-     * Check if a default "vat" is available or not
+     * Get a default "vat" value, if any is available
      *
-     * @return bool True of a default "vat" value is available, false if not
+     * @return string|null Default "vat" value or null if no default value is available
      */
-    public function hasDefaultVat();
+    public function getDefaultVat() : ?string;
 }

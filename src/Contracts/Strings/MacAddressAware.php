@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Mac Address Aware</h1>
@@ -14,11 +16,11 @@ interface MacAddressAware
     /**
      * Set mac address
      *
-     * @param string $address Media Access Control Address (MAC Address)
+     * @param string|null $address Media Access Control Address (MAC Address)
      *
-     * @return void
+     * @return self
      */
-    public function setMacAddress($address);
+    public function setMacAddress(?string $address);
 
     /**
      * Get mac address
@@ -29,28 +31,21 @@ interface MacAddressAware
      *
      * @see getDefaultMacAddress()
      *
-     * @return string|null "mac address" value or null if no "mac address" value has been set
+     * @return string|null mac address or null if no mac address has been set
      */
-    public function getMacAddress();
-
-    /**
-     * Get a default "mac address" value, if any is available
-     *
-     * @return string|null A default "mac address" value or null if no default value is available
-     */
-    public function getDefaultMacAddress();
+    public function getMacAddress() : ?string ;
 
     /**
      * Check if "mac address" has been set
      *
-     * @return bool True if "mac address" value has been set, false if not
+     * @return bool True if "mac address" has been set, false if not
      */
-    public function hasMacAddress();
+    public function hasMacAddress() : bool;
 
     /**
-     * Check if a default "mac address" is available or not
+     * Get a default "mac address" value, if any is available
      *
-     * @return bool True of a default "mac address" value is available, false if not
+     * @return string|null Default "mac address" value or null if no default value is available
      */
-    public function hasDefaultMacAddress();
+    public function getDefaultMacAddress() : ?string;
 }

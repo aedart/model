@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Tag Trait</h1>
@@ -11,7 +14,7 @@
 trait TagTrait
 {
     /**
-     * Name of a tag
+     * Name of tag
      *
      * @var string|null
      */
@@ -20,13 +23,15 @@ trait TagTrait
     /**
      * Set tag
      *
-     * @param string $name Name of a tag
+     * @param string|null $name Name of tag
      *
-     * @return void
+     * @return self
      */
-    public function setTag($name)
+    public function setTag(?string $name)
     {
-        $this->tag = (string) $name;
+        $this->tag = $name;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait TagTrait
      *
      * @see getDefaultTag()
      *
-     * @return string|null "tag" value or null if no "tag" value has been set
+     * @return string|null tag or null if no tag has been set
      */
-    public function getTag()
+    public function getTag() : ?string 
     {
-        if (!$this->hasTag() && $this->hasDefaultTag()) {
+        if ( ! $this->hasTag()) {
             $this->setTag($this->getDefaultTag());
         }
         return $this->tag;
     }
 
     /**
-     * Get a default "tag" value, if any is available
-     *
-     * @return string|null A default "tag" value or null if no default value is available
-     */
-    public function getDefaultTag()
-    {
-        return null;
-    }
-
-    /**
      * Check if "tag" has been set
      *
-     * @return bool True if "tag" value has been set, false if not
+     * @return bool True if "tag" has been set, false if not
      */
-    public function hasTag()
+    public function hasTag() : bool
     {
         return isset($this->tag);
     }
 
     /**
-     * Check if a default "tag" is available or not
+     * Get a default "tag" value, if any is available
      *
-     * @return bool True of a default "tag" value is available, false if not
+     * @return string|null Default "tag" value or null if no default value is available
      */
-    public function hasDefaultTag()
+    public function getDefaultTag() : ?string
     {
-        $default = $this->getDefaultTag();
-        return isset($default);
+        return null;
     }
 }

@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Address Trait</h1>
@@ -11,7 +14,7 @@
 trait AddressTrait
 {
     /**
-     * Address to something. Can be formatted.
+     * Address to someone or something
      *
      * @var string|null
      */
@@ -20,13 +23,15 @@ trait AddressTrait
     /**
      * Set address
      *
-     * @param string $address Address to something. Can be formatted.
+     * @param string|null $address Address to someone or something
      *
-     * @return void
+     * @return self
      */
-    public function setAddress($address)
+    public function setAddress(?string $address)
     {
-        $this->address = (string) $address;
+        $this->address = $address;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait AddressTrait
      *
      * @see getDefaultAddress()
      *
-     * @return string|null "address" value or null if no "address" value has been set
+     * @return string|null address or null if no address has been set
      */
-    public function getAddress()
+    public function getAddress() : ?string 
     {
-        if (!$this->hasAddress() && $this->hasDefaultAddress()) {
+        if ( ! $this->hasAddress()) {
             $this->setAddress($this->getDefaultAddress());
         }
         return $this->address;
     }
 
     /**
-     * Get a default "address" value, if any is available
-     *
-     * @return string|null A default "address" value or null if no default value is available
-     */
-    public function getDefaultAddress()
-    {
-        return null;
-    }
-
-    /**
      * Check if "address" has been set
      *
-     * @return bool True if "address" value has been set, false if not
+     * @return bool True if "address" has been set, false if not
      */
-    public function hasAddress()
+    public function hasAddress() : bool
     {
         return isset($this->address);
     }
 
     /**
-     * Check if a default "address" is available or not
+     * Get a default "address" value, if any is available
      *
-     * @return bool True of a default "address" value is available, false if not
+     * @return string|null Default "address" value or null if no default value is available
      */
-    public function hasDefaultAddress()
+    public function getDefaultAddress() : ?string
     {
-        $default = $this->getDefaultAddress();
-        return isset($default);
+        return null;
     }
 }

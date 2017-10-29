@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string revision'   => [
             \Aedart\Model\Traits\Strings\RevisionTrait::class,
             \Aedart\Model\Contracts\Strings\RevisionAware::class,
-            $faker->sha1,
-            $faker->md5,
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

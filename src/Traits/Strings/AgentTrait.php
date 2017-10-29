@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Agent Trait</h1>
@@ -20,13 +23,15 @@ trait AgentTrait
     /**
      * Set agent
      *
-     * @param string $info Someone or something that acts on behalf of someone else or something else
+     * @param string|null $agent Someone or something that acts on behalf of someone else or something else
      *
-     * @return void
+     * @return self
      */
-    public function setAgent($info)
+    public function setAgent(?string $agent)
     {
-        $this->agent = (string) $info;
+        $this->agent = $agent;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait AgentTrait
      *
      * @see getDefaultAgent()
      *
-     * @return string|null "agent" value or null if no "agent" value has been set
+     * @return string|null agent or null if no agent has been set
      */
-    public function getAgent()
+    public function getAgent() : ?string 
     {
-        if (!$this->hasAgent() && $this->hasDefaultAgent()) {
+        if ( ! $this->hasAgent()) {
             $this->setAgent($this->getDefaultAgent());
         }
         return $this->agent;
     }
 
     /**
-     * Get a default "agent" value, if any is available
-     *
-     * @return string|null A default "agent" value or null if no default value is available
-     */
-    public function getDefaultAgent()
-    {
-        return null;
-    }
-
-    /**
      * Check if "agent" has been set
      *
-     * @return bool True if "agent" value has been set, false if not
+     * @return bool True if "agent" has been set, false if not
      */
-    public function hasAgent()
+    public function hasAgent() : bool
     {
         return isset($this->agent);
     }
 
     /**
-     * Check if a default "agent" is available or not
+     * Get a default "agent" value, if any is available
      *
-     * @return bool True of a default "agent" value is available, false if not
+     * @return string|null Default "agent" value or null if no default value is available
      */
-    public function hasDefaultAgent()
+    public function getDefaultAgent() : ?string
     {
-        $default = $this->getDefaultAgent();
-        return isset($default);
+        return null;
     }
 }

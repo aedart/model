@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Country Trait</h1>
@@ -11,7 +14,7 @@
 trait CountryTrait
 {
     /**
-     * Name of a country, e.g. Denmark, United Kingdom, Australia...etc
+     * Name of country, e.g. Denmark, United Kingdom, Australia...etc
      *
      * @var string|null
      */
@@ -20,13 +23,15 @@ trait CountryTrait
     /**
      * Set country
      *
-     * @param string $name Name of a country, e.g. Denmark, United Kingdom, Australia...etc
+     * @param string|null $name Name of country, e.g. Denmark, United Kingdom, Australia...etc
      *
-     * @return void
+     * @return self
      */
-    public function setCountry($name)
+    public function setCountry(?string $name)
     {
-        $this->country = (string) $name;
+        $this->country = $name;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait CountryTrait
      *
      * @see getDefaultCountry()
      *
-     * @return string|null "country" value or null if no "country" value has been set
+     * @return string|null country or null if no country has been set
      */
-    public function getCountry()
+    public function getCountry() : ?string 
     {
-        if (!$this->hasCountry() && $this->hasDefaultCountry()) {
+        if ( ! $this->hasCountry()) {
             $this->setCountry($this->getDefaultCountry());
         }
         return $this->country;
     }
 
     /**
-     * Get a default "country" value, if any is available
-     *
-     * @return string|null A default "country" value or null if no default value is available
-     */
-    public function getDefaultCountry()
-    {
-        return null;
-    }
-
-    /**
      * Check if "country" has been set
      *
-     * @return bool True if "country" value has been set, false if not
+     * @return bool True if "country" has been set, false if not
      */
-    public function hasCountry()
+    public function hasCountry() : bool
     {
         return isset($this->country);
     }
 
     /**
-     * Check if a default "country" is available or not
+     * Get a default "country" value, if any is available
      *
-     * @return bool True of a default "country" value is available, false if not
+     * @return string|null Default "country" value or null if no default value is available
      */
-    public function hasDefaultCountry()
+    public function getDefaultCountry() : ?string
     {
-        $default = $this->getDefaultCountry();
-        return isset($default);
+        return null;
     }
 }

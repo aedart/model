@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string email'   => [
             \Aedart\Model\Traits\Strings\EmailTrait::class,
             \Aedart\Model\Contracts\Strings\EmailAware::class,
-            $faker->email,
-            $faker->email,
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

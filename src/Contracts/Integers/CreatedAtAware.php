@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Integers;
+<?php
+
+namespace Aedart\Model\Contracts\Integers;
 
 /**
  * <h1>Created At Aware</h1>
@@ -14,11 +16,11 @@ interface CreatedAtAware
     /**
      * Set created at
      *
-     * @param int $date Date (UNIX timestamp) of when this component, entity or resource was created
+     * @param int|null $date Date of when this component, entity or resource was created
      *
-     * @return void
+     * @return self
      */
-    public function setCreatedAt($date);
+    public function setCreatedAt(?int $date);
 
     /**
      * Get created at
@@ -29,28 +31,21 @@ interface CreatedAtAware
      *
      * @see getDefaultCreatedAt()
      *
-     * @return int|null "created at" value or null if no "created at" value has been set
+     * @return int|null created at or null if no created at has been set
      */
-    public function getCreatedAt();
-
-    /**
-     * Get a default "created at" value, if any is available
-     *
-     * @return int|null A default "created at" value or null if no default value is available
-     */
-    public function getDefaultCreatedAt();
+    public function getCreatedAt() : ?int ;
 
     /**
      * Check if "created at" has been set
      *
-     * @return bool True if "created at" value has been set, false if not
+     * @return bool True if "created at" has been set, false if not
      */
-    public function hasCreatedAt();
+    public function hasCreatedAt() : bool;
 
     /**
-     * Check if a default "created at" is available or not
+     * Get a default "created at" value, if any is available
      *
-     * @return bool True of a default "created at" value is available, false if not
+     * @return int|null Default "created at" value or null if no default value is available
      */
-    public function hasDefaultCreatedAt();
+    public function getDefaultCreatedAt() : ?int;
 }

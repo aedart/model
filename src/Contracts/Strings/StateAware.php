@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>State Aware</h1>
@@ -14,11 +16,11 @@ interface StateAware
     /**
      * Set state
      *
-     * @param string $state The state of this component or what it represents
+     * @param string|null $state State of this component or what it represents. Alternative, state address
      *
-     * @return void
+     * @return self
      */
-    public function setState($state);
+    public function setState(?string $state);
 
     /**
      * Get state
@@ -29,28 +31,21 @@ interface StateAware
      *
      * @see getDefaultState()
      *
-     * @return string|null "state" value or null if no "state" value has been set
+     * @return string|null state or null if no state has been set
      */
-    public function getState();
-
-    /**
-     * Get a default "state" value, if any is available
-     *
-     * @return string|null A default "state" value or null if no default value is available
-     */
-    public function getDefaultState();
+    public function getState() : ?string ;
 
     /**
      * Check if "state" has been set
      *
-     * @return bool True if "state" value has been set, false if not
+     * @return bool True if "state" has been set, false if not
      */
-    public function hasState();
+    public function hasState() : bool;
 
     /**
-     * Check if a default "state" is available or not
+     * Get a default "state" value, if any is available
      *
-     * @return bool True of a default "state" value is available, false if not
+     * @return string|null Default "state" value or null if no default value is available
      */
-    public function hasDefaultState();
+    public function getDefaultState() : ?string;
 }

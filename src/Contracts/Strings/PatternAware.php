@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Pattern Aware</h1>
@@ -14,11 +16,11 @@ interface PatternAware
     /**
      * Set pattern
      *
-     * @param string $pattern A search or regex pattern
+     * @param string|null $pattern Some kind of a pattern, e.g. search or regex
      *
-     * @return void
+     * @return self
      */
-    public function setPattern($pattern);
+    public function setPattern(?string $pattern);
 
     /**
      * Get pattern
@@ -29,28 +31,21 @@ interface PatternAware
      *
      * @see getDefaultPattern()
      *
-     * @return string|null "pattern" value or null if no "pattern" value has been set
+     * @return string|null pattern or null if no pattern has been set
      */
-    public function getPattern();
-
-    /**
-     * Get a default "pattern" value, if any is available
-     *
-     * @return string|null A default "pattern" value or null if no default value is available
-     */
-    public function getDefaultPattern();
+    public function getPattern() : ?string ;
 
     /**
      * Check if "pattern" has been set
      *
-     * @return bool True if "pattern" value has been set, false if not
+     * @return bool True if "pattern" has been set, false if not
      */
-    public function hasPattern();
+    public function hasPattern() : bool;
 
     /**
-     * Check if a default "pattern" is available or not
+     * Get a default "pattern" value, if any is available
      *
-     * @return bool True of a default "pattern" value is available, false if not
+     * @return string|null Default "pattern" value or null if no default value is available
      */
-    public function hasDefaultPattern();
+    public function getDefaultPattern() : ?string;
 }

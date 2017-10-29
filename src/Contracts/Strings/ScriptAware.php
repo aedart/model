@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Script Aware</h1>
@@ -14,11 +16,11 @@ interface ScriptAware
     /**
      * Set script
      *
-     * @param string $script Script of some kind
+     * @param string|null $script Script of some kind or path to some script
      *
-     * @return void
+     * @return self
      */
-    public function setScript($script);
+    public function setScript(?string $script);
 
     /**
      * Get script
@@ -29,28 +31,21 @@ interface ScriptAware
      *
      * @see getDefaultScript()
      *
-     * @return string|null "script" value or null if no "script" value has been set
+     * @return string|null script or null if no script has been set
      */
-    public function getScript();
-
-    /**
-     * Get a default "script" value, if any is available
-     *
-     * @return string|null A default "script" value or null if no default value is available
-     */
-    public function getDefaultScript();
+    public function getScript() : ?string ;
 
     /**
      * Check if "script" has been set
      *
-     * @return bool True if "script" value has been set, false if not
+     * @return bool True if "script" has been set, false if not
      */
-    public function hasScript();
+    public function hasScript() : bool;
 
     /**
-     * Check if a default "script" is available or not
+     * Get a default "script" value, if any is available
      *
-     * @return bool True of a default "script" value is available, false if not
+     * @return string|null Default "script" value or null if no default value is available
      */
-    public function hasDefaultScript();
+    public function getDefaultScript() : ?string;
 }

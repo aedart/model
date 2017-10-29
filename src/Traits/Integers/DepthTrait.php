@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Integers;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Integers;
 
 /**
  * <h1>Depth Trait</h1>
@@ -20,13 +23,15 @@ trait DepthTrait
     /**
      * Set depth
      *
-     * @param int $amount Depth of something
+     * @param int|null $amount Depth of something
      *
-     * @return void
+     * @return self
      */
-    public function setDepth($amount)
+    public function setDepth(?int $amount)
     {
-        $this->depth = (int) $amount;
+        $this->depth = $amount;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait DepthTrait
      *
      * @see getDefaultDepth()
      *
-     * @return int|null "depth" value or null if no "depth" value has been set
+     * @return int|null depth or null if no depth has been set
      */
-    public function getDepth()
+    public function getDepth() : ?int 
     {
-        if (!$this->hasDepth() && $this->hasDefaultDepth()) {
+        if ( ! $this->hasDepth()) {
             $this->setDepth($this->getDefaultDepth());
         }
         return $this->depth;
     }
 
     /**
-     * Get a default "depth" value, if any is available
-     *
-     * @return int|null A default "depth" value or null if no default value is available
-     */
-    public function getDefaultDepth()
-    {
-        return null;
-    }
-
-    /**
      * Check if "depth" has been set
      *
-     * @return bool True if "depth" value has been set, false if not
+     * @return bool True if "depth" has been set, false if not
      */
-    public function hasDepth()
+    public function hasDepth() : bool
     {
         return isset($this->depth);
     }
 
     /**
-     * Check if a default "depth" is available or not
+     * Get a default "depth" value, if any is available
      *
-     * @return bool True of a default "depth" value is available, false if not
+     * @return int|null Default "depth" value or null if no default value is available
      */
-    public function hasDefaultDepth()
+    public function getDefaultDepth() : ?int
     {
-        $default = $this->getDefaultDepth();
-        return isset($default);
+        return null;
     }
 }

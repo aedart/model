@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Integers;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Integers;
 
 /**
  * <h1>State Trait</h1>
@@ -11,7 +14,7 @@
 trait StateTrait
 {
     /**
-     * The state of this component or what it represents
+     * State of this component or what it represents
      *
      * @var int|null
      */
@@ -20,13 +23,15 @@ trait StateTrait
     /**
      * Set state
      *
-     * @param int $state The state of this component or what it represents
+     * @param int|null $state State of this component or what it represents
      *
-     * @return void
+     * @return self
      */
-    public function setState($state)
+    public function setState(?int $state)
     {
-        $this->state = (int) $state;
+        $this->state = $state;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait StateTrait
      *
      * @see getDefaultState()
      *
-     * @return int|null "state" value or null if no "state" value has been set
+     * @return int|null state or null if no state has been set
      */
-    public function getState()
+    public function getState() : ?int 
     {
-        if (!$this->hasState() && $this->hasDefaultState()) {
+        if ( ! $this->hasState()) {
             $this->setState($this->getDefaultState());
         }
         return $this->state;
     }
 
     /**
-     * Get a default "state" value, if any is available
-     *
-     * @return int|null A default "state" value or null if no default value is available
-     */
-    public function getDefaultState()
-    {
-        return null;
-    }
-
-    /**
      * Check if "state" has been set
      *
-     * @return bool True if "state" value has been set, false if not
+     * @return bool True if "state" has been set, false if not
      */
-    public function hasState()
+    public function hasState() : bool
     {
         return isset($this->state);
     }
 
     /**
-     * Check if a default "state" is available or not
+     * Get a default "state" value, if any is available
      *
-     * @return bool True of a default "state" value is available, false if not
+     * @return int|null Default "state" value or null if no default value is available
      */
-    public function hasDefaultState()
+    public function getDefaultState() : ?int
     {
-        $default = $this->getDefaultState();
-        return isset($default);
+        return null;
     }
 }

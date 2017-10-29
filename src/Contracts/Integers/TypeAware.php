@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Integers;
+<?php
+
+namespace Aedart\Model\Contracts\Integers;
 
 /**
  * <h1>Type Aware</h1>
@@ -14,11 +16,11 @@ interface TypeAware
     /**
      * Set type
      *
-     * @param int $number The type number of something
+     * @param int|null $identifier Type identifier
      *
-     * @return void
+     * @return self
      */
-    public function setType($number);
+    public function setType(?int $identifier);
 
     /**
      * Get type
@@ -29,28 +31,21 @@ interface TypeAware
      *
      * @see getDefaultType()
      *
-     * @return int|null "type" value or null if no "type" value has been set
+     * @return int|null type or null if no type has been set
      */
-    public function getType();
-
-    /**
-     * Get a default "type" value, if any is available
-     *
-     * @return int|null A default "type" value or null if no default value is available
-     */
-    public function getDefaultType();
+    public function getType() : ?int ;
 
     /**
      * Check if "type" has been set
      *
-     * @return bool True if "type" value has been set, false if not
+     * @return bool True if "type" has been set, false if not
      */
-    public function hasType();
+    public function hasType() : bool;
 
     /**
-     * Check if a default "type" is available or not
+     * Get a default "type" value, if any is available
      *
-     * @return bool True of a default "type" value is available, false if not
+     * @return int|null Default "type" value or null if no default value is available
      */
-    public function hasDefaultType();
+    public function getDefaultType() : ?int;
 }

@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Query Trait</h1>
@@ -20,13 +23,15 @@ trait QueryTrait
     /**
      * Set query
      *
-     * @param string $query Query
+     * @param string|null $query Query
      *
-     * @return void
+     * @return self
      */
-    public function setQuery($query)
+    public function setQuery(?string $query)
     {
-        $this->query = (string) $query;
+        $this->query = $query;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait QueryTrait
      *
      * @see getDefaultQuery()
      *
-     * @return string|null "query" value or null if no "query" value has been set
+     * @return string|null query or null if no query has been set
      */
-    public function getQuery()
+    public function getQuery() : ?string 
     {
-        if (!$this->hasQuery() && $this->hasDefaultQuery()) {
+        if ( ! $this->hasQuery()) {
             $this->setQuery($this->getDefaultQuery());
         }
         return $this->query;
     }
 
     /**
-     * Get a default "query" value, if any is available
-     *
-     * @return string|null A default "query" value or null if no default value is available
-     */
-    public function getDefaultQuery()
-    {
-        return null;
-    }
-
-    /**
      * Check if "query" has been set
      *
-     * @return bool True if "query" value has been set, false if not
+     * @return bool True if "query" has been set, false if not
      */
-    public function hasQuery()
+    public function hasQuery() : bool
     {
         return isset($this->query);
     }
 
     /**
-     * Check if a default "query" is available or not
+     * Get a default "query" value, if any is available
      *
-     * @return bool True of a default "query" value is available, false if not
+     * @return string|null Default "query" value or null if no default value is available
      */
-    public function hasDefaultQuery()
+    public function getDefaultQuery() : ?string
     {
-        $default = $this->getDefaultQuery();
-        return isset($default);
+        return null;
     }
 }

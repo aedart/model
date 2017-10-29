@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Anniversary Trait</h1>
@@ -11,7 +14,7 @@
 trait AnniversaryTrait
 {
     /**
-     * Date of an anniversary
+     * Date of anniversary
      *
      * @var string|null
      */
@@ -20,13 +23,15 @@ trait AnniversaryTrait
     /**
      * Set anniversary
      *
-     * @param string $date Date of an anniversary
+     * @param string|null $anniversary Date of anniversary
      *
-     * @return void
+     * @return self
      */
-    public function setAnniversary($date)
+    public function setAnniversary(?string $anniversary)
     {
-        $this->anniversary = (string) $date;
+        $this->anniversary = $anniversary;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait AnniversaryTrait
      *
      * @see getDefaultAnniversary()
      *
-     * @return string|null "anniversary" value or null if no "anniversary" value has been set
+     * @return string|null anniversary or null if no anniversary has been set
      */
-    public function getAnniversary()
+    public function getAnniversary() : ?string 
     {
-        if (!$this->hasAnniversary() && $this->hasDefaultAnniversary()) {
+        if ( ! $this->hasAnniversary()) {
             $this->setAnniversary($this->getDefaultAnniversary());
         }
         return $this->anniversary;
     }
 
     /**
-     * Get a default "anniversary" value, if any is available
-     *
-     * @return string|null A default "anniversary" value or null if no default value is available
-     */
-    public function getDefaultAnniversary()
-    {
-        return null;
-    }
-
-    /**
      * Check if "anniversary" has been set
      *
-     * @return bool True if "anniversary" value has been set, false if not
+     * @return bool True if "anniversary" has been set, false if not
      */
-    public function hasAnniversary()
+    public function hasAnniversary() : bool
     {
         return isset($this->anniversary);
     }
 
     /**
-     * Check if a default "anniversary" is available or not
+     * Get a default "anniversary" value, if any is available
      *
-     * @return bool True of a default "anniversary" value is available, false if not
+     * @return string|null Default "anniversary" value or null if no default value is available
      */
-    public function hasDefaultAnniversary()
+    public function getDefaultAnniversary() : ?string
     {
-        $default = $this->getDefaultAnniversary();
-        return isset($default);
+        return null;
     }
 }

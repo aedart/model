@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Kind Aware</h1>
@@ -14,11 +16,11 @@ interface KindAware
     /**
      * Set kind
      *
-     * @param string $kind The kind of object this represents, e.g. human, organisation, group, individual...etc
+     * @param string|null $kind The kind of object this represents, e.g. human, organisation, group, individual...etc
      *
-     * @return void
+     * @return self
      */
-    public function setKind($kind);
+    public function setKind(?string $kind);
 
     /**
      * Get kind
@@ -29,28 +31,21 @@ interface KindAware
      *
      * @see getDefaultKind()
      *
-     * @return string|null "kind" value or null if no "kind" value has been set
+     * @return string|null kind or null if no kind has been set
      */
-    public function getKind();
-
-    /**
-     * Get a default "kind" value, if any is available
-     *
-     * @return string|null A default "kind" value or null if no default value is available
-     */
-    public function getDefaultKind();
+    public function getKind() : ?string ;
 
     /**
      * Check if "kind" has been set
      *
-     * @return bool True if "kind" value has been set, false if not
+     * @return bool True if "kind" has been set, false if not
      */
-    public function hasKind();
+    public function hasKind() : bool;
 
     /**
-     * Check if a default "kind" is available or not
+     * Get a default "kind" value, if any is available
      *
-     * @return bool True of a default "kind" value is available, false if not
+     * @return string|null Default "kind" value or null if no default value is available
      */
-    public function hasDefaultKind();
+    public function getDefaultKind() : ?string;
 }

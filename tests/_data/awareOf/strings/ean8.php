@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string ean8'   => [
             \Aedart\Model\Traits\Strings\Ean8Trait::class,
             \Aedart\Model\Contracts\Strings\Ean8Aware::class,
-            $faker->ean8,
-            $faker->ean8,
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Media Type Trait</h1>
@@ -20,13 +23,15 @@ trait MediaTypeTrait
     /**
      * Set media type
      *
-     * @param string $type Media Type (also known as MIME Type), acc. to IANA standard, or perhaps a type name
+     * @param string|null $type Media Type (also known as MIME Type), acc. to IANA standard, or perhaps a type name
      *
-     * @return void
+     * @return self
      */
-    public function setMediaType($type)
+    public function setMediaType(?string $type)
     {
-        $this->mediaType = (string) $type;
+        $this->mediaType = $type;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait MediaTypeTrait
      *
      * @see getDefaultMediaType()
      *
-     * @return string|null "media type" value or null if no "media type" value has been set
+     * @return string|null media type or null if no media type has been set
      */
-    public function getMediaType()
+    public function getMediaType() : ?string 
     {
-        if (!$this->hasMediaType() && $this->hasDefaultMediaType()) {
+        if ( ! $this->hasMediaType()) {
             $this->setMediaType($this->getDefaultMediaType());
         }
         return $this->mediaType;
     }
 
     /**
-     * Get a default "media type" value, if any is available
-     *
-     * @return string|null A default "media type" value or null if no default value is available
-     */
-    public function getDefaultMediaType()
-    {
-        return null;
-    }
-
-    /**
      * Check if "media type" has been set
      *
-     * @return bool True if "media type" value has been set, false if not
+     * @return bool True if "media type" has been set, false if not
      */
-    public function hasMediaType()
+    public function hasMediaType() : bool
     {
         return isset($this->mediaType);
     }
 
     /**
-     * Check if a default "media type" is available or not
+     * Get a default "media type" value, if any is available
      *
-     * @return bool True of a default "media type" value is available, false if not
+     * @return string|null Default "media type" value or null if no default value is available
      */
-    public function hasDefaultMediaType()
+    public function getDefaultMediaType() : ?string
     {
-        $default = $this->getDefaultMediaType();
-        return isset($default);
+        return null;
     }
 }

@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string birthdate'   => [
             \Aedart\Model\Traits\Strings\BirthdateTrait::class,
             \Aedart\Model\Contracts\Strings\BirthdateAware::class,
-            $faker->date(),
-            $faker->date(),
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

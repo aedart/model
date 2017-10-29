@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string buildingNumber'   => [
             \Aedart\Model\Traits\Strings\BuildingNumberTrait::class,
             \Aedart\Model\Contracts\Strings\BuildingNumberAware::class,
-            $faker->buildingNumber,
-            $faker->buildingNumber,
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

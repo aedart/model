@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Locale Trait</h1>
@@ -20,13 +23,15 @@ trait LocaleTrait
     /**
      * Set locale
      *
-     * @param string $code Locale language code, e.g. en_us or other format
+     * @param string|null $code Locale language code, e.g. en_us or other format
      *
-     * @return void
+     * @return self
      */
-    public function setLocale($code)
+    public function setLocale(?string $code)
     {
-        $this->locale = (string) $code;
+        $this->locale = $code;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait LocaleTrait
      *
      * @see getDefaultLocale()
      *
-     * @return string|null "locale" value or null if no "locale" value has been set
+     * @return string|null locale or null if no locale has been set
      */
-    public function getLocale()
+    public function getLocale() : ?string 
     {
-        if (!$this->hasLocale() && $this->hasDefaultLocale()) {
+        if ( ! $this->hasLocale()) {
             $this->setLocale($this->getDefaultLocale());
         }
         return $this->locale;
     }
 
     /**
-     * Get a default "locale" value, if any is available
-     *
-     * @return string|null A default "locale" value or null if no default value is available
-     */
-    public function getDefaultLocale()
-    {
-        return null;
-    }
-
-    /**
      * Check if "locale" has been set
      *
-     * @return bool True if "locale" value has been set, false if not
+     * @return bool True if "locale" has been set, false if not
      */
-    public function hasLocale()
+    public function hasLocale() : bool
     {
         return isset($this->locale);
     }
 
     /**
-     * Check if a default "locale" is available or not
+     * Get a default "locale" value, if any is available
      *
-     * @return bool True of a default "locale" value is available, false if not
+     * @return string|null Default "locale" value or null if no default value is available
      */
-    public function hasDefaultLocale()
+    public function getDefaultLocale() : ?string
     {
-        $default = $this->getDefaultLocale();
-        return isset($default);
+        return null;
     }
 }

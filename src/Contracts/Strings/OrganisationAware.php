@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Organisation Aware</h1>
@@ -14,11 +16,11 @@ interface OrganisationAware
     /**
      * Set organisation
      *
-     * @param string $name Name of an organisation
+     * @param string|null $name Name of organisation
      *
-     * @return void
+     * @return self
      */
-    public function setOrganisation($name);
+    public function setOrganisation(?string $name);
 
     /**
      * Get organisation
@@ -29,28 +31,21 @@ interface OrganisationAware
      *
      * @see getDefaultOrganisation()
      *
-     * @return string|null "organisation" value or null if no "organisation" value has been set
+     * @return string|null organisation or null if no organisation has been set
      */
-    public function getOrganisation();
-
-    /**
-     * Get a default "organisation" value, if any is available
-     *
-     * @return string|null A default "organisation" value or null if no default value is available
-     */
-    public function getDefaultOrganisation();
+    public function getOrganisation() : ?string ;
 
     /**
      * Check if "organisation" has been set
      *
-     * @return bool True if "organisation" value has been set, false if not
+     * @return bool True if "organisation" has been set, false if not
      */
-    public function hasOrganisation();
+    public function hasOrganisation() : bool;
 
     /**
-     * Check if a default "organisation" is available or not
+     * Get a default "organisation" value, if any is available
      *
-     * @return bool True of a default "organisation" value is available, false if not
+     * @return string|null Default "organisation" value or null if no default value is available
      */
-    public function hasDefaultOrganisation();
+    public function getDefaultOrganisation() : ?string;
 }

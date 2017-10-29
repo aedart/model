@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string isbn13'   => [
             \Aedart\Model\Traits\Strings\Isbn13Trait::class,
             \Aedart\Model\Contracts\Strings\Isbn13Aware::class,
-            $faker->isbn13,
-            $faker->isbn13,
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

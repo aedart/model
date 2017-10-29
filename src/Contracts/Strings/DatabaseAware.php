@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Database Aware</h1>
@@ -14,11 +16,11 @@ interface DatabaseAware
     /**
      * Set database
      *
-     * @param string $name Name of a database
+     * @param string|null $name Name of database
      *
-     * @return void
+     * @return self
      */
-    public function setDatabase($name);
+    public function setDatabase(?string $name);
 
     /**
      * Get database
@@ -29,28 +31,21 @@ interface DatabaseAware
      *
      * @see getDefaultDatabase()
      *
-     * @return string|null "database" value or null if no "database" value has been set
+     * @return string|null database or null if no database has been set
      */
-    public function getDatabase();
-
-    /**
-     * Get a default "database" value, if any is available
-     *
-     * @return string|null A default "database" value or null if no default value is available
-     */
-    public function getDefaultDatabase();
+    public function getDatabase() : ?string ;
 
     /**
      * Check if "database" has been set
      *
-     * @return bool True if "database" value has been set, false if not
+     * @return bool True if "database" has been set, false if not
      */
-    public function hasDatabase();
+    public function hasDatabase() : bool;
 
     /**
-     * Check if a default "database" is available or not
+     * Get a default "database" value, if any is available
      *
-     * @return bool True of a default "database" value is available, false if not
+     * @return string|null Default "database" value or null if no default value is available
      */
-    public function hasDefaultDatabase();
+    public function getDefaultDatabase() : ?string;
 }

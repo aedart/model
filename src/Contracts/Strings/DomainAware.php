@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Domain Aware</h1>
@@ -14,11 +16,11 @@ interface DomainAware
     /**
      * Set domain
      *
-     * @param string $value Name, URL, territory or term that describes a given domain... etc
+     * @param string|null $domain Name, URL, territory or term that describes a given domain... etc
      *
-     * @return void
+     * @return self
      */
-    public function setDomain($value);
+    public function setDomain(?string $domain);
 
     /**
      * Get domain
@@ -29,28 +31,21 @@ interface DomainAware
      *
      * @see getDefaultDomain()
      *
-     * @return string|null "domain" value or null if no "domain" value has been set
+     * @return string|null domain or null if no domain has been set
      */
-    public function getDomain();
-
-    /**
-     * Get a default "domain" value, if any is available
-     *
-     * @return string|null A default "domain" value or null if no default value is available
-     */
-    public function getDefaultDomain();
+    public function getDomain() : ?string ;
 
     /**
      * Check if "domain" has been set
      *
-     * @return bool True if "domain" value has been set, false if not
+     * @return bool True if "domain" has been set, false if not
      */
-    public function hasDomain();
+    public function hasDomain() : bool;
 
     /**
-     * Check if a default "domain" is available or not
+     * Get a default "domain" value, if any is available
      *
-     * @return bool True of a default "domain" value is available, false if not
+     * @return string|null Default "domain" value or null if no default value is available
      */
-    public function hasDefaultDomain();
+    public function getDefaultDomain() : ?string;
 }

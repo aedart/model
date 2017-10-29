@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Isbn13 Trait</h1>
@@ -11,7 +14,7 @@
 trait Isbn13Trait
 {
     /**
-     * International Standard Book Number (ISBN), 13-digit
+     * International Standard Book Number (ISBN), 13-digits
      *
      * @var string|null
      */
@@ -20,13 +23,15 @@ trait Isbn13Trait
     /**
      * Set isbn13
      *
-     * @param string $isbn13 International Standard Book Number (ISBN), 13-digit
+     * @param string|null $ibn13 International Standard Book Number (ISBN), 13-digits
      *
-     * @return void
+     * @return self
      */
-    public function setIsbn13($isbn13)
+    public function setIsbn13(?string $ibn13)
     {
-        $this->isbn13 = (string) $isbn13;
+        $this->isbn13 = $ibn13;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait Isbn13Trait
      *
      * @see getDefaultIsbn13()
      *
-     * @return string|null "isbn13" value or null if no "isbn13" value has been set
+     * @return string|null isbn13 or null if no isbn13 has been set
      */
-    public function getIsbn13()
+    public function getIsbn13() : ?string 
     {
-        if (!$this->hasIsbn13() && $this->hasDefaultIsbn13()) {
+        if ( ! $this->hasIsbn13()) {
             $this->setIsbn13($this->getDefaultIsbn13());
         }
         return $this->isbn13;
     }
 
     /**
-     * Get a default "isbn13" value, if any is available
-     *
-     * @return string|null A default "isbn13" value or null if no default value is available
-     */
-    public function getDefaultIsbn13()
-    {
-        return null;
-    }
-
-    /**
      * Check if "isbn13" has been set
      *
-     * @return bool True if "isbn13" value has been set, false if not
+     * @return bool True if "isbn13" has been set, false if not
      */
-    public function hasIsbn13()
+    public function hasIsbn13() : bool
     {
         return isset($this->isbn13);
     }
 
     /**
-     * Check if a default "isbn13" is available or not
+     * Get a default "isbn13" value, if any is available
      *
-     * @return bool True of a default "isbn13" value is available, false if not
+     * @return string|null Default "isbn13" value or null if no default value is available
      */
-    public function hasDefaultIsbn13()
+    public function getDefaultIsbn13() : ?string
     {
-        $default = $this->getDefaultIsbn13();
-        return isset($default);
+        return null;
     }
 }

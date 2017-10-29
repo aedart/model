@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Script Trait</h1>
@@ -11,7 +14,7 @@
 trait ScriptTrait
 {
     /**
-     * Script of some kind
+     * Script of some kind or path to some script
      *
      * @var string|null
      */
@@ -20,13 +23,15 @@ trait ScriptTrait
     /**
      * Set script
      *
-     * @param string $script Script of some kind
+     * @param string|null $script Script of some kind or path to some script
      *
-     * @return void
+     * @return self
      */
-    public function setScript($script)
+    public function setScript(?string $script)
     {
-        $this->script = (string) $script;
+        $this->script = $script;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait ScriptTrait
      *
      * @see getDefaultScript()
      *
-     * @return string|null "script" value or null if no "script" value has been set
+     * @return string|null script or null if no script has been set
      */
-    public function getScript()
+    public function getScript() : ?string 
     {
-        if (!$this->hasScript() && $this->hasDefaultScript()) {
+        if ( ! $this->hasScript()) {
             $this->setScript($this->getDefaultScript());
         }
         return $this->script;
     }
 
     /**
-     * Get a default "script" value, if any is available
-     *
-     * @return string|null A default "script" value or null if no default value is available
-     */
-    public function getDefaultScript()
-    {
-        return null;
-    }
-
-    /**
      * Check if "script" has been set
      *
-     * @return bool True if "script" value has been set, false if not
+     * @return bool True if "script" has been set, false if not
      */
-    public function hasScript()
+    public function hasScript() : bool
     {
         return isset($this->script);
     }
 
     /**
-     * Check if a default "script" is available or not
+     * Get a default "script" value, if any is available
      *
-     * @return bool True of a default "script" value is available, false if not
+     * @return string|null Default "script" value or null if no default value is available
      */
-    public function hasDefaultScript()
+    public function getDefaultScript() : ?string
     {
-        $default = $this->getDefaultScript();
-        return isset($default);
+        return null;
     }
 }

@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Middle Name Trait</h1>
@@ -20,13 +23,15 @@ trait MiddleNameTrait
     /**
      * Set middle name
      *
-     * @param string $name Middle Name or names of a person
+     * @param string|null $name Middle Name or names of a person
      *
-     * @return void
+     * @return self
      */
-    public function setMiddleName($name)
+    public function setMiddleName(?string $name)
     {
-        $this->middleName = (string) $name;
+        $this->middleName = $name;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait MiddleNameTrait
      *
      * @see getDefaultMiddleName()
      *
-     * @return string|null "middle name" value or null if no "middle name" value has been set
+     * @return string|null middle name or null if no middle name has been set
      */
-    public function getMiddleName()
+    public function getMiddleName() : ?string 
     {
-        if (!$this->hasMiddleName() && $this->hasDefaultMiddleName()) {
+        if ( ! $this->hasMiddleName()) {
             $this->setMiddleName($this->getDefaultMiddleName());
         }
         return $this->middleName;
     }
 
     /**
-     * Get a default "middle name" value, if any is available
-     *
-     * @return string|null A default "middle name" value or null if no default value is available
-     */
-    public function getDefaultMiddleName()
-    {
-        return null;
-    }
-
-    /**
      * Check if "middle name" has been set
      *
-     * @return bool True if "middle name" value has been set, false if not
+     * @return bool True if "middle name" has been set, false if not
      */
-    public function hasMiddleName()
+    public function hasMiddleName() : bool
     {
         return isset($this->middleName);
     }
 
     /**
-     * Check if a default "middle name" is available or not
+     * Get a default "middle name" value, if any is available
      *
-     * @return bool True of a default "middle name" value is available, false if not
+     * @return string|null Default "middle name" value or null if no default value is available
      */
-    public function hasDefaultMiddleName()
+    public function getDefaultMiddleName() : ?string
     {
-        $default = $this->getDefaultMiddleName();
-        return isset($default);
+        return null;
     }
 }

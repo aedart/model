@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Output Path Aware</h1>
@@ -14,11 +16,11 @@ interface OutputPathAware
     /**
      * Set output path
      *
-     * @param string $path Location of where some kind of output must be placed or written to
+     * @param string|null $path Location of where some kind of output must be placed or written to
      *
-     * @return void
+     * @return self
      */
-    public function setOutputPath($path);
+    public function setOutputPath(?string $path);
 
     /**
      * Get output path
@@ -29,28 +31,21 @@ interface OutputPathAware
      *
      * @see getDefaultOutputPath()
      *
-     * @return string|null "output path" value or null if no "output path" value has been set
+     * @return string|null output path or null if no output path has been set
      */
-    public function getOutputPath();
-
-    /**
-     * Get a default "output path" value, if any is available
-     *
-     * @return string|null A default "output path" value or null if no default value is available
-     */
-    public function getDefaultOutputPath();
+    public function getOutputPath() : ?string ;
 
     /**
      * Check if "output path" has been set
      *
-     * @return bool True if "output path" value has been set, false if not
+     * @return bool True if "output path" has been set, false if not
      */
-    public function hasOutputPath();
+    public function hasOutputPath() : bool;
 
     /**
-     * Check if a default "output path" is available or not
+     * Get a default "output path" value, if any is available
      *
-     * @return bool True of a default "output path" value is available, false if not
+     * @return string|null Default "output path" value or null if no default value is available
      */
-    public function hasDefaultOutputPath();
+    public function getDefaultOutputPath() : ?string;
 }

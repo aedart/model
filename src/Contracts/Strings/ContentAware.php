@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Content Aware</h1>
@@ -14,11 +16,11 @@ interface ContentAware
     /**
      * Set content
      *
-     * @param string $content Content
+     * @param string|null $content Content
      *
-     * @return void
+     * @return self
      */
-    public function setContent($content);
+    public function setContent(?string $content);
 
     /**
      * Get content
@@ -29,28 +31,21 @@ interface ContentAware
      *
      * @see getDefaultContent()
      *
-     * @return string|null "content" value or null if no "content" value has been set
+     * @return string|null content or null if no content has been set
      */
-    public function getContent();
-
-    /**
-     * Get a default "content" value, if any is available
-     *
-     * @return string|null A default "content" value or null if no default value is available
-     */
-    public function getDefaultContent();
+    public function getContent() : ?string ;
 
     /**
      * Check if "content" has been set
      *
-     * @return bool True if "content" value has been set, false if not
+     * @return bool True if "content" has been set, false if not
      */
-    public function hasContent();
+    public function hasContent() : bool;
 
     /**
-     * Check if a default "content" is available or not
+     * Get a default "content" value, if any is available
      *
-     * @return bool True of a default "content" value is available, false if not
+     * @return string|null Default "content" value or null if no default value is available
      */
-    public function hasDefaultContent();
+    public function getDefaultContent() : ?string;
 }

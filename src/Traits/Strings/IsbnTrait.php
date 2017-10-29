@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Isbn Trait</h1>
@@ -20,13 +23,15 @@ trait IsbnTrait
     /**
      * Set isbn
      *
-     * @param string $isbn International Standard Book Number (ISBN)
+     * @param string|null $isbn International Standard Book Number (ISBN)
      *
-     * @return void
+     * @return self
      */
-    public function setIsbn($isbn)
+    public function setIsbn(?string $isbn)
     {
-        $this->isbn = (string) $isbn;
+        $this->isbn = $isbn;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait IsbnTrait
      *
      * @see getDefaultIsbn()
      *
-     * @return string|null "isbn" value or null if no "isbn" value has been set
+     * @return string|null isbn or null if no isbn has been set
      */
-    public function getIsbn()
+    public function getIsbn() : ?string 
     {
-        if (!$this->hasIsbn() && $this->hasDefaultIsbn()) {
+        if ( ! $this->hasIsbn()) {
             $this->setIsbn($this->getDefaultIsbn());
         }
         return $this->isbn;
     }
 
     /**
-     * Get a default "isbn" value, if any is available
-     *
-     * @return string|null A default "isbn" value or null if no default value is available
-     */
-    public function getDefaultIsbn()
-    {
-        return null;
-    }
-
-    /**
      * Check if "isbn" has been set
      *
-     * @return bool True if "isbn" value has been set, false if not
+     * @return bool True if "isbn" has been set, false if not
      */
-    public function hasIsbn()
+    public function hasIsbn() : bool
     {
         return isset($this->isbn);
     }
 
     /**
-     * Check if a default "isbn" is available or not
+     * Get a default "isbn" value, if any is available
      *
-     * @return bool True of a default "isbn" value is available, false if not
+     * @return string|null Default "isbn" value or null if no default value is available
      */
-    public function hasDefaultIsbn()
+    public function getDefaultIsbn() : ?string
     {
-        $default = $this->getDefaultIsbn();
-        return isset($default);
+        return null;
     }
 }

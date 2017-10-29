@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Arrays;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Arrays;
 
 /**
  * <h1>Tags Trait</h1>
@@ -11,22 +14,24 @@
 trait TagsTrait
 {
     /**
-     * List of tag names
+     * List of tags
      *
-     * @var string[]|null
+     * @var array|null
      */
     protected $tags = null;
 
     /**
      * Set tags
      *
-     * @param string[] $list List of tag names
+     * @param array|null $tags List of tags
      *
-     * @return void
+     * @return self
      */
-    public function setTags(array $list)
+    public function setTags(?array $tags)
     {
-        $this->tags = $list;
+        $this->tags = $tags;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait TagsTrait
      *
      * @see getDefaultTags()
      *
-     * @return string[]|null "tags" value or null if no "tags" value has been set
+     * @return array|null tags or null if no tags has been set
      */
-    public function getTags()
+    public function getTags() : ?array 
     {
-        if (!$this->hasTags() && $this->hasDefaultTags()) {
+        if ( ! $this->hasTags()) {
             $this->setTags($this->getDefaultTags());
         }
         return $this->tags;
     }
 
     /**
-     * Get a default "tags" value, if any is available
-     *
-     * @return string[]|null A default "tags" value or null if no default value is available
-     */
-    public function getDefaultTags()
-    {
-        return null;
-    }
-
-    /**
      * Check if "tags" has been set
      *
-     * @return bool True if "tags" value has been set, false if not
+     * @return bool True if "tags" has been set, false if not
      */
-    public function hasTags()
+    public function hasTags() : bool
     {
         return isset($this->tags);
     }
 
     /**
-     * Check if a default "tags" is available or not
+     * Get a default "tags" value, if any is available
      *
-     * @return bool True of a default "tags" value is available, false if not
+     * @return array|null Default "tags" value or null if no default value is available
      */
-    public function hasDefaultTags()
+    public function getDefaultTags() : ?array
     {
-        $default = $this->getDefaultTags();
-        return isset($default);
+        return null;
     }
 }

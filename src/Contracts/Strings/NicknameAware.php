@@ -1,56 +1,51 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
- * <h1>Nickname Aware</h1>
+ * <h1>Nick Name Aware</h1>
  *
- * Component is aware of a string "nickname" value, which can
+ * Component is aware of a string "nick name" value, which can
  * also be specified.
  *
  * @author Alin Eugen Deac <aedart@gmail.com>
  * @package Aedart\Model\Contracts\Strings
  */
-interface NicknameAware
+interface NickNameAware
 {
     /**
-     * Set nickname
+     * Set nick name
      *
-     * @param string $name Nickname of someone or something
+     * @param string|null $name Nickname of someone or something
      *
-     * @return void
+     * @return self
      */
-    public function setNickname($name);
+    public function setNickName(?string $name);
 
     /**
-     * Get nickname
+     * Get nick name
      *
-     * If no "nickname" value has been set, this method will
-     * set and return a default "nickname" value,
+     * If no "nick name" value has been set, this method will
+     * set and return a default "nick name" value,
      * if any such value is available
      *
-     * @see getDefaultNickname()
+     * @see getDefaultNickName()
      *
-     * @return string|null "nickname" value or null if no "nickname" value has been set
+     * @return string|null nick name or null if no nick name has been set
      */
-    public function getNickname();
+    public function getNickName() : ?string ;
 
     /**
-     * Get a default "nickname" value, if any is available
+     * Check if "nick name" has been set
      *
-     * @return string|null A default "nickname" value or null if no default value is available
+     * @return bool True if "nick name" has been set, false if not
      */
-    public function getDefaultNickname();
+    public function hasNickName() : bool;
 
     /**
-     * Check if "nickname" has been set
+     * Get a default "nick name" value, if any is available
      *
-     * @return bool True if "nickname" value has been set, false if not
+     * @return string|null Default "nick name" value or null if no default value is available
      */
-    public function hasNickname();
-
-    /**
-     * Check if a default "nickname" is available or not
-     *
-     * @return bool True of a default "nickname" value is available, false if not
-     */
-    public function hasDefaultNickname();
+    public function getDefaultNickName() : ?string;
 }

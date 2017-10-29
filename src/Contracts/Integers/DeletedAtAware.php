@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Integers;
+<?php
+
+namespace Aedart\Model\Contracts\Integers;
 
 /**
  * <h1>Deleted At Aware</h1>
@@ -14,11 +16,11 @@ interface DeletedAtAware
     /**
      * Set deleted at
      *
-     * @param int $date Date (UNIX timestamp) of when this component, entity or resource was deleted
+     * @param int|null $date Date of when this component, entity or resource was deleted
      *
-     * @return void
+     * @return self
      */
-    public function setDeletedAt($date);
+    public function setDeletedAt(?int $date);
 
     /**
      * Get deleted at
@@ -29,28 +31,21 @@ interface DeletedAtAware
      *
      * @see getDefaultDeletedAt()
      *
-     * @return int|null "deleted at" value or null if no "deleted at" value has been set
+     * @return int|null deleted at or null if no deleted at has been set
      */
-    public function getDeletedAt();
-
-    /**
-     * Get a default "deleted at" value, if any is available
-     *
-     * @return int|null A default "deleted at" value or null if no default value is available
-     */
-    public function getDefaultDeletedAt();
+    public function getDeletedAt() : ?int ;
 
     /**
      * Check if "deleted at" has been set
      *
-     * @return bool True if "deleted at" value has been set, false if not
+     * @return bool True if "deleted at" has been set, false if not
      */
-    public function hasDeletedAt();
+    public function hasDeletedAt() : bool;
 
     /**
-     * Check if a default "deleted at" is available or not
+     * Get a default "deleted at" value, if any is available
      *
-     * @return bool True of a default "deleted at" value is available, false if not
+     * @return int|null Default "deleted at" value or null if no default value is available
      */
-    public function hasDefaultDeletedAt();
+    public function getDefaultDeletedAt() : ?int;
 }

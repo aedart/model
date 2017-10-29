@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Card Type Trait</h1>
@@ -20,13 +23,15 @@ trait CardTypeTrait
     /**
      * Set card type
      *
-     * @param string $type The type of card, e.g. VISA, MasterCard, Playing Card, Magic Card... etc
+     * @param string|null $type The type of card, e.g. VISA, MasterCard, Playing Card, Magic Card... etc
      *
-     * @return void
+     * @return self
      */
-    public function setCardType($type)
+    public function setCardType(?string $type)
     {
-        $this->cardType = (string) $type;
+        $this->cardType = $type;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait CardTypeTrait
      *
      * @see getDefaultCardType()
      *
-     * @return string|null "card type" value or null if no "card type" value has been set
+     * @return string|null card type or null if no card type has been set
      */
-    public function getCardType()
+    public function getCardType() : ?string 
     {
-        if (!$this->hasCardType() && $this->hasDefaultCardType()) {
+        if ( ! $this->hasCardType()) {
             $this->setCardType($this->getDefaultCardType());
         }
         return $this->cardType;
     }
 
     /**
-     * Get a default "card type" value, if any is available
-     *
-     * @return string|null A default "card type" value or null if no default value is available
-     */
-    public function getDefaultCardType()
-    {
-        return null;
-    }
-
-    /**
      * Check if "card type" has been set
      *
-     * @return bool True if "card type" value has been set, false if not
+     * @return bool True if "card type" has been set, false if not
      */
-    public function hasCardType()
+    public function hasCardType() : bool
     {
         return isset($this->cardType);
     }
 
     /**
-     * Check if a default "card type" is available or not
+     * Get a default "card type" value, if any is available
      *
-     * @return bool True of a default "card type" value is available, false if not
+     * @return string|null Default "card type" value or null if no default value is available
      */
-    public function hasDefaultCardType()
+    public function getDefaultCardType() : ?string
     {
-        $default = $this->getDefaultCardType();
-        return isset($default);
+        return null;
     }
 }

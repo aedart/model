@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Integers;
+<?php
+
+namespace Aedart\Model\Contracts\Integers;
 
 /**
  * <h1>Timestamp Aware</h1>
@@ -14,11 +16,11 @@ interface TimestampAware
     /**
      * Set timestamp
      *
-     * @param int $timestamp Unix timestamp
+     * @param int|null $timestamp Unix timestamp
      *
-     * @return void
+     * @return self
      */
-    public function setTimestamp($timestamp);
+    public function setTimestamp(?int $timestamp);
 
     /**
      * Get timestamp
@@ -29,28 +31,21 @@ interface TimestampAware
      *
      * @see getDefaultTimestamp()
      *
-     * @return int|null "timestamp" value or null if no "timestamp" value has been set
+     * @return int|null timestamp or null if no timestamp has been set
      */
-    public function getTimestamp();
-
-    /**
-     * Get a default "timestamp" value, if any is available
-     *
-     * @return int|null A default "timestamp" value or null if no default value is available
-     */
-    public function getDefaultTimestamp();
+    public function getTimestamp() : ?int ;
 
     /**
      * Check if "timestamp" has been set
      *
-     * @return bool True if "timestamp" value has been set, false if not
+     * @return bool True if "timestamp" has been set, false if not
      */
-    public function hasTimestamp();
+    public function hasTimestamp() : bool;
 
     /**
-     * Check if a default "timestamp" is available or not
+     * Get a default "timestamp" value, if any is available
      *
-     * @return bool True of a default "timestamp" value is available, false if not
+     * @return int|null Default "timestamp" value or null if no default value is available
      */
-    public function hasDefaultTimestamp();
+    public function getDefaultTimestamp() : ?int;
 }

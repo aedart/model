@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Revision Trait</h1>
@@ -11,7 +14,7 @@
 trait RevisionTrait
 {
     /**
-     * A revision, path number or other identifier
+     * A revision, batch number or other identifier
      *
      * @var string|null
      */
@@ -20,13 +23,15 @@ trait RevisionTrait
     /**
      * Set revision
      *
-     * @param string $revision A revision, path number or other identifier
+     * @param string|null $revision A revision, batch number or other identifier
      *
-     * @return void
+     * @return self
      */
-    public function setRevision($revision)
+    public function setRevision(?string $revision)
     {
-        $this->revision = (string) $revision;
+        $this->revision = $revision;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait RevisionTrait
      *
      * @see getDefaultRevision()
      *
-     * @return string|null "revision" value or null if no "revision" value has been set
+     * @return string|null revision or null if no revision has been set
      */
-    public function getRevision()
+    public function getRevision() : ?string 
     {
-        if (!$this->hasRevision() && $this->hasDefaultRevision()) {
+        if ( ! $this->hasRevision()) {
             $this->setRevision($this->getDefaultRevision());
         }
         return $this->revision;
     }
 
     /**
-     * Get a default "revision" value, if any is available
-     *
-     * @return string|null A default "revision" value or null if no default value is available
-     */
-    public function getDefaultRevision()
-    {
-        return null;
-    }
-
-    /**
      * Check if "revision" has been set
      *
-     * @return bool True if "revision" value has been set, false if not
+     * @return bool True if "revision" has been set, false if not
      */
-    public function hasRevision()
+    public function hasRevision() : bool
     {
         return isset($this->revision);
     }
 
     /**
-     * Check if a default "revision" is available or not
+     * Get a default "revision" value, if any is available
      *
-     * @return bool True of a default "revision" value is available, false if not
+     * @return string|null Default "revision" value or null if no default value is available
      */
-    public function hasDefaultRevision()
+    public function getDefaultRevision() : ?string
     {
-        $default = $this->getDefaultRevision();
-        return isset($default);
+        return null;
     }
 }

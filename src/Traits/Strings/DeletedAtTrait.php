@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Deleted At Trait</h1>
@@ -20,13 +23,15 @@ trait DeletedAtTrait
     /**
      * Set deleted at
      *
-     * @param string $date Date of when this component, entity or resource was deleted
+     * @param string|null $date Date of when this component, entity or resource was deleted
      *
-     * @return void
+     * @return self
      */
-    public function setDeletedAt($date)
+    public function setDeletedAt(?string $date)
     {
-        $this->deletedAt = (string) $date;
+        $this->deletedAt = $date;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait DeletedAtTrait
      *
      * @see getDefaultDeletedAt()
      *
-     * @return string|null "deleted at" value or null if no "deleted at" value has been set
+     * @return string|null deleted at or null if no deleted at has been set
      */
-    public function getDeletedAt()
+    public function getDeletedAt() : ?string 
     {
-        if (!$this->hasDeletedAt() && $this->hasDefaultDeletedAt()) {
+        if ( ! $this->hasDeletedAt()) {
             $this->setDeletedAt($this->getDefaultDeletedAt());
         }
         return $this->deletedAt;
     }
 
     /**
-     * Get a default "deleted at" value, if any is available
-     *
-     * @return string|null A default "deleted at" value or null if no default value is available
-     */
-    public function getDefaultDeletedAt()
-    {
-        return null;
-    }
-
-    /**
      * Check if "deleted at" has been set
      *
-     * @return bool True if "deleted at" value has been set, false if not
+     * @return bool True if "deleted at" has been set, false if not
      */
-    public function hasDeletedAt()
+    public function hasDeletedAt() : bool
     {
         return isset($this->deletedAt);
     }
 
     /**
-     * Check if a default "deleted at" is available or not
+     * Get a default "deleted at" value, if any is available
      *
-     * @return bool True of a default "deleted at" value is available, false if not
+     * @return string|null Default "deleted at" value or null if no default value is available
      */
-    public function hasDefaultDeletedAt()
+    public function getDefaultDeletedAt() : ?string
     {
-        $default = $this->getDefaultDeletedAt();
-        return isset($default);
+        return null;
     }
 }

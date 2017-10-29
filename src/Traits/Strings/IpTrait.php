@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Ip Trait</h1>
@@ -20,13 +23,15 @@ trait IpTrait
     /**
      * Set ip
      *
-     * @param string $address IP address
+     * @param string|null $address IP address
      *
-     * @return void
+     * @return self
      */
-    public function setIp($address)
+    public function setIp(?string $address)
     {
-        $this->ip = (string) $address;
+        $this->ip = $address;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait IpTrait
      *
      * @see getDefaultIp()
      *
-     * @return string|null "ip" value or null if no "ip" value has been set
+     * @return string|null ip or null if no ip has been set
      */
-    public function getIp()
+    public function getIp() : ?string 
     {
-        if (!$this->hasIp() && $this->hasDefaultIp()) {
+        if ( ! $this->hasIp()) {
             $this->setIp($this->getDefaultIp());
         }
         return $this->ip;
     }
 
     /**
-     * Get a default "ip" value, if any is available
-     *
-     * @return string|null A default "ip" value or null if no default value is available
-     */
-    public function getDefaultIp()
-    {
-        return null;
-    }
-
-    /**
      * Check if "ip" has been set
      *
-     * @return bool True if "ip" value has been set, false if not
+     * @return bool True if "ip" has been set, false if not
      */
-    public function hasIp()
+    public function hasIp() : bool
     {
         return isset($this->ip);
     }
 
     /**
-     * Check if a default "ip" is available or not
+     * Get a default "ip" value, if any is available
      *
-     * @return bool True of a default "ip" value is available, false if not
+     * @return string|null Default "ip" value or null if no default value is available
      */
-    public function hasDefaultIp()
+    public function getDefaultIp() : ?string
     {
-        $default = $this->getDefaultIp();
-        return isset($default);
+        return null;
     }
 }

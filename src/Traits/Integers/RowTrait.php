@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Integers;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Integers;
 
 /**
  * <h1>Row Trait</h1>
@@ -20,13 +23,15 @@ trait RowTrait
     /**
      * Set row
      *
-     * @param int $identifier A row identifier
+     * @param int|null $identifier A row identifier
      *
-     * @return void
+     * @return self
      */
-    public function setRow($identifier)
+    public function setRow(?int $identifier)
     {
-        $this->row = (int) $identifier;
+        $this->row = $identifier;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait RowTrait
      *
      * @see getDefaultRow()
      *
-     * @return int|null "row" value or null if no "row" value has been set
+     * @return int|null row or null if no row has been set
      */
-    public function getRow()
+    public function getRow() : ?int 
     {
-        if (!$this->hasRow() && $this->hasDefaultRow()) {
+        if ( ! $this->hasRow()) {
             $this->setRow($this->getDefaultRow());
         }
         return $this->row;
     }
 
     /**
-     * Get a default "row" value, if any is available
-     *
-     * @return int|null A default "row" value or null if no default value is available
-     */
-    public function getDefaultRow()
-    {
-        return null;
-    }
-
-    /**
      * Check if "row" has been set
      *
-     * @return bool True if "row" value has been set, false if not
+     * @return bool True if "row" has been set, false if not
      */
-    public function hasRow()
+    public function hasRow() : bool
     {
         return isset($this->row);
     }
 
     /**
-     * Check if a default "row" is available or not
+     * Get a default "row" value, if any is available
      *
-     * @return bool True of a default "row" value is available, false if not
+     * @return int|null Default "row" value or null if no default value is available
      */
-    public function hasDefaultRow()
+    public function getDefaultRow() : ?int
     {
-        $default = $this->getDefaultRow();
-        return isset($default);
+        return null;
     }
 }

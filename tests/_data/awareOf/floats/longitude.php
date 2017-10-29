@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'float longitude'   => [
             \Aedart\Model\Traits\Floats\LongitudeTrait::class,
             \Aedart\Model\Contracts\Floats\LongitudeAware::class,
-            $faker->longitude,
-            $faker->longitude,
+            $faker->randomFloat($faker->randomDigitNotNull),
+            $faker->randomFloat($faker->randomDigitNotNull),
         ]
     ];
 };

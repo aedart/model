@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Street Trait</h1>
@@ -11,7 +14,7 @@
 trait StreetTrait
 {
     /**
-     * Full street address, which might include building or appartment number(s)
+     * Full street address, which might include building or apartment number(s)
      *
      * @var string|null
      */
@@ -20,13 +23,15 @@ trait StreetTrait
     /**
      * Set street
      *
-     * @param string $address Full street address, which might include building or appartment number(s)
+     * @param string|null $address Full street address, which might include building or apartment number(s)
      *
-     * @return void
+     * @return self
      */
-    public function setStreet($address)
+    public function setStreet(?string $address)
     {
-        $this->street = (string) $address;
+        $this->street = $address;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait StreetTrait
      *
      * @see getDefaultStreet()
      *
-     * @return string|null "street" value or null if no "street" value has been set
+     * @return string|null street or null if no street has been set
      */
-    public function getStreet()
+    public function getStreet() : ?string 
     {
-        if (!$this->hasStreet() && $this->hasDefaultStreet()) {
+        if ( ! $this->hasStreet()) {
             $this->setStreet($this->getDefaultStreet());
         }
         return $this->street;
     }
 
     /**
-     * Get a default "street" value, if any is available
-     *
-     * @return string|null A default "street" value or null if no default value is available
-     */
-    public function getDefaultStreet()
-    {
-        return null;
-    }
-
-    /**
      * Check if "street" has been set
      *
-     * @return bool True if "street" value has been set, false if not
+     * @return bool True if "street" has been set, false if not
      */
-    public function hasStreet()
+    public function hasStreet() : bool
     {
         return isset($this->street);
     }
 
     /**
-     * Check if a default "street" is available or not
+     * Get a default "street" value, if any is available
      *
-     * @return bool True of a default "street" value is available, false if not
+     * @return string|null Default "street" value or null if no default value is available
      */
-    public function hasDefaultStreet()
+    public function getDefaultStreet() : ?string
     {
-        $default = $this->getDefaultStreet();
-        return isset($default);
+        return null;
     }
 }

@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Class Aware</h1>
@@ -14,11 +16,11 @@ interface ClassAware
     /**
      * Set class
      *
-     * @param string $class The class of something or perhaps a class path
+     * @param string|null $class The class of something or perhaps a class path
      *
-     * @return void
+     * @return self
      */
-    public function setClass($class);
+    public function setClass(?string $class);
 
     /**
      * Get class
@@ -29,28 +31,21 @@ interface ClassAware
      *
      * @see getDefaultClass()
      *
-     * @return string|null "class" value or null if no "class" value has been set
+     * @return string|null class or null if no class has been set
      */
-    public function getClass();
-
-    /**
-     * Get a default "class" value, if any is available
-     *
-     * @return string|null A default "class" value or null if no default value is available
-     */
-    public function getDefaultClass();
+    public function getClass() : ?string ;
 
     /**
      * Check if "class" has been set
      *
-     * @return bool True if "class" value has been set, false if not
+     * @return bool True if "class" has been set, false if not
      */
-    public function hasClass();
+    public function hasClass() : bool;
 
     /**
-     * Check if a default "class" is available or not
+     * Get a default "class" value, if any is available
      *
-     * @return bool True of a default "class" value is available, false if not
+     * @return string|null Default "class" value or null if no default value is available
      */
-    public function hasDefaultClass();
+    public function getDefaultClass() : ?string;
 }

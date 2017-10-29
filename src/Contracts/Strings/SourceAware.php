@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Source Aware</h1>
@@ -14,11 +16,11 @@ interface SourceAware
     /**
      * Set source
      *
-     * @param string $source The source of something. E.g. location, reference, index key, or other identifier that can be used to determine the source
+     * @param string|null $source The source of something. E.g. location, reference, index key, or other identifier that can be used to determine the source
      *
-     * @return void
+     * @return self
      */
-    public function setSource($source);
+    public function setSource(?string $source);
 
     /**
      * Get source
@@ -29,28 +31,21 @@ interface SourceAware
      *
      * @see getDefaultSource()
      *
-     * @return string|null "source" value or null if no "source" value has been set
+     * @return string|null source or null if no source has been set
      */
-    public function getSource();
-
-    /**
-     * Get a default "source" value, if any is available
-     *
-     * @return string|null A default "source" value or null if no default value is available
-     */
-    public function getDefaultSource();
+    public function getSource() : ?string ;
 
     /**
      * Check if "source" has been set
      *
-     * @return bool True if "source" value has been set, false if not
+     * @return bool True if "source" has been set, false if not
      */
-    public function hasSource();
+    public function hasSource() : bool;
 
     /**
-     * Check if a default "source" is available or not
+     * Get a default "source" value, if any is available
      *
-     * @return bool True of a default "source" value is available, false if not
+     * @return string|null Default "source" value or null if no default value is available
      */
-    public function hasDefaultSource();
+    public function getDefaultSource() : ?string;
 }

@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Company Trait</h1>
@@ -11,7 +14,7 @@
 trait CompanyTrait
 {
     /**
-     * Name of a company
+     * Name of company
      *
      * @var string|null
      */
@@ -20,13 +23,15 @@ trait CompanyTrait
     /**
      * Set company
      *
-     * @param string $name Name of a company
+     * @param string|null $name Name of company
      *
-     * @return void
+     * @return self
      */
-    public function setCompany($name)
+    public function setCompany(?string $name)
     {
-        $this->company = (string) $name;
+        $this->company = $name;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait CompanyTrait
      *
      * @see getDefaultCompany()
      *
-     * @return string|null "company" value or null if no "company" value has been set
+     * @return string|null company or null if no company has been set
      */
-    public function getCompany()
+    public function getCompany() : ?string 
     {
-        if (!$this->hasCompany() && $this->hasDefaultCompany()) {
+        if ( ! $this->hasCompany()) {
             $this->setCompany($this->getDefaultCompany());
         }
         return $this->company;
     }
 
     /**
-     * Get a default "company" value, if any is available
-     *
-     * @return string|null A default "company" value or null if no default value is available
-     */
-    public function getDefaultCompany()
-    {
-        return null;
-    }
-
-    /**
      * Check if "company" has been set
      *
-     * @return bool True if "company" value has been set, false if not
+     * @return bool True if "company" has been set, false if not
      */
-    public function hasCompany()
+    public function hasCompany() : bool
     {
         return isset($this->company);
     }
 
     /**
-     * Check if a default "company" is available or not
+     * Get a default "company" value, if any is available
      *
-     * @return bool True of a default "company" value is available, false if not
+     * @return string|null Default "company" value or null if no default value is available
      */
-    public function hasDefaultCompany()
+    public function getDefaultCompany() : ?string
     {
-        $default = $this->getDefaultCompany();
-        return isset($default);
+        return null;
     }
 }

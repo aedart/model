@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Ip Aware</h1>
@@ -14,11 +16,11 @@ interface IpAware
     /**
      * Set ip
      *
-     * @param string $address IP address
+     * @param string|null $address IP address
      *
-     * @return void
+     * @return self
      */
-    public function setIp($address);
+    public function setIp(?string $address);
 
     /**
      * Get ip
@@ -29,28 +31,21 @@ interface IpAware
      *
      * @see getDefaultIp()
      *
-     * @return string|null "ip" value or null if no "ip" value has been set
+     * @return string|null ip or null if no ip has been set
      */
-    public function getIp();
-
-    /**
-     * Get a default "ip" value, if any is available
-     *
-     * @return string|null A default "ip" value or null if no default value is available
-     */
-    public function getDefaultIp();
+    public function getIp() : ?string ;
 
     /**
      * Check if "ip" has been set
      *
-     * @return bool True if "ip" value has been set, false if not
+     * @return bool True if "ip" has been set, false if not
      */
-    public function hasIp();
+    public function hasIp() : bool;
 
     /**
-     * Check if a default "ip" is available or not
+     * Get a default "ip" value, if any is available
      *
-     * @return bool True of a default "ip" value is available, false if not
+     * @return string|null Default "ip" value or null if no default value is available
      */
-    public function hasDefaultIp();
+    public function getDefaultIp() : ?string;
 }

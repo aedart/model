@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Integers;
+<?php
+
+namespace Aedart\Model\Contracts\Integers;
 
 /**
  * <h1>Height Aware</h1>
@@ -14,11 +16,11 @@ interface HeightAware
     /**
      * Set height
      *
-     * @param int $amount Height of something
+     * @param int|null $amount Height of something
      *
-     * @return void
+     * @return self
      */
-    public function setHeight($amount);
+    public function setHeight(?int $amount);
 
     /**
      * Get height
@@ -29,28 +31,21 @@ interface HeightAware
      *
      * @see getDefaultHeight()
      *
-     * @return int|null "height" value or null if no "height" value has been set
+     * @return int|null height or null if no height has been set
      */
-    public function getHeight();
-
-    /**
-     * Get a default "height" value, if any is available
-     *
-     * @return int|null A default "height" value or null if no default value is available
-     */
-    public function getDefaultHeight();
+    public function getHeight() : ?int ;
 
     /**
      * Check if "height" has been set
      *
-     * @return bool True if "height" value has been set, false if not
+     * @return bool True if "height" has been set, false if not
      */
-    public function hasHeight();
+    public function hasHeight() : bool;
 
     /**
-     * Check if a default "height" is available or not
+     * Get a default "height" value, if any is available
      *
-     * @return bool True of a default "height" value is available, false if not
+     * @return int|null Default "height" value or null if no default value is available
      */
-    public function hasDefaultHeight();
+    public function getDefaultHeight() : ?int;
 }

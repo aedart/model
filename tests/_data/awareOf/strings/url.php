@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string url'   => [
             \Aedart\Model\Traits\Strings\UrlTrait::class,
             \Aedart\Model\Contracts\Strings\UrlAware::class,
-            $faker->url,
-            $faker->url,
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

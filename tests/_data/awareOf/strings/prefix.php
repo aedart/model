@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string prefix'   => [
             \Aedart\Model\Traits\Strings\PrefixTrait::class,
             \Aedart\Model\Contracts\Strings\PrefixAware::class,
-            $faker->title,
-            $faker->title,
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

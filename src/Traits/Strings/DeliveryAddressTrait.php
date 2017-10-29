@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Delivery Address Trait</h1>
@@ -11,7 +14,7 @@
 trait DeliveryAddressTrait
 {
     /**
-     * Delivery address. Can be formatted.
+     * Delivery address
      *
      * @var string|null
      */
@@ -20,13 +23,15 @@ trait DeliveryAddressTrait
     /**
      * Set delivery address
      *
-     * @param string $address Delivery address. Can be formatted.
+     * @param string|null $address Delivery address
      *
-     * @return void
+     * @return self
      */
-    public function setDeliveryAddress($address)
+    public function setDeliveryAddress(?string $address)
     {
-        $this->deliveryAddress = (string) $address;
+        $this->deliveryAddress = $address;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait DeliveryAddressTrait
      *
      * @see getDefaultDeliveryAddress()
      *
-     * @return string|null "delivery address" value or null if no "delivery address" value has been set
+     * @return string|null delivery address or null if no delivery address has been set
      */
-    public function getDeliveryAddress()
+    public function getDeliveryAddress() : ?string 
     {
-        if (!$this->hasDeliveryAddress() && $this->hasDefaultDeliveryAddress()) {
+        if ( ! $this->hasDeliveryAddress()) {
             $this->setDeliveryAddress($this->getDefaultDeliveryAddress());
         }
         return $this->deliveryAddress;
     }
 
     /**
-     * Get a default "delivery address" value, if any is available
-     *
-     * @return string|null A default "delivery address" value or null if no default value is available
-     */
-    public function getDefaultDeliveryAddress()
-    {
-        return null;
-    }
-
-    /**
      * Check if "delivery address" has been set
      *
-     * @return bool True if "delivery address" value has been set, false if not
+     * @return bool True if "delivery address" has been set, false if not
      */
-    public function hasDeliveryAddress()
+    public function hasDeliveryAddress() : bool
     {
         return isset($this->deliveryAddress);
     }
 
     /**
-     * Check if a default "delivery address" is available or not
+     * Get a default "delivery address" value, if any is available
      *
-     * @return bool True of a default "delivery address" value is available, false if not
+     * @return string|null Default "delivery address" value or null if no default value is available
      */
-    public function hasDefaultDeliveryAddress()
+    public function getDefaultDeliveryAddress() : ?string
     {
-        $default = $this->getDefaultDeliveryAddress();
-        return isset($default);
+        return null;
     }
 }

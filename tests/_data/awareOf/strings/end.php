@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string end'   => [
             \Aedart\Model\Traits\Strings\EndTrait::class,
             \Aedart\Model\Contracts\Strings\EndAware::class,
-            $faker->sentence,
-            $faker->sentence,
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

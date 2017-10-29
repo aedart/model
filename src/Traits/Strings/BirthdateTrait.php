@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Birthdate Trait</h1>
@@ -20,13 +23,15 @@ trait BirthdateTrait
     /**
      * Set birthdate
      *
-     * @param string $date Date of birth
+     * @param string|null $date Date of birth
      *
-     * @return void
+     * @return self
      */
-    public function setBirthdate($date)
+    public function setBirthdate(?string $date)
     {
-        $this->birthdate = (string) $date;
+        $this->birthdate = $date;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait BirthdateTrait
      *
      * @see getDefaultBirthdate()
      *
-     * @return string|null "birthdate" value or null if no "birthdate" value has been set
+     * @return string|null birthdate or null if no birthdate has been set
      */
-    public function getBirthdate()
+    public function getBirthdate() : ?string 
     {
-        if (!$this->hasBirthdate() && $this->hasDefaultBirthdate()) {
+        if ( ! $this->hasBirthdate()) {
             $this->setBirthdate($this->getDefaultBirthdate());
         }
         return $this->birthdate;
     }
 
     /**
-     * Get a default "birthdate" value, if any is available
-     *
-     * @return string|null A default "birthdate" value or null if no default value is available
-     */
-    public function getDefaultBirthdate()
-    {
-        return null;
-    }
-
-    /**
      * Check if "birthdate" has been set
      *
-     * @return bool True if "birthdate" value has been set, false if not
+     * @return bool True if "birthdate" has been set, false if not
      */
-    public function hasBirthdate()
+    public function hasBirthdate() : bool
     {
         return isset($this->birthdate);
     }
 
     /**
-     * Check if a default "birthdate" is available or not
+     * Get a default "birthdate" value, if any is available
      *
-     * @return bool True of a default "birthdate" value is available, false if not
+     * @return string|null Default "birthdate" value or null if no default value is available
      */
-    public function hasDefaultBirthdate()
+    public function getDefaultBirthdate() : ?string
     {
-        $default = $this->getDefaultBirthdate();
-        return isset($default);
+        return null;
     }
 }

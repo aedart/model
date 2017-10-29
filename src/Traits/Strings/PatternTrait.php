@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Pattern Trait</h1>
@@ -11,7 +14,7 @@
 trait PatternTrait
 {
     /**
-     * A search or regex pattern
+     * Some kind of a pattern, e.g. search or regex
      *
      * @var string|null
      */
@@ -20,13 +23,15 @@ trait PatternTrait
     /**
      * Set pattern
      *
-     * @param string $pattern A search or regex pattern
+     * @param string|null $pattern Some kind of a pattern, e.g. search or regex
      *
-     * @return void
+     * @return self
      */
-    public function setPattern($pattern)
+    public function setPattern(?string $pattern)
     {
-        $this->pattern = (string) $pattern;
+        $this->pattern = $pattern;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait PatternTrait
      *
      * @see getDefaultPattern()
      *
-     * @return string|null "pattern" value or null if no "pattern" value has been set
+     * @return string|null pattern or null if no pattern has been set
      */
-    public function getPattern()
+    public function getPattern() : ?string 
     {
-        if (!$this->hasPattern() && $this->hasDefaultPattern()) {
+        if ( ! $this->hasPattern()) {
             $this->setPattern($this->getDefaultPattern());
         }
         return $this->pattern;
     }
 
     /**
-     * Get a default "pattern" value, if any is available
-     *
-     * @return string|null A default "pattern" value or null if no default value is available
-     */
-    public function getDefaultPattern()
-    {
-        return null;
-    }
-
-    /**
      * Check if "pattern" has been set
      *
-     * @return bool True if "pattern" value has been set, false if not
+     * @return bool True if "pattern" has been set, false if not
      */
-    public function hasPattern()
+    public function hasPattern() : bool
     {
         return isset($this->pattern);
     }
 
     /**
-     * Check if a default "pattern" is available or not
+     * Get a default "pattern" value, if any is available
      *
-     * @return bool True of a default "pattern" value is available, false if not
+     * @return string|null Default "pattern" value or null if no default value is available
      */
-    public function hasDefaultPattern()
+    public function getDefaultPattern() : ?string
     {
-        $default = $this->getDefaultPattern();
-        return isset($default);
+        return null;
     }
 }

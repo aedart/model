@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string organisation'   => [
             \Aedart\Model\Traits\Strings\OrganisationTrait::class,
             \Aedart\Model\Contracts\Strings\OrganisationAware::class,
-            $faker->company,
-            $faker->company,
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

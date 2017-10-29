@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Ean Trait</h1>
@@ -20,13 +23,15 @@ trait EanTrait
     /**
      * Set ean
      *
-     * @param string $ean International Article Number (EAN)
+     * @param string|null $ean International Article Number (EAN)
      *
-     * @return void
+     * @return self
      */
-    public function setEan($ean)
+    public function setEan(?string $ean)
     {
-        $this->ean = (string) $ean;
+        $this->ean = $ean;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait EanTrait
      *
      * @see getDefaultEan()
      *
-     * @return string|null "ean" value or null if no "ean" value has been set
+     * @return string|null ean or null if no ean has been set
      */
-    public function getEan()
+    public function getEan() : ?string 
     {
-        if (!$this->hasEan() && $this->hasDefaultEan()) {
+        if ( ! $this->hasEan()) {
             $this->setEan($this->getDefaultEan());
         }
         return $this->ean;
     }
 
     /**
-     * Get a default "ean" value, if any is available
-     *
-     * @return string|null A default "ean" value or null if no default value is available
-     */
-    public function getDefaultEan()
-    {
-        return null;
-    }
-
-    /**
      * Check if "ean" has been set
      *
-     * @return bool True if "ean" value has been set, false if not
+     * @return bool True if "ean" has been set, false if not
      */
-    public function hasEan()
+    public function hasEan() : bool
     {
         return isset($this->ean);
     }
 
     /**
-     * Check if a default "ean" is available or not
+     * Get a default "ean" value, if any is available
      *
-     * @return bool True of a default "ean" value is available, false if not
+     * @return string|null Default "ean" value or null if no default value is available
      */
-    public function hasDefaultEan()
+    public function getDefaultEan() : ?string
     {
-        $default = $this->getDefaultEan();
-        return isset($default);
+        return null;
     }
 }

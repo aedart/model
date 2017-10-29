@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'int birthdate'   => [
             \Aedart\Model\Traits\Integers\BirthdateTrait::class,
             \Aedart\Model\Contracts\Integers\BirthdateAware::class,
-            $faker->unixTime,
-            $faker->unixTime,
+            $faker->randomNumber($faker->randomDigitNotNull),
+            $faker->randomNumber($faker->randomDigitNotNull),
         ]
     ];
 };

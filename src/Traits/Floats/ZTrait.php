@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Floats;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Floats;
 
 /**
  * <h1>Z Trait</h1>
@@ -20,13 +23,15 @@ trait ZTrait
     /**
      * Set z
      *
-     * @param float $value Co-ordinate or value
+     * @param float|null $value Co-ordinate or value
      *
-     * @return void
+     * @return self
      */
-    public function setZ($value)
+    public function setZ(?float $value)
     {
-        $this->z = (float) $value;
+        $this->z = $value;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait ZTrait
      *
      * @see getDefaultZ()
      *
-     * @return float|null "z" value or null if no "z" value has been set
+     * @return float|null z or null if no z has been set
      */
-    public function getZ()
+    public function getZ() : ?float 
     {
-        if (!$this->hasZ() && $this->hasDefaultZ()) {
+        if ( ! $this->hasZ()) {
             $this->setZ($this->getDefaultZ());
         }
         return $this->z;
     }
 
     /**
-     * Get a default "z" value, if any is available
-     *
-     * @return float|null A default "z" value or null if no default value is available
-     */
-    public function getDefaultZ()
-    {
-        return null;
-    }
-
-    /**
      * Check if "z" has been set
      *
-     * @return bool True if "z" value has been set, false if not
+     * @return bool True if "z" has been set, false if not
      */
-    public function hasZ()
+    public function hasZ() : bool
     {
         return isset($this->z);
     }
 
     /**
-     * Check if a default "z" is available or not
+     * Get a default "z" value, if any is available
      *
-     * @return bool True of a default "z" value is available, false if not
+     * @return float|null Default "z" value or null if no default value is available
      */
-    public function hasDefaultZ()
+    public function getDefaultZ() : ?float
     {
-        $default = $this->getDefaultZ();
-        return isset($default);
+        return null;
     }
 }

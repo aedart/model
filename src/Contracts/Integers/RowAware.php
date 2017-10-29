@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Integers;
+<?php
+
+namespace Aedart\Model\Contracts\Integers;
 
 /**
  * <h1>Row Aware</h1>
@@ -14,11 +16,11 @@ interface RowAware
     /**
      * Set row
      *
-     * @param int $identifier A row identifier
+     * @param int|null $identifier A row identifier
      *
-     * @return void
+     * @return self
      */
-    public function setRow($identifier);
+    public function setRow(?int $identifier);
 
     /**
      * Get row
@@ -29,28 +31,21 @@ interface RowAware
      *
      * @see getDefaultRow()
      *
-     * @return int|null "row" value or null if no "row" value has been set
+     * @return int|null row or null if no row has been set
      */
-    public function getRow();
-
-    /**
-     * Get a default "row" value, if any is available
-     *
-     * @return int|null A default "row" value or null if no default value is available
-     */
-    public function getDefaultRow();
+    public function getRow() : ?int ;
 
     /**
      * Check if "row" has been set
      *
-     * @return bool True if "row" value has been set, false if not
+     * @return bool True if "row" has been set, false if not
      */
-    public function hasRow();
+    public function hasRow() : bool;
 
     /**
-     * Check if a default "row" is available or not
+     * Get a default "row" value, if any is available
      *
-     * @return bool True of a default "row" value is available, false if not
+     * @return int|null Default "row" value or null if no default value is available
      */
-    public function hasDefaultRow();
+    public function getDefaultRow() : ?int;
 }

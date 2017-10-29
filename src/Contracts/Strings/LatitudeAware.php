@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Latitude Aware</h1>
@@ -14,11 +16,11 @@ interface LatitudeAware
     /**
      * Set latitude
      *
-     * @param string $value North-South position on Earth's surface
+     * @param string|null $value North-South position on Earth&#039;s surface
      *
-     * @return void
+     * @return self
      */
-    public function setLatitude($value);
+    public function setLatitude(?string $value);
 
     /**
      * Get latitude
@@ -29,28 +31,21 @@ interface LatitudeAware
      *
      * @see getDefaultLatitude()
      *
-     * @return string|null "latitude" value or null if no "latitude" value has been set
+     * @return string|null latitude or null if no latitude has been set
      */
-    public function getLatitude();
-
-    /**
-     * Get a default "latitude" value, if any is available
-     *
-     * @return string|null A default "latitude" value or null if no default value is available
-     */
-    public function getDefaultLatitude();
+    public function getLatitude() : ?string ;
 
     /**
      * Check if "latitude" has been set
      *
-     * @return bool True if "latitude" value has been set, false if not
+     * @return bool True if "latitude" has been set, false if not
      */
-    public function hasLatitude();
+    public function hasLatitude() : bool;
 
     /**
-     * Check if a default "latitude" is available or not
+     * Get a default "latitude" value, if any is available
      *
-     * @return bool True of a default "latitude" value is available, false if not
+     * @return string|null Default "latitude" value or null if no default value is available
      */
-    public function hasDefaultLatitude();
+    public function getDefaultLatitude() : ?string;
 }

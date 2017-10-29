@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string endDate'   => [
             \Aedart\Model\Traits\Strings\EndDateTrait::class,
             \Aedart\Model\Contracts\Strings\EndDateAware::class,
-            $faker->date(),
-            $faker->date(),
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

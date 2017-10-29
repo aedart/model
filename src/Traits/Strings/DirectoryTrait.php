@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Directory Trait</h1>
@@ -20,13 +23,15 @@ trait DirectoryTrait
     /**
      * Set directory
      *
-     * @param string $path Path to a given directory, relative or absolute, existing or none-existing
+     * @param string|null $path Path to a given directory, relative or absolute, existing or none-existing
      *
-     * @return void
+     * @return self
      */
-    public function setDirectory($path)
+    public function setDirectory(?string $path)
     {
-        $this->directory = (string) $path;
+        $this->directory = $path;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait DirectoryTrait
      *
      * @see getDefaultDirectory()
      *
-     * @return string|null "directory" value or null if no "directory" value has been set
+     * @return string|null directory or null if no directory has been set
      */
-    public function getDirectory()
+    public function getDirectory() : ?string 
     {
-        if (!$this->hasDirectory() && $this->hasDefaultDirectory()) {
+        if ( ! $this->hasDirectory()) {
             $this->setDirectory($this->getDefaultDirectory());
         }
         return $this->directory;
     }
 
     /**
-     * Get a default "directory" value, if any is available
-     *
-     * @return string|null A default "directory" value or null if no default value is available
-     */
-    public function getDefaultDirectory()
-    {
-        return null;
-    }
-
-    /**
      * Check if "directory" has been set
      *
-     * @return bool True if "directory" value has been set, false if not
+     * @return bool True if "directory" has been set, false if not
      */
-    public function hasDirectory()
+    public function hasDirectory() : bool
     {
         return isset($this->directory);
     }
 
     /**
-     * Check if a default "directory" is available or not
+     * Get a default "directory" value, if any is available
      *
-     * @return bool True of a default "directory" value is available, false if not
+     * @return string|null Default "directory" value or null if no default value is available
      */
-    public function hasDefaultDirectory()
+    public function getDefaultDirectory() : ?string
     {
-        $default = $this->getDefaultDirectory();
-        return isset($default);
+        return null;
     }
 }

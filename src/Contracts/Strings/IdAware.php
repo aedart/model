@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Id Aware</h1>
@@ -14,11 +16,11 @@ interface IdAware
     /**
      * Set id
      *
-     * @param string $identifier Unique identifier
+     * @param string|null $identifier Unique identifier
      *
-     * @return void
+     * @return self
      */
-    public function setId($identifier);
+    public function setId(?string $identifier);
 
     /**
      * Get id
@@ -29,28 +31,21 @@ interface IdAware
      *
      * @see getDefaultId()
      *
-     * @return string|null "id" value or null if no "id" value has been set
+     * @return string|null id or null if no id has been set
      */
-    public function getId();
-
-    /**
-     * Get a default "id" value, if any is available
-     *
-     * @return string|null A default "id" value or null if no default value is available
-     */
-    public function getDefaultId();
+    public function getId() : ?string ;
 
     /**
      * Check if "id" has been set
      *
-     * @return bool True if "id" value has been set, false if not
+     * @return bool True if "id" has been set, false if not
      */
-    public function hasId();
+    public function hasId() : bool;
 
     /**
-     * Check if a default "id" is available or not
+     * Get a default "id" value, if any is available
      *
-     * @return bool True of a default "id" value is available, false if not
+     * @return string|null Default "id" value or null if no default value is available
      */
-    public function hasDefaultId();
+    public function getDefaultId() : ?string;
 }

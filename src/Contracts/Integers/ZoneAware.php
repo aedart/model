@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Integers;
+<?php
+
+namespace Aedart\Model\Contracts\Integers;
 
 /**
  * <h1>Zone Aware</h1>
@@ -14,11 +16,11 @@ interface ZoneAware
     /**
      * Set zone
      *
-     * @param int $identifier Identifier of an area, district or devision
+     * @param int|null $identifier Name or identifier of area, district or division
      *
-     * @return void
+     * @return self
      */
-    public function setZone($identifier);
+    public function setZone(?int $identifier);
 
     /**
      * Get zone
@@ -29,28 +31,21 @@ interface ZoneAware
      *
      * @see getDefaultZone()
      *
-     * @return int|null "zone" value or null if no "zone" value has been set
+     * @return int|null zone or null if no zone has been set
      */
-    public function getZone();
-
-    /**
-     * Get a default "zone" value, if any is available
-     *
-     * @return int|null A default "zone" value or null if no default value is available
-     */
-    public function getDefaultZone();
+    public function getZone() : ?int ;
 
     /**
      * Check if "zone" has been set
      *
-     * @return bool True if "zone" value has been set, false if not
+     * @return bool True if "zone" has been set, false if not
      */
-    public function hasZone();
+    public function hasZone() : bool;
 
     /**
-     * Check if a default "zone" is available or not
+     * Get a default "zone" value, if any is available
      *
-     * @return bool True of a default "zone" value is available, false if not
+     * @return int|null Default "zone" value or null if no default value is available
      */
-    public function hasDefaultZone();
+    public function getDefaultZone() : ?int;
 }

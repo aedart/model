@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Tld Aware</h1>
@@ -14,11 +16,11 @@ interface TldAware
     /**
      * Set tld
      *
-     * @param string $tld Top Level Domain (TLD)
+     * @param string|null $tld Top Level Domain (TLD)
      *
-     * @return void
+     * @return self
      */
-    public function setTld($tld);
+    public function setTld(?string $tld);
 
     /**
      * Get tld
@@ -29,28 +31,21 @@ interface TldAware
      *
      * @see getDefaultTld()
      *
-     * @return string|null "tld" value or null if no "tld" value has been set
+     * @return string|null tld or null if no tld has been set
      */
-    public function getTld();
-
-    /**
-     * Get a default "tld" value, if any is available
-     *
-     * @return string|null A default "tld" value or null if no default value is available
-     */
-    public function getDefaultTld();
+    public function getTld() : ?string ;
 
     /**
      * Check if "tld" has been set
      *
-     * @return bool True if "tld" value has been set, false if not
+     * @return bool True if "tld" has been set, false if not
      */
-    public function hasTld();
+    public function hasTld() : bool;
 
     /**
-     * Check if a default "tld" is available or not
+     * Get a default "tld" value, if any is available
      *
-     * @return bool True of a default "tld" value is available, false if not
+     * @return string|null Default "tld" value or null if no default value is available
      */
-    public function hasDefaultTld();
+    public function getDefaultTld() : ?string;
 }

@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Last Name Aware</h1>
@@ -14,11 +16,11 @@ interface LastNameAware
     /**
      * Set last name
      *
-     * @param string $name Last Name (surname) or family name of a person
+     * @param string|null $name Last Name (surname) or family name of a person
      *
-     * @return void
+     * @return self
      */
-    public function setLastName($name);
+    public function setLastName(?string $name);
 
     /**
      * Get last name
@@ -29,28 +31,21 @@ interface LastNameAware
      *
      * @see getDefaultLastName()
      *
-     * @return string|null "last name" value or null if no "last name" value has been set
+     * @return string|null last name or null if no last name has been set
      */
-    public function getLastName();
-
-    /**
-     * Get a default "last name" value, if any is available
-     *
-     * @return string|null A default "last name" value or null if no default value is available
-     */
-    public function getDefaultLastName();
+    public function getLastName() : ?string ;
 
     /**
      * Check if "last name" has been set
      *
-     * @return bool True if "last name" value has been set, false if not
+     * @return bool True if "last name" has been set, false if not
      */
-    public function hasLastName();
+    public function hasLastName() : bool;
 
     /**
-     * Check if a default "last name" is available or not
+     * Get a default "last name" value, if any is available
      *
-     * @return bool True of a default "last name" value is available, false if not
+     * @return string|null Default "last name" value or null if no default value is available
      */
-    public function hasDefaultLastName();
+    public function getDefaultLastName() : ?string;
 }

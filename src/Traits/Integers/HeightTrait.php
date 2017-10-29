@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Integers;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Integers;
 
 /**
  * <h1>Height Trait</h1>
@@ -20,13 +23,15 @@ trait HeightTrait
     /**
      * Set height
      *
-     * @param int $amount Height of something
+     * @param int|null $amount Height of something
      *
-     * @return void
+     * @return self
      */
-    public function setHeight($amount)
+    public function setHeight(?int $amount)
     {
-        $this->height = (int) $amount;
+        $this->height = $amount;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait HeightTrait
      *
      * @see getDefaultHeight()
      *
-     * @return int|null "height" value or null if no "height" value has been set
+     * @return int|null height or null if no height has been set
      */
-    public function getHeight()
+    public function getHeight() : ?int 
     {
-        if (!$this->hasHeight() && $this->hasDefaultHeight()) {
+        if ( ! $this->hasHeight()) {
             $this->setHeight($this->getDefaultHeight());
         }
         return $this->height;
     }
 
     /**
-     * Get a default "height" value, if any is available
-     *
-     * @return int|null A default "height" value or null if no default value is available
-     */
-    public function getDefaultHeight()
-    {
-        return null;
-    }
-
-    /**
      * Check if "height" has been set
      *
-     * @return bool True if "height" value has been set, false if not
+     * @return bool True if "height" has been set, false if not
      */
-    public function hasHeight()
+    public function hasHeight() : bool
     {
         return isset($this->height);
     }
 
     /**
-     * Check if a default "height" is available or not
+     * Get a default "height" value, if any is available
      *
-     * @return bool True of a default "height" value is available, false if not
+     * @return int|null Default "height" value or null if no default value is available
      */
-    public function hasDefaultHeight()
+    public function getDefaultHeight() : ?int
     {
-        $default = $this->getDefaultHeight();
-        return isset($default);
+        return null;
     }
 }

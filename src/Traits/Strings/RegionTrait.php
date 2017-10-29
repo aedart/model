@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Region Trait</h1>
@@ -20,13 +23,15 @@ trait RegionTrait
     /**
      * Set region
      *
-     * @param string $name Name of a region, state or province
+     * @param string|null $name Name of a region, state or province
      *
-     * @return void
+     * @return self
      */
-    public function setRegion($name)
+    public function setRegion(?string $name)
     {
-        $this->region = (string) $name;
+        $this->region = $name;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait RegionTrait
      *
      * @see getDefaultRegion()
      *
-     * @return string|null "region" value or null if no "region" value has been set
+     * @return string|null region or null if no region has been set
      */
-    public function getRegion()
+    public function getRegion() : ?string 
     {
-        if (!$this->hasRegion() && $this->hasDefaultRegion()) {
+        if ( ! $this->hasRegion()) {
             $this->setRegion($this->getDefaultRegion());
         }
         return $this->region;
     }
 
     /**
-     * Get a default "region" value, if any is available
-     *
-     * @return string|null A default "region" value or null if no default value is available
-     */
-    public function getDefaultRegion()
-    {
-        return null;
-    }
-
-    /**
      * Check if "region" has been set
      *
-     * @return bool True if "region" value has been set, false if not
+     * @return bool True if "region" has been set, false if not
      */
-    public function hasRegion()
+    public function hasRegion() : bool
     {
         return isset($this->region);
     }
 
     /**
-     * Check if a default "region" is available or not
+     * Get a default "region" value, if any is available
      *
-     * @return bool True of a default "region" value is available, false if not
+     * @return string|null Default "region" value or null if no default value is available
      */
-    public function hasDefaultRegion()
+    public function getDefaultRegion() : ?string
     {
-        $default = $this->getDefaultRegion();
-        return isset($default);
+        return null;
     }
 }

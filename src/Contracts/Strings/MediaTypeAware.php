@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Media Type Aware</h1>
@@ -14,11 +16,11 @@ interface MediaTypeAware
     /**
      * Set media type
      *
-     * @param string $type Media Type (also known as MIME Type), acc. to IANA standard, or perhaps a type name
+     * @param string|null $type Media Type (also known as MIME Type), acc. to IANA standard, or perhaps a type name
      *
-     * @return void
+     * @return self
      */
-    public function setMediaType($type);
+    public function setMediaType(?string $type);
 
     /**
      * Get media type
@@ -29,28 +31,21 @@ interface MediaTypeAware
      *
      * @see getDefaultMediaType()
      *
-     * @return string|null "media type" value or null if no "media type" value has been set
+     * @return string|null media type or null if no media type has been set
      */
-    public function getMediaType();
-
-    /**
-     * Get a default "media type" value, if any is available
-     *
-     * @return string|null A default "media type" value or null if no default value is available
-     */
-    public function getDefaultMediaType();
+    public function getMediaType() : ?string ;
 
     /**
      * Check if "media type" has been set
      *
-     * @return bool True if "media type" value has been set, false if not
+     * @return bool True if "media type" has been set, false if not
      */
-    public function hasMediaType();
+    public function hasMediaType() : bool;
 
     /**
-     * Check if a default "media type" is available or not
+     * Get a default "media type" value, if any is available
      *
-     * @return bool True of a default "media type" value is available, false if not
+     * @return string|null Default "media type" value or null if no default value is available
      */
-    public function hasDefaultMediaType();
+    public function getDefaultMediaType() : ?string;
 }

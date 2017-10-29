@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Domain Trait</h1>
@@ -20,13 +23,15 @@ trait DomainTrait
     /**
      * Set domain
      *
-     * @param string $value Name, URL, territory or term that describes a given domain... etc
+     * @param string|null $domain Name, URL, territory or term that describes a given domain... etc
      *
-     * @return void
+     * @return self
      */
-    public function setDomain($value)
+    public function setDomain(?string $domain)
     {
-        $this->domain = (string) $value;
+        $this->domain = $domain;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait DomainTrait
      *
      * @see getDefaultDomain()
      *
-     * @return string|null "domain" value or null if no "domain" value has been set
+     * @return string|null domain or null if no domain has been set
      */
-    public function getDomain()
+    public function getDomain() : ?string 
     {
-        if (!$this->hasDomain() && $this->hasDefaultDomain()) {
+        if ( ! $this->hasDomain()) {
             $this->setDomain($this->getDefaultDomain());
         }
         return $this->domain;
     }
 
     /**
-     * Get a default "domain" value, if any is available
-     *
-     * @return string|null A default "domain" value or null if no default value is available
-     */
-    public function getDefaultDomain()
-    {
-        return null;
-    }
-
-    /**
      * Check if "domain" has been set
      *
-     * @return bool True if "domain" value has been set, false if not
+     * @return bool True if "domain" has been set, false if not
      */
-    public function hasDomain()
+    public function hasDomain() : bool
     {
         return isset($this->domain);
     }
 
     /**
-     * Check if a default "domain" is available or not
+     * Get a default "domain" value, if any is available
      *
-     * @return bool True of a default "domain" value is available, false if not
+     * @return string|null Default "domain" value or null if no default value is available
      */
-    public function hasDefaultDomain()
+    public function getDefaultDomain() : ?string
     {
-        $default = $this->getDefaultDomain();
-        return isset($default);
+        return null;
     }
 }

@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Password Trait</h1>
@@ -20,13 +23,15 @@ trait PasswordTrait
     /**
      * Set password
      *
-     * @param string $password Password
+     * @param string|null $password Password
      *
-     * @return void
+     * @return self
      */
-    public function setPassword($password)
+    public function setPassword(?string $password)
     {
-        $this->password = (string) $password;
+        $this->password = $password;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait PasswordTrait
      *
      * @see getDefaultPassword()
      *
-     * @return string|null "password" value or null if no "password" value has been set
+     * @return string|null password or null if no password has been set
      */
-    public function getPassword()
+    public function getPassword() : ?string 
     {
-        if (!$this->hasPassword() && $this->hasDefaultPassword()) {
+        if ( ! $this->hasPassword()) {
             $this->setPassword($this->getDefaultPassword());
         }
         return $this->password;
     }
 
     /**
-     * Get a default "password" value, if any is available
-     *
-     * @return string|null A default "password" value or null if no default value is available
-     */
-    public function getDefaultPassword()
-    {
-        return null;
-    }
-
-    /**
      * Check if "password" has been set
      *
-     * @return bool True if "password" value has been set, false if not
+     * @return bool True if "password" has been set, false if not
      */
-    public function hasPassword()
+    public function hasPassword() : bool
     {
         return isset($this->password);
     }
 
     /**
-     * Check if a default "password" is available or not
+     * Get a default "password" value, if any is available
      *
-     * @return bool True of a default "password" value is available, false if not
+     * @return string|null Default "password" value or null if no default value is available
      */
-    public function hasDefaultPassword()
+    public function getDefaultPassword() : ?string
     {
-        $default = $this->getDefaultPassword();
-        return isset($default);
+        return null;
     }
 }

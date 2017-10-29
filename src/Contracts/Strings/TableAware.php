@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Table Aware</h1>
@@ -14,11 +16,11 @@ interface TableAware
     /**
      * Set table
      *
-     * @param string $name Name of a table
+     * @param string|null $name Name of table
      *
-     * @return void
+     * @return self
      */
-    public function setTable($name);
+    public function setTable(?string $name);
 
     /**
      * Get table
@@ -29,28 +31,21 @@ interface TableAware
      *
      * @see getDefaultTable()
      *
-     * @return string|null "table" value or null if no "table" value has been set
+     * @return string|null table or null if no table has been set
      */
-    public function getTable();
-
-    /**
-     * Get a default "table" value, if any is available
-     *
-     * @return string|null A default "table" value or null if no default value is available
-     */
-    public function getDefaultTable();
+    public function getTable() : ?string ;
 
     /**
      * Check if "table" has been set
      *
-     * @return bool True if "table" value has been set, false if not
+     * @return bool True if "table" has been set, false if not
      */
-    public function hasTable();
+    public function hasTable() : bool;
 
     /**
-     * Check if a default "table" is available or not
+     * Get a default "table" value, if any is available
      *
-     * @return bool True of a default "table" value is available, false if not
+     * @return string|null Default "table" value or null if no default value is available
      */
-    public function hasDefaultTable();
+    public function getDefaultTable() : ?string;
 }

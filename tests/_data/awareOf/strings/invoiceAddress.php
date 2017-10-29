@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string invoiceAddress'   => [
             \Aedart\Model\Traits\Strings\InvoiceAddressTrait::class,
             \Aedart\Model\Contracts\Strings\InvoiceAddressAware::class,
-            $faker->address,
-            $faker->address,
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

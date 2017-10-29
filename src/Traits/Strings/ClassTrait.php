@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Class Trait</h1>
@@ -20,13 +23,15 @@ trait ClassTrait
     /**
      * Set class
      *
-     * @param string $class The class of something or perhaps a class path
+     * @param string|null $class The class of something or perhaps a class path
      *
-     * @return void
+     * @return self
      */
-    public function setClass($class)
+    public function setClass(?string $class)
     {
-        $this->class = (string) $class;
+        $this->class = $class;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait ClassTrait
      *
      * @see getDefaultClass()
      *
-     * @return string|null "class" value or null if no "class" value has been set
+     * @return string|null class or null if no class has been set
      */
-    public function getClass()
+    public function getClass() : ?string 
     {
-        if (!$this->hasClass() && $this->hasDefaultClass()) {
+        if ( ! $this->hasClass()) {
             $this->setClass($this->getDefaultClass());
         }
         return $this->class;
     }
 
     /**
-     * Get a default "class" value, if any is available
-     *
-     * @return string|null A default "class" value or null if no default value is available
-     */
-    public function getDefaultClass()
-    {
-        return null;
-    }
-
-    /**
      * Check if "class" has been set
      *
-     * @return bool True if "class" value has been set, false if not
+     * @return bool True if "class" has been set, false if not
      */
-    public function hasClass()
+    public function hasClass() : bool
     {
         return isset($this->class);
     }
 
     /**
-     * Check if a default "class" is available or not
+     * Get a default "class" value, if any is available
      *
-     * @return bool True of a default "class" value is available, false if not
+     * @return string|null Default "class" value or null if no default value is available
      */
-    public function hasDefaultClass()
+    public function getDefaultClass() : ?string
     {
-        $default = $this->getDefaultClass();
-        return isset($default);
+        return null;
     }
 }

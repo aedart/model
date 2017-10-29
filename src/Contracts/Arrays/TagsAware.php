@@ -1,9 +1,11 @@
-<?php namespace Aedart\Model\Contracts\Arrays;
+<?php
+
+namespace Aedart\Model\Contracts\Arrays;
 
 /**
  * <h1>Tags Aware</h1>
  *
- * Component is aware of a string[] "tags" value, which can
+ * Component is aware of a array "tags" value, which can
  * also be specified.
  *
  * @author Alin Eugen Deac <aedart@gmail.com>
@@ -14,11 +16,11 @@ interface TagsAware
     /**
      * Set tags
      *
-     * @param string[] $list List of tag names
+     * @param array|null $tags List of tags
      *
-     * @return void
+     * @return self
      */
-    public function setTags(array $list);
+    public function setTags(?array $tags);
 
     /**
      * Get tags
@@ -29,28 +31,21 @@ interface TagsAware
      *
      * @see getDefaultTags()
      *
-     * @return string[]|null "tags" value or null if no "tags" value has been set
+     * @return array|null tags or null if no tags has been set
      */
-    public function getTags();
-
-    /**
-     * Get a default "tags" value, if any is available
-     *
-     * @return string[]|null A default "tags" value or null if no default value is available
-     */
-    public function getDefaultTags();
+    public function getTags() : ?array ;
 
     /**
      * Check if "tags" has been set
      *
-     * @return bool True if "tags" value has been set, false if not
+     * @return bool True if "tags" has been set, false if not
      */
-    public function hasTags();
+    public function hasTags() : bool;
 
     /**
-     * Check if a default "tags" is available or not
+     * Get a default "tags" value, if any is available
      *
-     * @return bool True of a default "tags" value is available, false if not
+     * @return array|null Default "tags" value or null if no default value is available
      */
-    public function hasDefaultTags();
+    public function getDefaultTags() : ?array;
 }

@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Url Trait</h1>
@@ -11,7 +14,7 @@
 trait UrlTrait
 {
     /**
-     * Uniform Resource Locator (Url) (commenly known as a web address)
+     * Uniform Resource Locator (Url), commonly known as a web address
      *
      * @var string|null
      */
@@ -20,13 +23,15 @@ trait UrlTrait
     /**
      * Set url
      *
-     * @param string $webAddress Uniform Resource Locator (Url) (commenly known as a web address)
+     * @param string|null $webAddress Uniform Resource Locator (Url), commonly known as a web address
      *
-     * @return void
+     * @return self
      */
-    public function setUrl($webAddress)
+    public function setUrl(?string $webAddress)
     {
-        $this->url = (string) $webAddress;
+        $this->url = $webAddress;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait UrlTrait
      *
      * @see getDefaultUrl()
      *
-     * @return string|null "url" value or null if no "url" value has been set
+     * @return string|null url or null if no url has been set
      */
-    public function getUrl()
+    public function getUrl() : ?string 
     {
-        if (!$this->hasUrl() && $this->hasDefaultUrl()) {
+        if ( ! $this->hasUrl()) {
             $this->setUrl($this->getDefaultUrl());
         }
         return $this->url;
     }
 
     /**
-     * Get a default "url" value, if any is available
-     *
-     * @return string|null A default "url" value or null if no default value is available
-     */
-    public function getDefaultUrl()
-    {
-        return null;
-    }
-
-    /**
      * Check if "url" has been set
      *
-     * @return bool True if "url" value has been set, false if not
+     * @return bool True if "url" has been set, false if not
      */
-    public function hasUrl()
+    public function hasUrl() : bool
     {
         return isset($this->url);
     }
 
     /**
-     * Check if a default "url" is available or not
+     * Get a default "url" value, if any is available
      *
-     * @return bool True of a default "url" value is available, false if not
+     * @return string|null Default "url" value or null if no default value is available
      */
-    public function hasDefaultUrl()
+    public function getDefaultUrl() : ?string
     {
-        $default = $this->getDefaultUrl();
-        return isset($default);
+        return null;
     }
 }

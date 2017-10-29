@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Timezone Trait</h1>
@@ -11,7 +14,7 @@
 trait TimezoneTrait
 {
     /**
-     * Name of the timezone
+     * Name of timezone
      *
      * @var string|null
      */
@@ -20,13 +23,15 @@ trait TimezoneTrait
     /**
      * Set timezone
      *
-     * @param string $name Name of the timezone
+     * @param string|null $name Name of timezone
      *
-     * @return void
+     * @return self
      */
-    public function setTimezone($name)
+    public function setTimezone(?string $name)
     {
-        $this->timezone = (string) $name;
+        $this->timezone = $name;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait TimezoneTrait
      *
      * @see getDefaultTimezone()
      *
-     * @return string|null "timezone" value or null if no "timezone" value has been set
+     * @return string|null timezone or null if no timezone has been set
      */
-    public function getTimezone()
+    public function getTimezone() : ?string 
     {
-        if (!$this->hasTimezone() && $this->hasDefaultTimezone()) {
+        if ( ! $this->hasTimezone()) {
             $this->setTimezone($this->getDefaultTimezone());
         }
         return $this->timezone;
     }
 
     /**
-     * Get a default "timezone" value, if any is available
-     *
-     * @return string|null A default "timezone" value or null if no default value is available
-     */
-    public function getDefaultTimezone()
-    {
-        return null;
-    }
-
-    /**
      * Check if "timezone" has been set
      *
-     * @return bool True if "timezone" value has been set, false if not
+     * @return bool True if "timezone" has been set, false if not
      */
-    public function hasTimezone()
+    public function hasTimezone() : bool
     {
         return isset($this->timezone);
     }
 
     /**
-     * Check if a default "timezone" is available or not
+     * Get a default "timezone" value, if any is available
      *
-     * @return bool True of a default "timezone" value is available, false if not
+     * @return string|null Default "timezone" value or null if no default value is available
      */
-    public function hasDefaultTimezone()
+    public function getDefaultTimezone() : ?string
     {
-        $default = $this->getDefaultTimezone();
-        return isset($default);
+        return null;
     }
 }

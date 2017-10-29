@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Postal Code Aware</h1>
@@ -14,11 +16,11 @@ interface PostalCodeAware
     /**
      * Set postal code
      *
-     * @param string $code Numeric or Alphanumeric postal code (zip code)
+     * @param string|null $code Numeric or Alphanumeric postal code (zip code)
      *
-     * @return void
+     * @return self
      */
-    public function setPostalCode($code);
+    public function setPostalCode(?string $code);
 
     /**
      * Get postal code
@@ -29,28 +31,21 @@ interface PostalCodeAware
      *
      * @see getDefaultPostalCode()
      *
-     * @return string|null "postal code" value or null if no "postal code" value has been set
+     * @return string|null postal code or null if no postal code has been set
      */
-    public function getPostalCode();
-
-    /**
-     * Get a default "postal code" value, if any is available
-     *
-     * @return string|null A default "postal code" value or null if no default value is available
-     */
-    public function getDefaultPostalCode();
+    public function getPostalCode() : ?string ;
 
     /**
      * Check if "postal code" has been set
      *
-     * @return bool True if "postal code" value has been set, false if not
+     * @return bool True if "postal code" has been set, false if not
      */
-    public function hasPostalCode();
+    public function hasPostalCode() : bool;
 
     /**
-     * Check if a default "postal code" is available or not
+     * Get a default "postal code" value, if any is available
      *
-     * @return bool True of a default "postal code" value is available, false if not
+     * @return string|null Default "postal code" value or null if no default value is available
      */
-    public function hasDefaultPostalCode();
+    public function getDefaultPostalCode() : ?string;
 }

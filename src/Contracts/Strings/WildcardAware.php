@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Wildcard Aware</h1>
@@ -14,11 +16,11 @@ interface WildcardAware
     /**
      * Set wildcard
      *
-     * @param string $identifier A wildcard identifier
+     * @param string|null $identifier Wildcard identifier
      *
-     * @return void
+     * @return self
      */
-    public function setWildcard($identifier);
+    public function setWildcard(?string $identifier);
 
     /**
      * Get wildcard
@@ -29,28 +31,21 @@ interface WildcardAware
      *
      * @see getDefaultWildcard()
      *
-     * @return string|null "wildcard" value or null if no "wildcard" value has been set
+     * @return string|null wildcard or null if no wildcard has been set
      */
-    public function getWildcard();
-
-    /**
-     * Get a default "wildcard" value, if any is available
-     *
-     * @return string|null A default "wildcard" value or null if no default value is available
-     */
-    public function getDefaultWildcard();
+    public function getWildcard() : ?string ;
 
     /**
      * Check if "wildcard" has been set
      *
-     * @return bool True if "wildcard" value has been set, false if not
+     * @return bool True if "wildcard" has been set, false if not
      */
-    public function hasWildcard();
+    public function hasWildcard() : bool;
 
     /**
-     * Check if a default "wildcard" is available or not
+     * Get a default "wildcard" value, if any is available
      *
-     * @return bool True of a default "wildcard" value is available, false if not
+     * @return string|null Default "wildcard" value or null if no default value is available
      */
-    public function hasDefaultWildcard();
+    public function getDefaultWildcard() : ?string;
 }

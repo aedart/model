@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Prefix Aware</h1>
@@ -14,11 +16,11 @@ interface PrefixAware
     /**
      * Set prefix
      *
-     * @param string $affix Affix that is placed before something
+     * @param string|null $prefix Prefix
      *
-     * @return void
+     * @return self
      */
-    public function setPrefix($affix);
+    public function setPrefix(?string $prefix);
 
     /**
      * Get prefix
@@ -29,28 +31,21 @@ interface PrefixAware
      *
      * @see getDefaultPrefix()
      *
-     * @return string|null "prefix" value or null if no "prefix" value has been set
+     * @return string|null prefix or null if no prefix has been set
      */
-    public function getPrefix();
-
-    /**
-     * Get a default "prefix" value, if any is available
-     *
-     * @return string|null A default "prefix" value or null if no default value is available
-     */
-    public function getDefaultPrefix();
+    public function getPrefix() : ?string ;
 
     /**
      * Check if "prefix" has been set
      *
-     * @return bool True if "prefix" value has been set, false if not
+     * @return bool True if "prefix" has been set, false if not
      */
-    public function hasPrefix();
+    public function hasPrefix() : bool;
 
     /**
-     * Check if a default "prefix" is available or not
+     * Get a default "prefix" value, if any is available
      *
-     * @return bool True of a default "prefix" value is available, false if not
+     * @return string|null Default "prefix" value or null if no default value is available
      */
-    public function hasDefaultPrefix();
+    public function getDefaultPrefix() : ?string;
 }

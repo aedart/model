@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Uuid Trait</h1>
@@ -20,13 +23,15 @@ trait UuidTrait
     /**
      * Set uuid
      *
-     * @param string $identifier Universally Unique Identifier (UUID)
+     * @param string|null $identifier Universally Unique Identifier (UUID)
      *
-     * @return void
+     * @return self
      */
-    public function setUuid($identifier)
+    public function setUuid(?string $identifier)
     {
-        $this->uuid = (string) $identifier;
+        $this->uuid = $identifier;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait UuidTrait
      *
      * @see getDefaultUuid()
      *
-     * @return string|null "uuid" value or null if no "uuid" value has been set
+     * @return string|null uuid or null if no uuid has been set
      */
-    public function getUuid()
+    public function getUuid() : ?string 
     {
-        if (!$this->hasUuid() && $this->hasDefaultUuid()) {
+        if ( ! $this->hasUuid()) {
             $this->setUuid($this->getDefaultUuid());
         }
         return $this->uuid;
     }
 
     /**
-     * Get a default "uuid" value, if any is available
-     *
-     * @return string|null A default "uuid" value or null if no default value is available
-     */
-    public function getDefaultUuid()
-    {
-        return null;
-    }
-
-    /**
      * Check if "uuid" has been set
      *
-     * @return bool True if "uuid" value has been set, false if not
+     * @return bool True if "uuid" has been set, false if not
      */
-    public function hasUuid()
+    public function hasUuid() : bool
     {
         return isset($this->uuid);
     }
 
     /**
-     * Check if a default "uuid" is available or not
+     * Get a default "uuid" value, if any is available
      *
-     * @return bool True of a default "uuid" value is available, false if not
+     * @return string|null Default "uuid" value or null if no default value is available
      */
-    public function hasDefaultUuid()
+    public function getDefaultUuid() : ?string
     {
-        $default = $this->getDefaultUuid();
-        return isset($default);
+        return null;
     }
 }

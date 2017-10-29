@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Mac Address Trait</h1>
@@ -20,13 +23,15 @@ trait MacAddressTrait
     /**
      * Set mac address
      *
-     * @param string $address Media Access Control Address (MAC Address)
+     * @param string|null $address Media Access Control Address (MAC Address)
      *
-     * @return void
+     * @return self
      */
-    public function setMacAddress($address)
+    public function setMacAddress(?string $address)
     {
-        $this->macAddress = (string) $address;
+        $this->macAddress = $address;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait MacAddressTrait
      *
      * @see getDefaultMacAddress()
      *
-     * @return string|null "mac address" value or null if no "mac address" value has been set
+     * @return string|null mac address or null if no mac address has been set
      */
-    public function getMacAddress()
+    public function getMacAddress() : ?string 
     {
-        if (!$this->hasMacAddress() && $this->hasDefaultMacAddress()) {
+        if ( ! $this->hasMacAddress()) {
             $this->setMacAddress($this->getDefaultMacAddress());
         }
         return $this->macAddress;
     }
 
     /**
-     * Get a default "mac address" value, if any is available
-     *
-     * @return string|null A default "mac address" value or null if no default value is available
-     */
-    public function getDefaultMacAddress()
-    {
-        return null;
-    }
-
-    /**
      * Check if "mac address" has been set
      *
-     * @return bool True if "mac address" value has been set, false if not
+     * @return bool True if "mac address" has been set, false if not
      */
-    public function hasMacAddress()
+    public function hasMacAddress() : bool
     {
         return isset($this->macAddress);
     }
 
     /**
-     * Check if a default "mac address" is available or not
+     * Get a default "mac address" value, if any is available
      *
-     * @return bool True of a default "mac address" value is available, false if not
+     * @return string|null Default "mac address" value or null if no default value is available
      */
-    public function hasDefaultMacAddress()
+    public function getDefaultMacAddress() : ?string
     {
-        $default = $this->getDefaultMacAddress();
-        return isset($default);
+        return null;
     }
 }

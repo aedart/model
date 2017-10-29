@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Integers;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Integers;
 
 /**
  * <h1>Deceased At Trait</h1>
@@ -11,7 +14,7 @@
 trait DeceasedAtTrait
 {
     /**
-     * Date (UNIX timestamp) of when a person, animal of something has died
+     * Date of when person, animal of something has died
      *
      * @var int|null
      */
@@ -20,13 +23,15 @@ trait DeceasedAtTrait
     /**
      * Set deceased at
      *
-     * @param int $date Date (UNIX timestamp) of when a person, animal of something has died
+     * @param int|null $date Date of when person, animal of something has died
      *
-     * @return void
+     * @return self
      */
-    public function setDeceasedAt($date)
+    public function setDeceasedAt(?int $date)
     {
-        $this->deceasedAt = (int) $date;
+        $this->deceasedAt = $date;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait DeceasedAtTrait
      *
      * @see getDefaultDeceasedAt()
      *
-     * @return int|null "deceased at" value or null if no "deceased at" value has been set
+     * @return int|null deceased at or null if no deceased at has been set
      */
-    public function getDeceasedAt()
+    public function getDeceasedAt() : ?int 
     {
-        if (!$this->hasDeceasedAt() && $this->hasDefaultDeceasedAt()) {
+        if ( ! $this->hasDeceasedAt()) {
             $this->setDeceasedAt($this->getDefaultDeceasedAt());
         }
         return $this->deceasedAt;
     }
 
     /**
-     * Get a default "deceased at" value, if any is available
-     *
-     * @return int|null A default "deceased at" value or null if no default value is available
-     */
-    public function getDefaultDeceasedAt()
-    {
-        return null;
-    }
-
-    /**
      * Check if "deceased at" has been set
      *
-     * @return bool True if "deceased at" value has been set, false if not
+     * @return bool True if "deceased at" has been set, false if not
      */
-    public function hasDeceasedAt()
+    public function hasDeceasedAt() : bool
     {
         return isset($this->deceasedAt);
     }
 
     /**
-     * Check if a default "deceased at" is available or not
+     * Get a default "deceased at" value, if any is available
      *
-     * @return bool True of a default "deceased at" value is available, false if not
+     * @return int|null Default "deceased at" value or null if no default value is available
      */
-    public function hasDefaultDeceasedAt()
+    public function getDefaultDeceasedAt() : ?int
     {
-        $default = $this->getDefaultDeceasedAt();
-        return isset($default);
+        return null;
     }
 }

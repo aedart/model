@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Url Aware</h1>
@@ -14,11 +16,11 @@ interface UrlAware
     /**
      * Set url
      *
-     * @param string $webAddress Uniform Resource Locator (Url) (commenly known as a web address)
+     * @param string|null $webAddress Uniform Resource Locator (Url), commonly known as a web address
      *
-     * @return void
+     * @return self
      */
-    public function setUrl($webAddress);
+    public function setUrl(?string $webAddress);
 
     /**
      * Get url
@@ -29,28 +31,21 @@ interface UrlAware
      *
      * @see getDefaultUrl()
      *
-     * @return string|null "url" value or null if no "url" value has been set
+     * @return string|null url or null if no url has been set
      */
-    public function getUrl();
-
-    /**
-     * Get a default "url" value, if any is available
-     *
-     * @return string|null A default "url" value or null if no default value is available
-     */
-    public function getDefaultUrl();
+    public function getUrl() : ?string ;
 
     /**
      * Check if "url" has been set
      *
-     * @return bool True if "url" value has been set, false if not
+     * @return bool True if "url" has been set, false if not
      */
-    public function hasUrl();
+    public function hasUrl() : bool;
 
     /**
-     * Check if a default "url" is available or not
+     * Get a default "url" value, if any is available
      *
-     * @return bool True of a default "url" value is available, false if not
+     * @return string|null Default "url" value or null if no default value is available
      */
-    public function hasDefaultUrl();
+    public function getDefaultUrl() : ?string;
 }

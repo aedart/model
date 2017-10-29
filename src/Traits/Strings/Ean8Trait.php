@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Ean8 Trait</h1>
@@ -20,13 +23,15 @@ trait Ean8Trait
     /**
      * Set ean8
      *
-     * @param string $ean8 International Article Number (EAN), 8-digit
+     * @param string|null $ean8 International Article Number (EAN), 8-digit
      *
-     * @return void
+     * @return self
      */
-    public function setEan8($ean8)
+    public function setEan8(?string $ean8)
     {
-        $this->ean8 = (string) $ean8;
+        $this->ean8 = $ean8;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait Ean8Trait
      *
      * @see getDefaultEan8()
      *
-     * @return string|null "ean8" value or null if no "ean8" value has been set
+     * @return string|null ean8 or null if no ean8 has been set
      */
-    public function getEan8()
+    public function getEan8() : ?string 
     {
-        if (!$this->hasEan8() && $this->hasDefaultEan8()) {
+        if ( ! $this->hasEan8()) {
             $this->setEan8($this->getDefaultEan8());
         }
         return $this->ean8;
     }
 
     /**
-     * Get a default "ean8" value, if any is available
-     *
-     * @return string|null A default "ean8" value or null if no default value is available
-     */
-    public function getDefaultEan8()
-    {
-        return null;
-    }
-
-    /**
      * Check if "ean8" has been set
      *
-     * @return bool True if "ean8" value has been set, false if not
+     * @return bool True if "ean8" has been set, false if not
      */
-    public function hasEan8()
+    public function hasEan8() : bool
     {
         return isset($this->ean8);
     }
 
     /**
-     * Check if a default "ean8" is available or not
+     * Get a default "ean8" value, if any is available
      *
-     * @return bool True of a default "ean8" value is available, false if not
+     * @return string|null Default "ean8" value or null if no default value is available
      */
-    public function hasDefaultEan8()
+    public function getDefaultEan8() : ?string
     {
-        $default = $this->getDefaultEan8();
-        return isset($default);
+        return null;
     }
 }

@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string title'   => [
             \Aedart\Model\Traits\Strings\TitleTrait::class,
             \Aedart\Model\Contracts\Strings\TitleAware::class,
-            $faker->title,
-            $faker->title,
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

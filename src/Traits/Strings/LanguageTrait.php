@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Language Trait</h1>
@@ -20,13 +23,15 @@ trait LanguageTrait
     /**
      * Set language
      *
-     * @param string $language Name or identifier of a language
+     * @param string|null $identifier Name or identifier of a language
      *
-     * @return void
+     * @return self
      */
-    public function setLanguage($language)
+    public function setLanguage(?string $identifier)
     {
-        $this->language = (string) $language;
+        $this->language = $identifier;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait LanguageTrait
      *
      * @see getDefaultLanguage()
      *
-     * @return string|null "language" value or null if no "language" value has been set
+     * @return string|null language or null if no language has been set
      */
-    public function getLanguage()
+    public function getLanguage() : ?string 
     {
-        if (!$this->hasLanguage() && $this->hasDefaultLanguage()) {
+        if ( ! $this->hasLanguage()) {
             $this->setLanguage($this->getDefaultLanguage());
         }
         return $this->language;
     }
 
     /**
-     * Get a default "language" value, if any is available
-     *
-     * @return string|null A default "language" value or null if no default value is available
-     */
-    public function getDefaultLanguage()
-    {
-        return null;
-    }
-
-    /**
      * Check if "language" has been set
      *
-     * @return bool True if "language" value has been set, false if not
+     * @return bool True if "language" has been set, false if not
      */
-    public function hasLanguage()
+    public function hasLanguage() : bool
     {
         return isset($this->language);
     }
 
     /**
-     * Check if a default "language" is available or not
+     * Get a default "language" value, if any is available
      *
-     * @return bool True of a default "language" value is available, false if not
+     * @return string|null Default "language" value or null if no default value is available
      */
-    public function hasDefaultLanguage()
+    public function getDefaultLanguage() : ?string
     {
-        $default = $this->getDefaultLanguage();
-        return isset($default);
+        return null;
     }
 }

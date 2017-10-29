@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string price'   => [
             \Aedart\Model\Traits\Strings\PriceTrait::class,
             \Aedart\Model\Contracts\Strings\PriceAware::class,
-            (string) $faker->randomFloat() . ' ' . $faker->currencyCode,
-            (string) $faker->randomFloat() . ' ' . $faker->currencyCode,
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

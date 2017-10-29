@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Isbn10 Aware</h1>
@@ -14,11 +16,11 @@ interface Isbn10Aware
     /**
      * Set isbn10
      *
-     * @param string $isbn10 International Standard Book Number (ISBN), 10-digit
+     * @param string|null $isbn10 International Standard Book Number (ISBN), 10-digits
      *
-     * @return void
+     * @return self
      */
-    public function setIsbn10($isbn10);
+    public function setIsbn10(?string $isbn10);
 
     /**
      * Get isbn10
@@ -29,28 +31,21 @@ interface Isbn10Aware
      *
      * @see getDefaultIsbn10()
      *
-     * @return string|null "isbn10" value or null if no "isbn10" value has been set
+     * @return string|null isbn10 or null if no isbn10 has been set
      */
-    public function getIsbn10();
-
-    /**
-     * Get a default "isbn10" value, if any is available
-     *
-     * @return string|null A default "isbn10" value or null if no default value is available
-     */
-    public function getDefaultIsbn10();
+    public function getIsbn10() : ?string ;
 
     /**
      * Check if "isbn10" has been set
      *
-     * @return bool True if "isbn10" value has been set, false if not
+     * @return bool True if "isbn10" has been set, false if not
      */
-    public function hasIsbn10();
+    public function hasIsbn10() : bool;
 
     /**
-     * Check if a default "isbn10" is available or not
+     * Get a default "isbn10" value, if any is available
      *
-     * @return bool True of a default "isbn10" value is available, false if not
+     * @return string|null Default "isbn10" value or null if no default value is available
      */
-    public function hasDefaultIsbn10();
+    public function getDefaultIsbn10() : ?string;
 }

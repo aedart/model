@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Integers;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Integers;
 
 /**
  * <h1>Rate Trait</h1>
@@ -20,13 +23,15 @@ trait RateTrait
     /**
      * Set rate
      *
-     * @param int $rate The rate of something, e.g. growth rate, tax rate
+     * @param int|null $rate The rate of something, e.g. growth rate, tax rate
      *
-     * @return void
+     * @return self
      */
-    public function setRate($rate)
+    public function setRate(?int $rate)
     {
-        $this->rate = (int) $rate;
+        $this->rate = $rate;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait RateTrait
      *
      * @see getDefaultRate()
      *
-     * @return int|null "rate" value or null if no "rate" value has been set
+     * @return int|null rate or null if no rate has been set
      */
-    public function getRate()
+    public function getRate() : ?int 
     {
-        if (!$this->hasRate() && $this->hasDefaultRate()) {
+        if ( ! $this->hasRate()) {
             $this->setRate($this->getDefaultRate());
         }
         return $this->rate;
     }
 
     /**
-     * Get a default "rate" value, if any is available
-     *
-     * @return int|null A default "rate" value or null if no default value is available
-     */
-    public function getDefaultRate()
-    {
-        return null;
-    }
-
-    /**
      * Check if "rate" has been set
      *
-     * @return bool True if "rate" value has been set, false if not
+     * @return bool True if "rate" has been set, false if not
      */
-    public function hasRate()
+    public function hasRate() : bool
     {
         return isset($this->rate);
     }
 
     /**
-     * Check if a default "rate" is available or not
+     * Get a default "rate" value, if any is available
      *
-     * @return bool True of a default "rate" value is available, false if not
+     * @return int|null Default "rate" value or null if no default value is available
      */
-    public function hasDefaultRate()
+    public function getDefaultRate() : ?int
     {
-        $default = $this->getDefaultRate();
-        return isset($default);
+        return null;
     }
 }

@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Value Trait</h1>
@@ -11,7 +14,7 @@
 trait ValueTrait
 {
     /**
-     * The value of this component
+     * Value
      *
      * @var string|null
      */
@@ -20,13 +23,15 @@ trait ValueTrait
     /**
      * Set value
      *
-     * @param string $value The value of this component
+     * @param string|null $value Value
      *
-     * @return void
+     * @return self
      */
-    public function setValue($value)
+    public function setValue(?string $value)
     {
-        $this->value = (string) $value;
+        $this->value = $value;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait ValueTrait
      *
      * @see getDefaultValue()
      *
-     * @return string|null "value" value or null if no "value" value has been set
+     * @return string|null value or null if no value has been set
      */
-    public function getValue()
+    public function getValue() : ?string 
     {
-        if (!$this->hasValue() && $this->hasDefaultValue()) {
+        if ( ! $this->hasValue()) {
             $this->setValue($this->getDefaultValue());
         }
         return $this->value;
     }
 
     /**
-     * Get a default "value" value, if any is available
-     *
-     * @return string|null A default "value" value or null if no default value is available
-     */
-    public function getDefaultValue()
-    {
-        return null;
-    }
-
-    /**
      * Check if "value" has been set
      *
-     * @return bool True if "value" value has been set, false if not
+     * @return bool True if "value" has been set, false if not
      */
-    public function hasValue()
+    public function hasValue() : bool
     {
         return isset($this->value);
     }
 
     /**
-     * Check if a default "value" is available or not
+     * Get a default "value" value, if any is available
      *
-     * @return bool True of a default "value" value is available, false if not
+     * @return string|null Default "value" value or null if no default value is available
      */
-    public function hasDefaultValue()
+    public function getDefaultValue() : ?string
     {
-        $default = $this->getDefaultValue();
-        return isset($default);
+        return null;
     }
 }

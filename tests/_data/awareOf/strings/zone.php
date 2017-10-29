@@ -8,7 +8,7 @@ return function(\Faker\Generator $faker){
         'string zone'   => [
             \Aedart\Model\Traits\Strings\ZoneTrait::class,
             \Aedart\Model\Contracts\Strings\ZoneAware::class,
-            $faker->state,
+            $faker->word,
             $faker->word,
         ]
     ];

@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Discount Aware</h1>
@@ -14,11 +16,11 @@ interface DiscountAware
     /**
      * Set discount
      *
-     * @param string $amount Formatted discount
+     * @param string|null $amount Discount amount
      *
-     * @return void
+     * @return self
      */
-    public function setDiscount($amount);
+    public function setDiscount(?string $amount);
 
     /**
      * Get discount
@@ -29,28 +31,21 @@ interface DiscountAware
      *
      * @see getDefaultDiscount()
      *
-     * @return string|null "discount" value or null if no "discount" value has been set
+     * @return string|null discount or null if no discount has been set
      */
-    public function getDiscount();
-
-    /**
-     * Get a default "discount" value, if any is available
-     *
-     * @return string|null A default "discount" value or null if no default value is available
-     */
-    public function getDefaultDiscount();
+    public function getDiscount() : ?string ;
 
     /**
      * Check if "discount" has been set
      *
-     * @return bool True if "discount" value has been set, false if not
+     * @return bool True if "discount" has been set, false if not
      */
-    public function hasDiscount();
+    public function hasDiscount() : bool;
 
     /**
-     * Check if a default "discount" is available or not
+     * Get a default "discount" value, if any is available
      *
-     * @return bool True of a default "discount" value is available, false if not
+     * @return string|null Default "discount" value or null if no default value is available
      */
-    public function hasDefaultDiscount();
+    public function getDefaultDiscount() : ?string;
 }

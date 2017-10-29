@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Integers;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Integers;
 
 /**
  * <h1>Length Trait</h1>
@@ -20,13 +23,15 @@ trait LengthTrait
     /**
      * Set length
      *
-     * @param int $amount Length of something
+     * @param int|null $amount Length of something
      *
-     * @return void
+     * @return self
      */
-    public function setLength($amount)
+    public function setLength(?int $amount)
     {
-        $this->length = (int) $amount;
+        $this->length = $amount;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait LengthTrait
      *
      * @see getDefaultLength()
      *
-     * @return int|null "length" value or null if no "length" value has been set
+     * @return int|null length or null if no length has been set
      */
-    public function getLength()
+    public function getLength() : ?int 
     {
-        if (!$this->hasLength() && $this->hasDefaultLength()) {
+        if ( ! $this->hasLength()) {
             $this->setLength($this->getDefaultLength());
         }
         return $this->length;
     }
 
     /**
-     * Get a default "length" value, if any is available
-     *
-     * @return int|null A default "length" value or null if no default value is available
-     */
-    public function getDefaultLength()
-    {
-        return null;
-    }
-
-    /**
      * Check if "length" has been set
      *
-     * @return bool True if "length" value has been set, false if not
+     * @return bool True if "length" has been set, false if not
      */
-    public function hasLength()
+    public function hasLength() : bool
     {
         return isset($this->length);
     }
 
     /**
-     * Check if a default "length" is available or not
+     * Get a default "length" value, if any is available
      *
-     * @return bool True of a default "length" value is available, false if not
+     * @return int|null Default "length" value or null if no default value is available
      */
-    public function hasDefaultLength()
+    public function getDefaultLength() : ?int
     {
-        $default = $this->getDefaultLength();
-        return isset($default);
+        return null;
     }
 }

@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Vat Trait</h1>
@@ -20,13 +23,15 @@ trait VatTrait
     /**
      * Set vat
      *
-     * @param string $value Value Added Tac (VAT), formatted amount or rate
+     * @param string|null $amount Value Added Tac (VAT), formatted amount or rate
      *
-     * @return void
+     * @return self
      */
-    public function setVat($value)
+    public function setVat(?string $amount)
     {
-        $this->vat = (string) $value;
+        $this->vat = $amount;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait VatTrait
      *
      * @see getDefaultVat()
      *
-     * @return string|null "vat" value or null if no "vat" value has been set
+     * @return string|null vat or null if no vat has been set
      */
-    public function getVat()
+    public function getVat() : ?string 
     {
-        if (!$this->hasVat() && $this->hasDefaultVat()) {
+        if ( ! $this->hasVat()) {
             $this->setVat($this->getDefaultVat());
         }
         return $this->vat;
     }
 
     /**
-     * Get a default "vat" value, if any is available
-     *
-     * @return string|null A default "vat" value or null if no default value is available
-     */
-    public function getDefaultVat()
-    {
-        return null;
-    }
-
-    /**
      * Check if "vat" has been set
      *
-     * @return bool True if "vat" value has been set, false if not
+     * @return bool True if "vat" has been set, false if not
      */
-    public function hasVat()
+    public function hasVat() : bool
     {
         return isset($this->vat);
     }
 
     /**
-     * Check if a default "vat" is available or not
+     * Get a default "vat" value, if any is available
      *
-     * @return bool True of a default "vat" value is available, false if not
+     * @return string|null Default "vat" value or null if no default value is available
      */
-    public function hasDefaultVat()
+    public function getDefaultVat() : ?string
     {
-        $default = $this->getDefaultVat();
-        return isset($default);
+        return null;
     }
 }

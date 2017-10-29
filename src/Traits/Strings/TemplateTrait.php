@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Template Trait</h1>
@@ -11,7 +14,7 @@
 trait TemplateTrait
 {
     /**
-     * Location of a template file
+     * Template or location of a template file
      *
      * @var string|null
      */
@@ -20,13 +23,15 @@ trait TemplateTrait
     /**
      * Set template
      *
-     * @param string $path Location of a template file
+     * @param string|null $template Template or location of a template file
      *
-     * @return void
+     * @return self
      */
-    public function setTemplate($path)
+    public function setTemplate(?string $template)
     {
-        $this->template = (string) $path;
+        $this->template = $template;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait TemplateTrait
      *
      * @see getDefaultTemplate()
      *
-     * @return string|null "template" value or null if no "template" value has been set
+     * @return string|null template or null if no template has been set
      */
-    public function getTemplate()
+    public function getTemplate() : ?string 
     {
-        if (!$this->hasTemplate() && $this->hasDefaultTemplate()) {
+        if ( ! $this->hasTemplate()) {
             $this->setTemplate($this->getDefaultTemplate());
         }
         return $this->template;
     }
 
     /**
-     * Get a default "template" value, if any is available
-     *
-     * @return string|null A default "template" value or null if no default value is available
-     */
-    public function getDefaultTemplate()
-    {
-        return null;
-    }
-
-    /**
      * Check if "template" has been set
      *
-     * @return bool True if "template" value has been set, false if not
+     * @return bool True if "template" has been set, false if not
      */
-    public function hasTemplate()
+    public function hasTemplate() : bool
     {
         return isset($this->template);
     }
 
     /**
-     * Check if a default "template" is available or not
+     * Get a default "template" value, if any is available
      *
-     * @return bool True of a default "template" value is available, false if not
+     * @return string|null Default "template" value or null if no default value is available
      */
-    public function hasDefaultTemplate()
+    public function getDefaultTemplate() : ?string
     {
-        $default = $this->getDefaultTemplate();
-        return isset($default);
+        return null;
     }
 }

@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Key Aware</h1>
@@ -14,11 +16,11 @@ interface KeyAware
     /**
      * Set key
      *
-     * @param string $key A key, e.g. indexing key, encryption key or other type of key
+     * @param string|null $key Key, e.g. indexing key, encryption key or other type of key
      *
-     * @return void
+     * @return self
      */
-    public function setKey($key);
+    public function setKey(?string $key);
 
     /**
      * Get key
@@ -29,28 +31,21 @@ interface KeyAware
      *
      * @see getDefaultKey()
      *
-     * @return string|null "key" value or null if no "key" value has been set
+     * @return string|null key or null if no key has been set
      */
-    public function getKey();
-
-    /**
-     * Get a default "key" value, if any is available
-     *
-     * @return string|null A default "key" value or null if no default value is available
-     */
-    public function getDefaultKey();
+    public function getKey() : ?string ;
 
     /**
      * Check if "key" has been set
      *
-     * @return bool True if "key" value has been set, false if not
+     * @return bool True if "key" has been set, false if not
      */
-    public function hasKey();
+    public function hasKey() : bool;
 
     /**
-     * Check if a default "key" is available or not
+     * Get a default "key" value, if any is available
      *
-     * @return bool True of a default "key" value is available, false if not
+     * @return string|null Default "key" value or null if no default value is available
      */
-    public function hasDefaultKey();
+    public function getDefaultKey() : ?string;
 }

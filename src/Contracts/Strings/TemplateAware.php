@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Template Aware</h1>
@@ -14,11 +16,11 @@ interface TemplateAware
     /**
      * Set template
      *
-     * @param string $path Location of a template file
+     * @param string|null $template Template or location of a template file
      *
-     * @return void
+     * @return self
      */
-    public function setTemplate($path);
+    public function setTemplate(?string $template);
 
     /**
      * Get template
@@ -29,28 +31,21 @@ interface TemplateAware
      *
      * @see getDefaultTemplate()
      *
-     * @return string|null "template" value or null if no "template" value has been set
+     * @return string|null template or null if no template has been set
      */
-    public function getTemplate();
-
-    /**
-     * Get a default "template" value, if any is available
-     *
-     * @return string|null A default "template" value or null if no default value is available
-     */
-    public function getDefaultTemplate();
+    public function getTemplate() : ?string ;
 
     /**
      * Check if "template" has been set
      *
-     * @return bool True if "template" value has been set, false if not
+     * @return bool True if "template" has been set, false if not
      */
-    public function hasTemplate();
+    public function hasTemplate() : bool;
 
     /**
-     * Check if a default "template" is available or not
+     * Get a default "template" value, if any is available
      *
-     * @return bool True of a default "template" value is available, false if not
+     * @return string|null Default "template" value or null if no default value is available
      */
-    public function hasDefaultTemplate();
+    public function getDefaultTemplate() : ?string;
 }

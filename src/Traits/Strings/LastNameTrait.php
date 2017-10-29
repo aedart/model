@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Last Name Trait</h1>
@@ -20,13 +23,15 @@ trait LastNameTrait
     /**
      * Set last name
      *
-     * @param string $name Last Name (surname) or family name of a person
+     * @param string|null $name Last Name (surname) or family name of a person
      *
-     * @return void
+     * @return self
      */
-    public function setLastName($name)
+    public function setLastName(?string $name)
     {
-        $this->lastName = (string) $name;
+        $this->lastName = $name;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait LastNameTrait
      *
      * @see getDefaultLastName()
      *
-     * @return string|null "last name" value or null if no "last name" value has been set
+     * @return string|null last name or null if no last name has been set
      */
-    public function getLastName()
+    public function getLastName() : ?string 
     {
-        if (!$this->hasLastName() && $this->hasDefaultLastName()) {
+        if ( ! $this->hasLastName()) {
             $this->setLastName($this->getDefaultLastName());
         }
         return $this->lastName;
     }
 
     /**
-     * Get a default "last name" value, if any is available
-     *
-     * @return string|null A default "last name" value or null if no default value is available
-     */
-    public function getDefaultLastName()
-    {
-        return null;
-    }
-
-    /**
      * Check if "last name" has been set
      *
-     * @return bool True if "last name" value has been set, false if not
+     * @return bool True if "last name" has been set, false if not
      */
-    public function hasLastName()
+    public function hasLastName() : bool
     {
         return isset($this->lastName);
     }
 
     /**
-     * Check if a default "last name" is available or not
+     * Get a default "last name" value, if any is available
      *
-     * @return bool True of a default "last name" value is available, false if not
+     * @return string|null Default "last name" value or null if no default value is available
      */
-    public function hasDefaultLastName()
+    public function getDefaultLastName() : ?string
     {
-        $default = $this->getDefaultLastName();
-        return isset($default);
+        return null;
     }
 }

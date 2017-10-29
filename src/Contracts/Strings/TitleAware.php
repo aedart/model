@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Title Aware</h1>
@@ -14,11 +16,11 @@ interface TitleAware
     /**
      * Set title
      *
-     * @param string $title Title of a publication, a person, a job... etc
+     * @param string|null $title Title
      *
-     * @return void
+     * @return self
      */
-    public function setTitle($title);
+    public function setTitle(?string $title);
 
     /**
      * Get title
@@ -29,28 +31,21 @@ interface TitleAware
      *
      * @see getDefaultTitle()
      *
-     * @return string|null "title" value or null if no "title" value has been set
+     * @return string|null title or null if no title has been set
      */
-    public function getTitle();
-
-    /**
-     * Get a default "title" value, if any is available
-     *
-     * @return string|null A default "title" value or null if no default value is available
-     */
-    public function getDefaultTitle();
+    public function getTitle() : ?string ;
 
     /**
      * Check if "title" has been set
      *
-     * @return bool True if "title" value has been set, false if not
+     * @return bool True if "title" has been set, false if not
      */
-    public function hasTitle();
+    public function hasTitle() : bool;
 
     /**
-     * Check if a default "title" is available or not
+     * Get a default "title" value, if any is available
      *
-     * @return bool True of a default "title" value is available, false if not
+     * @return string|null Default "title" value or null if no default value is available
      */
-    public function hasDefaultTitle();
+    public function getDefaultTitle() : ?string;
 }

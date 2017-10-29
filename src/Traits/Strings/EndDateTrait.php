@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>End Date Trait</h1>
@@ -20,13 +23,15 @@ trait EndDateTrait
     /**
      * Set end date
      *
-     * @param string $date Date for when some kind of event ends
+     * @param string|null $date Date for when some kind of event ends
      *
-     * @return void
+     * @return self
      */
-    public function setEndDate($date)
+    public function setEndDate(?string $date)
     {
-        $this->endDate = (string) $date;
+        $this->endDate = $date;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait EndDateTrait
      *
      * @see getDefaultEndDate()
      *
-     * @return string|null "end date" value or null if no "end date" value has been set
+     * @return string|null end date or null if no end date has been set
      */
-    public function getEndDate()
+    public function getEndDate() : ?string 
     {
-        if (!$this->hasEndDate() && $this->hasDefaultEndDate()) {
+        if ( ! $this->hasEndDate()) {
             $this->setEndDate($this->getDefaultEndDate());
         }
         return $this->endDate;
     }
 
     /**
-     * Get a default "end date" value, if any is available
-     *
-     * @return string|null A default "end date" value or null if no default value is available
-     */
-    public function getDefaultEndDate()
-    {
-        return null;
-    }
-
-    /**
      * Check if "end date" has been set
      *
-     * @return bool True if "end date" value has been set, false if not
+     * @return bool True if "end date" has been set, false if not
      */
-    public function hasEndDate()
+    public function hasEndDate() : bool
     {
         return isset($this->endDate);
     }
 
     /**
-     * Check if a default "end date" is available or not
+     * Get a default "end date" value, if any is available
      *
-     * @return bool True of a default "end date" value is available, false if not
+     * @return string|null Default "end date" value or null if no default value is available
      */
-    public function hasDefaultEndDate()
+    public function getDefaultEndDate() : ?string
     {
-        $default = $this->getDefaultEndDate();
-        return isset($default);
+        return null;
     }
 }

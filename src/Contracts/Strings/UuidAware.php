@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Uuid Aware</h1>
@@ -14,11 +16,11 @@ interface UuidAware
     /**
      * Set uuid
      *
-     * @param string $identifier Universally Unique Identifier (UUID)
+     * @param string|null $identifier Universally Unique Identifier (UUID)
      *
-     * @return void
+     * @return self
      */
-    public function setUuid($identifier);
+    public function setUuid(?string $identifier);
 
     /**
      * Get uuid
@@ -29,28 +31,21 @@ interface UuidAware
      *
      * @see getDefaultUuid()
      *
-     * @return string|null "uuid" value or null if no "uuid" value has been set
+     * @return string|null uuid or null if no uuid has been set
      */
-    public function getUuid();
-
-    /**
-     * Get a default "uuid" value, if any is available
-     *
-     * @return string|null A default "uuid" value or null if no default value is available
-     */
-    public function getDefaultUuid();
+    public function getUuid() : ?string ;
 
     /**
      * Check if "uuid" has been set
      *
-     * @return bool True if "uuid" value has been set, false if not
+     * @return bool True if "uuid" has been set, false if not
      */
-    public function hasUuid();
+    public function hasUuid() : bool;
 
     /**
-     * Check if a default "uuid" is available or not
+     * Get a default "uuid" value, if any is available
      *
-     * @return bool True of a default "uuid" value is available, false if not
+     * @return string|null Default "uuid" value or null if no default value is available
      */
-    public function hasDefaultUuid();
+    public function getDefaultUuid() : ?string;
 }

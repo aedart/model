@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>End Trait</h1>
@@ -20,13 +23,15 @@ trait EndTrait
     /**
      * Set end
      *
-     * @param string $location Location, index or other identifier of when something ends
+     * @param string|null $location Location, index or other identifier of when something ends
      *
-     * @return void
+     * @return self
      */
-    public function setEnd($location)
+    public function setEnd(?string $location)
     {
-        $this->end = (string) $location;
+        $this->end = $location;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait EndTrait
      *
      * @see getDefaultEnd()
      *
-     * @return string|null "end" value or null if no "end" value has been set
+     * @return string|null end or null if no end has been set
      */
-    public function getEnd()
+    public function getEnd() : ?string 
     {
-        if (!$this->hasEnd() && $this->hasDefaultEnd()) {
+        if ( ! $this->hasEnd()) {
             $this->setEnd($this->getDefaultEnd());
         }
         return $this->end;
     }
 
     /**
-     * Get a default "end" value, if any is available
-     *
-     * @return string|null A default "end" value or null if no default value is available
-     */
-    public function getDefaultEnd()
-    {
-        return null;
-    }
-
-    /**
      * Check if "end" has been set
      *
-     * @return bool True if "end" value has been set, false if not
+     * @return bool True if "end" has been set, false if not
      */
-    public function hasEnd()
+    public function hasEnd() : bool
     {
         return isset($this->end);
     }
 
     /**
-     * Check if a default "end" is available or not
+     * Get a default "end" value, if any is available
      *
-     * @return bool True of a default "end" value is available, false if not
+     * @return string|null Default "end" value or null if no default value is available
      */
-    public function hasDefaultEnd()
+    public function getDefaultEnd() : ?string
     {
-        $default = $this->getDefaultEnd();
-        return isset($default);
+        return null;
     }
 }

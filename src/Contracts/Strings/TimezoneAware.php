@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Timezone Aware</h1>
@@ -14,11 +16,11 @@ interface TimezoneAware
     /**
      * Set timezone
      *
-     * @param string $name Name of the timezone
+     * @param string|null $name Name of timezone
      *
-     * @return void
+     * @return self
      */
-    public function setTimezone($name);
+    public function setTimezone(?string $name);
 
     /**
      * Get timezone
@@ -29,28 +31,21 @@ interface TimezoneAware
      *
      * @see getDefaultTimezone()
      *
-     * @return string|null "timezone" value or null if no "timezone" value has been set
+     * @return string|null timezone or null if no timezone has been set
      */
-    public function getTimezone();
-
-    /**
-     * Get a default "timezone" value, if any is available
-     *
-     * @return string|null A default "timezone" value or null if no default value is available
-     */
-    public function getDefaultTimezone();
+    public function getTimezone() : ?string ;
 
     /**
      * Check if "timezone" has been set
      *
-     * @return bool True if "timezone" value has been set, false if not
+     * @return bool True if "timezone" has been set, false if not
      */
-    public function hasTimezone();
+    public function hasTimezone() : bool;
 
     /**
-     * Check if a default "timezone" is available or not
+     * Get a default "timezone" value, if any is available
      *
-     * @return bool True of a default "timezone" value is available, false if not
+     * @return string|null Default "timezone" value or null if no default value is available
      */
-    public function hasDefaultTimezone();
+    public function getDefaultTimezone() : ?string;
 }

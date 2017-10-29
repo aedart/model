@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string currency'   => [
             \Aedart\Model\Traits\Strings\CurrencyTrait::class,
             \Aedart\Model\Contracts\Strings\CurrencyAware::class,
-            $faker->currencyCode,
-            $faker->currencyCode,
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

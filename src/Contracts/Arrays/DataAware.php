@@ -1,12 +1,12 @@
-<?php namespace Aedart\Model\Contracts\Arrays;
+<?php
+
+namespace Aedart\Model\Contracts\Arrays;
 
 /**
  * <h1>Data Aware</h1>
  *
- * Components are able to specify and retrieve a set of values. Depending
- * upon context, that set can be anything; key-value pairs, collection of
- * numbers, characters, or perhaps more complex data-structure, such as
- * a objects and or object-references.
+ * Component is aware of a array "data" value, which can
+ * also be specified.
  *
  * @author Alin Eugen Deac <aedart@gmail.com>
  * @package Aedart\Model\Contracts\Arrays
@@ -16,11 +16,11 @@ interface DataAware
     /**
      * Set data
      *
-     * @param array $values A list (array) containing a set of values
+     * @param array|null $values A list (array) containing a set of values
      *
-     * @return void
+     * @return self
      */
-    public function setData(array $values);
+    public function setData(?array $values);
 
     /**
      * Get data
@@ -31,28 +31,21 @@ interface DataAware
      *
      * @see getDefaultData()
      *
-     * @return array|null "data" value or null if no "data" value has been set
+     * @return array|null data or null if no data has been set
      */
-    public function getData();
-
-    /**
-     * Get a default "data" value, if any is available
-     *
-     * @return array|null A default "data" value or null if no default value is available
-     */
-    public function getDefaultData();
+    public function getData() : ?array ;
 
     /**
      * Check if "data" has been set
      *
-     * @return bool True if "data" value has been set, false if not
+     * @return bool True if "data" has been set, false if not
      */
-    public function hasData();
+    public function hasData() : bool;
 
     /**
-     * Check if a default "data" is available or not
+     * Get a default "data" value, if any is available
      *
-     * @return bool True of a default "data" value is available, false if not
+     * @return array|null Default "data" value or null if no default value is available
      */
-    public function hasDefaultData();
+    public function getDefaultData() : ?array;
 }

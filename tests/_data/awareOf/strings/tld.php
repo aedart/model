@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string tld'   => [
             \Aedart\Model\Traits\Strings\TldTrait::class,
             \Aedart\Model\Contracts\Strings\TldAware::class,
-            $faker->tld,
-            $faker->tld,
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

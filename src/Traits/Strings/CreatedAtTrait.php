@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Created At Trait</h1>
@@ -20,13 +23,15 @@ trait CreatedAtTrait
     /**
      * Set created at
      *
-     * @param string $date Date of when this component, entity or resource was created
+     * @param string|null $date Date of when this component, entity or resource was created
      *
-     * @return void
+     * @return self
      */
-    public function setCreatedAt($date)
+    public function setCreatedAt(?string $date)
     {
-        $this->createdAt = (string) $date;
+        $this->createdAt = $date;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait CreatedAtTrait
      *
      * @see getDefaultCreatedAt()
      *
-     * @return string|null "created at" value or null if no "created at" value has been set
+     * @return string|null created at or null if no created at has been set
      */
-    public function getCreatedAt()
+    public function getCreatedAt() : ?string 
     {
-        if (!$this->hasCreatedAt() && $this->hasDefaultCreatedAt()) {
+        if ( ! $this->hasCreatedAt()) {
             $this->setCreatedAt($this->getDefaultCreatedAt());
         }
         return $this->createdAt;
     }
 
     /**
-     * Get a default "created at" value, if any is available
-     *
-     * @return string|null A default "created at" value or null if no default value is available
-     */
-    public function getDefaultCreatedAt()
-    {
-        return null;
-    }
-
-    /**
      * Check if "created at" has been set
      *
-     * @return bool True if "created at" value has been set, false if not
+     * @return bool True if "created at" has been set, false if not
      */
-    public function hasCreatedAt()
+    public function hasCreatedAt() : bool
     {
         return isset($this->createdAt);
     }
 
     /**
-     * Check if a default "created at" is available or not
+     * Get a default "created at" value, if any is available
      *
-     * @return bool True of a default "created at" value is available, false if not
+     * @return string|null Default "created at" value or null if no default value is available
      */
-    public function hasDefaultCreatedAt()
+    public function getDefaultCreatedAt() : ?string
     {
-        $default = $this->getDefaultCreatedAt();
-        return isset($default);
+        return null;
     }
 }

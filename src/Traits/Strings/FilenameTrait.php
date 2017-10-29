@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Filename Trait</h1>
@@ -11,7 +14,7 @@
 trait FilenameTrait
 {
     /**
-     * Name of a given file, with or without path, e.g. myText.txt, /usr/docs/README.md
+     * Name of given file, with or without path, e.g. myText.txt, /usr/docs/README.md
      *
      * @var string|null
      */
@@ -20,13 +23,15 @@ trait FilenameTrait
     /**
      * Set filename
      *
-     * @param string $name Name of a given file, with or without path, e.g. myText.txt, /usr/docs/README.md
+     * @param string|null $name Name of given file, with or without path, e.g. myText.txt, /usr/docs/README.md
      *
-     * @return void
+     * @return self
      */
-    public function setFilename($name)
+    public function setFilename(?string $name)
     {
-        $this->filename = (string) $name;
+        $this->filename = $name;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait FilenameTrait
      *
      * @see getDefaultFilename()
      *
-     * @return string|null "filename" value or null if no "filename" value has been set
+     * @return string|null filename or null if no filename has been set
      */
-    public function getFilename()
+    public function getFilename() : ?string 
     {
-        if (!$this->hasFilename() && $this->hasDefaultFilename()) {
+        if ( ! $this->hasFilename()) {
             $this->setFilename($this->getDefaultFilename());
         }
         return $this->filename;
     }
 
     /**
-     * Get a default "filename" value, if any is available
-     *
-     * @return string|null A default "filename" value or null if no default value is available
-     */
-    public function getDefaultFilename()
-    {
-        return null;
-    }
-
-    /**
      * Check if "filename" has been set
      *
-     * @return bool True if "filename" value has been set, false if not
+     * @return bool True if "filename" has been set, false if not
      */
-    public function hasFilename()
+    public function hasFilename() : bool
     {
         return isset($this->filename);
     }
 
     /**
-     * Check if a default "filename" is available or not
+     * Get a default "filename" value, if any is available
      *
-     * @return bool True of a default "filename" value is available, false if not
+     * @return string|null Default "filename" value or null if no default value is available
      */
-    public function hasDefaultFilename()
+    public function getDefaultFilename() : ?string
     {
-        $default = $this->getDefaultFilename();
-        return isset($default);
+        return null;
     }
 }

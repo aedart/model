@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string postalCode'   => [
             \Aedart\Model\Traits\Strings\PostalCodeTrait::class,
             \Aedart\Model\Contracts\Strings\PostalCodeAware::class,
-            $faker->postcode,
-            $faker->postcode,
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

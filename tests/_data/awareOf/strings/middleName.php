@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string middleName'   => [
             \Aedart\Model\Traits\Strings\MiddleNameTrait::class,
             \Aedart\Model\Contracts\Strings\MiddleNameAware::class,
-            $faker->name,
-            $faker->name,
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

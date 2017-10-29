@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Integers;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Integers;
 
 /**
  * <h1>Discount Trait</h1>
@@ -20,13 +23,15 @@ trait DiscountTrait
     /**
      * Set discount
      *
-     * @param int $amount Discount amount
+     * @param int|null $amount Discount amount
      *
-     * @return void
+     * @return self
      */
-    public function setDiscount($amount)
+    public function setDiscount(?int $amount)
     {
-        $this->discount = (int) $amount;
+        $this->discount = $amount;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait DiscountTrait
      *
      * @see getDefaultDiscount()
      *
-     * @return int|null "discount" value or null if no "discount" value has been set
+     * @return int|null discount or null if no discount has been set
      */
-    public function getDiscount()
+    public function getDiscount() : ?int 
     {
-        if (!$this->hasDiscount() && $this->hasDefaultDiscount()) {
+        if ( ! $this->hasDiscount()) {
             $this->setDiscount($this->getDefaultDiscount());
         }
         return $this->discount;
     }
 
     /**
-     * Get a default "discount" value, if any is available
-     *
-     * @return int|null A default "discount" value or null if no default value is available
-     */
-    public function getDefaultDiscount()
-    {
-        return null;
-    }
-
-    /**
      * Check if "discount" has been set
      *
-     * @return bool True if "discount" value has been set, false if not
+     * @return bool True if "discount" has been set, false if not
      */
-    public function hasDiscount()
+    public function hasDiscount() : bool
     {
         return isset($this->discount);
     }
 
     /**
-     * Check if a default "discount" is available or not
+     * Get a default "discount" value, if any is available
      *
-     * @return bool True of a default "discount" value is available, false if not
+     * @return int|null Default "discount" value or null if no default value is available
      */
-    public function hasDefaultDiscount()
+    public function getDefaultDiscount() : ?int
     {
-        $default = $this->getDefaultDiscount();
-        return isset($default);
+        return null;
     }
 }

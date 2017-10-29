@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string cardNumber'   => [
             \Aedart\Model\Traits\Strings\CardNumberTrait::class,
             \Aedart\Model\Contracts\Strings\CardNumberAware::class,
-            $faker->creditCardNumber,
-            $faker->md5,
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

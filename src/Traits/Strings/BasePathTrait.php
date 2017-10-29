@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Base Path Trait</h1>
@@ -20,13 +23,15 @@ trait BasePathTrait
     /**
      * Set base path
      *
-     * @param string $path The path to the root directory of some kind of a resource, e.g. your application, files, pictures,...etc
+     * @param string|null $path The path to the root directory of some kind of a resource, e.g. your application, files, pictures,...etc
      *
-     * @return void
+     * @return self
      */
-    public function setBasePath($path)
+    public function setBasePath(?string $path)
     {
-        $this->basePath = (string) $path;
+        $this->basePath = $path;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait BasePathTrait
      *
      * @see getDefaultBasePath()
      *
-     * @return string|null "base path" value or null if no "base path" value has been set
+     * @return string|null base path or null if no base path has been set
      */
-    public function getBasePath()
+    public function getBasePath() : ?string 
     {
-        if (!$this->hasBasePath() && $this->hasDefaultBasePath()) {
+        if ( ! $this->hasBasePath()) {
             $this->setBasePath($this->getDefaultBasePath());
         }
         return $this->basePath;
     }
 
     /**
-     * Get a default "base path" value, if any is available
-     *
-     * @return string|null A default "base path" value or null if no default value is available
-     */
-    public function getDefaultBasePath()
-    {
-        return null;
-    }
-
-    /**
      * Check if "base path" has been set
      *
-     * @return bool True if "base path" value has been set, false if not
+     * @return bool True if "base path" has been set, false if not
      */
-    public function hasBasePath()
+    public function hasBasePath() : bool
     {
         return isset($this->basePath);
     }
 
     /**
-     * Check if a default "base path" is available or not
+     * Get a default "base path" value, if any is available
      *
-     * @return bool True of a default "base path" value is available, false if not
+     * @return string|null Default "base path" value or null if no default value is available
      */
-    public function hasDefaultBasePath()
+    public function getDefaultBasePath() : ?string
     {
-        $default = $this->getDefaultBasePath();
-        return isset($default);
+        return null;
     }
 }

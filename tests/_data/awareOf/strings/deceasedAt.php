@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string deceasedAt'   => [
             \Aedart\Model\Traits\Strings\DeceasedAtTrait::class,
             \Aedart\Model\Contracts\Strings\DeceasedAtAware::class,
-            $faker->date(),
-            $faker->date(),
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

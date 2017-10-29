@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'int startDate'   => [
             \Aedart\Model\Traits\Integers\StartDateTrait::class,
             \Aedart\Model\Contracts\Integers\StartDateAware::class,
-            $faker->unixTime,
-            $faker->unixTime,
+            $faker->randomNumber($faker->randomDigitNotNull),
+            $faker->randomNumber($faker->randomDigitNotNull),
         ]
     ];
 };

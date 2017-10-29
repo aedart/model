@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Integers;
+<?php
+
+namespace Aedart\Model\Contracts\Integers;
 
 /**
  * <h1>Width Aware</h1>
@@ -14,11 +16,11 @@ interface WidthAware
     /**
      * Set width
      *
-     * @param int $amount Width of something
+     * @param int|null $amount Width of something
      *
-     * @return void
+     * @return self
      */
-    public function setWidth($amount);
+    public function setWidth(?int $amount);
 
     /**
      * Get width
@@ -29,28 +31,21 @@ interface WidthAware
      *
      * @see getDefaultWidth()
      *
-     * @return int|null "width" value or null if no "width" value has been set
+     * @return int|null width or null if no width has been set
      */
-    public function getWidth();
-
-    /**
-     * Get a default "width" value, if any is available
-     *
-     * @return int|null A default "width" value or null if no default value is available
-     */
-    public function getDefaultWidth();
+    public function getWidth() : ?int ;
 
     /**
      * Check if "width" has been set
      *
-     * @return bool True if "width" value has been set, false if not
+     * @return bool True if "width" has been set, false if not
      */
-    public function hasWidth();
+    public function hasWidth() : bool;
 
     /**
-     * Check if a default "width" is available or not
+     * Get a default "width" value, if any is available
      *
-     * @return bool True of a default "width" value is available, false if not
+     * @return int|null Default "width" value or null if no default value is available
      */
-    public function hasDefaultWidth();
+    public function getDefaultWidth() : ?int;
 }

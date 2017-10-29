@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>First Name Aware</h1>
@@ -14,11 +16,11 @@ interface FirstNameAware
     /**
      * Set first name
      *
-     * @param string $name First name (given name) or forename of a person
+     * @param string|null $name First name (given name) or forename of a person
      *
-     * @return void
+     * @return self
      */
-    public function setFirstName($name);
+    public function setFirstName(?string $name);
 
     /**
      * Get first name
@@ -29,28 +31,21 @@ interface FirstNameAware
      *
      * @see getDefaultFirstName()
      *
-     * @return string|null "first name" value or null if no "first name" value has been set
+     * @return string|null first name or null if no first name has been set
      */
-    public function getFirstName();
-
-    /**
-     * Get a default "first name" value, if any is available
-     *
-     * @return string|null A default "first name" value or null if no default value is available
-     */
-    public function getDefaultFirstName();
+    public function getFirstName() : ?string ;
 
     /**
      * Check if "first name" has been set
      *
-     * @return bool True if "first name" value has been set, false if not
+     * @return bool True if "first name" has been set, false if not
      */
-    public function hasFirstName();
+    public function hasFirstName() : bool;
 
     /**
-     * Check if a default "first name" is available or not
+     * Get a default "first name" value, if any is available
      *
-     * @return bool True of a default "first name" value is available, false if not
+     * @return string|null Default "first name" value or null if no default value is available
      */
-    public function hasDefaultFirstName();
+    public function getDefaultFirstName() : ?string;
 }

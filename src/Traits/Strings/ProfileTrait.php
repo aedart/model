@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Profile Trait</h1>
@@ -20,13 +23,15 @@ trait ProfileTrait
     /**
      * Set profile
      *
-     * @param string $value The profile or someone or something
+     * @param string|null $profile The profile or someone or something
      *
-     * @return void
+     * @return self
      */
-    public function setProfile($value)
+    public function setProfile(?string $profile)
     {
-        $this->profile = (string) $value;
+        $this->profile = $profile;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait ProfileTrait
      *
      * @see getDefaultProfile()
      *
-     * @return string|null "profile" value or null if no "profile" value has been set
+     * @return string|null profile or null if no profile has been set
      */
-    public function getProfile()
+    public function getProfile() : ?string 
     {
-        if (!$this->hasProfile() && $this->hasDefaultProfile()) {
+        if ( ! $this->hasProfile()) {
             $this->setProfile($this->getDefaultProfile());
         }
         return $this->profile;
     }
 
     /**
-     * Get a default "profile" value, if any is available
-     *
-     * @return string|null A default "profile" value or null if no default value is available
-     */
-    public function getDefaultProfile()
-    {
-        return null;
-    }
-
-    /**
      * Check if "profile" has been set
      *
-     * @return bool True if "profile" value has been set, false if not
+     * @return bool True if "profile" has been set, false if not
      */
-    public function hasProfile()
+    public function hasProfile() : bool
     {
         return isset($this->profile);
     }
 
     /**
-     * Check if a default "profile" is available or not
+     * Get a default "profile" value, if any is available
      *
-     * @return bool True of a default "profile" value is available, false if not
+     * @return string|null Default "profile" value or null if no default value is available
      */
-    public function hasDefaultProfile()
+    public function getDefaultProfile() : ?string
     {
-        $default = $this->getDefaultProfile();
-        return isset($default);
+        return null;
     }
 }

@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Integers;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Integers;
 
 /**
  * <h1>X Trait</h1>
@@ -20,13 +23,15 @@ trait XTrait
     /**
      * Set x
      *
-     * @param int $value Co-ordinate or value
+     * @param int|null $value Co-ordinate or value
      *
-     * @return void
+     * @return self
      */
-    public function setX($value)
+    public function setX(?int $value)
     {
-        $this->x = (int) $value;
+        $this->x = $value;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait XTrait
      *
      * @see getDefaultX()
      *
-     * @return int|null "x" value or null if no "x" value has been set
+     * @return int|null x or null if no x has been set
      */
-    public function getX()
+    public function getX() : ?int 
     {
-        if (!$this->hasX() && $this->hasDefaultX()) {
+        if ( ! $this->hasX()) {
             $this->setX($this->getDefaultX());
         }
         return $this->x;
     }
 
     /**
-     * Get a default "x" value, if any is available
-     *
-     * @return int|null A default "x" value or null if no default value is available
-     */
-    public function getDefaultX()
-    {
-        return null;
-    }
-
-    /**
      * Check if "x" has been set
      *
-     * @return bool True if "x" value has been set, false if not
+     * @return bool True if "x" has been set, false if not
      */
-    public function hasX()
+    public function hasX() : bool
     {
         return isset($this->x);
     }
 
     /**
-     * Check if a default "x" is available or not
+     * Get a default "x" value, if any is available
      *
-     * @return bool True of a default "x" value is available, false if not
+     * @return int|null Default "x" value or null if no default value is available
      */
-    public function hasDefaultX()
+    public function getDefaultX() : ?int
     {
-        $default = $this->getDefaultX();
-        return isset($default);
+        return null;
     }
 }

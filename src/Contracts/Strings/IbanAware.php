@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Iban Aware</h1>
@@ -14,11 +16,11 @@ interface IbanAware
     /**
      * Set iban
      *
-     * @param string $number International Bank Account Number (IBAN)
+     * @param string|null $number International Bank Account Number (IBAN)
      *
-     * @return void
+     * @return self
      */
-    public function setIban($number);
+    public function setIban(?string $number);
 
     /**
      * Get iban
@@ -29,28 +31,21 @@ interface IbanAware
      *
      * @see getDefaultIban()
      *
-     * @return string|null "iban" value or null if no "iban" value has been set
+     * @return string|null iban or null if no iban has been set
      */
-    public function getIban();
-
-    /**
-     * Get a default "iban" value, if any is available
-     *
-     * @return string|null A default "iban" value or null if no default value is available
-     */
-    public function getDefaultIban();
+    public function getIban() : ?string ;
 
     /**
      * Check if "iban" has been set
      *
-     * @return bool True if "iban" value has been set, false if not
+     * @return bool True if "iban" has been set, false if not
      */
-    public function hasIban();
+    public function hasIban() : bool;
 
     /**
-     * Check if a default "iban" is available or not
+     * Get a default "iban" value, if any is available
      *
-     * @return bool True of a default "iban" value is available, false if not
+     * @return string|null Default "iban" value or null if no default value is available
      */
-    public function hasDefaultIban();
+    public function getDefaultIban() : ?string;
 }

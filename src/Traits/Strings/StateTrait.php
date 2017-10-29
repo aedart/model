@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>State Trait</h1>
@@ -11,7 +14,7 @@
 trait StateTrait
 {
     /**
-     * The state of this component or what it represents
+     * State of this component or what it represents. Alternative, state address
      *
      * @var string|null
      */
@@ -20,13 +23,15 @@ trait StateTrait
     /**
      * Set state
      *
-     * @param string $state The state of this component or what it represents
+     * @param string|null $state State of this component or what it represents. Alternative, state address
      *
-     * @return void
+     * @return self
      */
-    public function setState($state)
+    public function setState(?string $state)
     {
-        $this->state = (string) $state;
+        $this->state = $state;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait StateTrait
      *
      * @see getDefaultState()
      *
-     * @return string|null "state" value or null if no "state" value has been set
+     * @return string|null state or null if no state has been set
      */
-    public function getState()
+    public function getState() : ?string 
     {
-        if (!$this->hasState() && $this->hasDefaultState()) {
+        if ( ! $this->hasState()) {
             $this->setState($this->getDefaultState());
         }
         return $this->state;
     }
 
     /**
-     * Get a default "state" value, if any is available
-     *
-     * @return string|null A default "state" value or null if no default value is available
-     */
-    public function getDefaultState()
-    {
-        return null;
-    }
-
-    /**
      * Check if "state" has been set
      *
-     * @return bool True if "state" value has been set, false if not
+     * @return bool True if "state" has been set, false if not
      */
-    public function hasState()
+    public function hasState() : bool
     {
         return isset($this->state);
     }
 
     /**
-     * Check if a default "state" is available or not
+     * Get a default "state" value, if any is available
      *
-     * @return bool True of a default "state" value is available, false if not
+     * @return string|null Default "state" value or null if no default value is available
      */
-    public function hasDefaultState()
+    public function getDefaultState() : ?string
     {
-        $default = $this->getDefaultState();
-        return isset($default);
+        return null;
     }
 }

@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Email Aware</h1>
@@ -14,11 +16,11 @@ interface EmailAware
     /**
      * Set email
      *
-     * @param string $email Email
+     * @param string|null $email Email
      *
-     * @return void
+     * @return self
      */
-    public function setEmail($email);
+    public function setEmail(?string $email);
 
     /**
      * Get email
@@ -29,28 +31,21 @@ interface EmailAware
      *
      * @see getDefaultEmail()
      *
-     * @return string|null "email" value or null if no "email" value has been set
+     * @return string|null email or null if no email has been set
      */
-    public function getEmail();
-
-    /**
-     * Get a default "email" value, if any is available
-     *
-     * @return string|null A default "email" value or null if no default value is available
-     */
-    public function getDefaultEmail();
+    public function getEmail() : ?string ;
 
     /**
      * Check if "email" has been set
      *
-     * @return bool True if "email" value has been set, false if not
+     * @return bool True if "email" has been set, false if not
      */
-    public function hasEmail();
+    public function hasEmail() : bool;
 
     /**
-     * Check if a default "email" is available or not
+     * Get a default "email" value, if any is available
      *
-     * @return bool True of a default "email" value is available, false if not
+     * @return string|null Default "email" value or null if no default value is available
      */
-    public function hasDefaultEmail();
+    public function getDefaultEmail() : ?string;
 }

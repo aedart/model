@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string expiresAt'   => [
             \Aedart\Model\Traits\Strings\ExpiresAtTrait::class,
             \Aedart\Model\Contracts\Strings\ExpiresAtAware::class,
-            $faker->date(),
-            $faker->date(),
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

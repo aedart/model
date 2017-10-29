@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Region Aware</h1>
@@ -14,11 +16,11 @@ interface RegionAware
     /**
      * Set region
      *
-     * @param string $name Name of a region, state or province
+     * @param string|null $name Name of a region, state or province
      *
-     * @return void
+     * @return self
      */
-    public function setRegion($name);
+    public function setRegion(?string $name);
 
     /**
      * Get region
@@ -29,28 +31,21 @@ interface RegionAware
      *
      * @see getDefaultRegion()
      *
-     * @return string|null "region" value or null if no "region" value has been set
+     * @return string|null region or null if no region has been set
      */
-    public function getRegion();
-
-    /**
-     * Get a default "region" value, if any is available
-     *
-     * @return string|null A default "region" value or null if no default value is available
-     */
-    public function getDefaultRegion();
+    public function getRegion() : ?string ;
 
     /**
      * Check if "region" has been set
      *
-     * @return bool True if "region" value has been set, false if not
+     * @return bool True if "region" has been set, false if not
      */
-    public function hasRegion();
+    public function hasRegion() : bool;
 
     /**
-     * Check if a default "region" is available or not
+     * Get a default "region" value, if any is available
      *
-     * @return bool True of a default "region" value is available, false if not
+     * @return string|null Default "region" value or null if no default value is available
      */
-    public function hasDefaultRegion();
+    public function getDefaultRegion() : ?string;
 }

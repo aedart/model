@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Integers;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Integers;
 
 /**
  * <h1>Vat Trait</h1>
@@ -11,7 +14,7 @@
 trait VatTrait
 {
     /**
-     * Valued Added Tax (VAT), amount or rate
+     * Value Added Tac (VAT), formatted amount or rate
      *
      * @var int|null
      */
@@ -20,13 +23,15 @@ trait VatTrait
     /**
      * Set vat
      *
-     * @param int $value Valued Added Tax (VAT), amount or rate
+     * @param int|null $amount Value Added Tac (VAT), formatted amount or rate
      *
-     * @return void
+     * @return self
      */
-    public function setVat($value)
+    public function setVat(?int $amount)
     {
-        $this->vat = (int) $value;
+        $this->vat = $amount;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait VatTrait
      *
      * @see getDefaultVat()
      *
-     * @return int|null "vat" value or null if no "vat" value has been set
+     * @return int|null vat or null if no vat has been set
      */
-    public function getVat()
+    public function getVat() : ?int 
     {
-        if (!$this->hasVat() && $this->hasDefaultVat()) {
+        if ( ! $this->hasVat()) {
             $this->setVat($this->getDefaultVat());
         }
         return $this->vat;
     }
 
     /**
-     * Get a default "vat" value, if any is available
-     *
-     * @return int|null A default "vat" value or null if no default value is available
-     */
-    public function getDefaultVat()
-    {
-        return null;
-    }
-
-    /**
      * Check if "vat" has been set
      *
-     * @return bool True if "vat" value has been set, false if not
+     * @return bool True if "vat" has been set, false if not
      */
-    public function hasVat()
+    public function hasVat() : bool
     {
         return isset($this->vat);
     }
 
     /**
-     * Check if a default "vat" is available or not
+     * Get a default "vat" value, if any is available
      *
-     * @return bool True of a default "vat" value is available, false if not
+     * @return int|null Default "vat" value or null if no default value is available
      */
-    public function hasDefaultVat()
+    public function getDefaultVat() : ?int
     {
-        $default = $this->getDefaultVat();
-        return isset($default);
+        return null;
     }
 }

@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Isbn10 Trait</h1>
@@ -11,7 +14,7 @@
 trait Isbn10Trait
 {
     /**
-     * International Standard Book Number (ISBN), 10-digit
+     * International Standard Book Number (ISBN), 10-digits
      *
      * @var string|null
      */
@@ -20,13 +23,15 @@ trait Isbn10Trait
     /**
      * Set isbn10
      *
-     * @param string $isbn10 International Standard Book Number (ISBN), 10-digit
+     * @param string|null $isbn10 International Standard Book Number (ISBN), 10-digits
      *
-     * @return void
+     * @return self
      */
-    public function setIsbn10($isbn10)
+    public function setIsbn10(?string $isbn10)
     {
-        $this->isbn10 = (string) $isbn10;
+        $this->isbn10 = $isbn10;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait Isbn10Trait
      *
      * @see getDefaultIsbn10()
      *
-     * @return string|null "isbn10" value or null if no "isbn10" value has been set
+     * @return string|null isbn10 or null if no isbn10 has been set
      */
-    public function getIsbn10()
+    public function getIsbn10() : ?string 
     {
-        if (!$this->hasIsbn10() && $this->hasDefaultIsbn10()) {
+        if ( ! $this->hasIsbn10()) {
             $this->setIsbn10($this->getDefaultIsbn10());
         }
         return $this->isbn10;
     }
 
     /**
-     * Get a default "isbn10" value, if any is available
-     *
-     * @return string|null A default "isbn10" value or null if no default value is available
-     */
-    public function getDefaultIsbn10()
-    {
-        return null;
-    }
-
-    /**
      * Check if "isbn10" has been set
      *
-     * @return bool True if "isbn10" value has been set, false if not
+     * @return bool True if "isbn10" has been set, false if not
      */
-    public function hasIsbn10()
+    public function hasIsbn10() : bool
     {
         return isset($this->isbn10);
     }
 
     /**
-     * Check if a default "isbn10" is available or not
+     * Get a default "isbn10" value, if any is available
      *
-     * @return bool True of a default "isbn10" value is available, false if not
+     * @return string|null Default "isbn10" value or null if no default value is available
      */
-    public function hasDefaultIsbn10()
+    public function getDefaultIsbn10() : ?string
     {
-        $default = $this->getDefaultIsbn10();
-        return isset($default);
+        return null;
     }
 }

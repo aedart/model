@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string phone'   => [
             \Aedart\Model\Traits\Strings\PhoneTrait::class,
             \Aedart\Model\Contracts\Strings\PhoneAware::class,
-            $faker->phoneNumber,
-            $faker->phoneNumber,
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

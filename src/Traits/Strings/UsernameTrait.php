@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Username Trait</h1>
@@ -11,7 +14,7 @@
 trait UsernameTrait
 {
     /**
-     * Identifier to be used as a username
+     * Identifier to be used as username
      *
      * @var string|null
      */
@@ -20,13 +23,15 @@ trait UsernameTrait
     /**
      * Set username
      *
-     * @param string $identifier Identifier to be used as a username
+     * @param string|null $identifier Identifier to be used as username
      *
-     * @return void
+     * @return self
      */
-    public function setUsername($identifier)
+    public function setUsername(?string $identifier)
     {
-        $this->username = (string) $identifier;
+        $this->username = $identifier;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait UsernameTrait
      *
      * @see getDefaultUsername()
      *
-     * @return string|null "username" value or null if no "username" value has been set
+     * @return string|null username or null if no username has been set
      */
-    public function getUsername()
+    public function getUsername() : ?string 
     {
-        if (!$this->hasUsername() && $this->hasDefaultUsername()) {
+        if ( ! $this->hasUsername()) {
             $this->setUsername($this->getDefaultUsername());
         }
         return $this->username;
     }
 
     /**
-     * Get a default "username" value, if any is available
-     *
-     * @return string|null A default "username" value or null if no default value is available
-     */
-    public function getDefaultUsername()
-    {
-        return null;
-    }
-
-    /**
      * Check if "username" has been set
      *
-     * @return bool True if "username" value has been set, false if not
+     * @return bool True if "username" has been set, false if not
      */
-    public function hasUsername()
+    public function hasUsername() : bool
     {
         return isset($this->username);
     }
 
     /**
-     * Check if a default "username" is available or not
+     * Get a default "username" value, if any is available
      *
-     * @return bool True of a default "username" value is available, false if not
+     * @return string|null Default "username" value or null if no default value is available
      */
-    public function hasDefaultUsername()
+    public function getDefaultUsername() : ?string
     {
-        $default = $this->getDefaultUsername();
-        return isset($default);
+        return null;
     }
 }

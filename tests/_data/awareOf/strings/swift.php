@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string swift'   => [
             \Aedart\Model\Traits\Strings\SwiftTrait::class,
             \Aedart\Model\Contracts\Strings\SwiftAware::class,
-            $faker->swiftBicNumber,
-            $faker->swiftBicNumber,
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string calendar'   => [
             \Aedart\Model\Traits\Strings\CalendarTrait::class,
             \Aedart\Model\Contracts\Strings\CalendarAware::class,
-            $faker->uuid,
-            $faker->uuid,
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

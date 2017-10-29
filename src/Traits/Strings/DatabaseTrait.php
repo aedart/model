@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Database Trait</h1>
@@ -11,7 +14,7 @@
 trait DatabaseTrait
 {
     /**
-     * Name of a database
+     * Name of database
      *
      * @var string|null
      */
@@ -20,13 +23,15 @@ trait DatabaseTrait
     /**
      * Set database
      *
-     * @param string $name Name of a database
+     * @param string|null $name Name of database
      *
-     * @return void
+     * @return self
      */
-    public function setDatabase($name)
+    public function setDatabase(?string $name)
     {
-        $this->database = (string) $name;
+        $this->database = $name;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait DatabaseTrait
      *
      * @see getDefaultDatabase()
      *
-     * @return string|null "database" value or null if no "database" value has been set
+     * @return string|null database or null if no database has been set
      */
-    public function getDatabase()
+    public function getDatabase() : ?string 
     {
-        if (!$this->hasDatabase() && $this->hasDefaultDatabase()) {
+        if ( ! $this->hasDatabase()) {
             $this->setDatabase($this->getDefaultDatabase());
         }
         return $this->database;
     }
 
     /**
-     * Get a default "database" value, if any is available
-     *
-     * @return string|null A default "database" value or null if no default value is available
-     */
-    public function getDefaultDatabase()
-    {
-        return null;
-    }
-
-    /**
      * Check if "database" has been set
      *
-     * @return bool True if "database" value has been set, false if not
+     * @return bool True if "database" has been set, false if not
      */
-    public function hasDatabase()
+    public function hasDatabase() : bool
     {
         return isset($this->database);
     }
 
     /**
-     * Check if a default "database" is available or not
+     * Get a default "database" value, if any is available
      *
-     * @return bool True of a default "database" value is available, false if not
+     * @return string|null Default "database" value or null if no default value is available
      */
-    public function hasDefaultDatabase()
+    public function getDefaultDatabase() : ?string
     {
-        $default = $this->getDefaultDatabase();
-        return isset($default);
+        return null;
     }
 }

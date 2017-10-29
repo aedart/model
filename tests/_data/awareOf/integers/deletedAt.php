@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'int deletedAt'   => [
             \Aedart\Model\Traits\Integers\DeletedAtTrait::class,
             \Aedart\Model\Contracts\Integers\DeletedAtAware::class,
-            $faker->unixTime,
-            $faker->unixTime,
+            $faker->randomNumber($faker->randomDigitNotNull),
+            $faker->randomNumber($faker->randomDigitNotNull),
         ]
     ];
 };

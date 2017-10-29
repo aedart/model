@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string region'   => [
             \Aedart\Model\Traits\Strings\RegionTrait::class,
             \Aedart\Model\Contracts\Strings\RegionAware::class,
-            $faker->state,
-            $faker->state,
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

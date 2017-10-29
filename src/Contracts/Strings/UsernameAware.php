@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Username Aware</h1>
@@ -14,11 +16,11 @@ interface UsernameAware
     /**
      * Set username
      *
-     * @param string $identifier Identifier to be used as a username
+     * @param string|null $identifier Identifier to be used as username
      *
-     * @return void
+     * @return self
      */
-    public function setUsername($identifier);
+    public function setUsername(?string $identifier);
 
     /**
      * Get username
@@ -29,28 +31,21 @@ interface UsernameAware
      *
      * @see getDefaultUsername()
      *
-     * @return string|null "username" value or null if no "username" value has been set
+     * @return string|null username or null if no username has been set
      */
-    public function getUsername();
-
-    /**
-     * Get a default "username" value, if any is available
-     *
-     * @return string|null A default "username" value or null if no default value is available
-     */
-    public function getDefaultUsername();
+    public function getUsername() : ?string ;
 
     /**
      * Check if "username" has been set
      *
-     * @return bool True if "username" value has been set, false if not
+     * @return bool True if "username" has been set, false if not
      */
-    public function hasUsername();
+    public function hasUsername() : bool;
 
     /**
-     * Check if a default "username" is available or not
+     * Get a default "username" value, if any is available
      *
-     * @return bool True of a default "username" value is available, false if not
+     * @return string|null Default "username" value or null if no default value is available
      */
-    public function hasDefaultUsername();
+    public function getDefaultUsername() : ?string;
 }

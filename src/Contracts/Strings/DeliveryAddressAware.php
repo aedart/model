@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Delivery Address Aware</h1>
@@ -14,11 +16,11 @@ interface DeliveryAddressAware
     /**
      * Set delivery address
      *
-     * @param string $address Delivery address. Can be formatted.
+     * @param string|null $address Delivery address
      *
-     * @return void
+     * @return self
      */
-    public function setDeliveryAddress($address);
+    public function setDeliveryAddress(?string $address);
 
     /**
      * Get delivery address
@@ -29,28 +31,21 @@ interface DeliveryAddressAware
      *
      * @see getDefaultDeliveryAddress()
      *
-     * @return string|null "delivery address" value or null if no "delivery address" value has been set
+     * @return string|null delivery address or null if no delivery address has been set
      */
-    public function getDeliveryAddress();
-
-    /**
-     * Get a default "delivery address" value, if any is available
-     *
-     * @return string|null A default "delivery address" value or null if no default value is available
-     */
-    public function getDefaultDeliveryAddress();
+    public function getDeliveryAddress() : ?string ;
 
     /**
      * Check if "delivery address" has been set
      *
-     * @return bool True if "delivery address" value has been set, false if not
+     * @return bool True if "delivery address" has been set, false if not
      */
-    public function hasDeliveryAddress();
+    public function hasDeliveryAddress() : bool;
 
     /**
-     * Check if a default "delivery address" is available or not
+     * Get a default "delivery address" value, if any is available
      *
-     * @return bool True of a default "delivery address" value is available, false if not
+     * @return string|null Default "delivery address" value or null if no default value is available
      */
-    public function hasDefaultDeliveryAddress();
+    public function getDefaultDeliveryAddress() : ?string;
 }

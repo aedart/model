@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Ip V4 Trait</h1>
@@ -20,13 +23,15 @@ trait IpV4Trait
     /**
      * Set ip v4
      *
-     * @param string $address IPv4 address
+     * @param string|null $address IPv4 address
      *
-     * @return void
+     * @return self
      */
-    public function setIpV4($address)
+    public function setIpV4(?string $address)
     {
-        $this->ipV4 = (string) $address;
+        $this->ipV4 = $address;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait IpV4Trait
      *
      * @see getDefaultIpV4()
      *
-     * @return string|null "ip v4" value or null if no "ip v4" value has been set
+     * @return string|null ip v4 or null if no ip v4 has been set
      */
-    public function getIpV4()
+    public function getIpV4() : ?string 
     {
-        if (!$this->hasIpV4() && $this->hasDefaultIpV4()) {
+        if ( ! $this->hasIpV4()) {
             $this->setIpV4($this->getDefaultIpV4());
         }
         return $this->ipV4;
     }
 
     /**
-     * Get a default "ip v4" value, if any is available
-     *
-     * @return string|null A default "ip v4" value or null if no default value is available
-     */
-    public function getDefaultIpV4()
-    {
-        return null;
-    }
-
-    /**
      * Check if "ip v4" has been set
      *
-     * @return bool True if "ip v4" value has been set, false if not
+     * @return bool True if "ip v4" has been set, false if not
      */
-    public function hasIpV4()
+    public function hasIpV4() : bool
     {
         return isset($this->ipV4);
     }
 
     /**
-     * Check if a default "ip v4" is available or not
+     * Get a default "ip v4" value, if any is available
      *
-     * @return bool True of a default "ip v4" value is available, false if not
+     * @return string|null Default "ip v4" value or null if no default value is available
      */
-    public function hasDefaultIpV4()
+    public function getDefaultIpV4() : ?string
     {
-        $default = $this->getDefaultIpV4();
-        return isset($default);
+        return null;
     }
 }

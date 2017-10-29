@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Role Trait</h1>
@@ -11,7 +14,7 @@
 trait RoleTrait
 {
     /**
-     * Name of a role or the role that someone or something has
+     * Name or identifier of role
      *
      * @var string|null
      */
@@ -20,13 +23,15 @@ trait RoleTrait
     /**
      * Set role
      *
-     * @param string $name Name of a role or the role that someone or something has
+     * @param string|null $identifier Name or identifier of role
      *
-     * @return void
+     * @return self
      */
-    public function setRole($name)
+    public function setRole(?string $identifier)
     {
-        $this->role = (string) $name;
+        $this->role = $identifier;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait RoleTrait
      *
      * @see getDefaultRole()
      *
-     * @return string|null "role" value or null if no "role" value has been set
+     * @return string|null role or null if no role has been set
      */
-    public function getRole()
+    public function getRole() : ?string 
     {
-        if (!$this->hasRole() && $this->hasDefaultRole()) {
+        if ( ! $this->hasRole()) {
             $this->setRole($this->getDefaultRole());
         }
         return $this->role;
     }
 
     /**
-     * Get a default "role" value, if any is available
-     *
-     * @return string|null A default "role" value or null if no default value is available
-     */
-    public function getDefaultRole()
-    {
-        return null;
-    }
-
-    /**
      * Check if "role" has been set
      *
-     * @return bool True if "role" value has been set, false if not
+     * @return bool True if "role" has been set, false if not
      */
-    public function hasRole()
+    public function hasRole() : bool
     {
         return isset($this->role);
     }
 
     /**
-     * Check if a default "role" is available or not
+     * Get a default "role" value, if any is available
      *
-     * @return bool True of a default "role" value is available, false if not
+     * @return string|null Default "role" value or null if no default value is available
      */
-    public function hasDefaultRole()
+    public function getDefaultRole() : ?string
     {
-        $default = $this->getDefaultRole();
-        return isset($default);
+        return null;
     }
 }

@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Isbn Aware</h1>
@@ -14,11 +16,11 @@ interface IsbnAware
     /**
      * Set isbn
      *
-     * @param string $isbn International Standard Book Number (ISBN)
+     * @param string|null $isbn International Standard Book Number (ISBN)
      *
-     * @return void
+     * @return self
      */
-    public function setIsbn($isbn);
+    public function setIsbn(?string $isbn);
 
     /**
      * Get isbn
@@ -29,28 +31,21 @@ interface IsbnAware
      *
      * @see getDefaultIsbn()
      *
-     * @return string|null "isbn" value or null if no "isbn" value has been set
+     * @return string|null isbn or null if no isbn has been set
      */
-    public function getIsbn();
-
-    /**
-     * Get a default "isbn" value, if any is available
-     *
-     * @return string|null A default "isbn" value or null if no default value is available
-     */
-    public function getDefaultIsbn();
+    public function getIsbn() : ?string ;
 
     /**
      * Check if "isbn" has been set
      *
-     * @return bool True if "isbn" value has been set, false if not
+     * @return bool True if "isbn" has been set, false if not
      */
-    public function hasIsbn();
+    public function hasIsbn() : bool;
 
     /**
-     * Check if a default "isbn" is available or not
+     * Get a default "isbn" value, if any is available
      *
-     * @return bool True of a default "isbn" value is available, false if not
+     * @return string|null Default "isbn" value or null if no default value is available
      */
-    public function hasDefaultIsbn();
+    public function getDefaultIsbn() : ?string;
 }

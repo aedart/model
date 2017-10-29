@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Integers;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Integers;
 
 /**
  * <h1>Timeout Trait</h1>
@@ -11,7 +14,7 @@
 trait TimeoutTrait
 {
     /**
-     * Timeout
+     * Timeout amount
      *
      * @var int|null
      */
@@ -20,13 +23,15 @@ trait TimeoutTrait
     /**
      * Set timeout
      *
-     * @param int $value Timeout
+     * @param int|null $amount Timeout amount
      *
-     * @return void
+     * @return self
      */
-    public function setTimeout($value)
+    public function setTimeout(?int $amount)
     {
-        $this->timeout = (int) $value;
+        $this->timeout = $amount;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait TimeoutTrait
      *
      * @see getDefaultTimeout()
      *
-     * @return int|null "timeout" value or null if no "timeout" value has been set
+     * @return int|null timeout or null if no timeout has been set
      */
-    public function getTimeout()
+    public function getTimeout() : ?int 
     {
-        if (!$this->hasTimeout() && $this->hasDefaultTimeout()) {
+        if ( ! $this->hasTimeout()) {
             $this->setTimeout($this->getDefaultTimeout());
         }
         return $this->timeout;
     }
 
     /**
-     * Get a default "timeout" value, if any is available
-     *
-     * @return int|null A default "timeout" value or null if no default value is available
-     */
-    public function getDefaultTimeout()
-    {
-        return null;
-    }
-
-    /**
      * Check if "timeout" has been set
      *
-     * @return bool True if "timeout" value has been set, false if not
+     * @return bool True if "timeout" has been set, false if not
      */
-    public function hasTimeout()
+    public function hasTimeout() : bool
     {
         return isset($this->timeout);
     }
 
     /**
-     * Check if a default "timeout" is available or not
+     * Get a default "timeout" value, if any is available
      *
-     * @return bool True of a default "timeout" value is available, false if not
+     * @return int|null Default "timeout" value or null if no default value is available
      */
-    public function hasDefaultTimeout()
+    public function getDefaultTimeout() : ?int
     {
-        $default = $this->getDefaultTimeout();
-        return isset($default);
+        return null;
     }
 }

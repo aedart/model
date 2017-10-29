@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Xml Aware</h1>
@@ -14,11 +16,11 @@ interface XmlAware
     /**
      * Set xml
      *
-     * @param string $xml Extensible Markup Language (XML)
+     * @param string|null $xml Extensible Markup Language (XML)
      *
-     * @return void
+     * @return self
      */
-    public function setXml($xml);
+    public function setXml(?string $xml);
 
     /**
      * Get xml
@@ -29,28 +31,21 @@ interface XmlAware
      *
      * @see getDefaultXml()
      *
-     * @return string|null "xml" value or null if no "xml" value has been set
+     * @return string|null xml or null if no xml has been set
      */
-    public function getXml();
-
-    /**
-     * Get a default "xml" value, if any is available
-     *
-     * @return string|null A default "xml" value or null if no default value is available
-     */
-    public function getDefaultXml();
+    public function getXml() : ?string ;
 
     /**
      * Check if "xml" has been set
      *
-     * @return bool True if "xml" value has been set, false if not
+     * @return bool True if "xml" has been set, false if not
      */
-    public function hasXml();
+    public function hasXml() : bool;
 
     /**
-     * Check if a default "xml" is available or not
+     * Get a default "xml" value, if any is available
      *
-     * @return bool True of a default "xml" value is available, false if not
+     * @return string|null Default "xml" value or null if no default value is available
      */
-    public function hasDefaultXml();
+    public function getDefaultXml() : ?string;
 }

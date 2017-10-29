@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Kind Trait</h1>
@@ -20,13 +23,15 @@ trait KindTrait
     /**
      * Set kind
      *
-     * @param string $kind The kind of object this represents, e.g. human, organisation, group, individual...etc
+     * @param string|null $kind The kind of object this represents, e.g. human, organisation, group, individual...etc
      *
-     * @return void
+     * @return self
      */
-    public function setKind($kind)
+    public function setKind(?string $kind)
     {
-        $this->kind = (string) $kind;
+        $this->kind = $kind;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait KindTrait
      *
      * @see getDefaultKind()
      *
-     * @return string|null "kind" value or null if no "kind" value has been set
+     * @return string|null kind or null if no kind has been set
      */
-    public function getKind()
+    public function getKind() : ?string 
     {
-        if (!$this->hasKind() && $this->hasDefaultKind()) {
+        if ( ! $this->hasKind()) {
             $this->setKind($this->getDefaultKind());
         }
         return $this->kind;
     }
 
     /**
-     * Get a default "kind" value, if any is available
-     *
-     * @return string|null A default "kind" value or null if no default value is available
-     */
-    public function getDefaultKind()
-    {
-        return null;
-    }
-
-    /**
      * Check if "kind" has been set
      *
-     * @return bool True if "kind" value has been set, false if not
+     * @return bool True if "kind" has been set, false if not
      */
-    public function hasKind()
+    public function hasKind() : bool
     {
         return isset($this->kind);
     }
 
     /**
-     * Check if a default "kind" is available or not
+     * Get a default "kind" value, if any is available
      *
-     * @return bool True of a default "kind" value is available, false if not
+     * @return string|null Default "kind" value or null if no default value is available
      */
-    public function hasDefaultKind()
+    public function getDefaultKind() : ?string
     {
-        $default = $this->getDefaultKind();
-        return isset($default);
+        return null;
     }
 }

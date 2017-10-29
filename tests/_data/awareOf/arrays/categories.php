@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Generated data provider for string[] categories unit test
+ * Generated data provider for array categories unit test
  */
 return function(\Faker\Generator $faker){
     return [
-        'string[] categories'   => [
+        'array categories'   => [
             \Aedart\Model\Traits\Arrays\CategoriesTrait::class,
             \Aedart\Model\Contracts\Arrays\CategoriesAware::class,
             $faker->words($faker->randomDigitNotNull),

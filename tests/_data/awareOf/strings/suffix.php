@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string suffix'   => [
             \Aedart\Model\Traits\Strings\SuffixTrait::class,
             \Aedart\Model\Contracts\Strings\SuffixAware::class,
-            $faker->streetSuffix,
-            $faker->companySuffix,
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

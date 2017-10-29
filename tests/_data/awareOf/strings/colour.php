@@ -8,8 +8,8 @@ return function(\Faker\Generator $faker){
         'string colour'   => [
             \Aedart\Model\Traits\Strings\ColourTrait::class,
             \Aedart\Model\Contracts\Strings\ColourAware::class,
-            $faker->hexColor,
-            $faker->colorName,
+            $faker->word,
+            $faker->word,
         ]
     ];
 };

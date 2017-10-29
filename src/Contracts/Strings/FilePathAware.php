@@ -1,12 +1,12 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>File Path Aware</h1>
  *
  * Component is aware of a string "file path" value, which can
  * also be specified.
- *
- * @see FilenameAware
  *
  * @author Alin Eugen Deac <aedart@gmail.com>
  * @package Aedart\Model\Contracts\Strings
@@ -16,11 +16,11 @@ interface FilePathAware
     /**
      * Set file path
      *
-     * @param string $path Path to a file
+     * @param string|null $path Path to a file
      *
-     * @return void
+     * @return self
      */
-    public function setFilePath($path);
+    public function setFilePath(?string $path);
 
     /**
      * Get file path
@@ -31,28 +31,21 @@ interface FilePathAware
      *
      * @see getDefaultFilePath()
      *
-     * @return string|null "file path" value or null if no "file path" value has been set
+     * @return string|null file path or null if no file path has been set
      */
-    public function getFilePath();
-
-    /**
-     * Get a default "file path" value, if any is available
-     *
-     * @return string|null A default "file path" value or null if no default value is available
-     */
-    public function getDefaultFilePath();
+    public function getFilePath() : ?string ;
 
     /**
      * Check if "file path" has been set
      *
-     * @return bool True if "file path" value has been set, false if not
+     * @return bool True if "file path" has been set, false if not
      */
-    public function hasFilePath();
+    public function hasFilePath() : bool;
 
     /**
-     * Check if a default "file path" is available or not
+     * Get a default "file path" value, if any is available
      *
-     * @return bool True of a default "file path" value is available, false if not
+     * @return string|null Default "file path" value or null if no default value is available
      */
-    public function hasDefaultFilePath();
+    public function getDefaultFilePath() : ?string;
 }

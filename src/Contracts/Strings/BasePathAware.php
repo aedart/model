@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Base Path Aware</h1>
@@ -14,11 +16,11 @@ interface BasePathAware
     /**
      * Set base path
      *
-     * @param string $path The path to the root directory of some kind of a resource, e.g. your application, files, pictures,...etc
+     * @param string|null $path The path to the root directory of some kind of a resource, e.g. your application, files, pictures,...etc
      *
-     * @return void
+     * @return self
      */
-    public function setBasePath($path);
+    public function setBasePath(?string $path);
 
     /**
      * Get base path
@@ -29,28 +31,21 @@ interface BasePathAware
      *
      * @see getDefaultBasePath()
      *
-     * @return string|null "base path" value or null if no "base path" value has been set
+     * @return string|null base path or null if no base path has been set
      */
-    public function getBasePath();
-
-    /**
-     * Get a default "base path" value, if any is available
-     *
-     * @return string|null A default "base path" value or null if no default value is available
-     */
-    public function getDefaultBasePath();
+    public function getBasePath() : ?string ;
 
     /**
      * Check if "base path" has been set
      *
-     * @return bool True if "base path" value has been set, false if not
+     * @return bool True if "base path" has been set, false if not
      */
-    public function hasBasePath();
+    public function hasBasePath() : bool;
 
     /**
-     * Check if a default "base path" is available or not
+     * Get a default "base path" value, if any is available
      *
-     * @return bool True of a default "base path" value is available, false if not
+     * @return string|null Default "base path" value or null if no default value is available
      */
-    public function hasDefaultBasePath();
+    public function getDefaultBasePath() : ?string;
 }

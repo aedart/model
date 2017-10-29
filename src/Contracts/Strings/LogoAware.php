@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Logo Aware</h1>
@@ -14,11 +16,11 @@ interface LogoAware
     /**
      * Set logo
      *
-     * @param string $location Path, Uri or other type of location to a logo
+     * @param string|null $location Path, Uri or other type of location to a logo
      *
-     * @return void
+     * @return self
      */
-    public function setLogo($location);
+    public function setLogo(?string $location);
 
     /**
      * Get logo
@@ -29,28 +31,21 @@ interface LogoAware
      *
      * @see getDefaultLogo()
      *
-     * @return string|null "logo" value or null if no "logo" value has been set
+     * @return string|null logo or null if no logo has been set
      */
-    public function getLogo();
-
-    /**
-     * Get a default "logo" value, if any is available
-     *
-     * @return string|null A default "logo" value or null if no default value is available
-     */
-    public function getDefaultLogo();
+    public function getLogo() : ?string ;
 
     /**
      * Check if "logo" has been set
      *
-     * @return bool True if "logo" value has been set, false if not
+     * @return bool True if "logo" has been set, false if not
      */
-    public function hasLogo();
+    public function hasLogo() : bool;
 
     /**
-     * Check if a default "logo" is available or not
+     * Get a default "logo" value, if any is available
      *
-     * @return bool True of a default "logo" value is available, false if not
+     * @return string|null Default "logo" value or null if no default value is available
      */
-    public function hasDefaultLogo();
+    public function getDefaultLogo() : ?string;
 }

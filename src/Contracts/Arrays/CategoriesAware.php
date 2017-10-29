@@ -1,9 +1,11 @@
-<?php namespace Aedart\Model\Contracts\Arrays;
+<?php
+
+namespace Aedart\Model\Contracts\Arrays;
 
 /**
  * <h1>Categories Aware</h1>
  *
- * Component is aware of a string[] "categories" value, which can
+ * Component is aware of a array "categories" value, which can
  * also be specified.
  *
  * @author Alin Eugen Deac <aedart@gmail.com>
@@ -14,11 +16,11 @@ interface CategoriesAware
     /**
      * Set categories
      *
-     * @param string[] $list List of category names
+     * @param array|null $list List of category names
      *
-     * @return void
+     * @return self
      */
-    public function setCategories(array $list);
+    public function setCategories(?array $list);
 
     /**
      * Get categories
@@ -29,28 +31,21 @@ interface CategoriesAware
      *
      * @see getDefaultCategories()
      *
-     * @return string[]|null "categories" value or null if no "categories" value has been set
+     * @return array|null categories or null if no categories has been set
      */
-    public function getCategories();
-
-    /**
-     * Get a default "categories" value, if any is available
-     *
-     * @return string[]|null A default "categories" value or null if no default value is available
-     */
-    public function getDefaultCategories();
+    public function getCategories() : ?array ;
 
     /**
      * Check if "categories" has been set
      *
-     * @return bool True if "categories" value has been set, false if not
+     * @return bool True if "categories" has been set, false if not
      */
-    public function hasCategories();
+    public function hasCategories() : bool;
 
     /**
-     * Check if a default "categories" is available or not
+     * Get a default "categories" value, if any is available
      *
-     * @return bool True of a default "categories" value is available, false if not
+     * @return array|null Default "categories" value or null if no default value is available
      */
-    public function hasDefaultCategories();
+    public function getDefaultCategories() : ?array;
 }

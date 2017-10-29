@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Strings;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Strings;
 
 /**
  * <h1>Latitude Trait</h1>
@@ -20,13 +23,15 @@ trait LatitudeTrait
     /**
      * Set latitude
      *
-     * @param string $value North-South position on Earth's surface
+     * @param string|null $value North-South position on Earth&#039;s surface
      *
-     * @return void
+     * @return self
      */
-    public function setLatitude($value)
+    public function setLatitude(?string $value)
     {
-        $this->latitude = (string) $value;
+        $this->latitude = $value;
+
+        return $this;
     }
 
     /**
@@ -38,44 +43,33 @@ trait LatitudeTrait
      *
      * @see getDefaultLatitude()
      *
-     * @return string|null "latitude" value or null if no "latitude" value has been set
+     * @return string|null latitude or null if no latitude has been set
      */
-    public function getLatitude()
+    public function getLatitude() : ?string 
     {
-        if (!$this->hasLatitude() && $this->hasDefaultLatitude()) {
+        if ( ! $this->hasLatitude()) {
             $this->setLatitude($this->getDefaultLatitude());
         }
         return $this->latitude;
     }
 
     /**
-     * Get a default "latitude" value, if any is available
-     *
-     * @return string|null A default "latitude" value or null if no default value is available
-     */
-    public function getDefaultLatitude()
-    {
-        return null;
-    }
-
-    /**
      * Check if "latitude" has been set
      *
-     * @return bool True if "latitude" value has been set, false if not
+     * @return bool True if "latitude" has been set, false if not
      */
-    public function hasLatitude()
+    public function hasLatitude() : bool
     {
         return isset($this->latitude);
     }
 
     /**
-     * Check if a default "latitude" is available or not
+     * Get a default "latitude" value, if any is available
      *
-     * @return bool True of a default "latitude" value is available, false if not
+     * @return string|null Default "latitude" value or null if no default value is available
      */
-    public function hasDefaultLatitude()
+    public function getDefaultLatitude() : ?string
     {
-        $default = $this->getDefaultLatitude();
-        return isset($default);
+        return null;
     }
 }

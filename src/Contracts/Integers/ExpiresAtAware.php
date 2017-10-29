@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Integers;
+<?php
+
+namespace Aedart\Model\Contracts\Integers;
 
 /**
  * <h1>Expires At Aware</h1>
@@ -14,11 +16,11 @@ interface ExpiresAtAware
     /**
      * Set expires at
      *
-     * @param int $date Date (UNIX timestamp) of when this component, entity or resource is going to expire
+     * @param int|null $date Date of when this component, entity or resource is going to expire
      *
-     * @return void
+     * @return self
      */
-    public function setExpiresAt($date);
+    public function setExpiresAt(?int $date);
 
     /**
      * Get expires at
@@ -29,28 +31,21 @@ interface ExpiresAtAware
      *
      * @see getDefaultExpiresAt()
      *
-     * @return int|null "expires at" value or null if no "expires at" value has been set
+     * @return int|null expires at or null if no expires at has been set
      */
-    public function getExpiresAt();
-
-    /**
-     * Get a default "expires at" value, if any is available
-     *
-     * @return int|null A default "expires at" value or null if no default value is available
-     */
-    public function getDefaultExpiresAt();
+    public function getExpiresAt() : ?int ;
 
     /**
      * Check if "expires at" has been set
      *
-     * @return bool True if "expires at" value has been set, false if not
+     * @return bool True if "expires at" has been set, false if not
      */
-    public function hasExpiresAt();
+    public function hasExpiresAt() : bool;
 
     /**
-     * Check if a default "expires at" is available or not
+     * Get a default "expires at" value, if any is available
      *
-     * @return bool True of a default "expires at" value is available, false if not
+     * @return int|null Default "expires at" value or null if no default value is available
      */
-    public function hasDefaultExpiresAt();
+    public function getDefaultExpiresAt() : ?int;
 }

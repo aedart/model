@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Strings;
+<?php
+
+namespace Aedart\Model\Contracts\Strings;
 
 /**
  * <h1>Middle Name Aware</h1>
@@ -14,11 +16,11 @@ interface MiddleNameAware
     /**
      * Set middle name
      *
-     * @param string $name Middle Name or names of a person
+     * @param string|null $name Middle Name or names of a person
      *
-     * @return void
+     * @return self
      */
-    public function setMiddleName($name);
+    public function setMiddleName(?string $name);
 
     /**
      * Get middle name
@@ -29,28 +31,21 @@ interface MiddleNameAware
      *
      * @see getDefaultMiddleName()
      *
-     * @return string|null "middle name" value or null if no "middle name" value has been set
+     * @return string|null middle name or null if no middle name has been set
      */
-    public function getMiddleName();
-
-    /**
-     * Get a default "middle name" value, if any is available
-     *
-     * @return string|null A default "middle name" value or null if no default value is available
-     */
-    public function getDefaultMiddleName();
+    public function getMiddleName() : ?string ;
 
     /**
      * Check if "middle name" has been set
      *
-     * @return bool True if "middle name" value has been set, false if not
+     * @return bool True if "middle name" has been set, false if not
      */
-    public function hasMiddleName();
+    public function hasMiddleName() : bool;
 
     /**
-     * Check if a default "middle name" is available or not
+     * Get a default "middle name" value, if any is available
      *
-     * @return bool True of a default "middle name" value is available, false if not
+     * @return string|null Default "middle name" value or null if no default value is available
      */
-    public function hasDefaultMiddleName();
+    public function getDefaultMiddleName() : ?string;
 }
