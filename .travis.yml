@@ -15,6 +15,7 @@ before_install:
 install:
   - composer install --no-interaction --prefer-dist --no-suggest
   - composer update --no-interaction --prefer-stable --no-suggest
+  - composer dump-autoload -o
 
 before_script:
 
