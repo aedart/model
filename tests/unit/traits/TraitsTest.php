@@ -28,11 +28,7 @@ class TraitsTest extends ModelGstTestCase
     {
         // Return the providers if previously loaded
         static $providers = [];
-        if(!empty($providers)){
-            // HHVM doesn't like yield...
-//            foreach($providers as $k => $p){
-//                (yield $k => $p);
-//            }
+        if( ! empty($providers)){
             return $providers;
         }
 
@@ -60,11 +56,6 @@ class TraitsTest extends ModelGstTestCase
             $providers = array_merge($providers, $provider);
         }
 
-        // Finally, return the providers
-        // HHVM doesn't like yield...
-//        foreach($providers as $k => $p){
-//            (yield $k => $p);
-//        }
         return $providers;
     }
 
