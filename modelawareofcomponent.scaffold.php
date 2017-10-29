@@ -3,7 +3,7 @@
 /* ------------------------------------------------------------
  | Require helpers
  * ------------------------------------------------------------ */
-require __DIR__ . '/helpers/helpers.php';
+require_once __DIR__ . '/helpers/helpers.php';
 
 /* ------------------------------------------------------------
  | Require aware of scaffold configuration
@@ -65,26 +65,15 @@ $scaffold['templates']['dataProvider'] = [
         'postProcess'   => function($answer, array $previousAnswers){
 
             $type = $previousAnswers['dataType'];
-            if(strpos($type, '[]') !== false){
-                $type = 'array';
-            }
 
             // Group
             switch ($type){
                 case 'int':
-                case 'integer':
                     $type = 'integer';
                     break;
 
                 case 'bool':
-                case 'boolean':
                     $type = 'boolean';
-                    break;
-
-                case 'float':
-                case 'double':
-                case 'real':
-                    $type = 'float';
                     break;
 
                 default:
