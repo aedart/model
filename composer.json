@@ -35,7 +35,6 @@
       "tests/testCases"
     ]
   },
-  "minimum-stability": "stable",
   "suggest": {
     "aedart/scaffold": "console wizard for installing something...",
     "aedart/scaffold-bundle": "A few out of the box scaffolds",
@@ -44,6 +43,8 @@
   "scripts": {
     "post-update-cmd": "vendor/bin/license-manager license:copy vendor/aedart/license/aedart/BSD-3-Clause --ansi"
   },
+  "minimum-stability": "stable",
+  "prefer-stable": true,
   "extra": {
     "branch-alias": {
       "dev-master": "3.0.x-dev"
