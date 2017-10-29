@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Mixed;
+<?php
+
+namespace Aedart\Model\Contracts\Mixed;
 
 /**
  * <h1>X Aware</h1>

@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Mixed;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Mixed;
 
 /**
  * <h1>X Trait</h1>
