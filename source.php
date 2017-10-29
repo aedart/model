@@ -356,6 +356,16 @@ return [
         'Gender (sex) identity of a person, animal or something',
         'identity'
     ),
+    stringComponent(
+        'group',
+        'Group identifier',
+        'identity'
+    ),
+    integerComponent(
+        'group',
+        'Group identifier',
+        'identity'
+    ),
 
     // -------------------------------------------------------------------------------------
     // H

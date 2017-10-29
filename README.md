@@ -144,6 +144,7 @@ class Person implements PersonInterface
 | `FormattedName`                 | string               |
 | **G**                           |                      |
 | `Gender`                        | string               |
+| `Group`                         | int, string          |
 | **H**                           |                      |
 | `Height`                        | int, float           |
 | `Host`                          | string               |
