@@ -22,7 +22,7 @@
   "require-dev": {
     "aedart/license": "1.*",
     "aedart/license-file-manager": "~1.8",
-    "aedart/testing-gst": "~1.4",
+    "aedart/testing-gst": "~2.0",
     "aedart/scaffold-bundle": "~1.2"
   },
   "autoload": {
