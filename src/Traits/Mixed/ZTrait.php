@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Mixed;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Mixed;
 
 /**
  * <h1>Z Trait</h1>
@@ -22,11 +25,13 @@ trait ZTrait
      *
      * @param mixed $value Some kind of value
      *
-     * @return void
+     * @return self
      */
     public function setZ($value)
     {
         $this->z = $value;
+
+        return $this;
     }
 
     /**
@@ -42,10 +47,20 @@ trait ZTrait
      */
     public function getZ()
     {
-        if (!$this->hasZ() && $this->hasDefaultZ()) {
+        if ( ! $this->hasZ()) {
             $this->setZ($this->getDefaultZ());
         }
         return $this->z;
+    }
+
+    /**
+     * Check if "z" has been set
+     *
+     * @return bool True if "z" value has been set, false if not
+     */
+    public function hasZ() : bool
+    {
+        return isset($this->z);
     }
 
     /**
@@ -56,26 +71,5 @@ trait ZTrait
     public function getDefaultZ()
     {
         return null;
-    }
-
-    /**
-     * Check if "z" has been set
-     *
-     * @return bool True if "z" value has been set, false if not
-     */
-    public function hasZ()
-    {
-        return isset($this->z);
-    }
-
-    /**
-     * Check if a default "z" is available or not
-     *
-     * @return bool True of a default "z" value is available, false if not
-     */
-    public function hasDefaultZ()
-    {
-        $default = $this->getDefaultZ();
-        return isset($default);
     }
 }
