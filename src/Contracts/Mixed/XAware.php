@@ -16,7 +16,7 @@ interface XAware
      *
      * @param mixed $value Some kind of value
      *
-     * @return void
+     * @return self
      */
     public function setX($value);
 
@@ -34,23 +34,16 @@ interface XAware
     public function getX();
 
     /**
+     * Check if "x" has been set
+     *
+     * @return bool True if "x" value has been set, false if not
+     */
+    public function hasX() : bool ;
+
+    /**
      * Get a default "x" value, if any is available
      *
      * @return mixed|null A default "x" value or null if no default value is available
      */
     public function getDefaultX();
-
-    /**
-     * Check if "x" has been set
-     *
-     * @return bool True if "x" value has been set, false if not
-     */
-    public function hasX();
-
-    /**
-     * Check if a default "x" is available or not
-     *
-     * @return bool True of a default "x" value is available, false if not
-     */
-    public function hasDefaultX();
 }

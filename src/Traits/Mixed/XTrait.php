@@ -22,11 +22,13 @@ trait XTrait
      *
      * @param mixed $value Some kind of value
      *
-     * @return void
+     * @return self
      */
     public function setX($value)
     {
         $this->x = $value;
+
+        return $this;
     }
 
     /**
@@ -42,10 +44,20 @@ trait XTrait
      */
     public function getX()
     {
-        if (!$this->hasX() && $this->hasDefaultX()) {
+        if ( ! $this->hasX()) {
             $this->setX($this->getDefaultX());
         }
         return $this->x;
+    }
+
+    /**
+     * Check if "x" has been set
+     *
+     * @return bool True if "x" value has been set, false if not
+     */
+    public function hasX() : bool
+    {
+        return isset($this->x);
     }
 
     /**
@@ -56,26 +68,5 @@ trait XTrait
     public function getDefaultX()
     {
         return null;
-    }
-
-    /**
-     * Check if "x" has been set
-     *
-     * @return bool True if "x" value has been set, false if not
-     */
-    public function hasX()
-    {
-        return isset($this->x);
-    }
-
-    /**
-     * Check if a default "x" is available or not
-     *
-     * @return bool True of a default "x" value is available, false if not
-     */
-    public function hasDefaultX()
-    {
-        $default = $this->getDefaultX();
-        return isset($default);
     }
 }
