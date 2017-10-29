@@ -12,7 +12,8 @@ const SCAFFOLD_LOCATION = __DIR__ . '/../modelawareofcomponent.scaffold.php';
 /**
  * Output location
  */
-const OUTPUT = __DIR__ . '/../temp/';
+//const OUTPUT = __DIR__ . '/../temp/';
+const OUTPUT = null; // Same as current working directory
 
 /**
  * Author and Email
@@ -60,7 +61,7 @@ if( ! function_exists('floatComponent')){
      * @param string $property
      * @param string $description
      * @param string $inputArgName [optional]
-     * @param string $outputLocation [optional]
+     * @param string|null $outputLocation [optional]
      *
      * @return array
      */
@@ -68,7 +69,7 @@ if( ! function_exists('floatComponent')){
         string $property,
         string $description,
         string $inputArgName = 'value',
-        string $outputLocation = OUTPUT
+        ?string $outputLocation = OUTPUT
     ) : array
     {
         return awareOfComponent(
@@ -76,8 +77,8 @@ if( ! function_exists('floatComponent')){
             $description,
             FLOAT_TYPE,
             $inputArgName,
-            BOOLEAN_TRAIT_NAMESPACE,
-            BOOLEAN_INTERFACE_NAMESPACE,
+            FLOAT_TRAIT_NAMESPACE,
+            FLOAT_INTERFACE_NAMESPACE,
             $outputLocation
         );
     }
@@ -93,7 +94,7 @@ if( ! function_exists('booleanComponent')){
      * @param string $property
      * @param string $description
      * @param string $inputArgName [optional]
-     * @param string $outputLocation [optional]
+     * @param string|null $outputLocation [optional]
      *
      * @return array
      */
@@ -101,7 +102,7 @@ if( ! function_exists('booleanComponent')){
         string $property,
         string $description,
         string $inputArgName = 'value',
-        string $outputLocation = OUTPUT
+        ?string $outputLocation = OUTPUT
     ) : array
     {
         return awareOfComponent(
@@ -126,7 +127,7 @@ if( ! function_exists('arrayComponent')){
      * @param string $property
      * @param string $description
      * @param string $inputArgName [optional]
-     * @param string $outputLocation [optional]
+     * @param string|null $outputLocation [optional]
      *
      * @return array
      */
@@ -134,7 +135,7 @@ if( ! function_exists('arrayComponent')){
         string $property,
         string $description,
         string $inputArgName = 'value',
-        string $outputLocation = OUTPUT
+        ?string $outputLocation = OUTPUT
     ) : array
     {
         return awareOfComponent(
@@ -159,7 +160,7 @@ if( ! function_exists('stringComponent')){
      * @param string $property
      * @param string $description
      * @param string $inputArgName [optional]
-     * @param string $outputLocation [optional]
+     * @param string|null $outputLocation [optional]
      *
      * @return array
      */
@@ -167,7 +168,7 @@ if( ! function_exists('stringComponent')){
         string $property,
         string $description,
         string $inputArgName = 'value',
-        string $outputLocation = OUTPUT
+        ?string $outputLocation = OUTPUT
     ) : array
     {
         return awareOfComponent(
@@ -192,7 +193,7 @@ if( ! function_exists('integerComponent')){
      * @param string $property
      * @param string $description
      * @param string $inputArgName [optional]
-     * @param string $outputLocation [optional]
+     * @param string|null $outputLocation [optional]
      *
      * @return array
      */
@@ -200,7 +201,7 @@ if( ! function_exists('integerComponent')){
         string $property,
         string $description,
         string $inputArgName = 'value',
-        string $outputLocation = OUTPUT
+        ?string $outputLocation = OUTPUT
     ) : array
     {
         return awareOfComponent(
@@ -226,7 +227,7 @@ if( ! function_exists('awareOfComponent')){
      * @param string $inputArgName [optional]
      * @param string $traitNamespace [optional]
      * @param string $interfaceNamespace [optional]
-     * @param string $outputLocation [optional]
+     * @param string|null $outputLocation [optional]
      *
      * @return array
      */
@@ -237,9 +238,13 @@ if( ! function_exists('awareOfComponent')){
         string $inputArgName = 'value',
         string $traitNamespace = STRING_TRAIT_NAMESPACE,
         string $interfaceNamespace = STRING_INTERFACE_NAMESPACE,
-        string $outputLocation = OUTPUT
+        ?string $outputLocation = OUTPUT
     ) : array
     {
+        // Set output if needed
+        $outputLocation = $outputLocation ?? getcwd();
+
+        // Return data structure
         return [
             'location'  => SCAFFOLD_LOCATION,
             'output'    => $outputLocation,
