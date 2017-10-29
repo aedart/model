@@ -23,7 +23,7 @@
     "aedart/license": "1.*",
     "aedart/license-file-manager": "~1.8",
     "aedart/testing-gst": "~2.0",
-    "aedart/scaffold-bundle": "~1.2"
+    "aedart/scaffold-bundle": "~2.0"
   },
   "autoload": {
     "psr-4": {
