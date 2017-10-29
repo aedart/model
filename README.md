@@ -7,6 +7,7 @@
 [![License](https://poser.pugx.org/aedart/model/license)](https://packagist.org/packages/aedart/model)
 
 Collection of [getters and setters](http://en.wikipedia.org/wiki/Mutator_method)-interfaces with various trait implementations, for different kinds of "common" properties.
+Can be used for creating [DTOs](https://en.wikipedia.org/wiki/Data_transfer_object).
 
 # Contents
 
@@ -25,7 +26,6 @@ Collection of [getters and setters](http://en.wikipedia.org/wiki/Mutator_method)
 
 * When there is a strong need to interface what properties must be available on a given object
 * (When multiple objects share the same properties) 
-
 
 ## How to install
 
