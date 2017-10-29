@@ -30,7 +30,6 @@ Collection of [getters and setters](http://en.wikipedia.org/wiki/Mutator_method)
 ## How to install
 
 ```console
-
 composer require aedart/model
 ```
 
@@ -44,6 +43,7 @@ In the following example, we create a simple person interface, which consists of
 
 ```php
 <?php
+
 namespace Acme\Contracts;
 
 use Aedart\Model\Contracts\Integers\IdAware;
@@ -65,6 +65,7 @@ Use the default provided traits, in order to create a concrete implementation of
 
 ```php
 <?php
+
 namespace Acme\Models;
 
 use Acme\Contracts\Person as PersonInterface;
