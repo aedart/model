@@ -1,0 +1,7 @@
+#!/usr/bin/env php
+<?php
+
+// Execute the scaffold build:file command
+// NOTE: This requires that the scaffold package is installed
+// globally!
+system('scaffold build:file source.php --ansi');
