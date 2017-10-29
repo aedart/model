@@ -1,4 +1,6 @@
-<?php namespace Aedart\Model\Contracts\Mixed;
+<?php
+
+namespace Aedart\Model\Contracts\Mixed;
 
 /**
  * <h1>Y Aware</h1>
@@ -16,7 +18,7 @@ interface YAware
      *
      * @param mixed $value Some kind of value
      *
-     * @return void
+     * @return self
      */
     public function setY($value);
 
@@ -34,23 +36,16 @@ interface YAware
     public function getY();
 
     /**
+     * Check if "y" has been set
+     *
+     * @return bool True if "y" value has been set, false if not
+     */
+    public function hasY() : bool ;
+
+    /**
      * Get a default "y" value, if any is available
      *
      * @return mixed|null A default "y" value or null if no default value is available
      */
     public function getDefaultY();
-
-    /**
-     * Check if "y" has been set
-     *
-     * @return bool True if "y" value has been set, false if not
-     */
-    public function hasY();
-
-    /**
-     * Check if a default "y" is available or not
-     *
-     * @return bool True of a default "y" value is available, false if not
-     */
-    public function hasDefaultY();
 }

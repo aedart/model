@@ -1,4 +1,7 @@
-<?php namespace Aedart\Model\Traits\Mixed;
+<?php
+declare(strict_types=1);
+
+namespace Aedart\Model\Traits\Mixed;
 
 /**
  * <h1>Y Trait</h1>
@@ -22,11 +25,13 @@ trait YTrait
      *
      * @param mixed $value Some kind of value
      *
-     * @return void
+     * @return self
      */
     public function setY($value)
     {
         $this->y = $value;
+
+        return $this;
     }
 
     /**
@@ -42,10 +47,20 @@ trait YTrait
      */
     public function getY()
     {
-        if (!$this->hasY() && $this->hasDefaultY()) {
+        if ( ! $this->hasY()) {
             $this->setY($this->getDefaultY());
         }
         return $this->y;
+    }
+
+    /**
+     * Check if "y" has been set
+     *
+     * @return bool True if "y" value has been set, false if not
+     */
+    public function hasY() : bool
+    {
+        return isset($this->y);
     }
 
     /**
@@ -56,26 +71,5 @@ trait YTrait
     public function getDefaultY()
     {
         return null;
-    }
-
-    /**
-     * Check if "y" has been set
-     *
-     * @return bool True if "y" value has been set, false if not
-     */
-    public function hasY()
-    {
-        return isset($this->y);
-    }
-
-    /**
-     * Check if a default "y" is available or not
-     *
-     * @return bool True of a default "y" value is available, false if not
-     */
-    public function hasDefaultY()
-    {
-        $default = $this->getDefaultY();
-        return isset($default);
     }
 }
