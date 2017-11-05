@@ -165,6 +165,7 @@ class Person implements PersonInterface
 | `Ip`                            | string               |
 | `IpV4`                          | string               |
 | `IpV6`                          | string               |
+| `IsicV4`                        | string               |
 | `Isbn`                          | string               |
 | `Isbn10`                        | string               |
 | `Isbn13`                        | string               |

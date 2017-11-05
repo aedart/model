@@ -492,6 +492,11 @@ return [
         'address'
     ),
     stringComponent(
+        'isicV4',
+        'International Standard of Industrial Classification of All Economic Activities (ISIC), revision 4 code',
+        'code'
+    ),
+    stringComponent(
         'isbn',
         'International Standard Book Number (ISBN)',
         'isbn'
