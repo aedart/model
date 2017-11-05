@@ -157,6 +157,7 @@ class Person implements PersonInterface
 | **I**                           |                      |
 | `Iata`                          | string               |
 | `Iban`                          | string               |
+| `Icao`                          | string               |
 | `Id`                            | int, string          |
 | `Image`                         | string               |
 | `Index`                         | int, string          |

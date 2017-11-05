@@ -442,6 +442,11 @@ return [
         'number'
     ),
     stringComponent(
+        'icao',
+        'International Civil Aviation Organization code',
+        'code'
+    ),
+    stringComponent(
         'id',
         'Unique identifier',
         'identifier'
