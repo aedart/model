@@ -246,6 +246,16 @@ return [
         'Delivery address',
         'address'
     ),
+    stringComponent(
+        'deliveryDate',
+        'Date of planned delivery',
+        'date'
+    ),
+    integerComponent(
+        'deliveryDate',
+        'Date of planned delivery',
+        'date'
+    ),
     integerComponent(
         'depth',
         'Depth of something',
