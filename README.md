@@ -159,6 +159,7 @@ class Person implements PersonInterface
 | `Iban`                          | string               |
 | `Icao`                          | string               |
 | `Id`                            | int, string          |
+| `Identifier`                    | int, string          |
 | `Image`                         | string               |
 | `Index`                         | int, string          |
 | `InvoiceAddress`                | string               |

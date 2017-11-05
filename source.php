@@ -457,6 +457,16 @@ return [
         'identifier'
     ),
     stringComponent(
+        'identifier',
+        'Name or code that identifies a unique object, resource, class, component or thing',
+        'identifier'
+    ),
+    integerComponent(
+        'identifier',
+        'Name or code that identifies a unique object, resource, class, component or thing',
+        'identifier'
+    ),
+    stringComponent(
         'image',
         'Path, Uri or other type of location to an image',
         'location'
