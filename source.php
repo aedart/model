@@ -216,6 +216,11 @@ return [
         'Date of event',
         'date'
     ),
+    integerComponent(
+        'date',
+        'Date of event',
+        'date'
+    ),
     stringComponent(
         'deceasedAt',
         'Date of when person, animal of something has died',

@@ -122,7 +122,7 @@ class Person implements PersonInterface
 | **D**                           |                      |
 | `Data`                          | array                |
 | `Database`                      | string               |
-| `Date`                          | string               |
+| `Date`                          | int, string          |
 | `DeceasedAt`                    | int, string          |
 | `DeletedAt`                     | int, string          |
 | `DeliveryAddress`               | string               |
