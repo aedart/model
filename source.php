@@ -432,6 +432,11 @@ return [
     // -------------------------------------------------------------------------------------
 
     stringComponent(
+        'iata',
+        'International Air Transport Association code',
+        'code'
+    ),
+    stringComponent(
         'iban',
         'International Bank Account Number (IBAN)',
         'number'

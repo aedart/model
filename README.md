@@ -155,6 +155,7 @@ class Person implements PersonInterface
 | `Host`                          | string               |
 | `Html`                          | string               |
 | **I**                           |                      |
+| `Iata`                          | string               |
 | `Iban`                          | string               |
 | `Id`                            | int, string          |
 | `Image`                         | string               |
