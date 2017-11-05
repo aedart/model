@@ -201,6 +201,7 @@ class Person implements PersonInterface
 | `Query`                         | string               |
 | `Question`                      | string               |
 | **R**                           |                      |
+| `Rank`                          | int, float, string   |
 | `Rate`                          | int, float, string   |
 | `Row`                           | int                  |
 | `Region`                        | string               |

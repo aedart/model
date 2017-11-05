@@ -687,6 +687,21 @@ return [
     // -------------------------------------------------------------------------------------
 
     stringComponent(
+        'rank',
+        'The position in a hierarchy',
+        'position'
+    ),
+    integerComponent(
+        'rank',
+        'The position in a hierarchy',
+        'position'
+    ),
+    floatComponent(
+        'rank',
+        'The position in a hierarchy',
+        'position'
+    ),
+    stringComponent(
         'rate',
         'The rate of something, e.g. growth rate, tax rate',
         'rate'
