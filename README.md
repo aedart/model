@@ -193,6 +193,7 @@ class Person implements PersonInterface
 | `Name`                          | string               |
 | `Nickname`                      | string               |
 | **O**                           |                      |
+| `OrderNumber`                   | int, string          |
 | `Organisation`                  | string               |
 | `OutputPath`                    | string               |
 | **P**                           |                      |

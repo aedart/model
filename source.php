@@ -652,6 +652,16 @@ return [
     // -------------------------------------------------------------------------------------
 
     stringComponent(
+        'orderNumber',
+        'Number that represents a purchase or order placed by a customer',
+        'number'
+    ),
+    integerComponent(
+        'orderNumber',
+        'Number that represents a purchase or order placed by a customer',
+        'number'
+    ),
+    stringComponent(
         'organisation',
         'Name of organisation',
         'name'
