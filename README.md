@@ -99,6 +99,7 @@ class Person implements PersonInterface
 | `BasePath`                      | string               |
 | `Begin`                         | string               |
 | `Birthdate`                     | int, string          |
+| `Brand`                         | int, string          |
 | `BuildingNumber`                | string               |
 | **C**                           |                      |
 | `Calandar`                      | string               |

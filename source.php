@@ -87,6 +87,16 @@ return [
         'date'
     ),
     stringComponent(
+        'brand',
+        'Name or identifier of a brand that is associated with a product or service',
+        'identifier'
+    ),
+    integerComponent(
+        'brand',
+        'Name or identifier of a brand that is associated with a product or service',
+        'identifier'
+    ),
+    stringComponent(
         'buildingNumber',
         'The house number assigned to a building or apartment in a street or area, e.g. 12a',
         'number'
