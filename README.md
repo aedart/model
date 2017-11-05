@@ -226,6 +226,7 @@ class Person implements PersonInterface
 | `Sql`                           | string               |
 | `StartDate`                     | int, string          |
 | `State`                         | int, string          |
+| `Status`                        | int, string          |
 | `Street`                        | string               |
 | `Suffix`                        | string               |
 | `Swift`                         | string               |

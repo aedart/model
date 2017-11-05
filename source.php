@@ -877,6 +877,16 @@ return [
         'state'
     ),
     stringComponent(
+        'status',
+        'Situation of progress, classification, or civil status',
+        'status'
+    ),
+    integerComponent(
+        'status',
+        'Situation of progress, classification, or civil status',
+        'status'
+    ),
+    stringComponent(
         'street',
         'Full street address, which might include building or apartment number(s)',
         'address'
