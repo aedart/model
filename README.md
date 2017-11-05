@@ -90,6 +90,7 @@ class Person implements PersonInterface
 | `Address`                       | string               |
 | `Age`                           | int                  |
 | `Agent`                         | string               |
+| `Alias`                         | string               |
 | `Anniversary`                   | int, string          |
 | `Area`                          | string               |
 | `Ask`                           | bool                 |

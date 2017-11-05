@@ -36,6 +36,11 @@ return [
         'agent'
     ),
     stringComponent(
+        'alias',
+        'An alternate name of an item or component',
+        'name'
+    ),
+    stringComponent(
         'anniversary',
         'Date of anniversary',
         'anniversary'
