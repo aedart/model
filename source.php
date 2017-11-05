@@ -612,6 +612,11 @@ return [
         'name'
     ),
     stringComponent(
+        'path',
+        'Location of some kind of a resources, e.g. a file, an Url, an index',
+        'location'
+    ),
+    stringComponent(
         'password',
         'Password',
         'password'
