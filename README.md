@@ -86,6 +86,7 @@ class Person implements PersonInterface
 | Property                        | Supported types      |
 |---------------------------------|----------------------|
 | **A**                           |                      |
+| `Action`                        | string               |
 | `Address`                       | string               |
 | `Age`                           | int                  |
 | `Agent`                         | string               |

@@ -16,6 +16,11 @@ return [
     // -------------------------------------------------------------------------------------
 
     stringComponent(
+        'action',
+        'A process or fact of doing something',
+        'action'
+    ),
+    stringComponent(
         'address',
         'Address to someone or something',
         'address'
