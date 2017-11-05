@@ -362,6 +362,11 @@ return [
         'name'
     ),
     stringComponent(
+        'format',
+        'The shape, size and presentation or medium of an item or component',
+        'format'
+    ),
+    stringComponent(
         'formattedName',
         'Formatted name of someone or something',
         'name'

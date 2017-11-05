@@ -144,6 +144,7 @@ class Person implements PersonInterface
 | `Filename`                      | string               |
 | `FilePath`                      | string               |
 | `FirstName`                     | string               |
+| `Format`                        | string               |
 | `FormattedName`                 | string               |
 | **G**                           |                      |
 | `Gender`                        | string               |
