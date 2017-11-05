@@ -287,6 +287,16 @@ return [
         'ean13'
     ),
     stringComponent(
+        'edition',
+        'The version of a published text, e.g. book, article, newspaper, report... etc',
+        'edition'
+    ),
+    integerComponent(
+        'edition',
+        'The version of a published text, e.g. book, article, newspaper, report... etc',
+        'edition'
+    ),
+    stringComponent(
         'email',
         'Email',
         'email'

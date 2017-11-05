@@ -133,6 +133,7 @@ class Person implements PersonInterface
 | `Ean`                           | string               |
 | `Ean8`                          | string               |
 | `Ean13`                         | string               |
+| `Edition`                       | int, string          |
 | `Email`                         | string               |
 | `End`                           | string               |
 | `EndDate`                       | int, string          |
