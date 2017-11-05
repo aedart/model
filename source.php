@@ -242,6 +242,16 @@ return [
         'date'
     ),
     stringComponent(
+        'deliveredAt',
+        'Date of delivery',
+        'date'
+    ),
+    integerComponent(
+        'deliveredAt',
+        'Date of delivery',
+        'date'
+    ),
+    stringComponent(
         'deliveryAddress',
         'Delivery address',
         'address'
