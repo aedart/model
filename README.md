@@ -225,6 +225,7 @@ class Person implements PersonInterface
 | `Rank`                          | int, float, string   |
 | `Rate`                          | int, float, string   |
 | `Region`                        | string               |
+| `ReleasedAt`                    | int, string          |
 | `ReleaseDate`                   | int, string          |
 | `Revision`                      | string               |
 | `Role`                          | string               |

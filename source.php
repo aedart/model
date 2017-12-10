@@ -892,6 +892,16 @@ return [
         'rate'
     ),
     stringComponent(
+        'releasedAt',
+        'Date of when this component, entity or something was released',
+        'date'
+    ),
+    integerComponent(
+        'releasedAt',
+        'Date of when this component, entity or something was released',
+        'date'
+    ),
+    stringComponent(
         'releaseDate',
         'Date of planned release',
         'date'
