@@ -656,6 +656,11 @@ return [
         'Name of method or other identifier',
         'identifier'
     ),
+    integerComponent(
+        'method',
+        'Name of method or other identifier',
+        'identifier'
+    ),
     stringComponent(
         'middleName',
         'Middle Name or names of a person',
