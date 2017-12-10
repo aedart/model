@@ -212,9 +212,10 @@ class Person implements PersonInterface
 | `PostalCode`                    | string               |
 | `Prefix`                        | string               |
 | `Price`                         | int, float, string   |
+| `ProductionDate`                | int, string          |
 | `Profile`                       | string               |
-| `PurchaseDate`                  | int, string          |
 | `PurchasedAt`                   | int, string          |
+| `PurchaseDate`                  | int, string          |
 | **Q**                           |                      |
 | `Quantity`                      | int, float           |
 | `Query`                         | string               |

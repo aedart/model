@@ -792,6 +792,16 @@ return [
         'profile'
     ),
     stringComponent(
+        'productionDate',
+        'Date of planned production',
+        'date'
+    ),
+    integerComponent(
+        'productionDate',
+        'Date of planned production',
+        'date'
+    ),
+    stringComponent(
         'purchaseDate',
         'Date of planned purchase',
         'date'
