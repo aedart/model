@@ -190,6 +190,7 @@ class Person implements PersonInterface
 | **M**                           |                      |
 | `MacAddress`                    | string               |
 | `MediaType`                     | string               |
+| `Method`                        | string               |
 | `MiddleName`                    | string               |
 | **N**                           |                      |
 | `Name`                          | string               |
