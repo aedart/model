@@ -791,6 +791,16 @@ return [
         'The profile or someone or something',
         'profile'
     ),
+    stringComponent(
+        'purchasedAt',
+        'Date of when this component, entity or resource was purchased',
+        'date'
+    ),
+    integerComponent(
+        'purchasedAt',
+        'Date of when this component, entity or resource was purchased',
+        'date'
+    ),
 
     // -------------------------------------------------------------------------------------
     // Q

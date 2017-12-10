@@ -213,6 +213,7 @@ class Person implements PersonInterface
 | `Prefix`                        | string               |
 | `Price`                         | int, float, string   |
 | `Profile`                       | string               |
+| `PurchasedAt`                   | int, string          |
 | **Q**                           |                      |
 | `Quantity`                      | int, float           |
 | `Query`                         | string               |
