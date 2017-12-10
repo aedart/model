@@ -336,6 +336,21 @@ return [
         'Name, URL, territory or term that describes a given domain... etc',
         'domain'
     ),
+    stringComponent(
+        'duration',
+        'Duration of some event or media',
+        'amount'
+    ),
+    integerComponent(
+        'duration',
+        'Duration of some event or media',
+        'amount'
+    ),
+    floatComponent(
+        'duration',
+        'Duration of some event or media',
+        'amount'
+    ),
 
     // -------------------------------------------------------------------------------------
     // E

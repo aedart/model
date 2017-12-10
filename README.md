@@ -136,6 +136,7 @@ class Person implements PersonInterface
 | `Discount`                      | int, float, string   |
 | `Distance`                      | int, float, string   |
 | `Domain`                        | string               |
+| `Duration`                      | int, float, string   |
 | **E**                           |                      |
 | `Ean13`                         | string               |
 | `Ean8`                          | string               |
