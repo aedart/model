@@ -228,6 +228,7 @@ class Person implements PersonInterface
 | **R**                           |                      |
 | `Rank`                          | int, float, string   |
 | `Rate`                          | int, float, string   |
+| `Rating`                        | int, float, string   |
 | `Region`                        | string               |
 | `ReleasedAt`                    | int, string          |
 | `ReleaseDate`                   | int, string          |

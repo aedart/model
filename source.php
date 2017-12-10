@@ -922,6 +922,21 @@ return [
         'rate'
     ),
     stringComponent(
+        'rating',
+        'The rating of something',
+        'score'
+    ),
+    integerComponent(
+        'rating',
+        'The rating of something',
+        'score'
+    ),
+    floatComponent(
+        'rating',
+        'The rating of something',
+        'score'
+    ),
+    stringComponent(
         'releasedAt',
         'Date of when this component, entity or something was released',
         'date'
