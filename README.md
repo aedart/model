@@ -107,14 +107,15 @@ class Person implements PersonInterface
 | `CardNumber`                    | string               |
 | `CardOwner`                     | string               |
 | `CardType`                      | string               |
-| `Category`                      | string               |
 | `Categories`                    | array                |
+| `Category`                      | string               |
 | `Choices`                       | array                |
 | `City`                          | string               |
 | `Class`                         | string               |
 | `Code`                          | string               |
 | `Colour`                        | string               |
 | `Column`                        | string               |
+| `Comment`                       | string               |
 | `Company`                       | string               |
 | `Content`                       | string               |
 | `Country`                       | string               |

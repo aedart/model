@@ -177,6 +177,11 @@ return [
         'name'
     ),
     stringComponent(
+        'comment',
+        'A comment',
+        'content'
+    ),
+    stringComponent(
         'company',
         'Name of company',
         'name'
