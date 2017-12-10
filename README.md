@@ -190,6 +190,7 @@ class Person implements PersonInterface
 | `Longitude`                     | float, string        |
 | **M**                           |                      |
 | `MacAddress`                    | string               |
+| `Manufacturer`                  | string               |
 | `MediaType`                     | string               |
 | `Method`                        | int, string          |
 | `MiddleName`                    | string               |

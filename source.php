@@ -657,6 +657,11 @@ return [
         'address'
     ),
     stringComponent(
+        'manufacturer',
+        'Name or identifier of a manufacturer',
+        'identifier'
+    ),
+    stringComponent(
         'mediaType',
         'Media Type (also known as MIME Type), acc. to IANA standard, or perhaps a type name',
         'type'
