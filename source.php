@@ -1238,6 +1238,16 @@ return [
     // -------------------------------------------------------------------------------------
 
     integerComponent(
+        'weight',
+        'Weight of something',
+        'amount'
+    ),
+    floatComponent(
+        'weight',
+        'Weight of something',
+        'amount'
+    ),
+    integerComponent(
         'width',
         'Width of something',
         'amount'

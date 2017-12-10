@@ -274,6 +274,7 @@ class Person implements PersonInterface
 | `Vendor`                        | string               |
 | `Version`                       | string               |
 | **W**                           |                      |
+| `Weight`                        | int, float           |
 | `Width`                         | int, float           |
 | `Wildcard`                      | string               |
 | **X**                           |                      |
