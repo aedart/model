@@ -786,6 +786,16 @@ return [
     // Q
     // -------------------------------------------------------------------------------------
 
+    integerComponent(
+        'quantity',
+        'The quantity of something',
+        'quantity'
+    ),
+    floatComponent(
+        'quantity',
+        'The quantity of something',
+        'quantity'
+    ),
     stringComponent(
         'query',
         'Query',
