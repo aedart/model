@@ -792,6 +792,16 @@ return [
         'profile'
     ),
     stringComponent(
+        'producedAt',
+        'Date of when this component, entity or something was produced',
+        'date'
+    ),
+    integerComponent(
+        'producedAt',
+        'Date of when this component, entity or something was produced',
+        'date'
+    ),
+    stringComponent(
         'productionDate',
         'Date of planned production',
         'date'
