@@ -1026,6 +1026,11 @@ return [
         'Template or location of a template file',
         'template'
     ),
+    stringComponent(
+        'text',
+        'The full text content for something, e.g. an article\'s body text',
+        'text'
+    ),
     integerComponent(
         'timeout',
         'Timeout amount',

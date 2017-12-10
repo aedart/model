@@ -246,6 +246,7 @@ class Person implements PersonInterface
 | `Tag`                           | string               |
 | `Tags`                          | array                |
 | `Template`                      | string               |
+| `Text`                          | string               |
 | `Timeout`                       | int                  |
 | `Timestamp`                     | int                  |
 | `Timezone`                      | string               |
