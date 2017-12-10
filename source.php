@@ -651,6 +651,16 @@ return [
         'Locale language code, e.g. en_us or other format',
         'code'
     ),
+    stringComponent(
+        'location',
+        'Name or identifier of a location',
+        'identifier'
+    ),
+    integerComponent(
+        'location',
+        'Name or identifier of a location',
+        'identifier'
+    ),
     arrayComponent(
         'Locations',
         'List of locations',
