@@ -317,6 +317,21 @@ return [
         'amount'
     ),
     stringComponent(
+        'distance',
+        'Distance to or from something',
+        'length'
+    ),
+    integerComponent(
+        'distance',
+        'Distance to or from something',
+        'length'
+    ),
+    floatComponent(
+        'distance',
+        'Distance to or from something',
+        'length'
+    ),
+    stringComponent(
         'domain',
         'Name, URL, territory or term that describes a given domain... etc',
         'domain'

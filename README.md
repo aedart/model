@@ -134,6 +134,7 @@ class Person implements PersonInterface
 | `Description`                   | string               |
 | `Directory`                     | string               |
 | `Discount`                      | int, float, string   |
+| `Distance`                      | int, float, string   |
 | `Domain`                        | string               |
 | **E**                           |                      |
 | `Ean13`                         | string               |
