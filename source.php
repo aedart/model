@@ -662,6 +662,11 @@ return [
         'identifier'
     ),
     stringComponent(
+        'material',
+        'Name or identifier of a material, e.g. leather, wool, cotton, paper.',
+        'identifier'
+    ),
+    stringComponent(
         'mediaType',
         'Media Type (also known as MIME Type), acc. to IANA standard, or perhaps a type name',
         'type'
