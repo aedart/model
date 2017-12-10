@@ -187,6 +187,7 @@ class Person implements PersonInterface
 | `LastName`                      | string               |
 | `Latitude`                      | float, string        |
 | `Length`                        | int, float           |
+| `License`                       | int, string          |
 | `Locale`                        | string               |
 | `Location`                      | int, string          |
 | `Locations`                     | array                |

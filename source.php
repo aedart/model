@@ -647,6 +647,16 @@ return [
         'amount'
     ),
     stringComponent(
+        'license',
+        'License name or identifier',
+        'identifier'
+    ),
+    integerComponent(
+        'license',
+        'License name or identifier',
+        'identifier'
+    ),
+    stringComponent(
         'locale',
         'Locale language code, e.g. en_us or other format',
         'code'
