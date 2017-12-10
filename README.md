@@ -224,10 +224,11 @@ class Person implements PersonInterface
 | **R**                           |                      |
 | `Rank`                          | int, float, string   |
 | `Rate`                          | int, float, string   |
-| `Row`                           | int                  |
 | `Region`                        | string               |
+| `ReleaseDate`                   | int, string          |
 | `Revision`                      | string               |
 | `Role`                          | string               |
+| `Row`                           | int                  |
 | **S**                           |                      |
 | `Script`                        | string               |
 | `Slug`                          | string               |

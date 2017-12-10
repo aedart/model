@@ -891,6 +891,16 @@ return [
         'The rate of something, e.g. growth rate, tax rate',
         'rate'
     ),
+    stringComponent(
+        'releaseDate',
+        'Date of planned release',
+        'date'
+    ),
+    integerComponent(
+        'releaseDate',
+        'Date of planned release',
+        'date'
+    ),
     integerComponent(
         'row',
         'A row identifier',
