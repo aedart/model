@@ -40,6 +40,16 @@ return [
         'An alternate name of an item or component',
         'name'
     ),
+    integerComponent(
+        'amount',
+        'The quantity of something',
+        'amount'
+    ),
+    floatComponent(
+        'amount',
+        'The quantity of something',
+        'amount'
+    ),
     stringComponent(
         'anniversary',
         'Date of anniversary',

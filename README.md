@@ -91,6 +91,7 @@ class Person implements PersonInterface
 | `Age`                           | int                  |
 | `Agent`                         | string               |
 | `Alias`                         | string               |
+| `Amount`                        | int, float           |
 | `Anniversary`                   | int, string          |
 | `Area`                          | string               |
 | `Ask`                           | bool                 |
