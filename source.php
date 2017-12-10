@@ -372,6 +372,16 @@ return [
         'date'
     ),
     stringComponent(
+        'error',
+        'Error name or identifier',
+        'identifier'
+    ),
+    integerComponent(
+        'error',
+        'Error name or identifier',
+        'identifier'
+    ),
+    stringComponent(
         'expiresAt',
         'Date of when this component, entity or resource is going to expire',
         'date'

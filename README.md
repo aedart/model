@@ -135,13 +135,14 @@ class Person implements PersonInterface
 | `Discount`                      | int, float, string   |
 | `Domain`                        | string               |
 | **E**                           |                      |
-| `Ean`                           | string               |
-| `Ean8`                          | string               |
 | `Ean13`                         | string               |
+| `Ean8`                          | string               |
+| `Ean`                           | string               |
 | `Edition`                       | int, string          |
 | `Email`                         | string               |
 | `End`                           | string               |
 | `EndDate`                       | int, string          |
+| `Error`                         | int, string          |
 | `ExpiresAt`                     | int, string          |
 | **F**                           |                      |
 | `FileExtension`                 | string               |
