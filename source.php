@@ -682,6 +682,11 @@ return [
         'type'
     ),
     stringComponent(
+        'message',
+        'A message',
+        'message'
+    ),
+    stringComponent(
         'method',
         'Name of method or other identifier',
         'identifier'

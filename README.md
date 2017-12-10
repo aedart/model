@@ -194,6 +194,7 @@ class Person implements PersonInterface
 | `Manufacturer`                  | string               |
 | `Material`                      | string               |
 | `MediaType`                     | string               |
+| `Message`                       | string               |
 | `Method`                        | int, string          |
 | `MiddleName`                    | string               |
 | **N**                           |                      |
