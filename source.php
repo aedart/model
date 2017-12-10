@@ -387,6 +387,16 @@ return [
         'identifier'
     ),
     stringComponent(
+        'event',
+        'Event name or identifier',
+        'identifier'
+    ),
+    integerComponent(
+        'event',
+        'Event name or identifier',
+        'identifier'
+    ),
+    stringComponent(
         'expiresAt',
         'Date of when this component, entity or resource is going to expire',
         'date'

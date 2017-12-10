@@ -144,6 +144,7 @@ class Person implements PersonInterface
 | `End`                           | string               |
 | `EndDate`                       | int, string          |
 | `Error`                         | int, string          |
+| `Event`                         | int, string          |
 | `ExpiresAt`                     | int, string          |
 | **F**                           |                      |
 | `FileExtension`                 | string               |
