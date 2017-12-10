@@ -792,6 +792,16 @@ return [
         'profile'
     ),
     stringComponent(
+        'purchaseDate',
+        'Date of planned purchase',
+        'date'
+    ),
+    integerComponent(
+        'purchaseDate',
+        'Date of planned purchase',
+        'date'
+    ),
+    stringComponent(
         'purchasedAt',
         'Date of when this component, entity or resource was purchased',
         'date'
