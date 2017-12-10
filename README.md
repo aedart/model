@@ -240,6 +240,7 @@ class Person implements PersonInterface
 | `Role`                          | string               |
 | `Row`                           | int                  |
 | **S**                           |                      |
+| `Size`                          | int, float, string   |
 | `Script`                        | string               |
 | `Slug`                          | string               |
 | `Source`                        | string               |

@@ -1032,6 +1032,21 @@ return [
     // -------------------------------------------------------------------------------------
 
     stringComponent(
+        'size',
+        'The size of something',
+        'size'
+    ),
+    integerComponent(
+        'size',
+        'The size of something',
+        'size'
+    ),
+    floatComponent(
+        'size',
+        'The size of something',
+        'size'
+    ),
+    stringComponent(
         'script',
         'Script of some kind or path to some script',
         'script'
