@@ -1,10 +1,13 @@
-# Model
-
 [![Build Status](https://travis-ci.org/aedart/model.svg?branch=dev)](https://travis-ci.org/aedart/model)
 [![Latest Stable Version](https://poser.pugx.org/aedart/model/v/stable)](https://packagist.org/packages/aedart/model)
 [![Total Downloads](https://poser.pugx.org/aedart/model/downloads)](https://packagist.org/packages/aedart/model)
 [![Latest Unstable Version](https://poser.pugx.org/aedart/model/v/unstable)](https://packagist.org/packages/aedart/model)
 [![License](https://poser.pugx.org/aedart/model/license)](https://packagist.org/packages/aedart/model)
+
+# Deprecated - Model
+
+**Package has been replaced by [aedart/athenaeum](https://github.com/aedart/athenaeum)**
+All aware-of components have been migrated into the [Athenaeum package](https://aedart.github.io/athenaeum/components/support/properties.html). 
 
 Collection of [getters and setters](http://en.wikipedia.org/wiki/Mutator_method)-interfaces with various trait implementations, for different kinds of "common" properties.
 Can be used for creating [DTOs](https://en.wikipedia.org/wiki/Data_transfer_object).

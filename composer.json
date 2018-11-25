@@ -1,4 +1,5 @@
 {
+  "abandoned": "aedart/athenaeum",
   "name": "aedart/model",
   "description": "Collection of getter- / setter-interfaces with various trait implementations, for different kinds of 'common' properties.",
   "keywords": [
